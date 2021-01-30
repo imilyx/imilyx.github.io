@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APIO2019 题解">
+<meta property="og:url" content="http://yoursite.com/2020/08/04/APIO2019 题解/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-08-06T10:45:10.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="APIO2019 题解">
+<meta name="twitter:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>APIO2019 题解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/08/04/【习题选讲】xza《Graph Theory》/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/04/APIO2019 题解/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/04/APIO2019 题解/&text=APIO2019 题解"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/04/APIO2019 题解/&is_video=false&description=APIO2019 题解"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=APIO2019 题解&body=Check out this article: http://yoursite.com/2020/08/04/APIO2019 题解/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/04/APIO2019 题解/&name=APIO2019 题解&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-奇怪装置"><span class="toc-number">1.</span> <span class="toc-text">$T1. 奇怪装置$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-桥梁"><span class="toc-number">2.</span> <span class="toc-text">$T2. 桥梁$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-路灯"><span class="toc-number">3.</span> <span class="toc-text">$T3. 路灯$</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        APIO2019 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-08-04T05:48:40.000Z" itemprop="datePublished">2020-08-04</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="T1-奇怪装置"><a href="#T1-奇怪装置" class="headerlink" title="$T1. 奇怪装置$"></a><a href="https://loj.ac/problem/3144" target="_blank" rel="noopener">$T1. 奇怪装置$</a></h2><hr>
+<p>考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小）</p>
+<p>$$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$</p>
+<p>$$L \equiv 0 (mod\ B)$$</p>
+<p>那么那个下取整就可以拆了，整理一下：</p>
+<p>$$\frac{L(B + 1)}{B} \equiv 0 (mod\ A)$$</p>
+<p>有一个定理：$ac \equiv bc(mod\ m)$，则 $a \equiv b(mod\ \frac{m}{gcd(m, c)})$，于是</p>
+<p>$$L \equiv 0 (mod\ \frac{AB}{gcd(AB, B + 1)})$$</p>
+<p>而因为 $gcd(x, x + 1) = 1$ 恒成立，所以</p>
+<p>$$L \equiv 0 (mod\ \frac{AB}{gcd(A, B + 1)})$$</p>
+<p>得到了周期大小，我们将区间在模 $L$ 意义下求区间覆盖就好了。</p>
+<h2 id="T2-桥梁"><a href="#T2-桥梁" class="headerlink" title="$T2. 桥梁$"></a><a href="https://loj.ac/problem/3145" target="_blank" rel="noopener">$T2. 桥梁$</a></h2><hr>
+<p>1、2、4档部分分都挺好拿的？那不就有 43 pts 了</p>
+<p>考虑没有修改操作：对于每个询问，将值大于等于 wi 的边加入并查集，最终答案就是 si 所在并查集大小。但加入修改的话，枚举所有边或者所有操作都 TLE。显然这是因为，询问太多的时候枚举边会炸，修改太多的时候枚举操作会炸。</p>
+<p>考虑<strong>均摊，把操作分块</strong>，设块大小为 S，每过 S 个操作就暴力重构一次。</p>
+<p>具体来说，分块处理，将一个块内的所有询问按照重量从大到小排序，边枚举询问边将块内不修改的边插入；而对于块内修改的边，顶多 S 条，用可撤销并查集维护，暴力插入再暴力删除。</p>
+<p>O(Q/S * mlogm + QS)，S 取 sqrt(mlogm) 的时候最优。我觉得这个分块很难想到，很神仙（虽然最终复杂度其实是 1e8，需要卡常</p>
+<p>代码也太难写了吧！！！啊！！！</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e4</span> + <span class="number">10</span>, M = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">ll n, m, Q, unit;</span><br><span class="line">ll fa[N], sz[N], pos[M], mark[M], pre[M], nxt[M];</span><br><span class="line">ll fax[M], fay[M], szx[M], szy[M], ans[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span> <span class="keyword">int</span> x, y, z, id; &#125;e[M], e2[M];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="keyword">int</span> x, y, id; &#125;q1[M], q2[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpe</span><span class="params">(edge a, edge b)</span> </span>&#123; <span class="keyword">return</span> a.z &gt; b.z; &#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpq2</span><span class="params">(node a, node b)</span> </span>&#123; <span class="keyword">return</span> a.y &gt; b.y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">getfa</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fa[x] == x ? x : getfa(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    x = getfa(x), y = getfa(y);</span><br><span class="line">    <span class="keyword">if</span> (x == y) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (sz[x] &gt; sz[y]) swap(x, y);</span><br><span class="line">    fa[x] = y, sz[y] += sz[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(<span class="keyword">int</span> &amp;x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ff = <span class="number">1</span>, ch;</span><br><span class="line">    <span class="keyword">while</span> (!<span class="built_in">isdigit</span>(ch = getchar())) ch == <span class="string">'-'</span> ? ff = <span class="number">-1</span> : <span class="number">1</span>;</span><br><span class="line">    x = ch &amp; <span class="number">15</span>;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">isdigit</span>(ch = getchar())) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch &amp; <span class="number">15</span>);</span><br><span class="line">    x = x * ff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    unit = max(unit, <span class="number">1l</span>l);  <span class="comment">// !!!!</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> o = <span class="number">1</span>; o &lt;= (Q - <span class="number">1</span>) / unit + <span class="number">1</span>; ++o) &#123;</span><br><span class="line">        <span class="keyword">int</span> l = (o - <span class="number">1</span>) * unit + <span class="number">1</span>, r = min(o * unit, Q), l1 = <span class="number">0</span>, l2 = <span class="number">0</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, m) mark[i] = pre[i] = <span class="number">0</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, r - l + <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> op; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;op);</span><br><span class="line">            <span class="keyword">if</span> (op == <span class="number">1</span>) &#123;</span><br><span class="line">                ++l1;</span><br><span class="line">                read(q1[l1].x), read(q1[l1].y);</span><br><span class="line">                <span class="keyword">if</span> (pre[q1[l1].x]) nxt[pre[q1[l1].x]] = l1;</span><br><span class="line">                pre[q1[l1].x] = l1;</span><br><span class="line">                nxt[l1] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">if</span> (!mark[q1[l1].x])  <span class="comment">// !!!!</span></span><br><span class="line">                    mark[q1[l1].x] = i;</span><br><span class="line">                q1[l1].id = i;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                ++l2;</span><br><span class="line">                read(q2[l2].x), read(q2[l2].y);</span><br><span class="line">                q2[l2].id = i;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[i] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memcpy</span>(e2, e, <span class="keyword">sizeof</span>(*e) * (m + <span class="number">1</span>));  <span class="comment">// ！！！！！！注意这么写会快很多</span></span><br><span class="line">        sort(e + <span class="number">1</span>, e + m + <span class="number">1</span>, cmpe);</span><br><span class="line">        sort(q2 + <span class="number">1</span>, q2 + l2 + <span class="number">1</span>, cmpq2);</span><br><span class="line"></span><br><span class="line">        rep(i, <span class="number">1</span>, n) fa[i] = i, sz[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> pos = <span class="number">1</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, l2) &#123;</span><br><span class="line">            <span class="keyword">while</span> (pos &lt;= m &amp;&amp; e[pos].z &gt;= q2[i].y) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!mark[e[pos].id]) &#123;</span><br><span class="line">                    merge(e[pos].x, e[pos].y);</span><br><span class="line">                &#125;</span><br><span class="line">                ++pos;</span><br><span class="line">            &#125;</span><br><span class="line">            rep(j, <span class="number">1</span>, l1) &#123;</span><br><span class="line">                <span class="keyword">if</span> (((!nxt[j] || q1[nxt[j]].id &gt; q2[i].id) &amp;&amp; q1[j].y &gt;= q2[i].y &amp;&amp; q1[j].id &lt; q2[i].id) ||  <span class="comment">// 询问前最后一次修改或修改在询问后但之前的边重量符合条件</span></span><br><span class="line">                    (mark[q1[j].x] &gt; q2[i].id &amp;&amp; e2[q1[j].x].z &gt;= q2[i].y)) &#123; <span class="comment">// e 排序了，要有个 e2 来存原来的顺序</span></span><br><span class="line">                    <span class="keyword">int</span> x = getfa(e2[q1[j].x].x), y = getfa(e2[q1[j].x].y);</span><br><span class="line">                    fax[j] = x, fay[j] = y, szx[j] = sz[x], szy[j] = sz[y];</span><br><span class="line">                    merge(x, y);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans[q2[i].id] = sz[getfa(q2[i].x)];</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = l1; j; --j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (fax[j]) &#123;</span><br><span class="line">                    <span class="keyword">int</span> x = fax[j], y = fay[j];</span><br><span class="line">                    fa[x] = x, fa[y] = y, sz[x] = szx[j], sz[y] = szy[j];</span><br><span class="line">                    fax[j] = fay[j] = szx[j] = szy[j] = <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">memcpy</span>(e, e2, <span class="keyword">sizeof</span>(*e) * (m + <span class="number">1</span>));</span><br><span class="line">        rep(i, <span class="number">1</span>, l1)</span><br><span class="line">            e[q1[i].x].z = q1[i].y;</span><br><span class="line">        rep(i, <span class="number">1</span>, r - l + <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> (ans[i]) <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    unit = <span class="built_in">sqrt</span>(m * <span class="built_in">log</span>(m) / <span class="built_in">log</span>(<span class="number">2</span>));</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;e[i].x, &amp;e[i].y, &amp;e[i].z);</span><br><span class="line">        e[i].id = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; Q;</span><br><span class="line">    solve();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="T3-路灯"><a href="#T3-路灯" class="headerlink" title="$T3. 路灯$"></a><a href="https://loj.ac/problem/3146" target="_blank" rel="noopener">$T3. 路灯$</a></h2><hr>
+<p>两道数据结构题！！！。。。1、2、4 档分好好拿呀= = 看题解学了正解。</p>
+<p>考虑在连通区间 $[l, r]$ 中去掉一条边 $[k, k + 1]$，影响的只是 $[l, k]$ 到 $[k + 1, r]$ 的联通性。</p>
+<p>考虑将贡献差分，时间段 = 时间点相减：</p>
+<ul>
+<li>加入边，$[l, k]$ 到 $[k + 1, r]$ 所有答案 $- i$</li>
+<li>删除边，$[l, k]$ 到 $[k + 1, r]$ 所有答案 $+ i$</li>
+</ul>
+<p>同时对于询问的时刻 t，若两个点连通，答案要 $+ t$</p>
+<p>看到点对，想到转化成平面问题。把区间抽象成坐标，就是二维数点问题，离线用树状数组套线段树或者 CDQ 分治。$O(nlog^2n)$</p>
+<p>然而代码先咕咕</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-奇怪装置"><span class="toc-number">1.</span> <span class="toc-text">$T1. 奇怪装置$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-桥梁"><span class="toc-number">2.</span> <span class="toc-text">$T2. 桥梁$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-路灯"><span class="toc-number">3.</span> <span class="toc-text">$T3. 路灯$</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/04/APIO2019 题解/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/04/APIO2019 题解/&text=APIO2019 题解"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/04/APIO2019 题解/&is_video=false&description=APIO2019 题解"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=APIO2019 题解&body=Check out this article: http://yoursite.com/2020/08/04/APIO2019 题解/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/04/APIO2019 题解/&title=APIO2019 题解"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/04/APIO2019 题解/&name=APIO2019 题解&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

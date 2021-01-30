@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="CF1039D 树的每个节点至多属于其中一条路径!!! 看到题目：这能做？能做？？能做？？？？ 对不起，用根号分治就是能做（皮  k &amp;lt;= sqrt(n) 的暴力算，O(nsqrt(n)) k &amp;gt; sqrt(n) 的，容易发现答案一定在 (0, sqrt(n)) 的区间内单调不增，最多只有 sqrt(n) 种，所以对于当前的 k 二分出与它答案相同的最右位置，更新这一段的答案  复杂度">
+<meta name="keywords" content="CF&amp;AT往届">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20Jul CF&amp;AT 练题汇总">
+<meta property="og:url" content="http://yoursite.com/2020/07/31/【计划】20Jul AT&CF 练题汇总/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="CF1039D 树的每个节点至多属于其中一条路径!!! 看到题目：这能做？能做？？能做？？？？ 对不起，用根号分治就是能做（皮  k &amp;lt;= sqrt(n) 的暴力算，O(nsqrt(n)) k &amp;gt; sqrt(n) 的，容易发现答案一定在 (0, sqrt(n)) 的区间内单调不增，最多只有 sqrt(n) 种，所以对于当前的 k 二分出与它答案相同的最右位置，更新这一段的答案  复杂度">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-13T10:58:56.264Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="20Jul CF&amp;AT 练题汇总">
+<meta name="twitter:description" content="CF1039D 树的每个节点至多属于其中一条路径!!! 看到题目：这能做？能做？？能做？？？？ 对不起，用根号分治就是能做（皮  k &amp;lt;= sqrt(n) 的暴力算，O(nsqrt(n)) k &amp;gt; sqrt(n) 的，容易发现答案一定在 (0, sqrt(n)) 的区间内单调不增，最多只有 sqrt(n) 种，所以对于当前的 k 二分出与它答案相同的最右位置，更新这一段的答案  复杂度">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>20Jul CF&amp;AT 练题汇总</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/31/XJOI200731 题解/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&text=20Jul CF&amp;AT 练题汇总"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&is_video=false&description=20Jul CF&amp;AT 练题汇总"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=20Jul CF&amp;AT 练题汇总&body=Check out this article: http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&name=20Jul CF&amp;AT 练题汇总&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1039D"><span class="toc-number">1.</span> <span class="toc-text">CF1039D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1039E"><span class="toc-number">2.</span> <span class="toc-text">CF1039E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF455D"><span class="toc-number">3.</span> <span class="toc-text">CF455D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1045B"><span class="toc-number">4.</span> <span class="toc-text">CF1045B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1249D2"><span class="toc-number">5.</span> <span class="toc-text">CF1249D2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF255E"><span class="toc-number">6.</span> <span class="toc-text">CF255E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF280C"><span class="toc-number">7.</span> <span class="toc-text">CF280C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF200A"><span class="toc-number">8.</span> <span class="toc-text">CF200A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF208B"><span class="toc-number">9.</span> <span class="toc-text">CF208B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF187D"><span class="toc-number">10.</span> <span class="toc-text">CF187D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF190E"><span class="toc-number">11.</span> <span class="toc-text">CF190E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF191E"><span class="toc-number">12.</span> <span class="toc-text">CF191E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF185D"><span class="toc-number">13.</span> <span class="toc-text">CF185D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF432D"><span class="toc-number">14.</span> <span class="toc-text">CF432D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1107F"><span class="toc-number">15.</span> <span class="toc-text">CF1107F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF687C"><span class="toc-number">16.</span> <span class="toc-text">CF687C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LightOJ1422"><span class="toc-number">17.</span> <span class="toc-text">LightOJ1422</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF840C"><span class="toc-number">18.</span> <span class="toc-text">CF840C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF15E"><span class="toc-number">19.</span> <span class="toc-text">CF15E</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        20Jul CF&amp;AT 练题汇总
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-07-31T15:59:59.000Z" itemprop="datePublished">2020-07-31</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/CF-AT往届/">CF&AT往届</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="CF1039D"><a href="#CF1039D" class="headerlink" title="CF1039D"></a><a href="https://www.luogu.com.cn/problem/CF1039D" target="_blank" rel="noopener">CF1039D</a></h2><hr>
+<p>树的每个节点至多属于其中一条路径!!!</p>
+<p>看到题目：这能做？能做？？能做？？？？</p>
+<p>对不起，用根号分治就是能做（皮</p>
+<ul>
+<li>k &lt;= sqrt(n) 的暴力算，O(nsqrt(n))</li>
+<li>k &gt; sqrt(n) 的，容易发现答案一定在 (0, sqrt(n)) 的区间内单调不增，最多只有 sqrt(n) 种，所以对于当前的 k 二分出与它答案相同的最右位置，更新这一段的答案</li>
+</ul>
+<p>复杂度 O(nsqrt(n)*logn)</p>
+<p>HINT：常数巨大，普通 dfs 递归会 T。。要先处理 dfs 序然后从下往上 dp。。。5070ms。。。</p>
+<p>据说能用整体二分做，先咕咕</p>
+<h2 id="CF1039E"><a href="#CF1039E" class="headerlink" title="CF1039E"></a><a href="https://www.luogu.com.cn/problem/CF1039E" target="_blank" rel="noopener">CF1039E</a></h2><hr>
+<p>LCT + 分块，先咕咕</p>
+<h2 id="CF455D"><a href="#CF455D" class="headerlink" title="CF455D"></a><a href="https://www.luogu.com.cn/problem/CF455D" target="_blank" rel="noopener">CF455D</a></h2><hr>
+<p>操作 1 每次只移动两位，而且操作 2 询问的信息可合并，可以用分块 + 双端队列，O(n <em> sqrt(n) </em> logn) cf 神评测机就跑过去了！</p>
+<h2 id="CF1045B"><a href="#CF1045B" class="headerlink" title="CF1045B"></a><a href="https://www.luogu.com.cn/problem/CF1045B" target="_blank" rel="noopener">CF1045B</a></h2><hr>
+<p><a href="https://www.cnblogs.com/yyf0309/p/9808323.html" target="_blank" rel="noopener">题解</a></p>
+<p>妙题，容易想到 无法构成的数可以全用 A 中或全用 B 中的数构成。设不能构成的数为 t，A 中构成 t 的数为 X 和 Y。</p>
+<p>由模的性质得，若 X &lt; t 则 Y &lt; t, 若 X &gt; t 则 Y &gt; t，所以任何一个 t 将 A 集合划为两半，每一部分首尾配对后，每对的和都等于 t</p>
+<p>如何判 1 ~ i 首尾配对的值相同？设 1 &lt;= a &lt; b &lt; c &lt; d &lt;= i, 若 a + d = b + c 则 a - b = c - d，做一个差分然后跑 manacher 或 hash 判回文就好了，妙啊。</p>
+<h2 id="CF1249D2"><a href="#CF1249D2" class="headerlink" title="CF1249D2"></a><a href="https://www.luogu.com.cn/problem/CF1249D2" target="_blank" rel="noopener">CF1249D2</a></h2><hr>
+<p>贪心，我真的不行。。按左端点排序，从左往右扫，大根堆维护右端点，若左端点覆盖次数超过 K 则弹出堆顶线段</p>
+<h2 id="CF255E"><a href="#CF255E" class="headerlink" title="CF255E"></a><a href="https://www.luogu.com.cn/problem/CF255E" target="_blank" rel="noopener">CF255E</a></h2><hr>
+<p>第一次感觉博弈论没那么高冷哈哈哈</p>
+<p>打出 1e6 的表发现 sg 值很小，只为 0 ～ 3。将 a 从小到大排序，尺取法做（就是双指针一样的，左端点挪+右端点挪）。</p>
+<p>或者可以前缀和，记录 sum(i, j) 表示 1 ~ i 内 sg = j 的个数，这样就可以 O(1) 算！！</p>
+<h2 id="CF280C"><a href="#CF280C" class="headerlink" title="CF280C"></a><a href="https://www.luogu.com.cn/problem/CF280C" target="_blank" rel="noopener">CF280C</a></h2><hr>
+<p>一个节点有贡献 1 ，当且仅当它到根的路径上没有点染黑。所以选到它的概率是 1 / dep[x], 期望是 1 * 1 / dep[x]，跟除祖先们外的节点无关（其他不产生影响的就可以不管了，反正对于一个局部来说啥都没发生）</p>
+<h2 id="CF200A"><a href="#CF200A" class="headerlink" title="CF200A"></a><a href="https://www.luogu.com.cn/problem/CF200A" target="_blank" rel="noopener">CF200A</a></h2><hr>
+<p>暴力优化，非常之厉害</p>
+<p>考虑多次询问一个位置，暴力查询的话会重复查询一些距离，开数组存一下就好了。</p>
+<p>每次询问时更新，O(能过) 系列但真的跑的很快！</p>
+<h2 id="CF208B"><a href="#CF208B" class="headerlink" title="CF208B"></a><a href="https://www.luogu.com.cn/problem/CF208B" target="_blank" rel="noopener">CF208B</a></h2><hr>
+<p>n 很小，记忆化搜索。注意到每一位只受后第一位和后第三位影响，状态只要记录连续三位。</p>
+<h2 id="CF187D"><a href="#CF187D" class="headerlink" title="CF187D"></a><a href="https://www.luogu.com.cn/problem/CF187D" target="_blank" rel="noopener">CF187D</a></h2><hr>
+<p>发现被一个红灯卡了后，之后的花费都是可以预处理的（求一下每个点从 0 时刻走到终点的时间）。把 dist 都 mod(g + r)，问题就变成了求右边最近的 dist 在 [g, r - 1] 内的位置，权值线段树维护区间最小值</p>
+<h2 id="CF190E"><a href="#CF190E" class="headerlink" title="CF190E"></a><a href="https://www.luogu.com.cn/problem/CF190E" target="_blank" rel="noopener">CF190E</a></h2><hr>
+<p>复杂度是关于 m 的。。链表或 set 优化 bfs，每个点只会被访问度数次，复杂度 O(mlogn)</p>
+<h2 id="CF191E"><a href="#CF191E" class="headerlink" title="CF191E"></a><a href="https://www.luogu.com.cn/problem/CF191E" target="_blank" rel="noopener">CF191E</a></h2><hr>
+<p>求第 K 大连续区间的 val 和。考虑二分判定，离散化 + 树状数组维护。</p>
+<h2 id="CF185D"><a href="#CF185D" class="headerlink" title="CF185D"></a><a href="https://www.luogu.com.cn/problem/CF185D" target="_blank" rel="noopener">CF185D</a></h2><hr>
+<p>很好的数学题</p>
+<p>设 $x = k^{2^l} + 1$</p>
+<p>$k^{2^{l + 1}} + 1 = (x - 1)^2 + 1$</p>
+<p>$gcd(x, (x - 1)^2 + 1) = gcd(x, x^2 - 2x + 1) = gcd(x, 2)$</p>
+<ul>
+<li>k 为奇数：ans = $\frac{PROD}{2^{r - l}}$</li>
+<li>k 为偶数：ans = $PROD$</li>
+</ul>
+<p>根据等比数列的知识，$PROD = \frac{(k^{2^{r + 1}} - 1)}{(k^{2^l} - 1)}$</p>
+<h2 id="CF432D"><a href="#CF432D" class="headerlink" title="CF432D"></a><a href="https://www.luogu.com.cn/problem/CF432D" target="_blank" rel="noopener">CF432D</a></h2><hr>
+<p><a href="https://ouuan.github.io/post/cf432d-prefixes-and-suffixeskmp/" target="_blank" rel="noopener">讲得好的题解</a></p>
+<p>KMP 性质题，f[nxt[i]] = 1 + sum{f[i]}</p>
+<h2 id="CF1107F"><a href="#CF1107F" class="headerlink" title="CF1107F"></a><a href="https://www.luogu.com.cn/problem/CF1107F" target="_blank" rel="noopener">CF1107F</a></h2><hr>
+<p>贷款有三种：不用，付完，没付完</p>
+<p>考虑没付完的贷款，b 大的靠后买更优，所以可以先将 b 从大到小排序</p>
+<p>f[i, j] 表示在前 i 个中选，j 个没付完的 C 最大值</p>
+<h2 id="CF687C"><a href="#CF687C" class="headerlink" title="CF687C"></a><a href="https://www.luogu.com.cn/problem/CF687C" target="_blank" rel="noopener">CF687C</a></h2><hr>
+<p>问能拼出哪些，就想到了 bitset：f[i, j] 表示前 i 个共 j 元能拼出的集合，f[i, j] = f[i - 1, j] | f[i - 1, j - c[i]] | (f[i - 1, j - c[i]] &lt;&lt; c[i])</p>
+<h2 id="LightOJ1422"><a href="#LightOJ1422" class="headerlink" title="LightOJ1422"></a><a href="https://vjudge.net/problem/LightOJ-1422" target="_blank" rel="noopener">LightOJ1422</a></h2><hr>
+<p>区间 dp，f[l, r] = min(f[l + 1, r] + 1, (f[l + 1, i - 1] + 1) + (f[i, r] - 1)(其中 c[l] = c[i]))</p>
+<p>小细节是 f[i, r] - 1，由于 i 可能对 [i + 1, r] 同颜色的衣服有影响，所以不是 f[i + 1, r]; 但要减去重复买的钱。</p>
+<h2 id="CF840C"><a href="#CF840C" class="headerlink" title="CF840C"></a><a href="https://www.luogu.com.cn/problem/CF840C" target="_blank" rel="noopener">CF840C</a></h2><hr>
+<p><a href="https://blog.csdn.net/can919/article/details/80154917" target="_blank" rel="noopener">好的题解</a></p>
+<p>将相乘为完全平方数的数放在同一组里，问题转化成了经典问题：有多少个排列使得相邻两数不在同一组里。</p>
+<p>容斥 + dp，ans = (至少 0 相邻相同的方案数) - (至少 1 相邻相同的方案数) + (至少 2 相邻相同的方案数) …</p>
+<p>dp[i, j] 表示前 i 种数分为 j 块的方案数（无序），相同块中的数相同。即至多 j - 1 不相同，即至少 (n - 1) - (j - 1) = n - j 相同。</p>
+<p>$dp[i, k] = \sum{ dp[i - 1, k - j] \times C(ni - 1, j - 1) \times \frac{n_i!}{j!} }$</p>
+<p>除以 j! 表示使块无序，乘以 n_i! 表示总排列数（迷惑）</p>
+<hr>
+<p>upd：<a href="https://blog.csdn.net/qq_31759205/article/details/77487920" target="_blank" rel="noopener">另一好的题解</a></p>
+<p>还是这个好懂且正常👍</p>
+<p>转移的时候枚举把当前集合分成多少段，有多少段插在之前相同的相邻元素间</p>
+<p>注意由于 size 之和是 n，复杂度不是 O(n^4) 是 O(n^3)</p>
+<h2 id="CF15E"><a href="#CF15E" class="headerlink" title="CF15E"></a><a href="https://www.luogu.com.cn/problem/CF15E" target="_blank" rel="noopener">CF15E</a></h2><hr>
+<p><a href="https://www.cnblogs.com/yyf0309/p/8418287.html" target="_blank" rel="noopener">题解题++ qwq</a></p>
+<p>找规律容易发现：路线是从 H 一直沿着边沿斜线走，拐一圈走到 H 正下方第一个点再拐一圈走到另一斜线，走回 H。</p>
+<p>但后面就不知道怎么做了qaq？看大佬博客吧。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1039D"><span class="toc-number">1.</span> <span class="toc-text">CF1039D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1039E"><span class="toc-number">2.</span> <span class="toc-text">CF1039E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF455D"><span class="toc-number">3.</span> <span class="toc-text">CF455D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1045B"><span class="toc-number">4.</span> <span class="toc-text">CF1045B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1249D2"><span class="toc-number">5.</span> <span class="toc-text">CF1249D2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF255E"><span class="toc-number">6.</span> <span class="toc-text">CF255E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF280C"><span class="toc-number">7.</span> <span class="toc-text">CF280C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF200A"><span class="toc-number">8.</span> <span class="toc-text">CF200A</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF208B"><span class="toc-number">9.</span> <span class="toc-text">CF208B</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF187D"><span class="toc-number">10.</span> <span class="toc-text">CF187D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF190E"><span class="toc-number">11.</span> <span class="toc-text">CF190E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF191E"><span class="toc-number">12.</span> <span class="toc-text">CF191E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF185D"><span class="toc-number">13.</span> <span class="toc-text">CF185D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF432D"><span class="toc-number">14.</span> <span class="toc-text">CF432D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1107F"><span class="toc-number">15.</span> <span class="toc-text">CF1107F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF687C"><span class="toc-number">16.</span> <span class="toc-text">CF687C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LightOJ1422"><span class="toc-number">17.</span> <span class="toc-text">LightOJ1422</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF840C"><span class="toc-number">18.</span> <span class="toc-text">CF840C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF15E"><span class="toc-number">19.</span> <span class="toc-text">CF15E</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&text=20Jul CF&amp;AT 练题汇总"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&is_video=false&description=20Jul CF&amp;AT 练题汇总"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=20Jul CF&amp;AT 练题汇总&body=Check out this article: http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&title=20Jul CF&amp;AT 练题汇总"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/31/【计划】20Jul AT&amp;CF 练题汇总/&name=20Jul CF&amp;AT 练题汇总&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

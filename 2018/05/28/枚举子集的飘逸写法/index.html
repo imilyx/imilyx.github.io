@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+<meta name="keywords" content="技巧">
+<meta property="og:type" content="article">
+<meta property="og:title" content="枚举子集的飘逸写法">
+<meta property="og:url" content="http://yoursite.com/2018/05/28/枚举子集的飘逸写法/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-07T16:24:50.832Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="枚举子集的飘逸写法">
+<meta name="twitter:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>枚举子集的飘逸写法</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/05/31/数学期望（马尔可夫链）/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/05/27/[POJ1845]-Sumdiv/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&text=枚举子集的飘逸写法"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&is_video=false&description=枚举子集的飘逸写法"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=枚举子集的飘逸写法&body=Check out this article: http://yoursite.com/2018/05/28/枚举子集的飘逸写法/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&name=枚举子集的飘逸写法&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        枚举子集的飘逸写法
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-05-28T14:14:40.000Z" itemprop="datePublished">2018-05-28</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/技巧/">技巧</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。</p>
+<p>很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。<br>要一次概括所有物体的选择情况，二进制就是很好的选择。</p>
+<p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); ++i) &#123;  <span class="comment">// i 枚举所有物体的选择情况</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j; j = (j - <span class="number">1</span>) &amp; i) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>为什么第二层循环中是 j = (j - 1) &amp; i 呢？<br>这样起到了将 j 中有效位（为1）逐渐删除的效果。<br>例如，当 i = 101000 时，j 初始为 101000，第一轮变为 100111，&amp; i 后变为 100000，成功将最后一个1删除。</p>
+<p>时间复杂度计算很玄学，可以发现 S 有 $\binom{n}{i}$ 种选法，i 个中还有 $2^i$ 种选取情况。<br>所以就是：</p>
+<p>$$\sum_{i=0}^n{\binom{n}{i} * 2^i}$$</p>
+<p>再通过某种玄学证明可得该式 = $3^n$。(20.02.07upd: 就是二项式定理啦！！！即 (1 + 2) ^ n) </p>
+<p>同样的，若枚举 S 的子集 T，再枚举 T 的子集 T1，时间复杂度就是 $4^n$。</p>
+<p>需要注意的是，O($3^n$) 表示 &lt;= $3^n$，而 $3^n$ 就是 $3^n$，是一个准确值。</p>
+<p>顺带的，若要枚举集合 U 中的子集 S 和 T，其中 S 与 T 无重复元素，只需枚举 S，再在 U 中除 S 的元素中枚举 T。</p>
+<p>这是一种很好的二进制思想，利用位运算，巧妙地将冗余降到了最低，因此是最优的该类算法。尽管最优，因为是指数级算法，n 也只能最多取到15左右。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&text=枚举子集的飘逸写法"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&is_video=false&description=枚举子集的飘逸写法"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=枚举子集的飘逸写法&body=Check out this article: http://yoursite.com/2018/05/28/枚举子集的飘逸写法/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&title=枚举子集的飘逸写法"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/05/28/枚举子集的飘逸写法/&name=枚举子集的飘逸写法&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

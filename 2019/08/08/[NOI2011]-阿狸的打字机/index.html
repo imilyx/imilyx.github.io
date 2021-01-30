@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="传送门 做这题之前，可以先去杠一杠 此题 了解一下 Fail 树。本题是很相似滴！ 我们发现，如果每次正儿八经在 Trie 树上走一遍 y 串，那显然会 TLE。T 就 T 在每次重复经过的路线。 这启发我们设计离线算法，遍历整棵 Trie 树，标记走过的路线为 1；每碰到一个结束点，都回答以该点为 y 串结束点的询问。 回答询问也不难，根据 TJOI2013-单词 得来的经验值，求 x 在 y">
+<meta name="keywords" content="AC自动机,dfs序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[NOI2011]-阿狸的打字机">
+<meta property="og:url" content="http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="传送门 做这题之前，可以先去杠一杠 此题 了解一下 Fail 树。本题是很相似滴！ 我们发现，如果每次正儿八经在 Trie 树上走一遍 y 串，那显然会 TLE。T 就 T 在每次重复经过的路线。 这启发我们设计离线算法，遍历整棵 Trie 树，标记走过的路线为 1；每碰到一个结束点，都回答以该点为 y 串结束点的询问。 回答询问也不难，根据 TJOI2013-单词 得来的经验值，求 x 在 y">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-08-08T11:19:47.831Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[NOI2011]-阿狸的打字机">
+<meta name="twitter:description" content="传送门 做这题之前，可以先去杠一杠 此题 了解一下 Fail 树。本题是很相似滴！ 我们发现，如果每次正儿八经在 Trie 树上走一遍 y 串，那显然会 TLE。T 就 T 在每次重复经过的路线。 这启发我们设计离线算法，遍历整棵 Trie 树，标记走过的路线为 1；每碰到一个结束点，都回答以该点为 y 串结束点的询问。 回答询问也不难，根据 TJOI2013-单词 得来的经验值，求 x 在 y">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[NOI2011]-阿狸的打字机</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/08/09/[SPOJ-COT2]-Count on a tree II/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/08/07/[TJOI2013]-单词/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&text=[NOI2011]-阿狸的打字机"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&is_video=false&description=[NOI2011]-阿狸的打字机"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[NOI2011]-阿狸的打字机&body=Check out this article: http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&name=[NOI2011]-阿狸的打字机&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [NOI2011]-阿狸的打字机
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2019-08-08T15:10:40.000Z" itemprop="datePublished">2019-08-08</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/AC自动机/">AC自动机</a>, <a class="tag-link" href="/tags/dfs序/">dfs序</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=2434" target="_blank" rel="noopener">传送门</a></p>
+<p>做这题之前，可以先去杠一杠 <a href="https://www.luogu.org/problem/P3966" target="_blank" rel="noopener">此题</a> 了解一下 Fail 树。本题是很相似滴！</p>
+<p>我们发现，如果每次正儿八经在 Trie 树上走一遍 y 串，那显然会 TLE。T 就 T 在每次重复经过的路线。</p>
+<p>这启发我们设计离线算法，遍历整棵 Trie 树，标记走过的路线为 1；每碰到一个结束点，都回答以该点为 y 串结束点的询问。</p>
+<p>回答询问也不难，根据 TJOI2013-单词 得来的经验值，求 x 在 y 中出现的次数就是求当前 x 子树中为 1 的结点数。跟子树相关的 problem 请出门左转 dfs 序！谢谢！！（用树状数组维护就🉑️</p>
+<p>说说容易写写难啊 QwQ 109行代码可还🌟</p>
+<p>code :</p>
+<p>#include &lt;bits/stdc++.h&gt;</p>
+<p>#define rep(i, x, y) for (int i = x; i &lt;= y; i++)</p>
+<p>#define lowbit(x) ((x) &amp; (-(x)))<br>using namespace std;</p>
+<p>const int N = 1e5 + 10;<br>int Q, n, tot, len, dfn, sz;<br>int fa[N], fail[N], idx[N], ch[N][26], mark[N];<br>int to[N &lt;&lt; 1], nxt[N &lt;&lt; 1], lnk[N], ecnt;<br>int in[N], out[N];<br>int ql[N], qr[N], ans[N], C[N];<br>char s[N], t[N], tt[N &lt;&lt; 1];<br>struct ques { int x, y, id; }que[N];<br>bool operator &lt; (ques a, ques b) { return a.y &lt; b.y; }</p>
+<p>void addedge(int x, int y) {<br>    to[++ecnt]= y, nxt[ecnt] = lnk[x], lnk[x] = ecnt;<br>}</p>
+<p>int ord(char c) { return c - ‘a’; }</p>
+<p>void build(char *s) {<br>    int u = 0;<br>    rep(i, 1, n) {<br>        if (s[i] == ‘P’) {<br>            idx[++tot] = u, mark[u] = tot;<br>        } else if (s[i] == ‘B’) {<br>            u = fa[u];<br>        } else {<br>            int c = ord(s[i]);<br>            if (!ch[u][c]) ch[u][c] = ++sz;<br>            fa[ch[u][c]] = u;<br>            u = ch[u][c];<br>        }<br>    }<br>}</p>
+<p>void getfail() {<br>    queue<int> q;<br>    rep(c, 0, 25) {<br>        int u = ch[0][c];<br>        if (!u) continue;<br>        fail[u] = 0;<br>        q.push(u);<br>        addedge(0, u);<br>    }<br>    while (q.size()) {<br>        int u = q.front(); q.pop();<br>        rep(c, 0, 25) {<br>            int v = ch[u][c];<br>            if (!v) continue;<br>            q.push(v);<br>            int k = fail[u];<br>            while (k &amp;&amp; !ch[k][c]) k = fail[k];<br>            fail[v] = ch[k][c];<br>            addedge(fail[v], v);<br>        }<br>    }<br>}</int></p>
+<p>void dfs(int x) {<br>    in[x] = ++dfn;<br>    for (int i = lnk[x]; i; i = nxt[i]) dfs(to[i]);<br>    out[x] = dfn;<br>}</p>
+<p>void add(int x, int val) {<br>    if (!x) return;<br>    for (; x &lt;= dfn; x += lowbit(x)) C[x] += val;<br>}</p>
+<p>int query(int x) {<br>    int ret = 0;<br>    for (; x; x -= lowbit(x)) ret += C[x];<br>    return ret;<br>}</p>
+<p>void solve(int x) {<br>    if (x) add(in[x], 1);<br>    if (mark[x])<br>        rep(i, ql[mark[x]], qr[mark[x]])<br>            ans[que[i].id] = query(out[idx[que[i].x]]) - query(in[idx[que[i].x]] - 1);<br>    rep(c, 0, 25) if (ch[x][c]) solve(ch[x][c]);<br>    if (x) add(in[x], -1);<br>}</p>
+<p>int main() {<br>    // freopen(“in.txt”, “r”, stdin);<br>    scanf(“%s”, s + 1);<br>    n = strlen(s + 1);<br>    build(s);<br>    getfail();<br>    dfs(0);</p>
+<pre><code>scanf(&quot;%d&quot;, &amp;Q);
+rep(i, 1, Q)
+    scanf(&quot;%d%d&quot;, &amp;que[i].x, &amp;que[i].y), que[i].id = i;
+sort(que + 1, que + Q + 1);
+for (int i = 1, pos = 1; i &lt;= Q; i = pos) {
+    ql[que[i].y] = i;
+    while (que[i].y == que[pos].y) ++pos;
+    qr[que[i].y] = pos - 1;
+}
+solve(0);
+rep(i, 1, Q) printf(&quot;%d\n&quot;, ans[i]);
+return 0;
+</code></pre><p>}<br><code>`</code></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&text=[NOI2011]-阿狸的打字机"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&is_video=false&description=[NOI2011]-阿狸的打字机"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[NOI2011]-阿狸的打字机&body=Check out this article: http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&title=[NOI2011]-阿狸的打字机"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/08/08/[NOI2011]-阿狸的打字机/&name=[NOI2011]-阿狸的打字机&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="http://www.spoj.com/problems/SERVICE/ 这是一道线性动态规划题目，涉及到有趣的思想，不是很难但十分实用，所以在这记录一下。题意：一个公司有三个移动服务员，初始时分别位于 1、2、3 处。如果某个位置有一个请求，公司必须派三者之一去那儿，某一时刻只有一名员工能移动，且两名员工不能同时位于同一位置上。从 p 到 q 移动员工，需要花费 c(p, q)(给定的)。有">
+<meta name="keywords" content="线性DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[TYVJ1061]-Mobile Service">
+<meta property="og:url" content="http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="http://www.spoj.com/problems/SERVICE/ 这是一道线性动态规划题目，涉及到有趣的思想，不是很难但十分实用，所以在这记录一下。题意：一个公司有三个移动服务员，初始时分别位于 1、2、3 处。如果某个位置有一个请求，公司必须派三者之一去那儿，某一时刻只有一名员工能移动，且两名员工不能同时位于同一位置上。从 p 到 q 移动员工，需要花费 c(p, q)(给定的)。有">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T08:42:50.629Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[TYVJ1061]-Mobile Service">
+<meta name="twitter:description" content="http://www.spoj.com/problems/SERVICE/ 这是一道线性动态规划题目，涉及到有趣的思想，不是很难但十分实用，所以在这记录一下。题意：一个公司有三个移动服务员，初始时分别位于 1、2、3 处。如果某个位置有一个请求，公司必须派三者之一去那儿，某一时刻只有一名员工能移动，且两名员工不能同时位于同一位置上。从 p 到 q 移动员工，需要花费 c(p, q)(给定的)。有">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>[TYVJ1061]-Mobile Service</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/04/30/[SGU167]-I-country/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/04/27/[CF24E]-Berland collider/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&text=[TYVJ1061]-Mobile Service"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&is_video=false&description=[TYVJ1061]-Mobile Service"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ1061]-Mobile Service&body=Check out this article: http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&name=[TYVJ1061]-Mobile Service&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [TYVJ1061]-Mobile Service
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2018-04-28T10:40:40.000Z" itemprop="datePublished">2018-04-28</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/线性DP/">线性DP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://www.spoj.com/problems/SERVICE/" target="_blank" rel="noopener">http://www.spoj.com/problems/SERVICE/</a></p>
+<p>这是一道线性动态规划题目，涉及到有趣的思想，不是很难但十分实用，所以在这记录一下。<br>题意：一个公司有三个移动服务员，初始时分别位于 1、2、3 处。如果某个位置有一个请求，公司必须派三者之一去那儿，某一时刻只有一名员工能移动，且两名员工不能同时位于同一位置上。从 p 到 q 移动员工，需要花费 c(p, q)(给定的)。<br>有 n 个请求，分别为 p1、p2、p3、… pn。公司必须按照顺序依次满足所有请求，目标是最小化公司花费。<br>N &lt;= 1000, 位置(L)是 1 ~ 200 的整数。</p>
+<p>因为员工只有三个，应该很容易想到f[i][x][y][z]，表示解决了前i个请求后，三个员工分别位于x、y、z的最小花费。<br>该算法规模在8000000000左右，所以还得优化掉一维。</p>
+<p>可以发现，每一个请求完成后，必定有一名员工在pi位置上，所以只需要表示另两位员工的位置就好了。<br>最终，f[i][x][y]表示解决了前i个请求，其中一个位于pi，另外两个分别位于x和y的最小花费。<br>转移(应该很容易了吧？)：</p>
+<p>$f[i + 1][x][y] = min(f[i + 1][x][y], f[i][x][y] + c[p[i]][p[i + 1]])$</p>
+<p>$f[i + 1][p[i]][y] = min(f[i + 1][p[i]][y], f[i][x][y] + c[x][p[i + 1]])$</p>
+<p>$f[i + 1][x][p[i]] = min(f[i + 1][x][p[i]], f[i][x][y] + c[y][p[i + 1]])$</p>
+<p>因为无形中题目附带了信息，所以阶段i和另两位员工的位置就可表明状态。</p>
+<p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">205</span>, M = <span class="number">1005</span>, INF = <span class="number">1000000000</span>;</span><br><span class="line"><span class="keyword">int</span> T, L, n;</span><br><span class="line"><span class="keyword">int</span> c[N][N], p[M], f[M][N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;L, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= L; i++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= L; j++)</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i][j]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;p[i]);</span><br><span class="line">        <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">        f[<span class="number">0</span>][<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>, p[<span class="number">0</span>] = <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = INF;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>; x &lt;= L; x++) &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">1</span>; y &lt;= L; y++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (x == p[i] || y == p[i] || x == y) <span class="keyword">continue</span>;</span><br><span class="line">                    f[i + <span class="number">1</span>][x][y] = min(f[i + <span class="number">1</span>][x][y], f[i][x][y] + c[p[i]][p[i + <span class="number">1</span>]]);</span><br><span class="line">                    f[i + <span class="number">1</span>][p[i]][y] = min(f[i + <span class="number">1</span>][p[i]][y], f[i][x][y] + c[x][p[i + <span class="number">1</span>]]);</span><br><span class="line">                    f[i + <span class="number">1</span>][x][p[i]] = min(f[i + <span class="number">1</span>][x][p[i]], f[i][x][y] + c[y][p[i + <span class="number">1</span>]]);</span><br><span class="line">                    <span class="keyword">if</span> (i + <span class="number">1</span> == n) ans = min(ans, min(f[i + <span class="number">1</span>][x][y], min(f[i + <span class="number">1</span>][p[i]][y], f[i + <span class="number">1</span>][x][p[i]])));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>求解线性DP问题，一般先确定“阶段”。若“阶段”不足以表示一个状态，则可以把所需的附加信息也作为状态的维度。<br>当然是用尽量少的维度来介绍（覆盖）整个状态空间啦，可以排除冗余维度。总结来说，这一题优化的小技巧是，若DP状态由多个维度组成，则应检查这些维度之间能否互相导出。说来容易做来难，还要多练习。</p>
+<p><a href="https://www.luogu.org/problemnew/show/P1006" target="_blank" rel="noopener">https://www.luogu.org/problemnew/show/P1006</a></p>
+<p>EX–还有一题，NOIP2008TG传纸条。第一个想法就是x1, y1, x2, y2表示两条路径的终结点，那就是四维(f[x1][y1][x2][y2])。<br>这可以过，但还不够优秀。怎么办呢？<br>可以发现，如果用k表示路径的长度(两条路径长度相同)，那么 x1 + y1 = x2 + y2 = k + 2。<br>这样就很爽啦！用f[k][x1][x2]表示长度为k，终结点分别在x1行与x2行的两条路径的好感度最大值，结合前一题的结论，y1与y2就属于附带条件了，因为完全可以由k + 2 - x1(或x2)得到。也就是说，y1，y2可以由x1，x2，k等必备条件导出。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&text=[TYVJ1061]-Mobile Service"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&is_video=false&description=[TYVJ1061]-Mobile Service"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ1061]-Mobile Service&body=Check out this article: http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&title=[TYVJ1061]-Mobile Service"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/04/28/[TYVJ1061]-Mobile Service/&name=[TYVJ1061]-Mobile Service&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
