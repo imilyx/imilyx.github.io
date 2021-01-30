@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="Description“我是超级大沙茶”——Mato_No1 为了证明自己是一个超级大沙茶，Mato 神犇决定展示自己对叉(十字型)有多么的了 解。 Mato 神犇有一个平面直角坐标系，上面有一些线段，保证这些线段至少与一条坐标轴 平行。Mato 神犇需要指出，这些线段构成的最大的十字型有多大。 称一个图形为大小为 R(R 为正整数)的十字型，当且仅当，这个图形具有一个中心点， 它存在于某一条线段">
+<meta name="keywords" content="扫描线">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[模拟赛题]-Super Big Stupid Cross">
+<meta property="og:url" content="http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="Description“我是超级大沙茶”——Mato_No1 为了证明自己是一个超级大沙茶，Mato 神犇决定展示自己对叉(十字型)有多么的了 解。 Mato 神犇有一个平面直角坐标系，上面有一些线段，保证这些线段至少与一条坐标轴 平行。Mato 神犇需要指出，这些线段构成的最大的十字型有多大。 称一个图形为大小为 R(R 为正整数)的十字型，当且仅当，这个图形具有一个中心点， 它存在于某一条线段">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-02-22T11:23:25.455Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[模拟赛题]-Super Big Stupid Cross">
+<meta name="twitter:description" content="Description“我是超级大沙茶”——Mato_No1 为了证明自己是一个超级大沙茶，Mato 神犇决定展示自己对叉(十字型)有多么的了 解。 Mato 神犇有一个平面直角坐标系，上面有一些线段，保证这些线段至少与一条坐标轴 平行。Mato 神犇需要指出，这些线段构成的最大的十字型有多大。 称一个图形为大小为 R(R 为正整数)的十字型，当且仅当，这个图形具有一个中心点， 它存在于某一条线段">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[模拟赛题]-Super Big Stupid Cross</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/02/22/[模拟赛题]-Babystep/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/02/22/[模拟赛题]-克卜勒(kepler)/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&text=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&is_video=false&description=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[模拟赛题]-Super Big Stupid Cross&body=Check out this article: http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&name=[模拟赛题]-Super Big Stupid Cross&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&t=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解在这里"><span class="toc-number">2.</span> <span class="toc-text">题解在这里</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [模拟赛题]-Super Big Stupid Cross
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-02-22T11:20:11.000Z" itemprop="datePublished">2019-02-22</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/扫描线/">扫描线</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>“我是超级大沙茶”——Mato_No1</p>
+<p>为了证明自己是一个超级大沙茶，Mato 神犇决定展示自己对叉(十字型)有多么的了 解。</p>
+<p>Mato 神犇有一个平面直角坐标系，上面有一些线段，保证这些线段至少与一条坐标轴 平行。Mato 神犇需要指出，这些线段构成的最大的十字型有多大。</p>
+<p>称一个图形为大小为 R(R 为正整数)的十字型，当且仅当，这个图形具有一个中心点， 它存在于某一条线段上，并且由该点向上下左右延伸出的长度为 R 的线段都被已有的线段 覆盖。</p>
+<p>你可以假定:没有两条共线的线段具有公共点，没有重合的线段。</p>
+<p>【输入格式】</p>
+<p>第一行，一个正整数 N，代表线段的数目。</p>
+<p>以下 N 行，每行四个整数 x1,y1,x2,y2(x1=x2 或 y1=y2)，描述了一条线段。 </p>
+<p>【输出格式】</p>
+<p>当不存在十字型时:输出一行“Human intelligence is really terrible”(不包括引号)。</p>
+<p>否则:输出一行，一个整数，为最大的 R。 </p>
+<p>【样例输入 1】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">0001</span></span><br></pre></td></tr></table></figure></p>
+<p>【样例输出 1】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Human intelligence is really terrible</span><br></pre></td></tr></table></figure></p>
+<p>【样例输入 2】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">-1</span> <span class="number">0</span> <span class="number">5</span> <span class="number">0</span></span><br><span class="line"><span class="number">0</span> <span class="number">-1</span> <span class="number">0</span> <span class="number">1</span></span><br><span class="line"><span class="number">2</span> <span class="number">-2</span> <span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>【样例输出 2】<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<p>【数据规模与约定】</p>
+<p>对于 50%的数据:N≤1000。</p>
+<p>对于 100%的数据:1≤N≤100000，所有坐标的范围在-10^9~10^9 中。<br>后 50%内，所有数据均为随机生成。</p>
+<h1 id="题解在这里"><a href="#题解在这里" class="headerlink" title="题解在这里"></a>题解在这里</h1><p>这题真是想不到，想不到啊。。</p>
+<p>首先二分 R，每条长度 &gt; 2R 的线段两端减去 R 的长度。然后是用扫描线判断有没有十字形，即从左往右扫，碰到一条横线左端点就将它加入 set，碰到右端点就将它扔出 set；碰到一条竖线就看一看 set 有没有在这条竖线上端点和下端点之间的，如果有，那就是十字形。</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">set</span>&lt;<span class="keyword">int</span>&gt;::iterator It;</span><br><span class="line"><span class="keyword">int</span> n, cnt1, cnt2, l, r, ans, nums, numh;</span><br><span class="line"><span class="built_in">multiset</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node1</span> &#123;</span> <span class="keyword">int</span> x, l, r, len; &#125;s[N], ts[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node2</span> &#123;</span> <span class="keyword">int</span> y, l, r, len, id; &#125;h[N], th[N], Th[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node3</span> &#123;</span> <span class="keyword">int</span> p, id; &#125;R[N], L[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(node1 a, node1 b)</span> </span>&#123; <span class="keyword">return</span> a.x &lt; b.x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp1</span><span class="params">(node2 a, node2 b)</span> </span>&#123; <span class="keyword">return</span> a.l != b.l ? a.l &lt; b.l : a.r &lt; b.r; &#125;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp2</span><span class="params">(node2 a, node2 b)</span> </span>&#123; <span class="keyword">return</span> a.r != b.r ? a.r &lt; b.r : a.l &lt; b.l; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">prework</span><span class="params">(<span class="keyword">int</span> R)</span> </span>&#123;</span><br><span class="line">	nums = numh = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt1; i++)</span><br><span class="line">		<span class="keyword">if</span> (s[i].len &gt;= <span class="number">2</span> * R) &#123;</span><br><span class="line">			ts[++nums].x = s[i].x;</span><br><span class="line">			ts[nums].l = s[i].l + R;</span><br><span class="line">			ts[nums].r = s[i].r - R;</span><br><span class="line">			ts[nums].len = s[i].len - <span class="number">2</span> * R;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt2; i++)</span><br><span class="line">		<span class="keyword">if</span> (h[i].len &gt;= <span class="number">2</span> * R) &#123;</span><br><span class="line">			th[++numh].y = h[i].y;</span><br><span class="line">			th[numh].l = h[i].l + R;</span><br><span class="line">			th[numh].r = h[i].r - R;</span><br><span class="line">			th[numh].len = h[i].len - <span class="number">2</span> * R;</span><br><span class="line">			th[numh].id = numh;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="built_in">memcpy</span>(Th, th, <span class="keyword">sizeof</span>(th));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">(<span class="keyword">int</span> limit)</span> </span>&#123;</span><br><span class="line">	q.clear();</span><br><span class="line">	q.insert(<span class="number">1e9</span>);</span><br><span class="line">	prework(limit);</span><br><span class="line">	sort(ts + <span class="number">1</span>, ts + nums + <span class="number">1</span>, cmp);</span><br><span class="line">	sort(th + <span class="number">1</span>, th + numh + <span class="number">1</span>, cmp1);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= numh; i++)</span><br><span class="line">        L[i].p = th[i].l, L[i].id = th[i].id;</span><br><span class="line">    sort(th + <span class="number">1</span>, th + numh + <span class="number">1</span>, cmp2);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= numh; i++)</span><br><span class="line">        R[i].p = th[i].r, R[i].id = th[i].id;</span><br><span class="line">    L[numh + <span class="number">1</span>].p = R[numh + <span class="number">1</span>].p = ts[nums + <span class="number">1</span>].x = <span class="number">1e9</span>;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>, y = <span class="number">1</span>, z = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (x &lt;= numh || y &lt;= numh || z &lt;= nums) &#123;</span><br><span class="line">        <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (L[x + a].p &lt;= R[y].p &amp;&amp; L[x + a].p &lt;= ts[z].x) &#123;</span><br><span class="line">            q.insert(Th[L[x].id].y);</span><br><span class="line">            a++;</span><br><span class="line">            <span class="keyword">while</span> (L[x + a - <span class="number">1</span>].p == L[x + a].p) q.insert(Th[L[x + a].id].y), a++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (ts[z + c].x &lt;= L[x].p &amp;&amp; ts[z + c].x &lt;= R[y].p) &#123;</span><br><span class="line">            It s = q.lower_bound(ts[z].l);</span><br><span class="line">            <span class="keyword">if</span> (*s &lt;= ts[z].r) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            c++;</span><br><span class="line">            <span class="keyword">while</span> (ts[z + c - <span class="number">1</span>].x == ts[z + c].x) &#123;</span><br><span class="line">                It s = q.lower_bound(ts[z + c].l);</span><br><span class="line">                <span class="keyword">if</span> (*s &lt;= ts[z + c].r) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">                c++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (R[y].p &lt;= L[x].p &amp;&amp; R[y].p &lt;= ts[z].x) &#123;</span><br><span class="line">            q.erase(Th[R[y].id].y);</span><br><span class="line">            b++;</span><br><span class="line">            <span class="keyword">while</span> (R[b + y - <span class="number">1</span>].p == R[b + y].p) q.erase(Th[R[b + y].id].y), b++;</span><br><span class="line">        &#125;</span><br><span class="line">        x += a, y += b, z += c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y, x2, y2;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;x, &amp;y, &amp;x2, &amp;y2);</span><br><span class="line">		<span class="keyword">if</span> (x &gt; x2) swap(x, x2);</span><br><span class="line">		<span class="keyword">if</span> (y &gt; y2) swap(y, y2);</span><br><span class="line">		<span class="keyword">if</span> (x == x2) &#123;</span><br><span class="line">			s[++cnt1].x = x, s[cnt1].l = y, s[cnt1].r = y2, s[cnt1].len = y2 - y;</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			h[++cnt2].y = y, h[cnt2].l = x, h[cnt2].r = x2, h[cnt2].len = x2 - x;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	l = <span class="number">1</span>, r = <span class="number">1e9</span>, ans = <span class="number">1e9</span>;</span><br><span class="line">	<span class="keyword">while</span> (l &lt;= r) &#123;</span><br><span class="line">		<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> (check(mid)) ans = mid, l = mid + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (ans != <span class="number">1e9</span>) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"Human intelligence is really terrible"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Description"><span class="toc-number">1.</span> <span class="toc-text">Description</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#题解在这里"><span class="toc-number">2.</span> <span class="toc-text">题解在这里</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&text=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&is_video=false&description=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[模拟赛题]-Super Big Stupid Cross&body=Check out this article: http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&title=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&name=[模拟赛题]-Super Big Stupid Cross&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/02/22/[模拟赛题]-Super Big Stupid Cross/&t=[模拟赛题]-Super Big Stupid Cross"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

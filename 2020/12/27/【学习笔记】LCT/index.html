@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="之前学的。以 备 重 修 qwq 把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。 $access(x)$ 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右">
+<meta name="keywords" content="LCT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】LCT">
+<meta property="og:url" content="http://yoursite.com/2020/12/27/【学习笔记】LCT/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="之前学的。以 备 重 修 qwq 把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。 $access(x)$ 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-10T01:01:16.226Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】LCT">
+<meta name="twitter:description" content="之前学的。以 备 重 修 qwq 把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。 $access(x)$ 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>【学习笔记】LCT</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/12/26/【学习笔记】最大权闭合子图/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/12/27/【学习笔记】LCT/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&text=【学习笔记】LCT"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&is_video=false&description=【学习笔记】LCT"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】LCT&body=Check out this article: http://yoursite.com/2020/12/27/【学习笔记】LCT/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&name=【学习笔记】LCT&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/12/27/【学习笔记】LCT/&t=【学习笔记】LCT"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-x"><span class="toc-number">1.</span> <span class="toc-text">$access(x)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot-x"><span class="toc-number">2.</span> <span class="toc-text">$makeroot(x)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot-x"><span class="toc-number">3.</span> <span class="toc-text">$findroot(x)$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧："><span class="toc-number"></span> <span class="toc-text">珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number"></span> <span class="toc-text">$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】LCT
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-12-27T09:47:40.000Z" itemprop="datePublished">2020-12-27</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/LCT/">LCT</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>之前学的。以 备 重 修 qwq</p>
+<p>把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。</p>
+<h3 id="access-x"><a href="#access-x" class="headerlink" title="$access(x)$"></a>$access(x)$</h3><ul>
+<li><p>打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子</p>
+</li>
+<li><p>这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父亲是谁”的信息）</p>
+</li>
+</ul>
+<h3 id="makeroot-x"><a href="#makeroot-x" class="headerlink" title="$makeroot(x)$"></a>$makeroot(x)$</h3><ul>
+<li>先 $access$，此时 $x$ 成了和根在同一 $splay$ 中深度最大、中序遍历最末的点</li>
+<li>再 $splay$，此时 $x$ 成了所在 $splay$ 的根，但仍是深度最大。为了让 $x$ 成为根、变得深度最小，我们翻转 $x$ 的左右子树。<strong>注意：此操作不影响其他 $splay$ 的深度顺序。</strong></li>
+</ul>
+<h3 id="findroot-x"><a href="#findroot-x" class="headerlink" title="$findroot(x)$"></a>$findroot(x)$</h3><ul>
+<li>不断跳左儿子</li>
+<li><h2 id="珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧："><a href="#珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧：" class="headerlink" title="珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧："></a>珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ch[y][<span class="number">0</span>] == x &amp;&amp; !ch[x][<span class="number">1</span>]) &#123;</span><br><span class="line">    cut;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><a href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。" class="headerlink" title="$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。"></a>$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</h2><p>（模拟赛大爆炸</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-x"><span class="toc-number">1.</span> <span class="toc-text">$access(x)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot-x"><span class="toc-number">2.</span> <span class="toc-text">$makeroot(x)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot-x"><span class="toc-number">3.</span> <span class="toc-text">$findroot(x)$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧："><span class="toc-number"></span> <span class="toc-text">珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number"></span> <span class="toc-text">$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/12/27/【学习笔记】LCT/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&text=【学习笔记】LCT"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&is_video=false&description=【学习笔记】LCT"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】LCT&body=Check out this article: http://yoursite.com/2020/12/27/【学习笔记】LCT/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&title=【学习笔记】LCT"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/12/27/【学习笔记】LCT/&name=【学习笔记】LCT&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/12/27/【学习笔记】LCT/&t=【学习笔记】LCT"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

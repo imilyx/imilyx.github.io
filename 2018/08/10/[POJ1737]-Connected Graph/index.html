@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="https://vjudge.net/problem/POJ-1737 题意：求 N 个节点的无向连通图有多少个，节点有标号，为 1 ～ N，$1 \leq N \leq 50$. （诶我记得有一年的初赛问题求解T2是这个！） 当时那道初赛，4 个点，我是先算出了 $C_6^3 + C_6^4 + C_6^5 + C_6^6$，再减去三个点之间有三条边、一个点孤立的三种情况，共是38，与题例4相同">
+<meta name="keywords" content="排列组合,计数DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[POJ1737]-Connected Graph">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="https://vjudge.net/problem/POJ-1737 题意：求 N 个节点的无向连通图有多少个，节点有标号，为 1 ～ N，$1 \leq N \leq 50$. （诶我记得有一年的初赛问题求解T2是这个！） 当时那道初赛，4 个点，我是先算出了 $C_6^3 + C_6^4 + C_6^5 + C_6^6$，再减去三个点之间有三条边、一个点孤立的三种情况，共是38，与题例4相同">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T11:01:22.628Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[POJ1737]-Connected Graph">
+<meta name="twitter:description" content="https://vjudge.net/problem/POJ-1737 题意：求 N 个节点的无向连通图有多少个，节点有标号，为 1 ～ N，$1 \leq N \leq 50$. （诶我记得有一年的初赛问题求解T2是这个！） 当时那道初赛，4 个点，我是先算出了 $C_6^3 + C_6^4 + C_6^5 + C_6^6$，再减去三个点之间有三条边、一个点孤立的三种情况，共是38，与题例4相同">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[POJ1737]-Connected Graph</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/08/12/Codeforces Round 503 Div2/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/10/[CF559C]-Gerald and Giant Chess/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&text=[POJ1737]-Connected Graph"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&is_video=false&description=[POJ1737]-Connected Graph"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[POJ1737]-Connected Graph&body=Check out this article: http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&name=[POJ1737]-Connected Graph&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&t=[POJ1737]-Connected Graph"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [POJ1737]-Connected Graph
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-10T10:50:40.000Z" itemprop="datePublished">2018-08-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/排列组合/">排列组合</a>, <a class="tag-link" href="/tags/计数DP/">计数DP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://vjudge.net/problem/POJ-1737" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-1737</a></p>
+<p>题意：求 N 个节点的无向连通图有多少个，节点有标号，为 1 ～ N，$1 \leq N \leq 50$.</p>
+<p>（诶我记得有一年的初赛问题求解T2是这个！）</p>
+<p>当时那道初赛，4 个点，我是先算出了 $C_6^3 + C_6^4 + C_6^5 + C_6^6$，再减去三个点之间有三条边、一个点孤立的三种情况，共是38，与题例4相同。</p>
+<p>那么我们也可以用类似容斥的方法，来做这题。</p>
+<p>N 个点的无向图总数是 $2^{N * (N - 1) / 2}$。</p>
+<p>接下来计算 N 个点的不连通无向图的数量。一个不连通无向图必定由若干连通块组成。根据 “根据围绕基准点构造一个整体” 的思想，我们可以枚举标号为 1 的节点所在的连通块包含的节点个数 k，从 2 ～ i 这 i - 1 个节点中选出 k - 1 个节点构成任意无向图，有 $2 ^ {(i - k) * (i - k - 1) / 2}$ 种方法。</p>
+<p>综上所述，设 F[i] 表示 i 个节点的无向连通图个数：</p>
+<p>$$F[i] = 2^{i <em> (i - 1) / 2} - \sum\limits_{j = 1}^{i - 1} F[j] </em> C_{i - 1}^{j - 1} <em> 2^{(i - j) </em> (i - j - 1) / 2}$$</p>
+<p>可是，这题需要高精度，所以目前我还未AC，以上只是此题主要思路！</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll f[<span class="number">60</span>], C[<span class="number">60</span>][<span class="number">60</span>], sum[<span class="number">60</span>];</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">calc</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;<span class="keyword">return</span> <span class="number">1l</span>l &lt;&lt; (x * (x - <span class="number">1</span>) / <span class="number">2</span>);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    f[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    C[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">50</span>; i++) &#123;</span><br><span class="line">        C[i][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= i; j++) C[i][j] = C[i - <span class="number">1</span>][j] + C[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= <span class="number">50</span>; i++) &#123;</span><br><span class="line">        sum[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++)</span><br><span class="line">            sum[i] += C[i - <span class="number">1</span>][j - <span class="number">1</span>] * f[j] * calc(i - j);</span><br><span class="line">        f[i] = calc(i) - sum[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n) &amp;&amp; n) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, f[n]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>扩展题目：[HDU5729]-Rigid Frameworks</p>
+<p><a href="https://vjudge.net/problem/HDU-5729" target="_blank" rel="noopener">https://vjudge.net/problem/HDU-5729</a></p>
+<p>题意：因为矩形是不稳定的，会变成平行四边形，但是可以在矩形对角线加边，通过构成三角形使这个矩形稳定下来。给一 $n <em> m$ 的矩形，可以在单位矩形里加两种对角线（从左上到右下，从左下到右上两种），或者不加对角线，或者两条。问使这个 $n </em> m$ 的矩形稳定下来的方案数。</p>
+<p>原问题等价于求左边有 n 个点，右边有 m 个点的连通的二分图的数目，可以用类似连通图计数的方法 dp 得到。</p>
+<p>每个单位矩阵可以加两种对角线（从左上到右下，从左下到右上两种），或者不加对角线，共 3 种选择，则一个 $n * m$ 矩阵的总方案数是 $3^{nm}$。</p>
+<p>我们设 f[i, j] 表示使 $i * j$ 矩阵固定下来的合法方案数。</p>
+<p>与 POJ1737 类似，该题转移方程为：</p>
+<p>$$f[n, m] = 3^{n <em> m} - C_{n - 1}^{i - 1} </em> C_m^j <em> f[i, j] </em> 3^{(n - i) * (m - j)}$$</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">40</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">ll C[N][N], g[N * N], f[N][N], inv[N * N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    g[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">110</span>; i++) g[i] = g[i - <span class="number">1</span>] * <span class="number">3</span> % mod;</span><br><span class="line">    C[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; N; i++) &#123;</span><br><span class="line">        C[i][<span class="number">0</span>] = C[i][i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) C[i][j] = C[i - <span class="number">1</span>][j] + C[i - <span class="number">1</span>][j - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= <span class="number">10</span>; j++) &#123;</span><br><span class="line">            f[i][j] = g[i * j];</span><br><span class="line">            <span class="keyword">if</span> (i == <span class="number">1</span> &amp;&amp; j == <span class="number">0</span>) f[i][j] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> n = <span class="number">1</span>; n &lt;= i; n++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> m = <span class="number">0</span>; m &lt;= j; m++) &#123;</span><br><span class="line">                    <span class="keyword">if</span> (i == n &amp;&amp; j == m) <span class="keyword">continue</span>;</span><br><span class="line">                    f[i][j] -= C[i - <span class="number">1</span>][n - <span class="number">1</span>] * C[j][m] % mod * f[n][m] % mod * g[(i - n) * (j - m)] % mod;</span><br><span class="line">                    f[i][j] = (f[i][j] % mod + mod) % mod;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">int</span> n, m;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m)) <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, f[n][m]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&text=[POJ1737]-Connected Graph"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&is_video=false&description=[POJ1737]-Connected Graph"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[POJ1737]-Connected Graph&body=Check out this article: http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&title=[POJ1737]-Connected Graph"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&name=[POJ1737]-Connected Graph&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/10/[POJ1737]-Connected Graph/&t=[POJ1737]-Connected Graph"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

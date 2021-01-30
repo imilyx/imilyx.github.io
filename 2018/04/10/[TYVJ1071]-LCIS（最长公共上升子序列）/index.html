@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="http://www.joyoi.cn/problem/tyvj-1071 题意略。 这道题目是LIS和LCS的综合。 F[i, j] 表示 $A_1$ ~ $A_i$ 与 $B_1$ ~ $B_j$ 构成的以 $B_j$ 为结尾的 LCIS 的长度。不妨假设 $A_0 = B_0 = -\infty$. 当 $A_i \neq B_j$ 时， $$F[i, j] = F[i - 1, j]$$">
+<meta name="keywords" content="线性DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[TYVJ1071]-LCIS（最长公共上升子序列）">
+<meta property="og:url" content="http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="http://www.joyoi.cn/problem/tyvj-1071 题意略。 这道题目是LIS和LCS的综合。 F[i, j] 表示 $A_1$ ~ $A_i$ 与 $B_1$ ~ $B_j$ 构成的以 $B_j$ 为结尾的 LCIS 的长度。不妨假设 $A_0 = B_0 = -\infty$. 当 $A_i \neq B_j$ 时， $$F[i, j] = F[i - 1, j]$$">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T14:39:44.147Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[TYVJ1071]-LCIS（最长公共上升子序列）">
+<meta name="twitter:description" content="http://www.joyoi.cn/problem/tyvj-1071 题意略。 这道题目是LIS和LCS的综合。 F[i, j] 表示 $A_1$ ~ $A_i$ 与 $B_1$ ~ $B_j$ 构成的以 $B_j$ 为结尾的 LCIS 的长度。不妨假设 $A_0 = B_0 = -\infty$. 当 $A_i \neq B_j$ 时， $$F[i, j] = F[i - 1, j]$$">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[TYVJ1071]-LCIS（最长公共上升子序列）</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/04/22/KMP-字符串匹配/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/04/06/多重背包-二进制思想优化/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&text=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&is_video=false&description=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ1071]-LCIS（最长公共上升子序列）&body=Check out this article: http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&name=[TYVJ1071]-LCIS（最长公共上升子序列）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&t=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [TYVJ1071]-LCIS（最长公共上升子序列）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-04-10T02:34:40.000Z" itemprop="datePublished">2018-04-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/线性DP/">线性DP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://www.joyoi.cn/problem/tyvj-1071" target="_blank" rel="noopener">http://www.joyoi.cn/problem/tyvj-1071</a></p>
+<p>题意略。</p>
+<p>这道题目是LIS和LCS的综合。</p>
+<p>F[i, j] 表示 $A_1$ ~ $A_i$ 与 $B_1$ ~ $B_j$ 构成的以 $B_j$ 为结尾的 LCIS 的长度。不妨假设 $A_0 = B_0 = -\infty$.</p>
+<p>当 $A_i \neq B_j$ 时，</p>
+<p>$$F[i, j] = F[i - 1, j]$$</p>
+<p>当 $A_i = B_j$ 时，</p>
+<p>$$F[i, j] = \max\limits_{0 \leq k &lt; j, B_k &lt; B_j}{F[i - 1, k]} + 1 = \max\limits_{0 \leq k &lt; j, B_k &lt; A_i} {F[i - 1, k]} + 1$$</p>
+<p>但是我们又发现了·^`f[i][]都是由f[i - 1][]转移来的，所以最优解法只有一维：f[i]表示a序列前i位与b序列的LCIS.</p>
+<p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3010</span>;</span><br><span class="line"><span class="keyword">int</span> f[N], a[N], b[N], n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;b[i]);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[i] == b[j]) &#123;</span><br><span class="line">                f[j] = max(f[j], f[k] + <span class="number">1</span>);</span><br><span class="line">                ans = max(ans, f[j]);</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (b[j] &lt; a[i] &amp;&amp; f[k] &lt; f[j]) k = j;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>觉得自己DP很弱啊。。其实有很多类似val这样的决策优化，<br>对于“决策集合中的元素只增多不减少”的情况，就可以维护一个变量去记录信息，<br>所以DP重要的是要去注意用来转移的东西的变化，<br>甚至有的就不计算出一个状态，而是考虑“一个已知状态应该更新那些后续阶段的未知状态”，<br>真的很妙啊…</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&text=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&is_video=false&description=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ1071]-LCIS（最长公共上升子序列）&body=Check out this article: http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&title=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&name=[TYVJ1071]-LCIS（最长公共上升子序列）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/04/10/[TYVJ1071]-LCIS（最长公共上升子序列）/&t=[TYVJ1071]-LCIS（最长公共上升子序列）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

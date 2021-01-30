@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="传送门 题意：从 n 个数中选最多的数使得它们两两相乘不是立方数。 大佬博客 大致思路就是 质因数分解 + 贪心 了，本题重点在质因数分解！！ 首先，将每个 si 看作 prod{pi ^ {ai}}. 立方数 ✖️ 立方数 = 立方数，这启发我们简化指数，即 ai %= 3. 但是质因数分解理论上时间复杂度太大了！！怎么办！！！ 设 si·sj = x^3,  si·sj &amp;lt;= 10^20">
+<meta name="keywords" content="贪心">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[AT2004]-Anticube">
+<meta property="og:url" content="http://yoursite.com/2020/02/10/[AT2004]-Anticube/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="传送门 题意：从 n 个数中选最多的数使得它们两两相乘不是立方数。 大佬博客 大致思路就是 质因数分解 + 贪心 了，本题重点在质因数分解！！ 首先，将每个 si 看作 prod{pi ^ {ai}}. 立方数 ✖️ 立方数 = 立方数，这启发我们简化指数，即 ai %= 3. 但是质因数分解理论上时间复杂度太大了！！怎么办！！！ 设 si·sj = x^3,  si·sj &amp;lt;= 10^20">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-02-10T05:04:09.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[AT2004]-Anticube">
+<meta name="twitter:description" content="传送门 题意：从 n 个数中选最多的数使得它们两两相乘不是立方数。 大佬博客 大致思路就是 质因数分解 + 贪心 了，本题重点在质因数分解！！ 首先，将每个 si 看作 prod{pi ^ {ai}}. 立方数 ✖️ 立方数 = 立方数，这启发我们简化指数，即 ai %= 3. 但是质因数分解理论上时间复杂度太大了！！怎么办！！！ 设 si·sj = x^3,  si·sj &amp;lt;= 10^20">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[AT2004]-Anticube</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/02/11/[AT2005]-Sequential operations on Sequence/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/02/09/[AT1984]-Wide Swap/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/10/[AT2004]-Anticube/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&text=[AT2004]-Anticube"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&is_video=false&description=[AT2004]-Anticube"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[AT2004]-Anticube&body=Check out this article: http://yoursite.com/2020/02/10/[AT2004]-Anticube/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&name=[AT2004]-Anticube&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&t=[AT2004]-Anticube"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [AT2004]-Anticube
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-02-10T04:15:40.000Z" itemprop="datePublished">2020-02-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/贪心/">贪心</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://vjudge.net/problem/AtCoder-2004" target="_blank" rel="noopener">传送门</a></p>
+<p>题意：从 n 个数中选最多的数使得它们两两相乘不是立方数。</p>
+<p><a href="https://blog.csdn.net/WerKeyTom_FTD/article/details/78361615" target="_blank" rel="noopener">大佬博客</a></p>
+<p>大致思路就是 <strong>质因数分解 + 贪心</strong> 了，本题重点在质因数分解！！</p>
+<p>首先，将每个 si 看作 prod{pi ^ {ai}}. 立方数 ✖️ 立方数 = 立方数，这启发我们简化指数，即 ai %= 3.</p>
+<p>但是质因数分解理论上时间复杂度太大了！！怎么办！！！</p>
+<p>设 si·sj = x^3,  si·sj &lt;= 10^20,  x &lt;= 10^{20/3}。  x 可能有一个 [10^{10/3}, 10^{20/3}] 的质因子，但是如果这个质因子大于 1e5, si 和 sj 总共也不可能有 3 个，<strong>所以 x 的每个质因子都是 [2, 1e5] 范围内的，其中 [10^{10/3}, 1e5] 以内的数最多只有一个。</strong></p>
+<p>对于大佬最后一行，我的理解是，si 中 &gt; 10^{10/3} 的质因子，在 [10^{10/3}, 1e5] 范围内的部分 指数只会是 1 或 2，而 &gt; 1e5 的部分最多只有 1 个，不影响大局。</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">ll n, s[N], a[N], b[N], ans;  <span class="comment">// a[i] 存的是 s[i] 的最简数，b[i] 是 a[i] 的补数</span></span><br><span class="line"><span class="built_in">map</span>&lt;ll, <span class="keyword">int</span>&gt; num;</span><br><span class="line"><span class="built_in">map</span>&lt;ll, <span class="keyword">bool</span>&gt; vis;</span><br><span class="line"><span class="keyword">int</span> mark[N], p[N], tot;</span><br><span class="line"><span class="comment">// 拓展：10^&#123;10/3&#125; 以内质数有 326 个，10^&#123;10/3&#125;~10^5 以内质数有 9267 个</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">euler</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">2</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!mark[i]) p[++tot] = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; p[j] * i &lt;= n; j++) &#123;</span><br><span class="line">            mark[p[j] * i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % p[j] == <span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    euler(<span class="number">100000</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;s[i]);</span><br><span class="line"></span><br><span class="line">    ll k, tmp;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        k = s[i]; a[i] = b[i] = <span class="number">1</span>;</span><br><span class="line">        rep(o, <span class="number">1</span>, tot) &#123;</span><br><span class="line">            <span class="keyword">if</span> (k == <span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">            ll j = p[o];</span><br><span class="line">            <span class="keyword">if</span> (j * j * j &gt;= <span class="number">1e10</span>) <span class="keyword">break</span>;  <span class="comment">// 10^&#123;10/3&#125; 以内</span></span><br><span class="line">            <span class="keyword">if</span> (mark[j]) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            tmp = <span class="number">1l</span>l * j * j * j;</span><br><span class="line">            <span class="keyword">while</span> (k % tmp == <span class="number">0</span>) k /= tmp;  <span class="comment">// 简化</span></span><br><span class="line">            tmp = <span class="number">1l</span>l * j * j;</span><br><span class="line">            <span class="keyword">if</span> (k % tmp == <span class="number">0</span>) a[i] *= tmp, b[i] *= j;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (k % j == <span class="number">0</span>) a[i] *= j, b[i] *= tmp;</span><br><span class="line">            <span class="keyword">while</span> (k % j == <span class="number">0</span>) k /= j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (k &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            tmp = (ll)<span class="built_in">sqrt</span>(k);</span><br><span class="line">            <span class="keyword">if</span> (tmp * tmp == k) a[i] *= k, b[i] *= tmp;</span><br><span class="line">            <span class="keyword">else</span> a[i] *= k, b[i] *= k * k;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) num[a[i]]++;  <span class="comment">// a[i] 是 s[i] 去掉指数是 3 倍数质因子的结果</span></span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[a[i]]) <span class="keyword">continue</span>;</span><br><span class="line">        vis[a[i]] = vis[b[i]] = <span class="number">1</span>;</span><br><span class="line">        ans += (a[i] == b[i] ? <span class="number">1</span> : max(num[a[i]], num[b[i]]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/02/10/[AT2004]-Anticube/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&text=[AT2004]-Anticube"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&is_video=false&description=[AT2004]-Anticube"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[AT2004]-Anticube&body=Check out this article: http://yoursite.com/2020/02/10/[AT2004]-Anticube/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&title=[AT2004]-Anticube"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&name=[AT2004]-Anticube&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/02/10/[AT2004]-Anticube/&t=[AT2004]-Anticube"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="http://www.joyoi.cn/problem/tyvj-2002 题意略。 本题是数学期望与动态规划结合起来的，我们需要设六维DP。 设 $F[a, b, c, d, x, y]$ 表示当前已经翻开了 a 张黑桃、b 张红桃、c 张梅花、d 张方块，并且小王状态为 x、大王状态为 y 时的期望值。具体来说，x = 4 表示没有用过小王，x = 0 ～ 3 表示用过小王，且把小王作为相应的">
+<meta name="keywords" content="概率与期望">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[TYVJ2002]-扑克牌">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="http://www.joyoi.cn/problem/tyvj-2002 题意略。 本题是数学期望与动态规划结合起来的，我们需要设六维DP。 设 $F[a, b, c, d, x, y]$ 表示当前已经翻开了 a 张黑桃、b 张红桃、c 张梅花、d 张方块，并且小王状态为 x、大王状态为 y 时的期望值。具体来说，x = 4 表示没有用过小王，x = 0 ～ 3 表示用过小王，且把小王作为相应的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-04T08:32:50.772Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[TYVJ2002]-扑克牌">
+<meta name="twitter:description" content="http://www.joyoi.cn/problem/tyvj-2002 题意略。 本题是数学期望与动态规划结合起来的，我们需要设六维DP。 设 $F[a, b, c, d, x, y]$ 表示当前已经翻开了 a 张黑桃、b 张红桃、c 张梅花、d 张方块，并且小王状态为 x、大王状态为 y 时的期望值。具体来说，x = 4 表示没有用过小王，x = 0 ～ 3 表示用过小王，且把小王作为相应的">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[TYVJ2002]-扑克牌</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/08/04/[POJ3621]-Sightseeing Cows/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/03/[TYVJ1933]-绿豆蛙的归宿/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&text=[TYVJ2002]-扑克牌"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&is_video=false&description=[TYVJ2002]-扑克牌"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ2002]-扑克牌&body=Check out this article: http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&name=[TYVJ2002]-扑克牌&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&t=[TYVJ2002]-扑克牌"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [TYVJ2002]-扑克牌
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-03T15:12:11.000Z" itemprop="datePublished">2018-08-03</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/概率与期望/">概率与期望</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://www.joyoi.cn/problem/tyvj-2002" target="_blank" rel="noopener">http://www.joyoi.cn/problem/tyvj-2002</a></p>
+<p>题意略。</p>
+<p>本题是数学期望与动态规划结合起来的，我们需要设六维DP。</p>
+<p>设 $F[a, b, c, d, x, y]$ 表示当前已经翻开了 a 张黑桃、b 张红桃、c 张梅花、d 张方块，并且小王状态为 x、大王状态为 y 时的期望值。具体来说，x = 4 表示没有用过小王，x = 0 ～ 3 表示用过小王，且把小王作为相应的花色（0 代表黑桃，1 代表红桃，2 代表梅花，3 代表方块）。大王记录方法同理。</p>
+<p>当前已经翻开的牌总数为 $sum = (a + b + c + d + (x != 4) + (y != 4))$。到目前为止，还剩下 54 - sum 张牌，其中有 13 - a 张黑桃，故翻开一张黑桃的概率是 (13 - a) / (54 - sum)。对于红桃、梅花、方块同理。</p>
+<p>特别地，当 x = 4 时，有 1 / (54 - sum) 的概率翻开小王，这时应选择把小王看作某种花色，使期望值尽量小，即 $min_{0 \leq x^{‘} \leq 3}{F[a, b, c, d, x^{‘}, y]}$。对于大王情况类似。</p>
+<p>这里要记住一点，就是若翻开的牌数已经达到了题目要求的数量，即结束，期望值为 0.</p>
+<p>还有一点，在数学期望递推、数学期望动态规划中，我们通常把终止状态（本题中是翻开的牌数达到要求）作为初值，把起始状态（本题中是尚未翻开任何牌）作为目标，倒着进行计算。本题中的目标是 $F[0, 0, 0, 0, 4, 4]$。这是因为在很多情况下，起始状态是唯一的，而终止状态很多。</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">15</span>;</span><br><span class="line"><span class="keyword">int</span> A, B, C, D;</span><br><span class="line"><span class="keyword">double</span> f[N][N][N][N][<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"><span class="keyword">bool</span> vis[N][N][N][N][<span class="number">5</span>][<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c, <span class="keyword">int</span> d, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vis[a][b][c][d][x][y]) <span class="keyword">return</span> f[a][b][c][d][x][y];  <span class="comment">// 记忆化搜索，DP也可以！</span></span><br><span class="line">    <span class="keyword">if</span> ((a + (x == <span class="number">0</span>) + (y == <span class="number">0</span>)) &gt;= A &amp;&amp; (b + (x == <span class="number">1</span>) + (y == <span class="number">1</span>)) &gt;= B &amp;&amp; (c + (x == <span class="number">2</span>) + (y == <span class="number">2</span>)) &gt;= C &amp;&amp; (d + (x == <span class="number">3</span>) + (y == <span class="number">3</span>)) &gt;= D)</span><br><span class="line">        <span class="keyword">return</span> f[a][b][c][d][x][y] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> sum = a + b + c + d + (x != <span class="number">4</span>) + (y != <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> tmp = <span class="number">1</span>;  <span class="comment">// 这里很重要！不过还没有弄懂，为什么 tmp 要等于 1？我发现，tmp = 0.5 时输出也是标准答案的一半。有待考证！</span></span><br><span class="line">    <span class="keyword">if</span> (a &lt; <span class="number">13</span>) tmp += dfs(a + <span class="number">1</span>, b, c, d, x, y) * (<span class="number">13</span> - a) / (<span class="number">54</span> - sum);</span><br><span class="line">    <span class="keyword">if</span> (b &lt; <span class="number">13</span>) tmp += dfs(a, b + <span class="number">1</span>, c, d, x, y) * (<span class="number">13</span> - b) / (<span class="number">54</span> - sum);</span><br><span class="line">    <span class="keyword">if</span> (c &lt; <span class="number">13</span>) tmp += dfs(a, b, c + <span class="number">1</span>, d, x, y) * (<span class="number">13</span> - c) / (<span class="number">54</span> - sum);</span><br><span class="line">    <span class="keyword">if</span> (d &lt; <span class="number">13</span>) tmp += dfs(a, b, c, d + <span class="number">1</span>, x, y) * (<span class="number">13</span> - d) / (<span class="number">54</span> - sum);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">double</span> wang;</span><br><span class="line">    <span class="keyword">if</span> (x == <span class="number">4</span>) &#123;</span><br><span class="line">        wang = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) wang = min(wang, dfs(a, b, c, d, i, y) / (<span class="number">54</span> - sum));</span><br><span class="line">        tmp += wang;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (y == <span class="number">4</span>) &#123;</span><br><span class="line">        wang = <span class="number">100</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) wang = min(wang, dfs(a, b, c, d, x, i) / (<span class="number">54</span> - sum));</span><br><span class="line">        tmp += wang;</span><br><span class="line">    &#125;</span><br><span class="line">    vis[a][b][c][d][x][y] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> f[a][b][c][d][x][y] = tmp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; A &gt;&gt; B &gt;&gt; C &gt;&gt; D;</span><br><span class="line">    <span class="keyword">double</span> ans = dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">4</span>);</span><br><span class="line">    <span class="keyword">if</span> (ans &gt; <span class="number">54</span>) ans = <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.3lf\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&text=[TYVJ2002]-扑克牌"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&is_video=false&description=[TYVJ2002]-扑克牌"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[TYVJ2002]-扑克牌&body=Check out this article: http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&title=[TYVJ2002]-扑克牌"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&name=[TYVJ2002]-扑克牌&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/03/[TYVJ2002]-扑克牌/&t=[TYVJ2002]-扑克牌"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

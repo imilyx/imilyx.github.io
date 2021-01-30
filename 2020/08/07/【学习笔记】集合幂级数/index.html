@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
+<meta name="keywords" content="集合幂级数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】集合幂级数">
+<meta property="og:url" content="http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-01-10T15:49:44.644Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】集合幂级数">
+<meta name="twitter:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>【学习笔记】集合幂级数</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/08/08/[UOJ310]-黎明前的巧克力/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/08/07/XJOI200807 题解/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&text=【学习笔记】集合幂级数"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&is_video=false&description=【学习笔记】集合幂级数"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】集合幂级数&body=Check out this article: http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&name=【学习笔记】集合幂级数&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&t=【学习笔记】集合幂级数"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">1.</span> <span class="toc-text">FWT</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】集合幂级数
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-07T12:05:40.000Z" itemprop="datePublished">2020-08-07</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/集合幂级数/">集合幂级数</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开了新世界的大门。</span><br></pre></td></tr></table></figure>
+<p>抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。</p>
+<h2 id="FWT"><a href="#FWT" class="headerlink" title="FWT"></a>FWT</h2><hr>
+<p>有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。</p>
+<p>那么对于异或卷积 $h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R = S] f_Lg_R$ 就有新的思路：</p>
+<p>$$h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R \oplus S = \emptyset] f_Lg_R$$</p>
+<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap (L \oplus R \oplus S)|} f_Lg_R$$</p>
+<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap L|} (-1)^{|T \cap R|} (-1)^{|T \cap S|} f_Lg_R$$</p>
+<p>$$= \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} ( \sum\limits_{L \subseteq 2^U} (-1)^{|T \cap L|} f_L ) ( \sum\limits_{R \subseteq 2^U} (-1)^{|T \cap R|} g_R )$$</p>
+<p>于是定义 FWT：$\hat{f_S} = \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
+<p>IFWT：$\hat{f_S} = \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FWT_xor</span><span class="params">(ll a[], <span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> (!((j &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">                ll x = a[j], y = a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))];</span><br><span class="line">                a[j] = (x + y) % mod, a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] = (x - y + mod) % mod;</span><br><span class="line">                <span class="keyword">if</span> (op == <span class="number">-1</span>) (a[j] *= inv2) %= mod, (a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] *= inv2) %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">1.</span> <span class="toc-text">FWT</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&text=【学习笔记】集合幂级数"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&is_video=false&description=【学习笔记】集合幂级数"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】集合幂级数&body=Check out this article: http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&title=【学习笔记】集合幂级数"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&name=【学习笔记】集合幂级数&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/&t=【学习笔记】集合幂级数"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

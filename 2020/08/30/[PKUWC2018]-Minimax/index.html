@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+<meta name="keywords" content="线段树合并,概率与期望,整体dp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[PKUWC2018]-Minimax">
+<meta property="og:url" content="http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-02T07:32:53.022Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[PKUWC2018]-Minimax">
+<meta name="twitter:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[PKUWC2018]-Minimax</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/09/02/CSP2019 题解/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/08/29/[NOI2012]-迷失游乐园/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&text=[PKUWC2018]-Minimax"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&is_video=false&description=[PKUWC2018]-Minimax"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[PKUWC2018]-Minimax&body=Check out this article: http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&name=[PKUWC2018]-Minimax&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&t=[PKUWC2018]-Minimax"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [PKUWC2018]-Minimax
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-08-30T04:15:40.000Z" itemprop="datePublished">2020-08-30</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/整体dp/">整体dp</a>, <a class="tag-link" href="/tags/概率与期望/">概率与期望</a>, <a class="tag-link" href="/tags/线段树合并/">线段树合并</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://www.luogu.com.cn/problem/P5298" target="_blank" rel="noopener">传送门</a></p>
+<p>以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移：</p>
+<p>$$f[i, j] = f[ls, j] <em> (p[i] </em> \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) <em> \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] </em> (p[i] <em> \sum\limits_{k = 1}^{j - 1} f[ls, k] + (1 - p[i]) </em> \sum\limits_{k = j + 1}^m f[ls, k])$$</p>
+<p>发现每个叶子结点的权值都不同，且都只会贡献一次，<strong>想到线段树合并</strong>（注意要合并的东西必须是 $O(n)$ 及以下级别的，不然上不了线段树合并）。然后发现线段树可以很好地维护区间和、区间乘标记等东西！</p>
+<p>（哇线段树合并复杂度是啥呀我又不会了）</p>
+<p>好吧来看看，合并两颗线段树的复杂度约等于它们 <strong>重合</strong> 的点数，设树有 $n$ 个节点，线段长度是 $m$，总复杂度就是 $O(nlogm)$（感性理解就是每加进来一个点最多增加 $logm$ 的复杂度）</p>
+<p>这类题，即用动态开点线段树优化的二维dp，有个新名词叫做“整体dp”！</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">998244353</span>, N = <span class="number">3e5</span> + <span class="number">10</span>, M = N * <span class="number">60</span>, inv = <span class="number">796898467</span>, P = mod;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n, m, idx;</span><br><span class="line"><span class="keyword">int</span> son[N][<span class="number">2</span>], h[N], val[N], ans, ls[M], rs[M], tag[M], f[M], rt[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">psd</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tag[x] != <span class="number">1</span>) &#123;</span><br><span class="line">        tag[ls[x]] = <span class="number">1l</span>l * tag[ls[x]] * tag[x] % mod;</span><br><span class="line">        tag[rs[x]] = <span class="number">1l</span>l * tag[rs[x]] * tag[x] % mod;</span><br><span class="line">        f[ls[x]] = <span class="number">1l</span>l * f[ls[x]] * tag[x] % mod;</span><br><span class="line">        f[rs[x]] = <span class="number">1l</span>l * f[rs[x]] * tag[x] % mod;</span><br><span class="line">        tag[x] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    f[x] = (f[ls[x]] + f[rs[x]]) % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">insert</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> pos)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!x) x = ++idx, tag[idx] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        f[x] = <span class="number">1</span>; <span class="keyword">return</span>;  <span class="comment">// 概率是 100%</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (pos &lt;= mid) insert(ls[x], l, mid, pos);</span><br><span class="line">    <span class="keyword">else</span> insert(rs[x], mid + <span class="number">1</span>, r, pos);</span><br><span class="line">    upd(x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> la, <span class="keyword">int</span> ra, <span class="keyword">int</span> lb, <span class="keyword">int</span> rb, <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!x &amp;&amp; !y) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (x) psd(x);</span><br><span class="line">    <span class="keyword">if</span> (y) psd(y);</span><br><span class="line">    <span class="keyword">if</span> (x &amp;&amp; !y) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = (<span class="number">1l</span>l * p * lb % mod + <span class="number">1l</span>l * (<span class="number">1</span> - p + mod) % mod * rb % mod) % mod;</span><br><span class="line">        f[x] = <span class="number">1l</span>l * f[x] * t % mod;</span><br><span class="line">        tag[x] = <span class="number">1l</span>l * tag[x] * t % mod;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!x &amp;&amp; y) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = (<span class="number">1l</span>l * p * la % mod + <span class="number">1l</span>l * (<span class="number">1</span> - p + mod) % mod * ra % mod) % mod;</span><br><span class="line">        f[y] = <span class="number">1l</span>l * f[y] * t % mod;</span><br><span class="line">        tag[y] = <span class="number">1l</span>l * tag[y] * t % mod;</span><br><span class="line">        <span class="keyword">return</span> y;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> a = f[ls[x]], b = f[ls[y]];</span><br><span class="line">    <span class="keyword">int</span> cur = ++idx; tag[cur] = <span class="number">1</span>;</span><br><span class="line">    ls[cur] = merge(ls[x], ls[y], la, (ra + f[rs[x]]) % mod, lb, (rb + f[rs[y]]) % mod, p);</span><br><span class="line">    rs[cur] = merge(rs[x], rs[y], (la + a) % mod, ra, (lb + b) % mod, rb, p);</span><br><span class="line">    upd(cur);</span><br><span class="line">    <span class="keyword">return</span> cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!son[x][<span class="number">0</span>] &amp;&amp; !son[x][<span class="number">1</span>]) &#123;</span><br><span class="line">        insert(rt[x], <span class="number">1</span>, m, val[x]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (!son[x][<span class="number">1</span>]) &#123;</span><br><span class="line">        dfs(son[x][<span class="number">0</span>]);</span><br><span class="line">        rt[x] = rt[son[x][<span class="number">0</span>]];</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(son[x][<span class="number">0</span>]), dfs(son[x][<span class="number">1</span>]);</span><br><span class="line">    <span class="keyword">int</span> p = <span class="number">1l</span>l * val[x] * inv % mod;</span><br><span class="line">    rt[x] = merge(rt[son[x][<span class="number">0</span>]], rt[son[x][<span class="number">1</span>]], <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calc_ans</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!x) <span class="keyword">return</span>;</span><br><span class="line">    psd(x);</span><br><span class="line">    <span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">        ans = (ans + <span class="number">1l</span>l * l * h[l] % mod * f[x] % mod * f[x] % mod) % mod;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    calc_ans(ls[x], l, mid), calc_ans(rs[x], mid + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">int</span> x; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">        <span class="keyword">if</span> (!son[x][<span class="number">0</span>]) son[x][<span class="number">0</span>] = i;</span><br><span class="line">        <span class="keyword">else</span> son[x][<span class="number">1</span>] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;val[i]);</span><br><span class="line">        <span class="keyword">if</span> (!son[i][<span class="number">0</span>] &amp;&amp; !son[i][<span class="number">1</span>]) h[++m] = val[i];</span><br><span class="line">    &#125;</span><br><span class="line">    sort(h + <span class="number">1</span>, h + m + <span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        <span class="keyword">if</span> (!son[i][<span class="number">0</span>] &amp;&amp; !son[i][<span class="number">1</span>])</span><br><span class="line">            val[i] = lower_bound(h + <span class="number">1</span>, h + m + <span class="number">1</span>, val[i]) - h;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    calc_ans(rt[<span class="number">1</span>], <span class="number">1</span>, m);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&text=[PKUWC2018]-Minimax"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&is_video=false&description=[PKUWC2018]-Minimax"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[PKUWC2018]-Minimax&body=Check out this article: http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&title=[PKUWC2018]-Minimax"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&name=[PKUWC2018]-Minimax&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/&t=[PKUWC2018]-Minimax"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

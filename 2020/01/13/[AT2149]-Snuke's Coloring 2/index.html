@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+<meta name="keywords" content="线段树,单调栈">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[AT2149]-Snuke&#39;s Coloring 2">
+<meta property="og:url" content="http://yoursite.com/2020/01/13/[AT2149]-Snuke's Coloring 2/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-15T12:39:39.864Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[AT2149]-Snuke&#39;s Coloring 2">
+<meta name="twitter:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[AT2149]-Snuke&#39;s Coloring 2</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/01/26/[HAOI2006]-数字序列/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/12/31/[USACO11JAN]-道路和航线/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&text=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&is_video=false&description=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[AT2149]-Snuke&#39;s Coloring 2&body=Check out this article: http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&name=[AT2149]-Snuke&#39;s Coloring 2&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&t=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [AT2149]-Snuke&#39;s Coloring 2
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-01-13T12:15:40.000Z" itemprop="datePublished">2020-01-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/单调栈/">单调栈</a>, <a class="tag-link" href="/tags/线段树/">线段树</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的</p>
+<p><a href="https://vjudge.net/problem/AtCoder-2149" target="_blank" rel="noopener">传送门！飞</a></p>
+<p><a href="https://www.cnblogs.com/coco-night/p/9677691.html" target="_blank" rel="noopener">这位dalao说得好，我若讲不清楚可看ta的！</a></p>
+<p>首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形<strong>一定</strong>过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做完后将图翻转再做一次前者）</p>
+<p>有了<strong>过中线</strong>的保证，我们就可以把点分成中线上下两部分处理。</p>
+<p>找！定！量！这个定量就是一条竖着的扫描线，身份是矩形的右边界。。O(n ^ 2)的朴素算法就是从右边界往左扫，单调栈维护<strong>最</strong>值。考虑如何优化。</p>
+<p>用线段树<strong>帮助</strong>维护扫描线左边（即扫过区域）每个点所在直线为左边界时的最大矩形周长，加加减减具体可看 dalao 博客链接，其核心就是线段的和差。。显然是可以维护的！！</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (long long i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">int</span> w, h, n, ans;</span><br><span class="line"><span class="keyword">int</span> tag[N &lt;&lt; <span class="number">2</span>], mx[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line">pii p[N], a[N], b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">psd</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (tag[x]) &#123;</span><br><span class="line">        tag[x &lt;&lt; <span class="number">1</span>] += tag[x];</span><br><span class="line">        tag[x &lt;&lt; <span class="number">1</span> | <span class="number">1</span>] += tag[x];</span><br><span class="line">        mx[x &lt;&lt; <span class="number">1</span>] += tag[x];</span><br><span class="line">        mx[x &lt;&lt; <span class="number">1</span> | <span class="number">1</span>] += tag[x];</span><br><span class="line">        tag[x] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> lx, <span class="keyword">int</span> rx, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (rx &lt; l || r &lt; lx) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">if</span> (lx &lt;= l &amp;&amp; r &lt;= rx) &#123;</span><br><span class="line">        tag[x] += val, mx[x] += val; <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    psd(x);</span><br><span class="line">    <span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    update(x &lt;&lt; <span class="number">1</span>, l, mid, lx, rx, val);</span><br><span class="line">    update(x &lt;&lt; <span class="number">1</span> | <span class="number">1</span>, mid + <span class="number">1</span>, r, lx, rx, val);</span><br><span class="line">    mx[x] = max(mx[x &lt;&lt; <span class="number">1</span>], mx[x &lt;&lt; <span class="number">1</span> | <span class="number">1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(mx, <span class="number">0</span>, <span class="keyword">sizeof</span>(mx));</span><br><span class="line">    <span class="built_in">memset</span>(tag, <span class="number">0</span>, <span class="keyword">sizeof</span>(tag));</span><br><span class="line"></span><br><span class="line">    sort(p + <span class="number">1</span>, p + n + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> l = <span class="number">0</span>, r = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p[i].y &lt;= h / <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> nxt = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (l &amp;&amp; p[i].y &gt; a[l].y) &#123;</span><br><span class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, a[l].x, nxt, a[l].y - p[i].y);</span><br><span class="line">                nxt = a[l].x - <span class="number">1</span>;</span><br><span class="line">                --l;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (nxt != i - <span class="number">1</span>) a[++l] = make_pair(nxt + <span class="number">1</span>, p[i].y);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> nxt = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (r &amp;&amp; p[i].y &lt; b[r].y) &#123;</span><br><span class="line">                update(<span class="number">1</span>, <span class="number">1</span>, n, b[r].x, nxt, p[i].y - b[r].y);</span><br><span class="line">                nxt = b[r].x - <span class="number">1</span>;</span><br><span class="line">                --r;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (nxt != i - <span class="number">1</span>) b[++r] = make_pair(nxt + <span class="number">1</span>, p[i].y);</span><br><span class="line">        &#125;</span><br><span class="line">        a[++l] = make_pair(i, <span class="number">0</span>);</span><br><span class="line">        b[++r] = make_pair(i, h);</span><br><span class="line">        update(<span class="number">1</span>, <span class="number">1</span>, n, i, i, h - p[i].x);</span><br><span class="line">        ans = max(ans, p[i + <span class="number">1</span>].x + mx[<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; w &gt;&gt; h &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;p[i].x, &amp;p[i].y);</span><br><span class="line">    p[++n] = make_pair(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    p[++n] = make_pair(w, h);</span><br><span class="line"></span><br><span class="line">    solve();</span><br><span class="line"></span><br><span class="line">    rep(i, <span class="number">1</span>, n) swap(p[i].x, p[i].y);  <span class="comment">// 翻转</span></span><br><span class="line">    swap(w, h);</span><br><span class="line">    solve();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我发现做题找定量是非常重要的！本题的精髓就在于找定量。上次 usaco 12月月赛 T1 也是找定量，这个真的很有用哇！</p>
+<p>（一上来看到矩形肯定头都大啦，哪知道定量是啥啊。。</p>
+<p>反正这题 <strong>性质</strong> 和 <strong>定量思想</strong> 缺一不可啊。。。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&text=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&is_video=false&description=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[AT2149]-Snuke&#39;s Coloring 2&body=Check out this article: http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&title=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&name=[AT2149]-Snuke&#39;s Coloring 2&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/01/13/[AT2149]-Snuke&#39;s Coloring 2/&t=[AT2149]-Snuke&#39;s Coloring 2"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

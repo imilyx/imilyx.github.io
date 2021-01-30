@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="https://vjudge.net/problem/CodeForces-559C 题意：给定一个 $H * W$ 的棋盘，棋盘上只有 N 个格子是黑色的，其余都是白色的。在棋盘左上角有一个卒，每一步可以向下或向右移动一格，并且不能移动到黑色格子中，求这个卒从左上角移到右下角，一共有多少种可能的路线。$1 \leq H, W \leq 10^5$, $1 \leq N \leq 2000$. 答">
+<meta name="keywords" content="排列组合,计数DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CF559C]-Gerald and Giant Chess">
+<meta property="og:url" content="http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="https://vjudge.net/problem/CodeForces-559C 题意：给定一个 $H * W$ 的棋盘，棋盘上只有 N 个格子是黑色的，其余都是白色的。在棋盘左上角有一个卒，每一步可以向下或向右移动一格，并且不能移动到黑色格子中，求这个卒从左上角移到右下角，一共有多少种可能的路线。$1 \leq H, W \leq 10^5$, $1 \leq N \leq 2000$. 答">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-10T10:03:40.303Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CF559C]-Gerald and Giant Chess">
+<meta name="twitter:description" content="https://vjudge.net/problem/CodeForces-559C 题意：给定一个 $H * W$ 的棋盘，棋盘上只有 N 个格子是黑色的，其余都是白色的。在棋盘左上角有一个卒，每一步可以向下或向右移动一格，并且不能移动到黑色格子中，求这个卒从左上角移到右下角，一共有多少种可能的路线。$1 \leq H, W \leq 10^5$, $1 \leq N \leq 2000$. 答">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[CF559C]-Gerald and Giant Chess</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/08/10/[POJ1737]-Connected Graph/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/10/[NOI2001]-炮兵阵地/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&text=[CF559C]-Gerald and Giant Chess"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&is_video=false&description=[CF559C]-Gerald and Giant Chess"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[CF559C]-Gerald and Giant Chess&body=Check out this article: http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&name=[CF559C]-Gerald and Giant Chess&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&t=[CF559C]-Gerald and Giant Chess"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [CF559C]-Gerald and Giant Chess
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-10T09:21:40.000Z" itemprop="datePublished">2018-08-10</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/排列组合/">排列组合</a>, <a class="tag-link" href="/tags/计数DP/">计数DP</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://vjudge.net/problem/CodeForces-559C" target="_blank" rel="noopener">https://vjudge.net/problem/CodeForces-559C</a></p>
+<p>题意：给定一个 $H * W$ 的棋盘，棋盘上只有 N 个格子是黑色的，其余都是白色的。在棋盘左上角有一个卒，每一步可以向下或向右移动一格，并且不能移动到黑色格子中，求这个卒从左上角移到右下角，一共有多少种可能的路线。<br>$1 \leq H, W \leq 10^5$, $1 \leq N \leq 2000$. 答案对 1e9 + 7 取模。</p>
+<p>我们发现，H 与 W 很大，而 N 只有 2000，可以考虑如何依靠黑色格子进行计数。</p>
+<p>如果允许走进任何颜色的格子，那么从左上角走到右下角的方案数就是 $C_{H + W - 2}^{H - 1}$。这个就是组合计数里的多重集组合数。我们可以理解为，从 1 到 H 的几何距离是 $|H - 1|$，从 1 到 W 的几何距离是 $|W - 1|$，那么从 (1, 1) 到 (H, W) 的距离（步数）就是 $H - 1 + W - 1 = H + W - 2$，其中有 $H - 1$ 步都是纵向的。</p>
+<p>若我们再求出从左上角到右下角经过了至少一个黑格子的路线数量，两者相减即为答案。我们可以求出从左上角到第 i 个黑格子的方案数，且途中不经过其他黑格子，表示为 F[i]。把所有黑格子按照行、列坐标递增的顺序排序。</p>
+<p>$$F[i] = C_{x_i + y_i - 2}^{x_i - 1} - \sum\limits_{j = 1}^{i - 1}F[j] * C_{x_i - x_j + y_i - y_j}^{x_i - x_j}, x_i \geq x_j\ and\ y_i \geq y_j$$</p>
+<p>上式的含义是，枚举 j 作为左上角到 $(x_i, y_i)$ 经过的<strong>第一个</strong>黑格子，路线为 F[j], 从第 j 个黑格子到第 i 个黑格子的方案数为组合数。这样可以保证 i 黑格是该路线遇到的第一个黑格。</p>
+<p><strong>在求解计数类动态规划问题时，通常要找到一个“基准点”，围绕这个基准点构造一个不可划分的“整体”，以避免子问题的重叠</strong></p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> x first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> y second</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2010</span>, mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; a[N];</span><br><span class="line"><span class="keyword">int</span> h, w, n, f[N];</span><br><span class="line">ll Fac[<span class="number">200010</span>], inv[<span class="number">200010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">C</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> m)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> Fac[n] * inv[m] % mod * inv[n - m] % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">quick_pow</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">    ll ret = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>) ret = ret * a % mod;</span><br><span class="line">        a = a * a % mod;</span><br><span class="line">    &#125; <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Fac[<span class="number">0</span>] = <span class="number">1</span>, inv[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">200000</span>; i++) &#123;</span><br><span class="line">        Fac[i] = Fac[i - <span class="number">1</span>] * i % mod;</span><br><span class="line">        inv[i] = quick_pow(Fac[i], mod - <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;h, &amp;w, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a[i].x, &amp;a[i].y);</span><br><span class="line">    sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">    a[n + <span class="number">1</span>].x = h, a[n + <span class="number">1</span>].y = w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n + <span class="number">1</span>; i++) &#123;</span><br><span class="line">        f[i] = C(a[i].x + a[i].y - <span class="number">2</span>, a[i].x - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (a[j].x &gt; a[i].x || a[j].y &gt; a[i].y) <span class="keyword">continue</span>;</span><br><span class="line">            f[i] = (f[i] - (ll)f[j] * C(a[i].x - a[j].x + a[i].y - a[j].y, a[i].x - a[j].x)) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, (f[n + <span class="number">1</span>] + mod) % mod);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>真是太妙了！组合数学总是给我很舒服的感觉，恰到好处的去除了重叠部分。计数类DP就是要求“不重不漏”，而这一点恰是需要严密的数学思维的。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&text=[CF559C]-Gerald and Giant Chess"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&is_video=false&description=[CF559C]-Gerald and Giant Chess"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[CF559C]-Gerald and Giant Chess&body=Check out this article: http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&title=[CF559C]-Gerald and Giant Chess"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&name=[CF559C]-Gerald and Giant Chess&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/10/[CF559C]-Gerald and Giant Chess/&t=[CF559C]-Gerald and Giant Chess"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

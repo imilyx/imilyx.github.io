@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="https://vjudge.net/problem/POJ-3621 题意：给定一张有向图，每个点都有一个权值 fun[i]，每条边都有一个权值 time[i]，求图中的一个环，使“环上各点的权值之和”除以“环上各边的权值之和”最大。输出这个最大值。 这是一道0/1分数规划题目，二分答案。设二分的值为 mid。 我们将一个有 t 个节点、t 条边的环记为其中的点和边：$S = ({v_i}, {">
+<meta name="keywords" content="0&#x2F;1分数规划,负环判定">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[POJ3621]-Sightseeing Cows">
+<meta property="og:url" content="http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="https://vjudge.net/problem/POJ-3621 题意：给定一张有向图，每个点都有一个权值 fun[i]，每条边都有一个权值 time[i]，求图中的一个环，使“环上各点的权值之和”除以“环上各边的权值之和”最大。输出这个最大值。 这是一道0/1分数规划题目，二分答案。设二分的值为 mid。 我们将一个有 t 个节点、t 条边的环记为其中的点和边：$S = ({v_i}, {">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-03T14:57:42.089Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[POJ3621]-Sightseeing Cows">
+<meta name="twitter:description" content="https://vjudge.net/problem/POJ-3621 题意：给定一张有向图，每个点都有一个权值 fun[i]，每条边都有一个权值 time[i]，求图中的一个环，使“环上各点的权值之和”除以“环上各边的权值之和”最大。输出这个最大值。 这是一道0/1分数规划题目，二分答案。设二分的值为 mid。 我们将一个有 t 个节点、t 条边的环记为其中的点和边：$S = ({v_i}, {">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[POJ3621]-Sightseeing Cows</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/08/04/[POJ2182]-Lost Cows/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/03/[TYVJ2002]-扑克牌/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&text=[POJ3621]-Sightseeing Cows"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&is_video=false&description=[POJ3621]-Sightseeing Cows"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[POJ3621]-Sightseeing Cows&body=Check out this article: http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&name=[POJ3621]-Sightseeing Cows&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&t=[POJ3621]-Sightseeing Cows"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [POJ3621]-Sightseeing Cows
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-04T07:50:40.000Z" itemprop="datePublished">2018-08-04</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/0-1分数规划/">0/1分数规划</a>, <a class="tag-link" href="/tags/负环判定/">负环判定</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://vjudge.net/problem/POJ-3621" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-3621</a></p>
+<p>题意：给定一张有向图，每个点都有一个权值 fun[i]，每条边都有一个权值 time[i]，求图中的一个环，使“环上各点的权值之和”除以“环上各边的权值之和”最大。输出这个最大值。</p>
+<p>这是一道0/1分数规划题目，二分答案。设二分的值为 mid。</p>
+<p>我们将一个有 t 个节点、t 条边的环记为其中的点和边：$S = ({v_i}, {e_i})$。</p>
+<ol>
+<li>如果图中存在一个环 S，使得 $\sum_{i = 1}^t (mid * time[e_i] - fum[v_i]) &lt; 0$，那么可知：</li>
+</ol>
+<p>$$\exists S = ({v_i}, {e_i}), mid &lt; \frac{\sum_{i = 1}^t fun[v_i]}{\sum_{i = 1}^t time[e_i]}$$</p>
+<p>也就是说，本题所求的最大值一定大于 mid。</p>
+<ol>
+<li>如果对图中任意的环 S，都有 $\sum_{i = 1}^t (mid * time[e_i] - fun[v_i]) \geq 0$，同理可知：</li>
+</ol>
+<p>$$\forall S = ({v_i}, {e_i}), mid \geq \frac{\sum_{i = 1}^t fun[v_i]}{\sum_{i = 1}^t time[e_i]}$$</p>
+<p>也就是说，本题所求的最大值不超过 mid。</p>
+<p>综上所述，对于每轮二分，我们建立一张新图，结构与原图相同，但是没有点权，有向边 $e = (x, y)$ 的权值是 $mid * time[e] - fun[x]$。</p>
+<p>在这张新图上，$\sum_{i = 1}^t (mid * time[e_i] - fun[v_i]) &lt; 0$ 的含义是图中存在负环，因此，我们用 SPFA 求最短路，若有负环，则说明 mid 比答案小，令 l = mid；若最短路求解正常结束，则令 r = mid。二分结束时就求出了本题的答案。</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> inf 10000000000000</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>, M = <span class="number">5005</span>;</span><br><span class="line"><span class="keyword">int</span> L, P;</span><br><span class="line"><span class="keyword">int</span> f[N], inq[N], inq_count[N];</span><br><span class="line"><span class="keyword">int</span> to[M &lt;&lt; <span class="number">1</span>], nxt[M &lt;&lt; <span class="number">1</span>], lnk[N], cnt, val[M &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">double</span> dis[M];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v, <span class="keyword">int</span> w)</span> </span>&#123;</span><br><span class="line">    to[++cnt] = v, nxt[cnt] = lnk[u], lnk[u] = cnt, val[cnt] = w;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">(<span class="keyword">double</span> limit)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= L; i++) dis[i] = inf, inq[i] = <span class="number">0</span>, inq_count[i] = <span class="number">0</span>;</span><br><span class="line">    dis[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    inq[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    inq_count[<span class="number">1</span>]++;</span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (!q.empty()) &#123;</span><br><span class="line">        <span class="keyword">int</span> u = q.front();</span><br><span class="line">        q.pop();</span><br><span class="line">        inq[u] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[u]; i; i = nxt[i]) &#123;</span><br><span class="line">            <span class="keyword">int</span> v = to[i];</span><br><span class="line">            <span class="keyword">double</span> newdis = limit * val[i] - f[v];</span><br><span class="line">            <span class="keyword">if</span> (dis[v] &gt; dis[u] + newdis) &#123;</span><br><span class="line">                dis[v] = dis[u] + newdis;</span><br><span class="line">                <span class="keyword">if</span> (!inq[v]) &#123;</span><br><span class="line">                    inq[v] = <span class="number">1</span>;</span><br><span class="line">                    q.push(v);</span><br><span class="line">                    inq_count[v]++;</span><br><span class="line">                    <span class="keyword">if</span> (inq_count[v] &gt;= L) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;L, &amp;P);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= L; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;f[i]);</span><br><span class="line">    <span class="keyword">int</span> u, v, w;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= P; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;u, &amp;v, &amp;w);</span><br><span class="line">        add(u, v, w);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">double</span> ans = <span class="number">0</span>, l = <span class="number">0</span>, r = <span class="number">10000</span>, mid;</span><br><span class="line">    <span class="keyword">while</span> (r - l &gt;= <span class="number">0.001</span>) &#123;</span><br><span class="line">        mid = (l + r) / <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">if</span> (spfa(mid)) &#123;</span><br><span class="line">            r = mid;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l = mid, ans = mid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&text=[POJ3621]-Sightseeing Cows"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&is_video=false&description=[POJ3621]-Sightseeing Cows"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[POJ3621]-Sightseeing Cows&body=Check out this article: http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&title=[POJ3621]-Sightseeing Cows"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&name=[POJ3621]-Sightseeing Cows&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/04/[POJ3621]-Sightseeing Cows/&t=[POJ3621]-Sightseeing Cows"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

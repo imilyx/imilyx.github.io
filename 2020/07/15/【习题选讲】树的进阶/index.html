@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="难度递增！ CF1305D n / 2 次询问，想到每次删至少两个节点。最暴力的思路是选任意两个节点，将 lca 为根的两个节点所在的子树删掉，但是这会被一条链的情况卡成询问 n 次。考虑选任意两个叶子，若 lca 等于其中之一那么那个叶子就是根，否则删除两个叶子。 CF1210C 询问每条链的 gcd 之和。考虑 gcd 一个很重要的性质：长度为 n 的区间所有子区间的 gcd 不会超过 log">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【习题选讲】树的进阶">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/【习题选讲】树的进阶/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="难度递增！ CF1305D n / 2 次询问，想到每次删至少两个节点。最暴力的思路是选任意两个节点，将 lca 为根的两个节点所在的子树删掉，但是这会被一条链的情况卡成询问 n 次。考虑选任意两个叶子，若 lca 等于其中之一那么那个叶子就是根，否则删除两个叶子。 CF1210C 询问每条链的 gcd 之和。考虑 gcd 一个很重要的性质：长度为 n 的区间所有子区间的 gcd 不会超过 log">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-13T11:03:52.853Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【习题选讲】树的进阶">
+<meta name="twitter:description" content="难度递增！ CF1305D n / 2 次询问，想到每次删至少两个节点。最暴力的思路是选任意两个节点，将 lca 为根的两个节点所在的子树删掉，但是这会被一条链的情况卡成询问 n 次。考虑选任意两个叶子，若 lca 等于其中之一那么那个叶子就是根，否则删除两个叶子。 CF1210C 询问每条链的 gcd 之和。考虑 gcd 一个很重要的性质：长度为 n 的区间所有子区间的 gcd 不会超过 log">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>【习题选讲】树的进阶</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/15/Week2测试题解/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/07/09/【习题选讲】字符串/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&text=【习题选讲】树的进阶"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&is_video=false&description=【习题选讲】树的进阶"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【习题选讲】树的进阶&body=Check out this article: http://yoursite.com/2020/07/15/【习题选讲】树的进阶/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&name=【习题选讲】树的进阶&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&t=【习题选讲】树的进阶"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1305D"><span class="toc-number">1.</span> <span class="toc-text">CF1305D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1210C"><span class="toc-number">2.</span> <span class="toc-text">CF1210C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF980E"><span class="toc-number">3.</span> <span class="toc-text">CF980E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1098C"><span class="toc-number">4.</span> <span class="toc-text">CF1098C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1149C"><span class="toc-number">5.</span> <span class="toc-text">CF1149C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1083C"><span class="toc-number">6.</span> <span class="toc-text">CF1083C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AGC023F"><span class="toc-number">7.</span> <span class="toc-text">AGC023F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1168D"><span class="toc-number">8.</span> <span class="toc-text">CF1168D</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【习题选讲】树的进阶
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-07-14T23:36:40.000Z" itemprop="datePublished">2020-07-15</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>难度递增！</p>
+<h2 id="CF1305D"><a href="#CF1305D" class="headerlink" title="CF1305D"></a><a href="https://codeforces.com/problemset/problem/1305/D" target="_blank" rel="noopener">CF1305D</a></h2><hr>
+<p>n / 2 次询问，想到每次删至少两个节点。最暴力的思路是选任意两个节点，将 lca 为根的两个节点所在的子树删掉，但是这会被一条链的情况卡成询问 n 次。考虑选任意两个叶子，若 lca 等于其中之一那么那个叶子就是根，否则删除两个叶子。</p>
+<h2 id="CF1210C"><a href="#CF1210C" class="headerlink" title="CF1210C"></a><a href="https://codeforces.com/problemset/problem/1210/C" target="_blank" rel="noopener">CF1210C</a></h2><hr>
+<p>询问每条链的 gcd 之和。考虑 gcd 一个很重要的性质：长度为 n 的区间所有子区间的 gcd 不会超过 logn 个。log 级别，开 vector 或者 map 存每个节点为下端点的链gcd，每次更新只有 logn 复杂度。</p>
+<h2 id="CF980E"><a href="#CF980E" class="headerlink" title="CF980E"></a><a href="https://codeforces.com/problemset/problem/980/E" target="_blank" rel="noopener">CF980E</a></h2><hr>
+<p>考虑到 2^i 是个很特殊的东西，必然贪心的选 i 大的节点。按 i 从大到小排序，i 节点保证被选的前提是 i 到根的所有节点都保留，暴力判保留节点后是否超过 n - K 会 TLE，可以用 dfs 序上树状数组。做标记暴力跳就好了，反正是 O(n).</p>
+<h2 id="CF1098C"><a href="#CF1098C" class="headerlink" title="CF1098C"></a><a href="https://codeforces.com/problemset/problem/1098/C" target="_blank" rel="noopener">CF1098C</a></h2><hr>
+<p>考虑 K（最大分支）满足二分性质，先二分出最终答案 ans，判能否构成树的条件是：一条链形式的子树和 &gt;= S, K 叉树形式的子树和 &lt;= S。构造也很容易，我的方法是将一条链的末尾节点不断挂上来，填一棵 K 叉树。</p>
+<h2 id="CF1149C"><a href="#CF1149C" class="headerlink" title="CF1149C"></a><a href="https://codeforces.com/contest/1149/problem/C" target="_blank" rel="noopener">CF1149C</a></h2><hr>
+<p>有意思的题，考虑直径的括号序列，必然是 )))())))…(((((()(((( 这样 ‘)))))’ + 匹配括号 + ‘(((((‘ 的形式。经典套路，将 ( 设为 1，) 设为 -1，答案就是相邻的两段序列之差最大值，可以用线段树维护（各种细节啊啊啊。。</p>
+<h2 id="CF1083C"><a href="#CF1083C" class="headerlink" title="CF1083C"></a><a href="https://codeforces.com/contest/1083/problem/C" target="_blank" rel="noopener">CF1083C</a></h2><hr>
+<p>有意思的题+1，询问每条链最大的 mex。神仙做法。首先，能线段树维护的信息都具有<strong>可合并性</strong>。容易想到二分 mex，判能否构成链。线段树 [l, r] 节点表示 权值为 l ~ r 的节点能否构成链，合并时枚举端点用 lca 判点是否在路径上即可。最后外面那个二分也可以省掉，直接在线段树上“二分”，统计答案。</p>
+<h2 id="AGC023F"><a href="#AGC023F" class="headerlink" title="AGC023F"></a><a href="https://atcoder.jp/contests/agc023/tasks/agc023_f" target="_blank" rel="noopener">AGC023F</a></h2><hr>
+<p>神仙题++</p>
+<p>先考虑前置问题：两个 01 序列相接，逆序对尽量小</p>
+<p>设它们 01 个数分别为 sx0, sx1, sy0, sy1, x &lt; y</p>
+<p>显然 sx1 <em> sy0 &lt;= sx0 </em> sy1 时不必交换两者。</p>
+<p>变形：sx1 / sx0 &lt;= sy1 / sy0.</p>
+<p>考虑此题，初始时将点看作连通块，取出目前没有被选且 s1 / s0 最小的连通块（堆维护）</p>
+<p>若它的父亲已经被选，就选了它；否则容易证明它一定会在它的根的父亲被选后立刻被选，就将它和根的父亲所在连通块合并，得到新的连通块</p>
+<p>类似的还有 POJ2054-Color a Tree，贪心的每次将最大的点和它父亲合并</p>
+<h2 id="CF1168D"><a href="#CF1168D" class="headerlink" title="CF1168D"></a><a href="https://codeforces.com/contest/1168/problem/d" target="_blank" rel="noopener">CF1168D</a></h2><hr>
+<p>充要条件是所有叶子的深度相同，设为 mxdep, 设 lenx = mxdep - depx</p>
+<p>且对于任何节点 x，sum{f(x, c)} &lt;= lenx，其中 f(x, c) 表示任何一条 x 到其子树中叶子的链上 c 出现次数的最大值</p>
+<p>证必要性：显然       证充分性：据说用归纳法证明</p>
+<p>怎么处理修改？总不能每次暴力往上跳修改 f(x, c) 吧。</p>
+<p>注意到当节点只有一个孩子时不需要判上面那个东西，相当于可以忽视</p>
+<p>因此想到将父亲只有自己一个孩子的节点向上压缩，修改的复杂度就是深度</p>
+<p>而满足每一层的节点个数都严格大于上一层（不然就压缩了），深度只有 sqrt(n)</p>
+<p>总复杂度就是 O(Qsqrt(n)), 非常的喵！</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1305D"><span class="toc-number">1.</span> <span class="toc-text">CF1305D</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1210C"><span class="toc-number">2.</span> <span class="toc-text">CF1210C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF980E"><span class="toc-number">3.</span> <span class="toc-text">CF980E</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1098C"><span class="toc-number">4.</span> <span class="toc-text">CF1098C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1149C"><span class="toc-number">5.</span> <span class="toc-text">CF1149C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1083C"><span class="toc-number">6.</span> <span class="toc-text">CF1083C</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AGC023F"><span class="toc-number">7.</span> <span class="toc-text">AGC023F</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1168D"><span class="toc-number">8.</span> <span class="toc-text">CF1168D</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&text=【习题选讲】树的进阶"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&is_video=false&description=【习题选讲】树的进阶"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【习题选讲】树的进阶&body=Check out this article: http://yoursite.com/2020/07/15/【习题选讲】树的进阶/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&title=【习题选讲】树的进阶"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&name=【习题选讲】树的进阶&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/07/15/【习题选讲】树的进阶/&t=【习题选讲】树的进阶"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

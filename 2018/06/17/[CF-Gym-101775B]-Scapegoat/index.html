@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="https://vjudge.net/problem/Gym-101775B 题意：有 N 个大点，M 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i">
+<meta name="keywords" content="数学">
+<meta property="og:type" content="article">
+<meta property="og:title" content="[CF-Gym-101775B]-Scapegoat">
+<meta property="og:url" content="http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="https://vjudge.net/problem/Gym-101775B 题意：有 N 个大点，M 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-06-17T10:31:41.365Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[CF-Gym-101775B]-Scapegoat">
+<meta name="twitter:description" content="https://vjudge.net/problem/Gym-101775B 题意：有 N 个大点，M 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>[CF-Gym-101775B]-Scapegoat</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/06/17/【习题选讲】数学/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/06/16/[HAOI2007]-反素数ant/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&text=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&is_video=false&description=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[CF-Gym-101775B]-Scapegoat&body=Check out this article: http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&name=[CF-Gym-101775B]-Scapegoat&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&t=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        [CF-Gym-101775B]-Scapegoat
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-06-17T06:50:40.000Z" itemprop="datePublished">2018-06-17</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/数学/">数学</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://vjudge.net/problem/Gym-101775B" target="_blank" rel="noopener">https://vjudge.net/problem/Gym-101775B</a></p>
+<p>题意：有 N 个大点，M 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？<br>Hint：方差公式：</p>
+<p>$$\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2$$</p>
+<p>真是惭愧 ◑﹏◐ 当时题意都没读懂…<br>可以发现，小点这么求：</p>
+<p>$$\sigma^2 = \frac{1}{m}\sum(x_i - \frac{1}{m}\sum x_j)^2$$</p>
+<p>可以发现，小点的总权值之和即为大点总权值之和，是一个已知的常数，我们用 S 表示。<br>完全平方公式得：</p>
+<p>$$\sigma^2 = \frac{1}{m}\sum({x_i}^2 - \frac{2}{m}Sx_i + \frac{1}{m^2}S^2)$$</p>
+<p>拆开来化简得：</p>
+<p>$$\frac{1}{m}\sum{x_i}^2 - \frac{S^2}{m^2}$$</p>
+<p>由于 $\frac{1}{m}$ 、 $\frac{S^2}{m^2}$ 全是常数，可以直接得到，我们就不去考虑，现在要解决 $\sum{x_i}^2$ 的问题。</p>
+<p>实在是太难考虑了 ◑﹏◐ 那换一个角度吧</p>
+<p>我们发现，一个大点连着小点，每个小点获得的大点分出的权值肯定是越均匀越好（均分咯），设大点权值为 $C$ ，小点个数为 $M$ ，则 $x_i$ 为 $\frac{C}{M}$ 。</p>
+<p>$\sum{x_i}^2$ 则为 $M(\frac{C}{M})^2$ 即为 $\frac{C^2}{M}$ 。</p>
+<p>$C^2$ 我们也知道了，现在我们考虑的局部问题就是不同大点的小点数。对于每个大点来说，$M$ 肯定是越大越好咯，但为了让对答案的减少量更多，我们要考虑的是哪一个大点的 M 变大对答案的贡献越多。</p>
+<p>仔细观察发现，$\frac{C^2}{1}$ 变为 $\frac{C^2}{2}$ 的减少量是 $\frac{C^2}{2}$ ，$\frac{C^2}{2}$ 变为 $\frac{C^2}{3}$ 的减少量是 $\frac{C^2}{2} - \frac{C^2}{3}$ ，也就是说减少量在递减，而我们却要选减少量将会最多的一个，这是一个很优的性质。</p>
+<p>最终做法，每个大点的 M 初始是 1，循环 $m - n$ 次，用优先队列给准减少量降序排列，每次取队首，给它的 M 加1。</p>
+<p>最后别忘了加上之前为了方便思考减去的一堆常数。</p>
+<p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt; pdi;</span><br><span class="line"><span class="keyword">int</span> T, n, m;</span><br><span class="line"><span class="keyword">double</span> a[N];</span><br><span class="line"></span><br><span class="line">priority_queue&lt;pair&lt;<span class="keyword">double</span>, <span class="keyword">int</span>&gt; &gt; pq;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> cas = <span class="number">1</span>; cas &lt;= T; cas++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">        <span class="keyword">double</span> ans = <span class="number">0</span>, S = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lf"</span>, &amp;a[i]);</span><br><span class="line">            S += a[i];</span><br><span class="line">            pq.push(make_pair(a[i] * a[i] / <span class="number">2</span>, <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = n + <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            pdi x = pq.top();</span><br><span class="line">            pq.pop();</span><br><span class="line">            <span class="keyword">double</span> square = x.first * (x.second * (x.second + <span class="number">1</span>));</span><br><span class="line">            x.second += <span class="number">1</span>;</span><br><span class="line">            x.first = (square / x.second) - (square / (x.second + <span class="number">1</span>));</span><br><span class="line">            pq.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!pq.empty()) &#123;</span><br><span class="line">            pdi x = pq.top();</span><br><span class="line">            pq.pop();</span><br><span class="line">            ans += x.first * x.second * (x.second + <span class="number">1</span>) / x.second;</span><br><span class="line">        &#125;</span><br><span class="line">        ans /= m;</span><br><span class="line">        ans -= S * S / m / m;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Case #%d: %.12lf\n"</span>, cas, max(<span class="number">0.0</span>, ans));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结，本题在于展开，然后省略易求的常数，还有一个减少量的规律，也就是逐渐减小，逐渐不符合我们的要求。此外最可借鉴的就是思考策略——局部问题解法推广到整体，比如这道题中很难考虑时我们跳出去，先去发现减少量这个有趣的性质。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&text=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&is_video=false&description=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=[CF-Gym-101775B]-Scapegoat&body=Check out this article: http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&title=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&name=[CF-Gym-101775B]-Scapegoat&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/&t=[CF-Gym-101775B]-Scapegoat"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

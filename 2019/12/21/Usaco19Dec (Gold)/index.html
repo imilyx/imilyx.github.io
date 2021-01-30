@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="传送门 Usaco Gold round 第一次！！做出了 T1，个人感觉 usaco 题目质量十分的高啊~ 都不是毒瘤题，但本人过于菜鸡了 qaq A. Milk Pumping 一句话题解：最短路变形。 以前好像做过类似的。只要按照边的流量从大到小排序，一一加边，每加一次跑一遍最短路即可！ code :1234567891011121314151617181920212223242526272">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Usaco19Dec (Gold)">
+<meta property="og:url" content="http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="传送门 Usaco Gold round 第一次！！做出了 T1，个人感觉 usaco 题目质量十分的高啊~ 都不是毒瘤题，但本人过于菜鸡了 qaq A. Milk Pumping 一句话题解：最短路变形。 以前好像做过类似的。只要按照边的流量从大到小排序，一一加边，每加一次跑一遍最短路即可！ code :1234567891011121314151617181920212223242526272">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-12-21T13:59:28.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Usaco19Dec (Gold)">
+<meta name="twitter:description" content="传送门 Usaco Gold round 第一次！！做出了 T1，个人感觉 usaco 题目质量十分的高啊~ 都不是毒瘤题，但本人过于菜鸡了 qaq A. Milk Pumping 一句话题解：最短路变形。 以前好像做过类似的。只要按照边的流量从大到小排序，一一加边，每加一次跑一遍最短路即可！ code :1234567891011121314151617181920212223242526272">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>Usaco19Dec (Gold)</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2019/12/31/[USACO11JAN]-道路和航线/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2019/11/16/CSP2019前的做题记录&每日小结/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&text=Usaco19Dec (Gold)"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&is_video=false&description=Usaco19Dec (Gold)"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Usaco19Dec (Gold)&body=Check out this article: http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&name=Usaco19Dec (Gold)&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&t=Usaco19Dec (Gold)"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Milk-Pumping"><span class="toc-number">1.</span> <span class="toc-text">A. Milk Pumping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Milk-Visits"><span class="toc-number">2.</span> <span class="toc-text">B. Milk Visits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Moortal-Cowmbat"><span class="toc-number">3.</span> <span class="toc-text">C. Moortal Cowmbat</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Usaco19Dec (Gold)
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-12-21T13:30:40.000Z" itemprop="datePublished">2019-12-21</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://www.usaco.org/index.php?page=dec19results" target="_blank" rel="noopener">传送门</a></p>
+<p>Usaco Gold round 第一次！！做出了 T1，个人感觉 usaco 题目质量十分的高啊~ 都不是毒瘤题，但本人过于菜鸡了 qaq</p>
+<h3 id="A-Milk-Pumping"><a href="#A-Milk-Pumping" class="headerlink" title="A. Milk Pumping"></a>A. Milk Pumping</h3><hr>
+<p>一句话题解：最短路变形。</p>
+<p>以前好像做过类似的。只要按照边的流量从大到小排序，一一加边，每加一次跑一遍最短路即可！</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e3</span> + <span class="number">10</span>, inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, dis[N], inq[N], ansx, ansy;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span> <span class="keyword">int</span> x, y, c, f; &#125;e[N];</span><br><span class="line">ll cur;</span><br><span class="line"><span class="built_in">vector</span>&lt;edge&gt; nxt[N];</span><br><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(edge a, edge b)</span> </span>&#123; <span class="keyword">return</span> a.f &gt; b.f; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">spfa</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) dis[i] = inf;</span><br><span class="line">    dis[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    q.push(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">while</span> (q.size()) &#123;</span><br><span class="line">        <span class="keyword">int</span> x = q.front(); q.pop(); inq[x] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nxt[x].size(); i++) &#123;</span><br><span class="line">            edge now = nxt[x][i];</span><br><span class="line">            <span class="keyword">if</span> (dis[now.y] &gt; dis[x] + now.c) &#123;</span><br><span class="line">                dis[now.y] = dis[x] + now.c;</span><br><span class="line">                <span class="keyword">if</span> (!inq[now.y]) inq[now.y] = <span class="number">1</span>, q.push(now.y);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"pump.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"pump.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, m)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d%d"</span>, &amp;e[i].x, &amp;e[i].y, &amp;e[i].c, &amp;e[i].f);</span><br><span class="line">    sort(e + <span class="number">1</span>, e + m + <span class="number">1</span>, cmp);</span><br><span class="line"></span><br><span class="line">    cur = <span class="number">-1e18</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">        nxt[e[i].x].push_back(e[i]);</span><br><span class="line">        swap(e[i].x, e[i].y);</span><br><span class="line">        nxt[e[i].x].push_back(e[i]);</span><br><span class="line">        spfa();</span><br><span class="line">        <span class="keyword">if</span> (dis[n] != inf)</span><br><span class="line">            cur = max(cur, (<span class="number">1l</span>l * <span class="number">1000000</span> * e[i].f / dis[n]));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, cur);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="B-Milk-Visits"><a href="#B-Milk-Visits" class="headerlink" title="B. Milk Visits"></a>B. Milk Visits</h3><hr>
+<p>很妙的题！首先把询问离线。对于 (x, y, c) 这组询问（设 lca(x, y) = L）显然可以分解为 x ~ L 这段和 y ~ L 这段。</p>
+<p>dfs。用栈 (实际操作可用vector) 储存经过的点的颜色和点的位置（实际操作储存深度），到达点 x 时看看栈中是否有 c 颜色的，以及离 x 最近的（深度最大的）点是不是 L 的祖先，如果不是，(x, y, c) 这个询问的答案就是 1.</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, col[N], id[N][<span class="number">2</span>], c[N], cur, ok[N];</span><br><span class="line">pii range[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt; stor[N];</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; todo[N], v[N], ord;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pre</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> fa)</span> </span>&#123;</span><br><span class="line">    range[x].fi = ++cur;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v[x].size(); i++)</span><br><span class="line">        <span class="keyword">if</span> (v[x][i] != fa) pre(v[x][i], x);</span><br><span class="line">    range[x].se = cur;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">anc</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;  <span class="comment">// is_ancestor ?</span></span><br><span class="line">    <span class="keyword">return</span> (range[x].fi &lt;= range[y].fi &amp;&amp; range[y].se &lt;= range[x].se);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> fa)</span> </span>&#123;</span><br><span class="line">    stor[col[x]].push_back(make_pair(x, ord.size()));</span><br><span class="line">    ord.push_back(x);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> o = <span class="number">0</span>; o &lt; todo[x].size(); o++) &#123;</span><br><span class="line">        <span class="keyword">int</span> i = todo[x][o];</span><br><span class="line">        <span class="keyword">if</span> (stor[c[i]].size()) &#123;</span><br><span class="line">            pii y = stor[c[i]].back();</span><br><span class="line">            <span class="keyword">if</span> (y.fi == x) ok[i] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">int</span> son = ord[y.se + <span class="number">1</span>];  <span class="comment">// 下一个 (想想为什么)</span></span><br><span class="line">			    <span class="comment">// x is one of endpoints for query t</span></span><br><span class="line">                <span class="keyword">if</span> (!anc(son, id[i][<span class="number">0</span>] + id[i][<span class="number">1</span>] - x)) ok[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; v[x].size(); i++)</span><br><span class="line">        <span class="keyword">if</span> (v[x][i] != fa) dfs(v[x][i], x);</span><br><span class="line">    stor[col[x]].pop_back();</span><br><span class="line">    ord.pop_back();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"milkvisits.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"milkvisits.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;col[i]);</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> x, y; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">        v[x].push_back(y), v[y].push_back(x);</span><br><span class="line">    &#125;</span><br><span class="line">    pre(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;id[i][<span class="number">0</span>], &amp;id[i][<span class="number">1</span>], &amp;c[i]);</span><br><span class="line">        rep(j, <span class="number">0</span>, <span class="number">1</span>) todo[id[i][j]].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, m) <span class="built_in">printf</span>(<span class="string">"%d"</span>, ok[i] ? <span class="number">1</span> : <span class="number">0</span>); <span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="C-Moortal-Cowmbat"><a href="#C-Moortal-Cowmbat" class="headerlink" title="C. Moortal Cowmbat"></a>C. Moortal Cowmbat</h3><hr>
+<p>DP 大法好….</p>
+<p>DP 还是弱啊。。其实不是很难</p>
+<p>首先跑一遍 Floyd！。设 f[i] 表示前 i 个合法的最小值。</p>
+<p>f[i] = min(f[j] + calc(j + 1, i, c)) (j &lt;= i - k)，其中 calc(l, r, c) 表示区间 [l, r] 全变为 c 的价值和。</p>
+<p>发现每次只加进去 i - k 的贡献。用 mn[j] 数组维护当前取 j 颜色且合法的最小值，O(1)。</p>
+<p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, K;</span><br><span class="line"><span class="keyword">int</span> c[<span class="number">30</span>][<span class="number">30</span>], cost[N][<span class="number">30</span>], mn[N], f[N];</span><br><span class="line"><span class="keyword">char</span> s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> c)</span> </span>&#123; <span class="keyword">return</span> cost[r][c] - cost[l - <span class="number">1</span>][c]; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    freopen(<span class="string">"cowmbat.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line">    freopen(<span class="string">"cowmbat.out"</span>, <span class="string">"w"</span>, <span class="built_in">stdout</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m &gt;&gt; K;</span><br><span class="line">    --m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s + <span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">0</span>, m)</span><br><span class="line">        rep(j, <span class="number">0</span>, m)</span><br><span class="line">            <span class="built_in">cin</span> &gt;&gt; c[i][j];</span><br><span class="line">    rep(k, <span class="number">0</span>, m)</span><br><span class="line">        rep(i, <span class="number">0</span>, m)</span><br><span class="line">            rep(j, <span class="number">0</span>, m)</span><br><span class="line">                c[i][j] = min(c[i][j], c[i][k] + c[k][j]);</span><br><span class="line">    rep(i, <span class="number">0</span>, m)</span><br><span class="line">        rep(j, <span class="number">1</span>, n)</span><br><span class="line">            cost[j][i] = cost[j - <span class="number">1</span>][i] + c[s[j] - <span class="string">'a'</span>][i];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(mn, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(mn));</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    rep(i, K, n)</span><br><span class="line">        rep(j, <span class="number">0</span>, m) &#123;</span><br><span class="line">            mn[j] = min(mn[j] + c[s[i] - <span class="string">'a'</span>][j], f[i - K] + calc(i - K + <span class="number">1</span>, i, j));  <span class="comment">// mn[j] 表示当前 i 位置为 j 时的最小花费</span></span><br><span class="line">            f[i] = min(f[i], mn[j]);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, f[n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>要多打比赛！等考完 看我不屠它个百来道题 (♯｀∧´) 哼</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Milk-Pumping"><span class="toc-number">1.</span> <span class="toc-text">A. Milk Pumping</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-Milk-Visits"><span class="toc-number">2.</span> <span class="toc-text">B. Milk Visits</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Moortal-Cowmbat"><span class="toc-number">3.</span> <span class="toc-text">C. Moortal Cowmbat</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&text=Usaco19Dec (Gold)"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&is_video=false&description=Usaco19Dec (Gold)"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Usaco19Dec (Gold)&body=Check out this article: http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&title=Usaco19Dec (Gold)"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&name=Usaco19Dec (Gold)&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2019/12/21/Usaco19Dec (Gold)/&t=Usaco19Dec (Gold)"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

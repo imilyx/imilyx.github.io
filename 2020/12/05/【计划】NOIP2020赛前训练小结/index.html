@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="开一篇博客，助力 $NOIP2020$ 少浪费时间在无意义的自我怀疑中，$you\ do\ have\ a\ lot\ to\ learn$，保持稳定而欣喜的心态 奔跑吧！ 眼高手低通过练习手会慢慢变高，眼低手低练到死都是菜。 抱怨身处黑暗，不如提灯前行。愿 11.7 出考场的我不留遗憾！ 不骄，不躁，不惧，不悔。  9.5noi2019D1T1（斜率优化），apio2020T2（kruskal重">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOIP2020赛前训练小结">
+<meta property="og:url" content="http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="开一篇博客，助力 $NOIP2020$ 少浪费时间在无意义的自我怀疑中，$you\ do\ have\ a\ lot\ to\ learn$，保持稳定而欣喜的心态 奔跑吧！ 眼高手低通过练习手会慢慢变高，眼低手低练到死都是菜。 抱怨身处黑暗，不如提灯前行。愿 11.7 出考场的我不留遗憾！ 不骄，不躁，不惧，不悔。  9.5noi2019D1T1（斜率优化），apio2020T2（kruskal重">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-13T10:59:33.775Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIP2020赛前训练小结">
+<meta name="twitter:description" content="开一篇博客，助力 $NOIP2020$ 少浪费时间在无意义的自我怀疑中，$you\ do\ have\ a\ lot\ to\ learn$，保持稳定而欣喜的心态 奔跑吧！ 眼高手低通过练习手会慢慢变高，眼低手低练到死都是菜。 抱怨身处黑暗，不如提灯前行。愿 11.7 出考场的我不留遗憾！ 不骄，不躁，不惧，不悔。  9.5noi2019D1T1（斜率优化），apio2020T2（kruskal重">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NOIP2020赛前训练小结</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/12/06/【学习笔记】生成函数/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/12/05/【计划】NOIP2020 前的做题记录整理/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&text=NOIP2020赛前训练小结"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&is_video=false&description=NOIP2020赛前训练小结"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NOIP2020赛前训练小结&body=Check out this article: http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&name=NOIP2020赛前训练小结&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&t=NOIP2020赛前训练小结"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-5"><span class="toc-number">1.</span> <span class="toc-text">9.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-6"><span class="toc-number">2.</span> <span class="toc-text">9.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-7"><span class="toc-number">3.</span> <span class="toc-text">9.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-8"><span class="toc-number">4.</span> <span class="toc-text">9.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-9"><span class="toc-number">5.</span> <span class="toc-text">9.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-10"><span class="toc-number">6.</span> <span class="toc-text">9.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-14"><span class="toc-number">7.</span> <span class="toc-text">9.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-17"><span class="toc-number">8.</span> <span class="toc-text">10.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-18"><span class="toc-number">9.</span> <span class="toc-text">10.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-19"><span class="toc-number">10.</span> <span class="toc-text">10.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-20"><span class="toc-number">11.</span> <span class="toc-text">10.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-21"><span class="toc-number">12.</span> <span class="toc-text">10.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-22"><span class="toc-number">13.</span> <span class="toc-text">10.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-23"><span class="toc-number">14.</span> <span class="toc-text">10.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-19"><span class="toc-number">15.</span> <span class="toc-text">11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-20"><span class="toc-number">16.</span> <span class="toc-text">11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-21"><span class="toc-number">17.</span> <span class="toc-text">11.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-22"><span class="toc-number">18.</span> <span class="toc-text">11.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-23"><span class="toc-number">19.</span> <span class="toc-text">11.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-24"><span class="toc-number">20.</span> <span class="toc-text">11.24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-25"><span class="toc-number">21.</span> <span class="toc-text">11.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-26"><span class="toc-number">22.</span> <span class="toc-text">11.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-27"><span class="toc-number">23.</span> <span class="toc-text">11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-28"><span class="toc-number">24.</span> <span class="toc-text">11.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-29"><span class="toc-number">25.</span> <span class="toc-text">11.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-30"><span class="toc-number">26.</span> <span class="toc-text">11.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1"><span class="toc-number">27.</span> <span class="toc-text">12.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2"><span class="toc-number">28.</span> <span class="toc-text">12.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3"><span class="toc-number">29.</span> <span class="toc-text">12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4"><span class="toc-number">30.</span> <span class="toc-text">12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5"><span class="toc-number">31.</span> <span class="toc-text">12.5</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        NOIP2020赛前训练小结
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-12-05T15:59:59.000Z" itemprop="datePublished">2020-12-05</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>开一篇博客，助力 $NOIP2020$</p>
+<p>少浪费时间在无意义的自我怀疑中，$you\ do\ have\ a\ lot\ to\ learn$，保持稳定而欣喜的心态 奔跑吧！</p>
+<p><em>眼高手低通过练习手会慢慢变高，眼低手低练到死都是菜。</em></p>
+<p><em>抱怨身处黑暗，不如提灯前行。愿 11.7 出考场的我不留遗憾！</em></p>
+<p><em>不骄，不躁，不惧，不悔。</em></p>
+<hr>
+<h3 id="9-5"><a href="#9-5" class="headerlink" title="9.5"></a>9.5</h3><p>noi2019D1T1（斜率优化），apio2020T2（kruskal重构树）, 一道线段树优化建图，春节十二响（堆和贪心）</p>
+<h3 id="9-6"><a href="#9-6" class="headerlink" title="9.6"></a>9.6</h3><p>uoj455（可撤销贪心模拟费用流），luogu4260（计数 + 莫队算组合数前缀和）</p>
+<h3 id="9-7"><a href="#9-7" class="headerlink" title="9.7"></a>9.7</h3><p>cf558e（线段树区间排序，实质是区间赋值），cf1194f（期望计数 + 复杂度分析），cf round 664 div1 A ~ C</p>
+<h3 id="9-8"><a href="#9-8" class="headerlink" title="9.8"></a>9.8</h3><p>luogu2542（有点点套路的树剖题），cf1327f（限制dp），uoj209（思维），uoj210（2-sat）</p>
+<h3 id="9-9"><a href="#9-9" class="headerlink" title="9.9"></a>9.9</h3><p>loj3158（贪心 + 堆，模拟费用流），uoj58</p>
+<h3 id="9-10"><a href="#9-10" class="headerlink" title="9.10"></a>9.10</h3><p>9.10 的训练记录被吞了</p>
+<h3 id="9-14"><a href="#9-14" class="headerlink" title="9.14"></a>9.14</h3><p>cf986c（简单二进制题），loj3303（线段树合并 01 trie），uoj137（巧妙加维 dp），uoj134（图的连通性），牛客练习赛69（ABCE），总结就是切了一天水题</p>
+<hr>
+<p>我来填坑，初赛 90.5 稳稳飞过，希望复赛也能稳稳的呀 ~ 前段时间太忙了，但是觉得训练小结很重要，希望对自己的程度有清晰的认知。</p>
+<h3 id="10-17"><a href="#10-17" class="headerlink" title="10.17"></a>10.17</h3><p>模拟赛简单数论（偏 at 风）+ 背包分治（套路风然而还是不会。。）+ 计数推柿子，感觉自己计数的水平有长进但还不够。<strong>dp 多练！</strong></p>
+<h3 id="10-18"><a href="#10-18" class="headerlink" title="10.18"></a>10.18</h3><p>cf div2 手速场 4 道。wxw 26 min AC 2E 好强呀！cf 现场真的跟 vp 不一样。结论：<strong>多打 cf！</strong>（有时间 vp 就不错了= =</p>
+<p>AT 两道，一是神奇的异或转 % 2 意义下加法，用多项式 gcd 做；二是不难但小巧清新的同余最短路。</p>
+<h3 id="10-19"><a href="#10-19" class="headerlink" title="10.19"></a>10.19</h3><p>被吞了（忘记记录了</p>
+<h3 id="10-20"><a href="#10-20" class="headerlink" title="10.20"></a>10.20</h3><p>效率低的一天…qaq 写了 LCT 板子，还有一堆简单题</p>
+<h3 id="10-21"><a href="#10-21" class="headerlink" title="10.21"></a>10.21</h3><p>今天也没有模拟赛。。开心 但是有点慌，感觉自己复赛水平十分不稳</p>
+<h3 id="10-22"><a href="#10-22" class="headerlink" title="10.22"></a>10.22</h3><p>XJ 模拟赛偏水了，vp cf 远古场（掉信心）吧！还写了两道 at</p>
+<h3 id="10-23"><a href="#10-23" class="headerlink" title="10.23"></a>10.23</h3><p>今天效率不高。不过开始听课啦！加油加油加加油！！！！</p>
+<p>简单题加上对拍都能保证写出了，现在就是长代码的调写和思维要加重训练。</p>
+<hr>
+<p>CSP 没有考好，前期的训练还是挺浮躁的，心态也没养好。不骄不躁，不惧不悔，坚定的沉静的走自己的计划。继续开坑。</p>
+<h3 id="11-19"><a href="#11-19" class="headerlink" title="11.19"></a>11.19</h3><p>学了斯坦纳树。做了 THUSCH-巧克力。vp 并订正了 CF185(Div1) BCD。做了 loj2277, loj6033。看到有趣的题会加进题单里的。</p>
+<p>ps：我真的好喜欢 LOJ 呀 ~</p>
+<h3 id="11-20"><a href="#11-20" class="headerlink" title="11.20"></a>11.20</h3><p>To do list：uer 4 和 6 的 T3, 大前天 T3，推柿子</p>
+<p>vp 并订正了 CF#FF(Div1) 的 BCD。做了 loj2118。自己推了一个平平无奇的柿子（</p>
+<h3 id="11-21"><a href="#11-21" class="headerlink" title="11.21"></a>11.21</h3><ul>
+<li>今天模拟赛没有 fst！300！（有生之年系列 (<em>◑∇◑)爻(◐∇◐</em>)（虽然大家今天分都很高（但是我和 LMOliver 神仙同分诶（不要乐极生悲= = 平静一点（你的内心戏已经溢出屏幕了^-^</li>
+</ul>
+<p>To do list: 订正 monisai，uer 4 和 6 的 T3，大大前天 T3</p>
+<p>订正了 monisai，做了 uer 4 的 T3</p>
+<h3 id="11-22"><a href="#11-22" class="headerlink" title="11.22"></a>11.22</h3><p>To do list: uer 6 的 T3，uoj274, 大大大前天 T3，订正 vp, litble * 1</p>
+<p>做了 uer 6 的 T3，订正了 vp 的 CF1163C2、E、F</p>
+<h3 id="11-23"><a href="#11-23" class="headerlink" title="11.23"></a>11.23</h3><p>To do list: 订正模拟赛、vp，切树游戏, 国王饮水记，时空旅行，loj3057</p>
+<p>订正了模拟赛，vp CF516 BCDE，切树游戏</p>
+<h3 id="11-24"><a href="#11-24" class="headerlink" title="11.24"></a>11.24</h3><p>⚠️ 今天的模拟赛💥了（找借口：比赛的时候穿的太多了</p>
+<p>实际上是，跟 T2 刚了比较久，自以为写了正确的做法就丢了，又写了 T3 的 40 分暴力就心满意足以为其他人也不过 40 分，因为我以为 T3 是神仙斜率优化，事实证明我完全想难了！把 w_i 拆开就是个 sb 贪心！所以就炸的很彻底了。人均 300 的场子我 182，得深刻反思了。</p>
+<p>不骄不躁，不能因为前两天打得还行就飘了，noip 才是定胜负的一局。不过也别紧张了，毕竟只是人生漫漫长路的一幕而已</p>
+<p>还有就是，固定思维是最可怕的，不能因为前两天斜率优化做多了就看啥都是斜率优化，它来个贪心你就猝不及防。前几天打得不错也是因为敢不断去尝试新的角度。（诶，这题这么做好像有高分暴力拿/好像可以艹标）最近题又简单，真的，傻逼题不会做太可怕了（回想起 csp 面对 T3 的无助和赛后的痛心疾首了吗？）</p>
+<p><strong>把问题想复杂，本质就是没有仔细分析问题性质！</strong> 果然还是浮躁了吗。</p>
+<p><strong>听着 xml！接下来的两周，要避免一切可能会让心躁起来的事情。虽然听着好笑，但的确是这么回事。</strong></p>
+<p>To do list: 订正 T4，国王饮水记，vp，bzoj3636，loj3057，洛谷3553、3558</p>
+<p>T4 是道没意思的大数据结构，LCT 什么的…?（我不精通 LCT 啊 qaq）本质是个 easy 的阶梯 nim，我竟然一直在想合并咋地咋地。。。都说是阶梯 nim 了！！！果然还是学艺不精吗！！！</p>
+<p>胡了国王饮水记（不想写）（只会斜率优化不会贪心），vp CF461 BCDE，bzj3636</p>
+<h3 id="11-25"><a href="#11-25" class="headerlink" title="11.25"></a>11.25</h3><p>今天放了以前哥哥给我做过的 mjy 的一套题，T2 不平等博弈我写 sg。。。光荣爆 5pts。另外 T3 假了好几种做法；想到了分治，觉得十分有前途，但是手玩小样例把自己叉了，后来事实证明这是道不可做题，题解写的吧啦长，最小割 dp 是什么神仙玩意啊 (›´ω`‹ )（但是莫名觉得分治有些搭边？</p>
+<p>To do list：订正模拟赛 T3，cf468d，loj3057, sp3734，游戏</p>
+<p>做了 loj3057, cf468d, sp3734，游戏</p>
+<h3 id="11-26"><a href="#11-26" class="headerlink" title="11.26"></a>11.26</h3><p>今天也遭遇了低素质出题人的狂轰滥炸。T3 polya 板题不会，T4 它 n、m、p 的最大值都不在同一档分害我 RE 挂了 80？？？（这年头什么沙雕都有</p>
+<p>To do list：订正 vp，学习polya（选），Druzyny，uoj390, 序列, AGC011F</p>
+<ul>
+<li><p>因为多人讲课（tyy &amp; kqh）所以计划咕了一大半</p>
+</li>
+<li><p>发现 kqh 讲课非常形象，各种算法都能随便画示意图，大概这样会帮助加深理解。我也试试？！</p>
+</li>
+</ul>
+<p>做了 CF578 的 CDE, Druzyny</p>
+<h3 id="11-27"><a href="#11-27" class="headerlink" title="11.27"></a>11.27</h3><p>今天也遭遇了 sb 的自己。第三次在排序前求前缀和了 我是 sb！！！</p>
+<p>To do list：订正昨天 F，uoj390，AGC011F，loj3276, 学习 polya &amp; 订正昨天 T3，vp</p>
+<p>没错，做不完前面的今天你 xml 就别想 vp。</p>
+<p>做了 昨天 F，uoj390，疫情控制，半道 AGC011F，半道 loj3276</p>
+<h3 id="11-28"><a href="#11-28" class="headerlink" title="11.28"></a>11.28</h3><p>今天是 Fuyuki 出的多校联考题。没打挂！hoho！280！（其实是数据水，多给我 30（然后打出了 100 80 60 40 这样漂亮的等差数列分</p>
+<p>你看人家 万老爷，同样 280，人家 T1 fst 成 0，本来吊打我 100 分呢！不骄不躁，仍要向下扎根，向上结果。我们每一个人都要砥砺前行。</p>
+<p>区间向区间连边，如果有序就可以考虑倍增并查集或者线段树优化建图什么的…</p>
+<p>To do list: loj3276, 3277, 3278, 学习 polya 订正 T3，AGC011F</p>
+<p>做了 loj3276. 所以今天是得意忘形的颓废的一天，超级差评，xml 你清醒一点？？？</p>
+<h3 id="11-29"><a href="#11-29" class="headerlink" title="11.29"></a>11.29</h3><p>打了图灵杯，zzq 出的题真的一言难尽。。。</p>
+<p>知道有一种快速阶乘算法：<a href="https://www.cnblogs.com/gryzy/p/6015485.html" target="_blank" rel="noopener">https://www.cnblogs.com/gryzy/p/6015485.html</a></p>
+<p>To do list：loj3277，loj3278，vp cf，AGC011F，哥哥的 SRM</p>
+<p>做了 loj3277，loj3278，vp CF657 AB</p>
+<h3 id="11-30"><a href="#11-30" class="headerlink" title="11.30"></a>11.30</h3><p>最近联考题，质量比 XJ 自己的模拟赛好多了！！！（感觉像饿久了的孩子吃到肉的心情</p>
+<p>带悔贪心真的喵喵!! ,,ԾㅂԾ,,</p>
+<p>To do list: 订正 CF657 CDE，AGC011F，订正模拟赛，loj3275, loj3271, loj3281，哥哥的 SRM</p>
+<p>订正 CF657 CDE、模拟赛，做了 AGC011F, loj3271</p>
+<ul>
+<li>写反悔贪心的总结？今天 T4 + 雪灾与外卖（模拟费用流也安排上）</li>
+</ul>
+<h3 id="12-1"><a href="#12-1" class="headerlink" title="12.1"></a>12.1</h3><p>今天几乎 AK 了。。题还不错吧我觉得（？）T4 纯粹是写法问题啦。。在线线段树就是跑不过离线树状数组嘛，无论从空间还是时间上看。</p>
+<p>To do list：订正 T4，loj3275, vp，哥哥的 SRM，bzoj3864</p>
+<p>订正 T4，vp CF673 EF，loj3275</p>
+<h3 id="12-2"><a href="#12-2" class="headerlink" title="12.2"></a>12.2</h3><p>csp T2 题目漏掉一句话，写了离散化被卡了 35 分。。。<strong>xml 你不要再读错题了啊！</strong></p>
+<p>为了不读错题，第一遍就要很认真很仔细。我觉得最好的办法就是开考通读所有题，这时候因为还没开调，心态是比较稳健的。关于数据范围、段末段中的细节之处，各种奇怪的“保证”，切莫忽视了！而且第一遍如果读错，后面就极容易陷入惯性思维，就无意中犯下了比赛大忌。</p>
+<p>关于今天的模拟赛，搬了 LOJ 首页 COCI2020 四道原题。。。T2 本该想出来的，树的重心也没错，但同一个子树里也可以选两个小子树啊。。T3 树形 dp 没写出来，细节贼多。。T4 口胡应该是对的，笛卡尔树 + 线段树维护凸包（或维护单调栈，应该差不离），但好难写的感觉 = = 有些许自闭。。。</p>
+<p>「我会变成一个更好的人吗 / 相比自己 相比昨天 / “你会啊”」</p>
+<p>To do list: 订正 T2、T3、T4，订正昨天 vp 的 F，loj3280，bzoj3864, 哥哥的 SRM，麻将</p>
+<p>订正了 T2，T3，T4，昨天 F，bzoj3864, loj3272</p>
+<h3 id="12-3"><a href="#12-3" class="headerlink" title="12.3"></a>12.3</h3><p>今天 T2 暴力没挂！rush 了 T2 两只 log 做法结果 wa 得渣都不剩 😊💢 T1 人类智慧题我认输（虽然不难），T3 其实不难想！考场上就以为只有 LCT 能做，实际上把操作放到树形结构上看就可以用清真的并查集维护。</p>
+<p>感觉自己最近懂得东西多一些了，就老把题往难了想（还是菜的一种体现），许多题都有清真的精妙做法啊。</p>
+<p>To do list: 订正模拟赛 T2、T3，loj3280，vp，游园会，麻将，哥哥的 SRM，xza 场</p>
+<ul>
+<li>套路：简单 dp 展开，如 f[i] = min(f[i - 1] + 1, a[i]) 可展开成 f[r] = min(f[l - 1] + 1, a[l], a[l + 1], … a[r]) 然后就能上数据结构了。</li>
+</ul>
+<p>订正了 T3、T2，vp 了 CF806 D（E 口胡，F 挖坑。。）loj3280（口胡）, 游园会（我爱 dp 套 dp！）</p>
+<h3 id="12-4"><a href="#12-4" class="headerlink" title="12.4"></a>12.4</h3><p>考前最后一天！奥利给！！！</p>
+<p>To do list：订正 vp，麻将，哥哥的 SRM，xza 场，loj3280，loj6302，一些回顾。</p>
+<ul>
+<li>看<a href="https://www.cnblogs.com/owenyu/p/7815234.html" target="_blank" rel="noopener">这个</a></li>
+</ul>
+<p>没完没了的自闭，xml 你烦不烦啊你！</p>
+<p>今天模拟赛，信心赛，却接连读错两道题。要是在明天的 NOIP 考场上因为读题失分那真是追悔莫及了啊！不要让未来为了自己的傻逼买单。因为明天就要比赛，今天的心态不平和。要是这样到明天的赛场上岂不是重蹈 CSP 的覆辙？沉稳下来，专注于题目，有时间一定要对拍。</p>
+<p>是挑战，也是机遇。Hope it can bring out the best in me.</p>
+<p>做了 麻将！loj6302，loj3280, 订正了 vp 的 D</p>
+<p>定一下明天的考试策略：开场读题，认真仔细，pdf 荧光笔划出坑点，考虑每道题的时间布局；打题仔细严谨，注意空间和模数不为 0 等坑点，很久都调试不出来不如先弃掉去写其他题的暴力；最后检查一遍思路和代码实现有无手误，最后五分钟编译一次，删除调试语句。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">namespace NOIP &#123;</span><br><span class="line">    struct OIer &#123;</span><br><span class="line">        int rp = inf;</span><br><span class="line">    &#125; xml;</span><br><span class="line">&#125; NOIP2020;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    while(1) NOIP2020::xml.rp++!</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="12-5"><a href="#12-5" class="headerlink" title="12.5"></a>12.5</h3><p>垃圾构造毁我青春。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-5"><span class="toc-number">1.</span> <span class="toc-text">9.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-6"><span class="toc-number">2.</span> <span class="toc-text">9.6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-7"><span class="toc-number">3.</span> <span class="toc-text">9.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-8"><span class="toc-number">4.</span> <span class="toc-text">9.8</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-9"><span class="toc-number">5.</span> <span class="toc-text">9.9</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-10"><span class="toc-number">6.</span> <span class="toc-text">9.10</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-14"><span class="toc-number">7.</span> <span class="toc-text">9.14</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-17"><span class="toc-number">8.</span> <span class="toc-text">10.17</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-18"><span class="toc-number">9.</span> <span class="toc-text">10.18</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-19"><span class="toc-number">10.</span> <span class="toc-text">10.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-20"><span class="toc-number">11.</span> <span class="toc-text">10.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-21"><span class="toc-number">12.</span> <span class="toc-text">10.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-22"><span class="toc-number">13.</span> <span class="toc-text">10.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-23"><span class="toc-number">14.</span> <span class="toc-text">10.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-19"><span class="toc-number">15.</span> <span class="toc-text">11.19</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-20"><span class="toc-number">16.</span> <span class="toc-text">11.20</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-21"><span class="toc-number">17.</span> <span class="toc-text">11.21</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-22"><span class="toc-number">18.</span> <span class="toc-text">11.22</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-23"><span class="toc-number">19.</span> <span class="toc-text">11.23</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-24"><span class="toc-number">20.</span> <span class="toc-text">11.24</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-25"><span class="toc-number">21.</span> <span class="toc-text">11.25</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-26"><span class="toc-number">22.</span> <span class="toc-text">11.26</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-27"><span class="toc-number">23.</span> <span class="toc-text">11.27</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-28"><span class="toc-number">24.</span> <span class="toc-text">11.28</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-29"><span class="toc-number">25.</span> <span class="toc-text">11.29</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-30"><span class="toc-number">26.</span> <span class="toc-text">11.30</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1"><span class="toc-number">27.</span> <span class="toc-text">12.1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2"><span class="toc-number">28.</span> <span class="toc-text">12.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3"><span class="toc-number">29.</span> <span class="toc-text">12.3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4"><span class="toc-number">30.</span> <span class="toc-text">12.4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5"><span class="toc-number">31.</span> <span class="toc-text">12.5</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&text=NOIP2020赛前训练小结"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&is_video=false&description=NOIP2020赛前训练小结"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NOIP2020赛前训练小结&body=Check out this article: http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&title=NOIP2020赛前训练小结"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&name=NOIP2020赛前训练小结&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/12/05/【计划】NOIP2020赛前训练小结/&t=NOIP2020赛前训练小结"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="写在 NOIP2020 之后 T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。 想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！“">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NOIP2020 总结 &amp; 题解">
+<meta property="og:url" content="http://yoursite.com/2020/09/14/NOIP2020 总结 & 题解/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="写在 NOIP2020 之后 T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。 想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！“">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-18T09:24:52.138Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NOIP2020 总结 &amp; 题解">
+<meta name="twitter:description" content="写在 NOIP2020 之后 T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。 想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！“">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>NOIP2020 总结 &amp; 题解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/09/08/以 CF1327F 为代表的一类限制计数问题/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&text=NOIP2020 总结 &amp; 题解"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&is_video=false&description=NOIP2020 总结 &amp; 题解"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NOIP2020 总结 &amp; 题解&body=Check out this article: http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&name=NOIP2020 总结 &amp; 题解&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&t=NOIP2020 总结 &amp; 题解"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-NOIP2020-之后"><span class="toc-number">1.</span> <span class="toc-text">写在 NOIP2020 之后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成绩出了"><span class="toc-number">2.</span> <span class="toc-text">成绩出了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-number">3.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#T1"><span class="toc-number">3.1.</span> <span class="toc-text">T1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T2"><span class="toc-number">3.2.</span> <span class="toc-text">T2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T3"><span class="toc-number">3.3.</span> <span class="toc-text">T3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T4"><span class="toc-number">3.4.</span> <span class="toc-text">T4</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#「不要在脑海里激情澎湃一会儿就当努力过了。」"><span class="toc-number"></span> <span class="toc-text">「不要在脑海里激情澎湃一会儿就当努力过了。」</span></a>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        NOIP2020 总结 &amp; 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-09-14T15:14:05.000Z" itemprop="datePublished">2020-09-14</time>
+        
+      
+    </div>
+
+
+      
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="写在-NOIP2020-之后"><a href="#写在-NOIP2020-之后" class="headerlink" title="写在 NOIP2020 之后"></a>写在 NOIP2020 之后</h2><hr>
+<p>T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。</p>
+<p>想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！<strong>“永远不要用行为上的努力来掩盖思维上的懒惰。”</strong></p>
+<h2 id="成绩出了"><a href="#成绩出了" class="headerlink" title="成绩出了"></a>成绩出了</h2><hr>
+<p>丧气话删了。“世上一切不幸都是由于当事者能力不足”</p>
+<h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr>
+<h3 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h3><p>先 乘 后 除 /吐血 痛失 30 分，<strong>痛失高一赛季！</strong></p>
+<p>正解就维护指数</p>
+<h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>好吧。。这题就是复杂度优化题。后面东西用树状数组我做到了，前面那个用倍增我真想不到啊。。</p>
+<p>肯定要枚举 AB，然后发现确定了 AB 的长度，C 的奇数个数只有 2 种值，就很简单了。</p>
+<h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>据说我写的是 $70$ 分，就每次挑两个柱子，当前柱有 $x$ 个黑，$y$ 个白（显然颜色不重要，我们就看作黑白），然后把两个柱子准备一下，即一个留 $x$ 个空位，一个留 $y$ 个空位，但我调了很久，还写挂了，痛失 $70$ 分。赛后看题解知道自己只想到了几个关键细节中的一个。</p>
+<p>我们钦定总有一个柱子是空的，即每次操作完，有 $n$ 个柱子都是满的，这样可以简化很多。（第二个细节）</p>
+<p>先看 $n = 2$ 的情况。发现可以在不改变其他柱子状态的情况下整理一个柱子，即白的在下，黑的在上。（第三个细节）</p>
+<p>然后可以将柱子整理成同色的，具体就是，通过空柱子，我们可以 $reverse$ 一个柱子；两个柱子选一种颜色的球，<strong>需要保证两个柱子上此颜色的球数之和 $\leq m$</strong>，给丢到空柱子上，用一个柱子上的球填满另一个柱子再将塞到空柱子上的球拿回放在这个柱子上。（第四个细节）</p>
+<p>$n &gt; 2$ 的情况分治就好了，复杂度 $O(5nmlogn)$，极限数据只跑了 $500000$。</p>
+<p>需要注意的是，可能存在一个柱子颜色全是黑或全是白，merge 的时候可能会 $&gt; m$，需要特判。</p>
+<h3 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h3><p>暴 力 写 挂 我是屑</p>
+<p>又是构造又是多项式的，爽啦。</p>
+<p>对于暴力和正解都很重要的一个思想：每维是独立的。</p>
+<p>如果模拟两轮没走完，发现每轮合法位置的变化量是线性的，即对于第 $i$ 维，第一轮走了 $a_i$，第二轮走了 $b_i$，那么再走 $x$ 轮减少的就是 $b_i - (a_i - b_i) * x$</p>
+<p>枚举 $i$，现在计算的是第 $x + 2$ 轮做完第 $i$ 步的答案，合法的位置数是每维的合法位置乘起来。</p>
+<p>将 $x$ 看作自变量，枚举 $i$，第 $x$ 轮走了 $i$ 步的答案是 $f(x) = \prod_j (tot_{j, i} - (a_j - b_j) * x)$，$tot_{j, i}$ 表示第 $j$ 维走了 $i$ 步的合法位置数</p>
+<p>$\prod$ 写作 $\sum$, $f(x) = \sum_i c_i x^i$，最终答案即为 $\sum_i c_i (\sum\limits_{i = 1}^{mx} x_i)$（$mx$ 是走的轮数上限。</p>
+<p>后面这玩意是个自然数幂和，$k \leq 3$ 时有通项公式，$k &gt; 3$ 时可以预处理因为题目保证 $max_{w_i} \leq 1e6$.</p>
+<p>$O(nk^2)$，乘法是 $k^2$, 听说因为 $F$ 变化量小，通过什么拉格朗日插值可以做到 $O(nk)$（蒟蒻不会内个</p>
+<h1 id="「不要在脑海里激情澎湃一会儿就当努力过了。」"><a href="#「不要在脑海里激情澎湃一会儿就当努力过了。」" class="headerlink" title="「不要在脑海里激情澎湃一会儿就当努力过了。」"></a><em>「不要在脑海里激情澎湃一会儿就当努力过了。」</em></h1>
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#写在-NOIP2020-之后"><span class="toc-number">1.</span> <span class="toc-text">写在 NOIP2020 之后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成绩出了"><span class="toc-number">2.</span> <span class="toc-text">成绩出了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#题解"><span class="toc-number">3.</span> <span class="toc-text">题解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#T1"><span class="toc-number">3.1.</span> <span class="toc-text">T1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T2"><span class="toc-number">3.2.</span> <span class="toc-text">T2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T3"><span class="toc-number">3.3.</span> <span class="toc-text">T3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T4"><span class="toc-number">3.4.</span> <span class="toc-text">T4</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#「不要在脑海里激情澎湃一会儿就当努力过了。」"><span class="toc-number"></span> <span class="toc-text">「不要在脑海里激情澎湃一会儿就当努力过了。」</span></a>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&text=NOIP2020 总结 &amp; 题解"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&is_video=false&description=NOIP2020 总结 &amp; 题解"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=NOIP2020 总结 &amp; 题解&body=Check out this article: http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&title=NOIP2020 总结 &amp; 题解"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&name=NOIP2020 总结 &amp; 题解&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/14/NOIP2020 总结 &amp; 题解/&t=NOIP2020 总结 &amp; 题解"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

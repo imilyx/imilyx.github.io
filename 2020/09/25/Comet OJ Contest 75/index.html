@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="传送门 sooke 这套真是高质量好题 /dz $A. 绝境$ 考虑容斥，答案就是每种 $n - 1$ 个操作的交集减去 $n$ 个操作的交集。求矩形交的前后缀和！ $Code$ $B. 命运$ 注意，边不相交这是个很有用而且很强的条件！这样限定了 $i$ 位置取的 $in_i$ 个点只能是上方的底部和下方的顶端一些点。 特殊性质一是很有启发意义的一档。发现每个点引出的边方向确定了！为什么？若 $">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CodeJam2019-R1c">
+<meta property="og:url" content="http://yoursite.com/2020/09/25/Comet OJ Contest 75/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="传送门 sooke 这套真是高质量好题 /dz $A. 绝境$ 考虑容斥，答案就是每种 $n - 1$ 个操作的交集减去 $n$ 个操作的交集。求矩形交的前后缀和！ $Code$ $B. 命运$ 注意，边不相交这是个很有用而且很强的条件！这样限定了 $i$ 位置取的 $in_i$ 个点只能是上方的底部和下方的顶端一些点。 特殊性质一是很有启发意义的一档。发现每个点引出的边方向确定了！为什么？若 $">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-09-25T15:33:34.898Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CodeJam2019-R1c">
+<meta name="twitter:description" content="传送门 sooke 这套真是高质量好题 /dz $A. 绝境$ 考虑容斥，答案就是每种 $n - 1$ 个操作的交集减去 $n$ 个操作的交集。求矩形交的前后缀和！ $Code$ $B. 命运$ 注意，边不相交这是个很有用而且很强的条件！这样限定了 $i$ 位置取的 $in_i$ 个点只能是上方的底部和下方的顶端一些点。 特殊性质一是很有启发意义的一档。发现每个点引出的边方向确定了！为什么？若 $">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>CodeJam2019-R1c</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/11/10/【计划】NOIP2020复习计划/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/25/Comet OJ Contest 75/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&text=CodeJam2019-R1c"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&is_video=false&description=CodeJam2019-R1c"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CodeJam2019-R1c&body=Check out this article: http://yoursite.com/2020/09/25/Comet OJ Contest 75/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&name=CodeJam2019-R1c&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&t=CodeJam2019-R1c"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-绝境"><span class="toc-number">1.</span> <span class="toc-text">$A. 绝境$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-命运"><span class="toc-number">2.</span> <span class="toc-text">$B. 命运$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-终焉"><span class="toc-number">3.</span> <span class="toc-text">$C. 终焉$</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        CodeJam2019-R1c
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2020-09-25T15:27:40.000Z" itemprop="datePublished">2020-09-25</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://cometoj.com/contest/75/problems" target="_blank" rel="noopener">传送门</a></p>
+<p>sooke 这套真是高质量好题 /dz</p>
+<h2 id="A-绝境"><a href="#A-绝境" class="headerlink" title="$A. 绝境$"></a>$A. 绝境$</h2><hr>
+<p>考虑容斥，答案就是每种 $n - 1$ 个操作的交集减去 $n$ 个操作的交集。求矩形交的前后缀和！</p>
+<p><a href="https://cometoj.com/status/ykj87mpwfh7me0lbi15ciah6vj67ryd4" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="B-命运"><a href="#B-命运" class="headerlink" title="$B. 命运$"></a>$B. 命运$</h2><hr>
+<p>注意，边不相交这是个很有用而且很强的条件！这样限定了 $i$ 位置取的 $in_i$ 个点只能是上方的底部和下方的顶端一些点。</p>
+<p>特殊性质一是很有启发意义的一档。发现每个点引出的边方向确定了！为什么？若 $p_{i - 1} + 1 = p_i$ 则向右，若 $p_{i - 1} - 1 = p_i$ 则向左。然后可以愉快的dp，$f[i, j]$ 表示到第 $i$ 点处理完后，上方有 $j$ 条边（下方有 $p_i - j$ 条边）</p>
+<p>推广一下发现，每个点的入度和出度都定了！为啥啊</p>
+<ul>
+<li>$in_i + out_i = d_i$</li>
+<li>$p_{i - 1} - in_i + out_i = p_i$</li>
+</ul>
+<p>然后继续用刚才思路做，枚举上方几条入边和出边：$f[i, j] = \sum_x \sum_y f[i - 1, j - x + y]$</p>
+<p>转移是 $n^2$ 的。。。优化：$g[i, j] = \sum\limits_{x = 0}^{in_i} f[i - 1, j + x]$    $f[i, j] = \sum\limits_{y = 0}^{out_i} g[i, j - y]$ 发现都是前缀和形式，前缀和优化。</p>
+<p><a href="https://cometoj.com/status/fxs5bt46b7u243sfjl627cmk3nze4yxb" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="C-终焉"><a href="#C-终焉" class="headerlink" title="$C. 终焉$"></a>$C. 终焉$</h2><hr>
+<p>答案显然是断边数 + 1。</p>
+<p>技巧/经典套路1：修改是改变一个点和它周围一圈点时，考虑它的<strong>树上结构</strong>，只要修改父亲节点处就好了！</p>
+<p>集合幂级数？FWT、FMT？？好像都只能做部分分</p>
+<p>$f[x, s]$ 表示节点 $x$ 儿子中状态为 $s$ 的数量，发现这样修改和查询一个是 $O(2^m)$，一个是 $O(1)$，这太不均匀了！</p>
+<p>经典套路2：分两段，比如说修改 $x$ 值为 $s$，那么 $f[fa, t]++$，其中前半段 $t$ 和 $s$ 相同，后半段 $s$ 是 $t$ 的子集；<br>查询的话就先 $s = ~s$，$ans += f[fa, t]$，其中后半段 $t$ 和 $s$ 相同，前半段 $t$ 是 $s$ 的子集。但这样时间是 $O(n2^{m / 2})$ 了，空间还是 $O(n2^m)$</p>
+<p>经典套路3：度数分块</p>
+<p>考虑 $bound$，当度数 $&lt; bound$ 时暴力修改/询问，$&gt; bound$ 时用上面的数组做，发现这样空间复杂度是 $O(n / d * 2^{m / 2})$；发现 $d = 2^{m / 2}$ 时最优！</p>
+<p>就做完啦。</p>
+<p><a href="https://cometoj.com/status/n8s13h50ao6gc6fvte6gb5opzqpcanel" target="_blank" rel="noopener">$Code$</a></p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-绝境"><span class="toc-number">1.</span> <span class="toc-text">$A. 绝境$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-命运"><span class="toc-number">2.</span> <span class="toc-text">$B. 命运$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C-终焉"><span class="toc-number">3.</span> <span class="toc-text">$C. 终焉$</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/09/25/Comet OJ Contest 75/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&text=CodeJam2019-R1c"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&is_video=false&description=CodeJam2019-R1c"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=CodeJam2019-R1c&body=Check out this article: http://yoursite.com/2020/09/25/Comet OJ Contest 75/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&title=CodeJam2019-R1c"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&name=CodeJam2019-R1c&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2020/09/25/Comet OJ Contest 75/&t=CodeJam2019-R1c"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

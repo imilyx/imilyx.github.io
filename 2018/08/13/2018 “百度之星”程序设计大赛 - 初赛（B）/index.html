@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="比赛链接 因为初赛A没过，所以也来体验了B组，感觉还要难一些，也更妙一些。很有收获！ A. degree 首先确定是森林，也就是多棵树。我们枚举作为答案的那个点，首先可以在原来的基础上向剩余的连通块各连一条（即 n - 1 - m，可以脑补一下，如果将剩余的原来是连接连通块的边加上，那么就是一棵 n - 1 条边的树，而每个连通块必然只有一条边连出来，故 n - 1 - m 是可连的连通块数量">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018 “百度之星”程序设计大赛 - 初赛（B）">
+<meta property="og:url" content="http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="比赛链接 因为初赛A没过，所以也来体验了B组，感觉还要难一些，也更妙一些。很有收获！ A. degree 首先确定是森林，也就是多棵树。我们枚举作为答案的那个点，首先可以在原来的基础上向剩余的连通块各连一条（即 n - 1 - m，可以脑补一下，如果将剩余的原来是连接连通块的边加上，那么就是一棵 n - 1 条边的树，而每个连通块必然只有一条边连出来，故 n - 1 - m 是可连的连通块数量">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-14T14:07:09.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018 “百度之星”程序设计大赛 - 初赛（B）">
+<meta name="twitter:description" content="比赛链接 因为初赛A没过，所以也来体验了B组，感觉还要难一些，也更妙一些。很有收获！ A. degree 首先确定是森林，也就是多棵树。我们枚举作为答案的那个点，首先可以在原来的基础上向剩余的连通块各连一条（即 n - 1 - m，可以脑补一下，如果将剩余的原来是连接连通块的边加上，那么就是一棵 n - 1 条边的树，而每个连通块必然只有一条边连出来，故 n - 1 - m 是可连的连通块数量">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>2018 “百度之星”程序设计大赛 - 初赛（B）</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/08/14/[POJ1037]-A Decorative Fence/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/08/12/2018 “百度之星”程序设计大赛 - 初赛（A）/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&text=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&is_video=false&description=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018 “百度之星”程序设计大赛 - 初赛（B）&body=Check out this article: http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&name=2018 “百度之星”程序设计大赛 - 初赛（B）&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&t=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-degree"><span class="toc-number">1.</span> <span class="toc-text">A. degree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-hex"><span class="toc-number">2.</span> <span class="toc-text">B. hex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-odds"><span class="toc-number">3.</span> <span class="toc-text">C. odds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-p1m2"><span class="toc-number">4.</span> <span class="toc-text">D. p1m2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-ratio"><span class="toc-number">5.</span> <span class="toc-text">E. ratio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-rect"><span class="toc-number">6.</span> <span class="toc-text">F. rect</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        2018 “百度之星”程序设计大赛 - 初赛（B）
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-08-13T10:39:40.000Z" itemprop="datePublished">2018-08-13</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="http://bestcoder.hdu.edu.cn/contests/contest_show.php?cid=826" target="_blank" rel="noopener">比赛链接</a></p>
+<p>因为初赛A没过，所以也来体验了B组，感觉还要难一些，也更妙一些。很有收获！</p>
+<h3 id="A-degree"><a href="#A-degree" class="headerlink" title="A. degree"></a>A. degree</h3><hr>
+<p>首先确定是森林，也就是多棵树。我们枚举作为答案的那个点，首先可以在原来的基础上向剩余的连通块各连一条（即 n - 1 - m，可以脑补一下，如果将剩余的原来是连接连通块的边加上，那么就是一棵 n - 1 条边的树，而每个连通块必然只有一条边连出来，故 n - 1 - m 是可连的连通块数量）。最后再加上别处被移除的边的数量。</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, k, a, b, T;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; nxt[<span class="number">200005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;m, &amp;k);</span><br><span class="line">        <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) nxt[i].clear();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;a, &amp;b);</span><br><span class="line">            nxt[a].push_back(b);</span><br><span class="line">            nxt[b].push_back(a);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = nxt[i].size();</span><br><span class="line">            ans = max(ans, x + (n - <span class="number">1</span>) - m + min(k, m - x));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="B-hex"><a href="#B-hex" class="headerlink" title="B. hex"></a>B. hex</h3><hr>
+<p>扛了扛，样例未过，不了了之，留坑待填。</p>
+<h3 id="C-odds"><a href="#C-odds" class="headerlink" title="C. odds"></a>C. odds</h3><hr>
+<p>没仔细看过，留坑待填。</p>
+<h3 id="D-p1m2"><a href="#D-p1m2" class="headerlink" title="D. p1m2"></a>D. p1m2</h3><hr>
+<p>二分答案！！</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll T, n, a[<span class="number">300005</span>], tmp[<span class="number">300005</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(ll limit)</span> </span>&#123;</span><br><span class="line">    ll t = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) tmp[i] = a[i];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tmp[i] &lt; limit) &#123;</span><br><span class="line">            t += limit - tmp[i];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            sum += (tmp[i] - limit) / <span class="number">2</span>;  <span class="comment">// attention!!不是 sum += tmp[i] - limit.</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sum &gt;= t) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;n);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">        ll l = <span class="number">0</span>, r = (<span class="keyword">int</span>)<span class="number">1e8</span>, ans = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r) &#123;</span><br><span class="line">            ll mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (chk(mid + <span class="number">1</span>))   <span class="comment">// ATTENTION!! WA 3 times for this mistake -- "mid + 1"</span></span><br><span class="line">                l = mid + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">else</span> r = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="E-ratio"><a href="#E-ratio" class="headerlink" title="E. ratio"></a>E. ratio</h3><hr>
+<p>并没有做，留坑待填。</p>
+<h3 id="F-rect"><a href="#F-rect" class="headerlink" title="F. rect"></a>F. rect</h3><hr>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">----------------</span><br><span class="line">|\            /|</span><br><span class="line">| \     <span class="number">1</span>    / |</span><br><span class="line">|  \        /  |</span><br><span class="line">|   \      /   |</span><br><span class="line">|    \    /    |</span><br><span class="line">|     \  /     |</span><br><span class="line">|  <span class="number">2</span>   \/   <span class="number">3</span>  |</span><br><span class="line">|      /\      |</span><br><span class="line">|     /  \     |</span><br><span class="line">|    /    \    |</span><br><span class="line">|   /      \   |</span><br><span class="line">|  /    <span class="number">4</span>   \  |</span><br><span class="line">| /          \ |</span><br><span class="line">|/            \|</span><br><span class="line">---------------</span><br></pre></td></tr></table></figure>
+<p>如图，位于 1 区的线段答案是 x，位于 2 区的线段答案是 y，位于 3 区的线段答案是 my - y，位于 4 区的线段答案是 mx - x，可以证明，绝对不会相交。</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll mx, my, n, T, x, y, ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>, &amp;mx, &amp;my, &amp;n);</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;x, &amp;y);</span><br><span class="line">            ans += min(x, min(y, min(mx - x, my - y)));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>前500可以进复赛。在还有约30分钟时我是448名左右。当时大概大脑犯抽，一直在想“啊还有12名”，直到我发现了490这个数字的存在。。。</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-degree"><span class="toc-number">1.</span> <span class="toc-text">A. degree</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-hex"><span class="toc-number">2.</span> <span class="toc-text">B. hex</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-odds"><span class="toc-number">3.</span> <span class="toc-text">C. odds</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-p1m2"><span class="toc-number">4.</span> <span class="toc-text">D. p1m2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-ratio"><span class="toc-number">5.</span> <span class="toc-text">E. ratio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-rect"><span class="toc-number">6.</span> <span class="toc-text">F. rect</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&text=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&is_video=false&description=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=2018 “百度之星”程序设计大赛 - 初赛（B）&body=Check out this article: http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&title=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&name=2018 “百度之星”程序设计大赛 - 初赛（B）&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/08/13/2018 “百度之星”程序设计大赛 - 初赛（B）/&t=2018 “百度之星”程序设计大赛 - 初赛（B）"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： $$f[i] = \min_{0 \leq j &amp;lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$ 其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci">
+<meta name="keywords" content="斜率优化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】斜率优化">
+<meta property="og:url" content="http://yoursite.com/2018/12/11/【学习笔记】斜率优化/index.html">
+<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： $$f[i] = \min_{0 \leq j &amp;lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$ 其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-12-13T11:02:24.771Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】斜率优化">
+<meta name="twitter:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： $$f[i] = \min_{0 \leq j &amp;lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$ 其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci">
+    
+    
+      
+        
+          <link rel="shortcut icon" href="/images/favicon.ico">
+        
+      
+      
+        
+          <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+        
+      
+      
+        
+          <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+        
+      
+    
+    <!-- title -->
+    <title>【学习笔记】斜率优化</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2018/12/15/[BZOJ1096]-仓库建设/"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2018/11/30/[SCOI2009]-windy数/"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Vorheriger Beitrag</span>
+      <span id="i-next" class="info" style="display:none;">Nächster Beitrag</span>
+      <span id="i-top" class="info" style="display:none;">Zurück zum Anfang</span>
+      <span id="i-share" class="info" style="display:none;">Beitrag teilen</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&text=【学习笔记】斜率优化"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&is_video=false&description=【学习笔记】斜率优化"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】斜率优化&body=Check out this article: http://yoursite.com/2018/12/11/【学习笔记】斜率优化/"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&name=【学习笔记】斜率优化&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&t=【学习笔记】斜率优化"><i class="fab fa-hacker-news " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】斜率优化
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2018-12-11T15:48:40.000Z" itemprop="datePublished">2018-12-11</time>
+        
+      
+    </div>
+
+
+      
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/斜率优化/">斜率优化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>如题，这是一篇初学斜率优化的总结。</p>
+<p>我们可以以经典的 <a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1010" target="_blank" rel="noopener">[HNOI2008]玩具装箱toy</a> 一题来引入此概念。</p>
+<p>首先，n^2 的 DP 方程十分好列：</p>
+<p>$$f[i] = \min_{0 \leq j &lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$</p>
+<p>其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci 之和。为什么是 j + 1 ？因为前 j 个已经处理好了，我们现在处理的是 j + 1 ～ i 这一段的长度及费用。</p>
+<p>为了更简便，我们用 s[i] 表示 sum[i] + i, L++, 那么该式子就变成了：</p>
+<p>$$f[i] = \min_{0 \leq j &lt; i}{f[j] + (s[i] - s[j] - L)^2}$$</p>
+<p>=&gt;</p>
+<p>$$f[i] = \min_{0 \leq j &lt; i}{f[j] + ((s[i] - L) - s[j])^2}$$</p>
+<p>拆开得</p>
+<p>$$f[i] = \min_{0 \leq j &lt; i}{f[j] + (s[i] - L)^2 + s[j]^2 - 2 <em> (s[i] - L) </em> s[j]}$$</p>
+<p>我们把 f[j] 等视作变量，就可以先去掉 min{}. 移项得：</p>
+<p>$$f[j] + s[j]^2 = 2 <em> (s[i] - L) </em> s[j] + f[i] - (s[i] - L)^2$$</p>
+<p>正好最近八上在学一次函数，它的表达式是 $y = kx + b$ 的形式；在这里，f[j] + s[j]^2 是 y，f[i] - (s[i] - L)^2 是 b，2(s[i] - L) 是 k，s[j] 是 x。那么 2(s[i] - L) 也是斜率。</p>
+<p>我们可以把每一个 j 看作直角坐标系上的一个点 (s[j], f[j] + s[j]^2). 要找到最小的 f[i]，即找到最小的 b，即找到最小的截距。</p>
+<p>可以想象一下，一条斜率为 2(s[i] - L) 的直线从 y 轴副半轴向上移动，碰到的第一个点就是截距最小的点，即最优决策 j.</p>
+<p>那么怎样的点才符合最优决策呢？设最优决策点为 j，它左边点为 j - 1，右边点为 j + 1，如果 j - 1 ～ j 的线段斜率小于 2(s[i] - L) 且 j ~ j + 1 的线段斜率大于 2(s[i] - L), 构成了下凸形状，那么 j 有可能成为最优决策。</p>
+<p>这启发我们大胆猜测：维护一个 连接相邻两点的线段斜率 单调递增的下凸壳。可以用单调队列维护：如果我们只保留凸壳上 连接相邻两点的线段斜率 大于 2(s[i] - L) 的部分，那么凸壳的最左端顶点一定是最优决策。</p>
+<p>单调队列和凸壳的使用妙极了！这才是真正的数形结合！</p>
+<p>那么这道题也就做出来了：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">5e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, L, l, r;</span><br><span class="line">ll s[N], q[N], f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Y</span><span class="params">(ll j)</span> </span>&#123; <span class="keyword">return</span> f[j] + s[j] * s[j]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">X</span><span class="params">(ll j)</span> </span>&#123; <span class="keyword">return</span> s[j]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">slope</span><span class="params">(ll i, ll j)</span> </span>&#123; <span class="keyword">return</span> (Y(i) - Y(j)) / (X(i) - X(j)); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; L;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">cin</span> &gt;&gt; s[i], s[i] += s[i - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) s[i] += i;</span><br><span class="line">    L++;</span><br><span class="line">    l = <span class="number">1</span>, r = <span class="number">1</span>, q[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; slope(q[l + <span class="number">1</span>], q[l]) &lt;= <span class="number">2</span> * (s[i] - L))</span><br><span class="line">            l++;</span><br><span class="line">        f[i] = f[q[l]] + (s[i] - s[q[l]] - L) * (s[i] - s[q[l]] - L);</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; slope(q[r], q[r - <span class="number">1</span>]) &gt; slope(i, q[r]))</span><br><span class="line">            r--;</span><br><span class="line">        q[++r] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>总结一下斜率优化DP解题顺序：</p>
+<ol>
+<li>列出 n^2 暴力DP</li>
+<li>将该 DP 式子化成 y = kx + b 的形式</li>
+<li>套路式斜率优化</li>
+</ol>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&text=【学习笔记】斜率优化"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&is_video=false&description=【学习笔记】斜率优化"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】斜率优化&body=Check out this article: http://yoursite.com/2018/12/11/【学习笔记】斜率优化/"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&title=【学习笔记】斜率优化"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&name=【学习笔记】斜率优化&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://news.ycombinator.com/submitlink?u=http://yoursite.com/2018/12/11/【学习笔记】斜率优化/&t=【学习笔记】斜率优化"><i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menü</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Teilen</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Nach oben</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy;
+    
+    
+    2016-2021
+    imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Startseite</a></li>
+         
+          <li><a href="/about/">Über diese Webseite</a></li>
+         
+          <li><a href="/archives/">Artikel</a></li>
+         
+          <li><a href="/projects_url">Projekte</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+    <!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+    <!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<!-- clipboard -->
+
+  <script src="/lib/clipboard/clipboard.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // copy-btn HTML
+    var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"In die Zwischenablage kopiert!\">";
+    btn += '<i class="far fa-clone"></i>';
+    btn += '</span>'; 
+    // mount it!
+    $(".highlight table").before(btn);
+    var clip = new ClipboardJS('.btn-copy', {
+      text: function(trigger) {
+        return Array.from(trigger.nextElementSibling.querySelectorAll('.code')).reduce((str,it)=>str+it.innerText+'\n','')
+      }
+    });
+    clip.on('success', function(e) {
+      e.trigger.setAttribute('aria-label', "Kopiert!");
+      e.clearSelection();
+    })
+  })
+  </script>
+
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Cloudflare Analytics -->
+
+<!-- Umami Analytics -->
+
+<!-- Disqus Comments --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+</body>
+</html>
