@@ -1,2044 +1,319 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Hexo, NexT" />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta property="og:type" content="website">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta property="og:type" content="website">
 <meta property="og:title" content="imily&#39;s notes">
 <meta property="og:url" content="http://yoursite.com/page/9/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="imily&#39;s notes">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/page/9/"/>
-
-
-
-
-
-  <title> imily's notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>imily&#39;s notes</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+<body>
+    
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="content index width mx-auto px2 my4">
+        
+          <header id="header">
+  <a href="/">
   
     
-  
-
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+      <div id="logo" style="background-image: url(/images/logo.png);"></div>
     
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">imily's notes</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+  
+    <div id="title">
+      <h1>imily&#39;s notes</h1>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
+  </a>
+  <div id="nav">
+    <ul>
+      <li class="icon">
+        <a href="#"><i class="fa fa-bars fa-2x"></i></a>
+      </li>
+       
+        <li><a href="/">Home</a></li>
+       
+        <li><a href="/about/">About</a></li>
+       
+        <li><a href="/posts/">Posts</a></li>
+       
+        <li><a href="/tags/">Tags</a></li>
+       
+        <li><a href="/friends/">Friends</a></li>
       
     </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/20/【习题选讲】数学2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/20/【习题选讲】数学2/" itemprop="url">
-                  【习题选讲】数学2
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-20T19:20:40+08:00">
-                2020-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="Flowers-and-Chocolate"><a href="#Flowers-and-Chocolate" class="headerlink" title="Flowers and Chocolate"></a><a href="https://vjudge.net/problem/CodeForces-865G" target="_blank" rel="noopener">Flowers and Chocolate</a></h2><hr>
-<p>生成函数题，好想做出来啊，，杠了一天半了，只能咕咕</p>
-<h2 id="加权约数和"><a href="#加权约数和" class="headerlink" title="加权约数和"></a><a href="https://vjudge.net/problem/51Nod-1584" target="_blank" rel="noopener">加权约数和</a></h2><hr>
-<p>咕咕<br><a href="https://zybuluo.com/mayiyang/note/1725968" target="_blank" rel="noopener">题解</a></p>
-<h2 id="概率好题"><a href="#概率好题" class="headerlink" title="概率好题"></a><a href="https://vjudge.net/problem/51Nod-1667" target="_blank" rel="noopener">概率好题</a></h2><hr>
-<p>求 sum{a_i} &lt; sum{b_i} 的方案数，其中 a_i 和 b_i 有取值范围</p>
-<p>考虑到 a_i 和 b_i 有一个下限 l，将柿子化为 sum{l_i + x_i} &lt; sum{l_i + x_i} 的形式，其中 0 &lt;= x_i &lt;= r_i</p>
-<p>隔板法 + 容斥即可</p>
-<h2 id="小Q的集合"><a href="#小Q的集合" class="headerlink" title="小Q的集合"></a><a href="https://vjudge.net/problem/51Nod-1778" target="_blank" rel="noopener">小Q的集合</a></h2><hr>
-<p>看到 n 这么大，模数却只有 1e6 应该想到 lucas 定理啊</p>
-<p>m 又是质数，(T^k - (S - T)^k) % m 成一个周期为 m 的数列</p>
-<p>然后一发乱搞就好了（</p>
-<h2 id="BBQ-Hard"><a href="#BBQ-Hard" class="headerlink" title="BBQ Hard"></a><a href="https://vjudge.net/problem/AtCoder-agc001_e" target="_blank" rel="noopener">BBQ Hard</a></h2><hr>
-<p>C(Ai + Aj + Bi + Bj, Ai + Aj) 就是求从 (0, 0) 走到 (Ai + Aj, Bi + Bj) 的方案数</p>
-<p>移位，变成求从 (-Ai, -Bi) 走到 (Aj, Bj) 的方案数</p>
-<p>那么对于每个点，我们计算从它左下区域走上来的方案数之和</p>
-<p>显然 dp[i, j] = dp[i - 1, j] + dp[i, j - 1]。坐标值都很小，可以枚举。最后别忘了减去 (-Ai, -Bi) 对 (Ai, Bi) 的贡献。</p>
-<h2 id="Leftmost-Ball"><a href="#Leftmost-Ball" class="headerlink" title="Leftmost Ball"></a><a href="https://vjudge.net/problem/AtCoder-agc002_f" target="_blank" rel="noopener">Leftmost Ball</a></h2><hr>
-<p>转化一下就是求已放白球数 &gt;= 已放彩球种类的方案数，容易想到每放一种颜色就把 K 个全放完的想法。</p>
-<p>其实真正重要的只有那 n 个白球和那 n 个第一次放下的彩球。dp，f[i, j] 表示已放 i 白球，j 种彩球的方案数。</p>
-<h2 id="Card-game-for-three"><a href="#Card-game-for-three" class="headerlink" title="Card game for three"></a><a href="https://vjudge.net/problem/AtCoder-arc061_d" target="_blank" rel="noopener">Card game for three</a></h2><hr>
-<p>并不是很难的题，第一步想懂了后面就好办了。</p>
-<p>将 a、b、c 的赢看作又抽了一张卡，即 b 抽了第 m + 1 张，c 抽了第 k + 1 张，而 a 抽了第 n 张（a 先手）枚举 a 赢之前 b 和 c 各抽了几张卡，化柿子 + 分类讨论即可。</p>
-<h2 id="Unicyclic-Graph-Counting"><a href="#Unicyclic-Graph-Counting" class="headerlink" title="Unicyclic Graph Counting"></a><a href="https://vjudge.net/problem/AtCoder-asaporo2_f" target="_blank" rel="noopener">Unicyclic Graph Counting</a></h2><hr>
-<p><a href="https://www.cnblogs.com/zwfymqz/p/8869956.html" target="_blank" rel="noopener">prufer序列重修</a></p>
-<p>度数建图，容易想到 prufer 序列，但这是基环树。</p>
-<p>定义本题的 prufer 序列为将树删完后的 prufer 序列，只剩下一个环 和连着环的编号最大的点。</p>
-<p>想到树上节点在 prufer 序列中出现次数为 deg - 1，环上只有一个节点出现次数为 deg - 3，其他都是 deg - 2（特判只有一个环的情况）。</p>
-<p>环大小为 k 时，环排列数为 (k - 1)! / 2（环有旋转同构和翻转同构），prufer 序列数为 (n - k + 1)! / prod{ (di - ?)! }</p>
-<p>dp计算分母那玩意，f[i, j, k] 表示前 i 个点有 j 个环上点，k 为 0/1 表示是否选了出现次数 deg - 3 的点。</p>
-<p>所以最后答案就是 $\sum\limits_{i = 3}^{n - 1} f[n, i, 1] \times (n - i - 1)! \times \frac{(i - 1)!}{2}$</p>
-<h2 id="Team-Work"><a href="#Team-Work" class="headerlink" title="Team Work"></a><a href="https://vjudge.net/problem/CodeForces-932E" target="_blank" rel="noopener">Team Work</a></h2><hr>
-<p><a href="https://www.cnblogs.com/gzy-cjoier/p/8426987.html" target="_blank" rel="noopener">第二类斯特林数</a></p>
-<p>柿子很好列出来，<a href="https://www.cnblogs.com/cjyyb/p/9706019.html" target="_blank" rel="noopener">怎么推呢？</a></p>
-<ul>
-<li>看到 i^k 的形式想想斯特林数</li>
-<li>循环复杂度高时想想替换枚举顺序</li>
-<li>碰到阶乘形式想想凑组合数</li>
-</ul>
-<h2 id="排列组合"><a href="#排列组合" class="headerlink" title="排列组合"></a><a href="https://vjudge.net/problem/HDU-1521" target="_blank" rel="noopener">排列组合</a></h2><hr>
-<p>指数型生成函数模板题，回去就重修生成函数。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/20/2020 百度之星程序设计大赛 - 初赛A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/20/2020 百度之星程序设计大赛 - 初赛A/" itemprop="url">
-                  2020 百度之星程序设计大赛 - 初赛（A）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-20T18:44:40+08:00">
-                2020-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>A, B, C 均为水题。。rk306，进复赛了 ~</p>
-<h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><p>D 其实也是水题，这题目是真的难懂。。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, n, sx, sy, a[<span class="number">505</span>][<span class="number">505</span>], ans, tot;</span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; val;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; sx &gt;&gt; sy;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            rep(j, <span class="number">1</span>, n) &#123;</span><br><span class="line">                <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i][j]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = <span class="number">1e9</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            rep(j, <span class="number">1</span>, n) &#123;</span><br><span class="line">                <span class="keyword">int</span> ren = <span class="number">0</span>, rnd = <span class="number">0</span>;</span><br><span class="line">                rnd = (<span class="built_in">abs</span>(i - sx) + <span class="built_in">abs</span>(j - sy) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">                tot = <span class="number">0</span>;</span><br><span class="line">                val.clear();</span><br><span class="line">                rep(k, <span class="number">-3</span>, <span class="number">3</span>) &#123;</span><br><span class="line">                    rep(l, <span class="number">-3</span>, <span class="number">3</span>) &#123;</span><br><span class="line">                        <span class="keyword">if</span> (<span class="built_in">abs</span>(k) + <span class="built_in">abs</span>(l) &gt; <span class="number">3</span>) <span class="keyword">continue</span>;</span><br><span class="line">                        <span class="keyword">if</span> (!k &amp;&amp; !l) <span class="keyword">continue</span>;  <span class="comment">// 城市建成后第一个工作者不会移动到别的格子去。。。错失AC</span></span><br><span class="line">                        <span class="keyword">if</span> (i + k &lt; <span class="number">1</span> || i + k &gt; n || j + l &lt; <span class="number">1</span> || j + l &gt; n) <span class="keyword">continue</span>;</span><br><span class="line">                        val.push_back(a[i + k][j + l]);</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                sort(val.begin(), val.end());</span><br><span class="line"></span><br><span class="line">                ren = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> cur = <span class="number">0</span>, food = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">while</span> (ren &lt; <span class="number">9</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> tt = <span class="number">8</span> * ren * ren;</span><br><span class="line">                    <span class="keyword">if</span> (food &lt; tt) &#123;</span><br><span class="line">                        tt -= food;</span><br><span class="line">                        <span class="keyword">int</span> k = tt / cur + (tt % cur &gt; <span class="number">0</span>);</span><br><span class="line">                        rnd += k, food += k * cur;</span><br><span class="line">                    &#125;</span><br><span class="line">                    ++ren;</span><br><span class="line">                    <span class="keyword">if</span> (!val.size()) <span class="keyword">continue</span>;</span><br><span class="line">                    cur += val.back(), val.pop_back();</span><br><span class="line">                &#125;</span><br><span class="line">                ans = min(ans, rnd);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="E"><a href="#E" class="headerlink" title="E"></a>E</h2><p>不是很难但理解了很久的期望题</p>
-<p>由于 a 从外到内递减，必然会形成很多从内向外的树，所以连通块数的期望其实就是树根数的期望。</p>
-<p>考虑每个段作为树根的贡献。</p>
-<p>第一层是 a[i] / 2</p>
-<p>第 i 层每个段是 (1 / a[i - 1] - 1 / a[i]) <em> (a[i - 1] / 2) </em> (a[i] / 2) = (a[i] - a[i - 1]) / 4</p>
-<p>其中，1 / a[i - 1] 是上一层白块概率，但是黑块要完全待在白块里就要减去 1 / a[i]</p>
-<p>那么如果出现只有一个点相碰的情况，这概率怎么算呢？</p>
-<p>其实不用算它，它的概率为 0。</p>
-<p>因为在连续空间下，计算一个子空间的概率就是在算这个空间的测度 (可以理解成一维是长度, 二维是面积, 三维是体积)</p>
-<p>在Lebesgue测度(欧氏空间下最常用的测度定义, 我们学到的微积分基本都基于它)下，一维空间中的一个点测度就是 0</p>
-<h2 id="F"><a href="#F" class="headerlink" title="F"></a>F</h2><p>选点必然是从小到大选，所以可以二分最后选的点（权值最大的点），对于每块区域讨论一下（不想写，代码就让它咕咕吧（）</p>
-<h2 id="G"><a href="#G" class="headerlink" title="G"></a>G</h2><p>时刻具有可二分性。设二分的值为 t，容易想到对于每个格点，与每个在 t 时刻内能到达它的窗户连边，跑网络流，但是这样节点个数是 nm 级别的。考虑优化，窗户只有 6 个，那用二进制表示窗户到格点的到达状态，将状态相同的点们缩成一个点，跑最大流就好了。</p>
-<h2 id="H"><a href="#H" class="headerlink" title="H"></a>H</h2><p>官方题解太毒瘤，，我看的<a href="https://blog.csdn.net/weixin_44282912/article/details/107454309" target="_blank" rel="noopener">这个</a></p>
-<p>时间复杂度应该是跑不满的 sqrt(n) * log(sqrt(n))</p>
-<p>思考了一波推柿子的意义，把 sigma 化掉、去掉无效枚举状态（比如 n / d^2，d &gt; sqrt(n) 就是无效的），判断当前柿子能否预处理。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/17/【学习笔记】矩阵树定理/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/17/【学习笔记】矩阵树定理/" itemprop="url">
-                  【学习笔记】矩阵树定理
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-17T20:50:40+08:00">
-                2020-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://oi-wiki.org/graph/matrix-tree/" target="_blank" rel="noopener">OIWiki上的矩阵树相关</a></p>
-<hr>
-<h1 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a><a href="https://blog.csdn.net/qq_36396104/article/details/89298227" target="_blank" rel="noopener">行列式</a></h1><p>$n \times n$ 的矩阵 A 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。</p>
-<p>矩阵 A 的行列式用 det(A) 表示。</p>
-<p><a href="https://baike.baidu.com/item/%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2/10648400?fr=aladdin#2" target="_blank" rel="noopener">行列式初等变换(最下面)</a></p>
-<ul>
-<li>行列互换，行列式值不变</li>
-<li>行列式一行或一列的公因子可以提出去</li>
-<li>行列式中若有某一行是两组数的和，则该行列式等于两个行列式的和</li>
-<li>两行或两列交换，行列式变号（区别于第一条）</li>
-<li>两行或两列相同，行列式为 0</li>
-<li>两行或两列成比例，行列式为 0</li>
-</ul>
-<hr>
-<h1 id="高斯消元化为上三角矩阵："><a href="#高斯消元化为上三角矩阵：" class="headerlink" title="高斯消元化为上三角矩阵："></a>高斯消元化为上三角矩阵：</h1><p>运用了行列式的初等变换。</p>
-<ul>
-<li>实数：直接处理</li>
-<li>模意义：1. 模为质 可用逆元  2. 模不为质 用辗转相除法，复杂度会多一个 log（详情见例题代码）</li>
-</ul>
-<hr>
-<h1 id="基尔霍夫矩阵"><a href="#基尔霍夫矩阵" class="headerlink" title="基尔霍夫矩阵"></a>基尔霍夫矩阵</h1><p>A 为邻接矩阵，D 为度数矩阵，Kirchhoff矩阵为 K = D - A</p>
-<p>行列式 a[i, i] 记录点 i 度数，a[i, j] 表示 i, j 之间边数的相反数。</p>
-<p>具体实现的话，设 kirchhoff 矩阵为 a，若存在边 (u, v) 则 a[u, u]++, a[v, v]++, a[u, v]–, a[v, u]–</p>
-<p>Kirchhoff矩阵每行内数的和和每列内数的和都为 0，所以行列式为 0</p>
-<hr>
-<h1 id="矩阵树定理"><a href="#矩阵树定理" class="headerlink" title="矩阵树定理"></a>矩阵树定理</h1><p>用于求解图上的生成树个数。</p>
-<p>无向图生成树个数 = Kirchhoff 矩阵任何一个 N - 1 阶<a href="https://baike.baidu.com/item/%E4%B8%BB%E5%AD%90%E5%BC%8F/2671796?fr=aladdin" target="_blank" rel="noopener">主子式</a>的行列式的绝对值.</p>
-<p>有向图相关见<a href="https://www.xht37.com/%E7%9F%A9%E9%98%B5%E6%A0%91%E5%AE%9A%E7%90%86-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_blank" rel="noopener">这里</a> （由于本人过于菜 连有向图生成树是啥都不会 先咕咕 后续做到题了再来填坑！）</p>
-<p>无向图，谁是根并不重要所以随便去掉哪一行&amp;列都可以；</p>
-<p>有向图，删去指定的根所在的行和列，求剩下的矩阵行列式即可。</p>
-<p>如果图不连通，那么任意 N - 1 阶主子式为 0。证明：如果图不连通，那么每个连通块内的点构成的矩阵仍然是 Kirchhoff 矩阵，而连通块不止一个，所以去掉第 i 行第 i 列之后，一定有一个连通块仍然是 Kirchhoff 矩阵，也就是行列式为 0 。</p>
-<hr>
-<h1 id="变元矩阵树定理"><a href="#变元矩阵树定理" class="headerlink" title="变元矩阵树定理"></a>变元矩阵树定理</h1><p>求所有生成树总边积的和。行列式 a[i, i] 记录点 i 边权和，a[i, j] 表示 i, j 之间边权的相反数。</p>
-<hr>
-<h2 id="例题1-HEOI2015-小Z的房间"><a href="#例题1-HEOI2015-小Z的房间" class="headerlink" title="例题1. [HEOI2015]-小Z的房间"></a>例题1. <a href="https://www.luogu.com.cn/problem/P4111" target="_blank" rel="noopener">[HEOI2015]-小Z的房间</a></h2><p>模板题，注意模数非质<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> dir[][<span class="number">2</span>] = &#123;&#123;<span class="number">0</span>, <span class="number">1</span>&#125;, &#123;<span class="number">1</span>, <span class="number">0</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, m, a[<span class="number">100</span>][<span class="number">100</span>], id[<span class="number">10</span>][<span class="number">10</span>], idx;</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s[i] + <span class="number">1</span>);</span><br><span class="line">        rep(j, <span class="number">1</span>, m)</span><br><span class="line">            <span class="keyword">if</span> (s[i][j] == <span class="string">'.'</span>) id[i][j] = ++idx;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        rep(j, <span class="number">1</span>, m) &#123;</span><br><span class="line">            <span class="keyword">if</span> (id[i][j]) &#123;</span><br><span class="line">                rep(k, <span class="number">0</span>, <span class="number">1</span>) &#123;</span><br><span class="line">                    <span class="keyword">int</span> tx = i + dir[k][<span class="number">0</span>], ty = j + dir[k][<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">if</span> (tx &gt; n || ty &gt; m || !id[tx][ty]) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">int</span> x = id[i][j], y = id[tx][ty];</span><br><span class="line">                    a[x][x]++, a[y][y]++, a[x][y]--, a[y][x]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, idx - <span class="number">1</span>) &#123;  <span class="comment">// n - 1 阶主子式</span></span><br><span class="line">        rep(j, i + <span class="number">1</span>, idx - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (a[j][i]) &#123;  <span class="comment">// 在模意义下用辗转相除法，类比 gcd(a, b) = gcd(b, a % b) 直到 b = 0，用第 i 行消第 j 行</span></span><br><span class="line">                ll d = a[i][i] / a[j][i];</span><br><span class="line">                rep(k, i, idx - <span class="number">1</span>)</span><br><span class="line">                    a[i][k] = (a[i][k] - d * a[j][k] % mod + mod) % mod;</span><br><span class="line">                swap(a[i], a[j]), ans = -ans;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = (ans * a[i][i] % mod + mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="例题2-SHOI2016-黑暗前的幻想乡"><a href="#例题2-SHOI2016-黑暗前的幻想乡" class="headerlink" title="例题2. [SHOI2016]-黑暗前的幻想乡"></a>例题2. <a href="https://www.luogu.com.cn/problem/P4336" target="_blank" rel="noopener">[SHOI2016]-黑暗前的幻想乡</a></h2><p>容斥 + 矩阵树定理<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line">ll n, a[<span class="number">20</span>][<span class="number">20</span>], res;</span><br><span class="line"><span class="built_in">vector</span>&lt;pii&gt; g[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> m, x, y; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">        <span class="keyword">while</span> (m--) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">            g[i].push_back(make_pair(x, y));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(s, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; (n - <span class="number">1</span>)) - <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">        rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (s &amp; (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))) &#123;</span><br><span class="line">                ++cnt;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; g[i].size(); j++) &#123;</span><br><span class="line">                    <span class="keyword">int</span> x = g[i][j].first, y = g[i][j].second;</span><br><span class="line">                    a[x][x]++, a[y][y]++, a[x][y]--, a[y][x]--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ll ans = <span class="number">1</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">            rep(j, i + <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">                <span class="keyword">while</span> (a[j][i]) &#123;</span><br><span class="line">                    ll d = a[i][i] / a[j][i];</span><br><span class="line">                    rep(k, i, n - <span class="number">1</span>)</span><br><span class="line">                        a[i][k] = (a[i][k] - d * a[j][k] % mod + mod) % mod;</span><br><span class="line">                    swap(a[i], a[j]), ans = -ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            ans = (ans * a[i][i] % mod + mod) % mod;</span><br><span class="line">        &#125;</span><br><span class="line">        res = (res + ((n - <span class="number">1</span> - cnt) &amp; <span class="number">1</span> ? <span class="number">-1l</span>l : <span class="number">1l</span>l) * ans + mod) % mod;  <span class="comment">// !!!</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, res);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="例题3-SDOI2014-重建"><a href="#例题3-SDOI2014-重建" class="headerlink" title="例题3. [SDOI2014]-重建"></a>例题3. <a href="https://www.luogu.com.cn/problem/P3317" target="_blank" rel="noopener">[SDOI2014]-重建</a></h2><p>推柿子 + 变元矩阵树定理，显然边权跟概率有关</p>
-<p>$\sum\limits_{T}(\prod\limits_{e \in T} P_e \prod\limits_{e \not\in T}(1-P_e))$</p>
-<p>$\sum\limits_T( \prod\limits_{e \in T} P_e \frac{ \prod\limits_e (1 - P_e) }{ \prod\limits_{e \in T} (1 - P_e) } )$</p>
-<p>$\prod\limits_e (1 - P_e) \sum \prod\limits_{e \in T} \frac{P_e}{1 - P_e}$</p>
-<p>就可以做啦<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">55</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-9</span>;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">double</span> D[N][N], ans = <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">bool</span> ff = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">double</span> ret = <span class="number">1.0</span>;</span><br><span class="line">    <span class="keyword">int</span> N = n - <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, N) &#123;</span><br><span class="line">        <span class="keyword">int</span> mx = i;</span><br><span class="line">        rep(j, i + <span class="number">1</span>, N)</span><br><span class="line">            <span class="keyword">if</span> (D[mx][i] &lt; D[j][i]) mx = j;</span><br><span class="line">        <span class="keyword">if</span> (mx != i) ff ^= <span class="number">1</span>, swap(D[mx], D[i]);</span><br><span class="line">        <span class="keyword">if</span> (D[i][i] &gt; -eps &amp;&amp; D[i][i] &lt; eps) <span class="keyword">return</span> <span class="number">0.0</span>;</span><br><span class="line">        rep(j, i + <span class="number">1</span>, N) &#123;</span><br><span class="line">            <span class="keyword">double</span> t = D[j][i] / D[i][i];</span><br><span class="line">            rep(k, i, N) D[j][k] -= t * D[i][k];</span><br><span class="line">        &#125;</span><br><span class="line">        ret *= D[i][i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (ff) ret *= <span class="number">-1.0</span>;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) rep(j, <span class="number">1</span>, n) <span class="built_in">cin</span> &gt;&gt; D[i][j];</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">1</span>, n) &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">fabs</span>(D[i][j]) &lt; eps) D[i][j] = eps;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">fabs</span>(<span class="number">1.0</span> - D[i][j]) &lt; eps) D[i][j] = <span class="number">1.0</span> - eps;</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i) ans *= (<span class="number">1</span> - D[i][j]);</span><br><span class="line">            D[i][j] /= (<span class="number">1.0</span> - D[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">1</span>, n)</span><br><span class="line">            <span class="keyword">if</span> (i != j)</span><br><span class="line">                D[i][i] += D[i][j], D[i][j] *= <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.5lf\n"</span>, ans * solve());</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="例题4-JSOI2008-最小生成树计数"><a href="#例题4-JSOI2008-最小生成树计数" class="headerlink" title="例题4. [JSOI2008]-最小生成树计数"></a>例题4. <a href="https://www.luogu.com.cn/problem/P4208" target="_blank" rel="noopener">[JSOI2008]-最小生成树计数</a></h2><p><strong>最小生成树性质：对于所有最小生成树，每种边权的边数相同；且对于所有生成树，某种权值的边连完后图的联通性相同</strong></p>
-<p>所以可以分别处理每种权值，乘起来。</p>
-<p>算同种边权的边的贡献，由于具有相同权值的边不超过 10 条，暴搜也可以过。。（2^10 很稳的！</p>
-<p>正解是矩阵树。注意，同种边权的边联通性相同并不等于连通，因此要连一些桥，并不影响矩阵树算答案。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">31011</span>, N = <span class="number">105</span>, M = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, m, ans = <span class="number">1</span>, num;</span><br><span class="line">ll fa[N], fat[N], id[M &lt;&lt; <span class="number">1</span>], a[N][N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">    ll u, v, w;</span><br><span class="line">    <span class="keyword">bool</span> <span class="keyword">operator</span> &lt; (<span class="keyword">const</span> node &amp;a) <span class="keyword">const</span> &#123; <span class="keyword">return</span> w &lt; a.w; &#125;</span><br><span class="line">&#125;e[M], t[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getfa</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fa[x] == x ? x : fa[x] = getfa(fa[x]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getfa2</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fat[x] == x ? x : fat[x] = getfa2(fat[x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">Gauss</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">    ll ret = <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">        rep(j, i + <span class="number">1</span>, n - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">while</span> (a[j][i]) &#123;</span><br><span class="line">                ll d = a[i][i] / a[j][i];</span><br><span class="line">                rep(k, i, n - <span class="number">1</span>)</span><br><span class="line">                    a[i][k] = (a[i][k] - d * a[j][k] % mod + mod) % mod;</span><br><span class="line">                swap(a[i], a[j]), ret = -ret;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ret = (ret * a[i][i] % mod + mod) % mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span>(a));</span><br><span class="line">    rep(i, l, r) &#123;</span><br><span class="line">        t[i] = e[i];</span><br><span class="line">        <span class="keyword">int</span> u = getfa(t[i].u), v = getfa(t[i].v);</span><br><span class="line">        t[i].u = u, t[i].v = v;  <span class="comment">// 类似于缩点</span></span><br><span class="line">        <span class="keyword">if</span> (u == v) <span class="keyword">continue</span>;</span><br><span class="line">        id[++cnt] = u, id[++cnt] = v;</span><br><span class="line">    &#125;</span><br><span class="line">    sort(id + <span class="number">1</span>, id + cnt + <span class="number">1</span>);</span><br><span class="line">    cnt = unique(id + <span class="number">1</span>, id + cnt + <span class="number">1</span>) - id - <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, cnt) fat[i] = i;</span><br><span class="line">    rep(i, l, r) &#123;</span><br><span class="line">        <span class="keyword">if</span> (t[i].u == t[i].v) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> u = getfa(t[i].u), v = getfa(t[i].v);</span><br><span class="line">        <span class="keyword">if</span> (u != v) --num, fa[u] = v;</span><br><span class="line"></span><br><span class="line">        u = lower_bound(id + <span class="number">1</span>, id + cnt + <span class="number">1</span>, t[i].u) - id;</span><br><span class="line">        v = lower_bound(id + <span class="number">1</span>, id + cnt + <span class="number">1</span>, t[i].v) - id;</span><br><span class="line">        a[u][u]++, a[v][v]++, a[u][v]--, a[v][u]--;</span><br><span class="line"></span><br><span class="line">        u = getfa2(u), v = getfa2(v);</span><br><span class="line">        <span class="keyword">if</span> (u != v) fat[u] = v;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">2</span>, cnt) &#123;  <span class="comment">// 有可能不连通，那么连一些桥，并不影响矩阵树算答案</span></span><br><span class="line">        <span class="keyword">int</span> u = getfa2(i), v = getfa2(i - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (u == v) <span class="keyword">continue</span>;</span><br><span class="line">        a[u][u]++, a[v][v]++, a[u][v]--, a[v][u]--;</span><br><span class="line">        fat[u] = v;</span><br><span class="line">    &#125;</span><br><span class="line">    ans = ans * Gauss(cnt) % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, m)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%lld%lld%lld"</span>, &amp;e[i].u, &amp;e[i].v, &amp;e[i].w);</span><br><span class="line">    sort(e + <span class="number">1</span>, e + m + <span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n) fa[i] = i;</span><br><span class="line">    num = n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>, j = <span class="number">1</span>; i &lt;= m; i = j) &#123;</span><br><span class="line">        <span class="keyword">while</span> (j &lt;= m &amp;&amp; e[i].w == e[j].w) ++j;</span><br><span class="line">        <span class="keyword">for</span> (j = i; j &lt;= m; ++j) <span class="keyword">if</span> (e[i].w != e[j].w) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> (i + <span class="number">1</span> &lt; j) &#123;</span><br><span class="line">            calc(i, j - <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> u = getfa(e[i].u), v = getfa(e[i].v);</span><br><span class="line">            <span class="keyword">if</span> (u != v) fa[u] = v;</span><br><span class="line">            --num;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (num &gt; <span class="number">1</span>) <span class="built_in">puts</span>(<span class="string">"0"</span>);  <span class="comment">// 判定最小生成树的存在</span></span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/17/浙大ACM第二轮选讲/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/17/浙大ACM第二轮选讲/" itemprop="url">
-                  浙大ACM第二轮选讲
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-17T19:10:40+08:00">
-                2020-07-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="7-17-A"><a href="#7-17-A" class="headerlink" title="7.17 A"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102657/problem/A" target="_blank" rel="noopener">7.17 A</a></h2><hr>
-<p>算简单题里的偏难题吧。。</p>
-<ul>
-<li>操作 2 次数至少为 max{a_i}</li>
-<li>所有数必须同时减到 0</li>
-</ul>
-<p>进行减一后再加倍不会优于先加倍再减一（我也不知道为啥），所以在最大值 max 没进行一次减一操作时让每个数翻倍，尽可能靠近 max；然后一起减一，比 max 小的数在途中必然会有减到 max 的一半的时候，这时候再翻倍就好了。</p>
-<h2 id="7-17-D"><a href="#7-17-D" class="headerlink" title="7.17 D"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102657/problem/D" target="_blank" rel="noopener">7.17 D</a></h2><hr>
-<p><a href="https://www.luogu.com.cn/blog/zyxxs/post-717-d-ti-ti-xie" target="_blank" rel="noopener">数学大佬的博客</a></p>
-<p>反射性质的转化很有意思！代码就先咕咕</p>
-<h2 id="7-17-E"><a href="#7-17-E" class="headerlink" title="7.17 E"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102657/problem/E" target="_blank" rel="noopener">7.17 E</a></h2><hr>
-<p><a href="https://www.kdocs.cn/l/sf6G7oaScGQm?f=201" target="_blank" rel="noopener">题解</a></p>
-<p>很妙的dp！我不会设计状态。。。</p>
-<h2 id="7-17-F"><a href="#7-17-F" class="headerlink" title="7.17 F"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102657/problem/F" target="_blank" rel="noopener">7.17 F</a></h2><hr>
-<p>1 &lt;= |B| &lt;= |A|</p>
-<p>B 串拼起来的东西只要是 A 的最小循环节就好了。</p>
-<p>有个很妙的转化：将与 A 中 [i, j] 匹配的 B 串看作从 i 指向 j + 1 的<strong>有向边</strong>（注意取模）</p>
-<p>那么问题就变成了求最小环，floyd 可以跑</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/浙大ACM第一轮选讲/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/15/浙大ACM第一轮选讲/" itemprop="url">
-                  浙大ACM第一轮选讲
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-15T08:51:40+08:00">
-                2020-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="7-13-D"><a href="#7-13-D" class="headerlink" title="7.13 D"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102643/problem/D" target="_blank" rel="noopener">7.13 D</a></h2><hr>
-<p><a href="https://www.luogu.com.cn/blog/zyxxs/post-713-d-ti-ti-xie" target="_blank" rel="noopener">挂一个大佬博客</a></p>
-<p>为啥第一个柿子等于第二个柿子：</p>
-<p>左边式子 = </p>
-<p>P(lca = L) * L +</p>
-<p>P(lca = L - 1) * (L - 1) +</p>
-<p>P(lca = L - 2) * (L - 2) + </p>
-<p>… + </p>
-<p>P(lca = 0) * 0</p>
-<p>重新整理一下就是</p>
-<p>P(lca = L) + </p>
-<p>P(lca = L) + P(lca = L - 1) +</p>
-<p>P(lca = L) + P(lca = L - 1) + P(lca = L - 2) +</p>
-<p>P(lca = L) + P(lca = L - 1) + P(lca = L - 2) + P(lca = L - 3) +</p>
-<p>… +</p>
-<p> P(lca = L) + P(lca = L - 1) + P(lca = L - 2) + P(lca = L - 3) + … P(lca = 1)</p>
-<p>那么左边就等于 sum{1 to L}{P(lca &gt;= i)}</p>
-<p>由于 P(lca &gt;= 0) = 1</p>
-<p>那么进而等于 sum{0 to L}{P(lca &gt;= i)} - 1</p>
-<p>关于本题卷积：</p>
-<p>g(n) = 1 / n! <em> (-1)^n </em> (1 - c^{-n * (l + 1)}) / (1 - c^n)</p>
-<p>h(n) = 1 / n!</p>
-<p>f(n) = \sum_{1 &lt;= j &lt;= n - 1} (n - 1)! <em> g(j) </em> h(n - j - 1)</p>
-<p>其实就是把组合数拆开来了</p>
-<p>最后柿子的 l + 1 是 c = 1 的贡献</p>
-<p>不得不说太妙了，杠了一晚上，数学是短板啊</p>
-<h2 id="7-14-A"><a href="#7-14-A" class="headerlink" title="7.14 A"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102647/problem/A" target="_blank" rel="noopener">7.14 A</a></h2><hr>
-<p>和<a href="https://codeforces.com/contest/1230/problem/E" target="_blank" rel="noopener">这道</a>一样都用到了 gcd 个数不超过 logn 的性质</p>
-<h2 id="7-14-B"><a href="#7-14-B" class="headerlink" title="7.14 B"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102647/problem/B" target="_blank" rel="noopener">7.14 B</a></h2><hr>
-<p>听说是广义 sam + 线段树合并，咕咕（题解已存</p>
-<h2 id="7-14-C"><a href="#7-14-C" class="headerlink" title="7.14 C"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102647/problem/C" target="_blank" rel="noopener">7.14 C</a></h2><hr>
-<p>听说是 wqs 二分，咕咕</p>
-<h2 id="7-14-D"><a href="#7-14-D" class="headerlink" title="7.14 D"></a><a href="https://zjusummer.contest.codeforces.com/group/clkkguw3vK/contest/102647/problem/D" target="_blank" rel="noopener">7.14 D</a></h2><hr>
-<p>有思路的题，对于每个第一步走到的 (x, y)，延长直线经过的整点个数是 n / max(x, y)</p>
-<p>也就是说 n / max(x, y) + 1 = m 且 gcd(x, y) = 1</p>
-<p>枚举左上半边，x 大于 y 的部分，就是求 n / x(下取整) = m - 1 的 x</p>
-<p><strong>x_min = n / m + 1, x_max = n / (m - 1)</strong></p>
-<p>求个 phi 的前缀和就好了</p>
-<h2 id="7-14-E"><a href="#7-14-E" class="headerlink" title="[7.14 E]"></a>[7.14 E]</h2><hr>
-<p><a href="https://www.cnblogs.com/Flying2018/p/13297095.html" target="_blank" rel="noopener">https://www.cnblogs.com/Flying2018/p/13297095.html</a></p>
-<p><a href="https://www.luogu.com.cn/blog/zkdxlpro/post-713-acm-bu-fen-jian-yao-ti-xie" target="_blank" rel="noopener">https://www.luogu.com.cn/blog/zkdxlpro/post-713-acm-bu-fen-jian-yao-ti-xie</a></p>
-<p>咕咕咕</p>
-<h2 id="7-15-A"><a href="#7-15-A" class="headerlink" title="[7.15 A]"></a>[7.15 A]</h2><hr>
-<p>算出最大生成树和最小生成树，判断之间是否有斐波那契数存在（必然可以用一些 1 边替换掉 0 边</p>
-<h2 id="7-15-B"><a href="#7-15-B" class="headerlink" title="[7.15 B]"></a>[7.15 B]</h2><hr>
-<p>考虑一个序列自动机（就是每个位置向之后离自己最近的26个字符的位置分别连一条边）</p>
-<p>相当于在序列自动机上选一个黑点，选任意个后继染黑</p>
-<p>$sg(x) = mex_{T \subset nxt(x)}(XOR_{k\in T}sg(k))$</p>
-<p>而 sg 只会是 2^0, 2^1, 2^2…</p>
-<p>这也很好想，归纳可得，若当前节点的 sg 是 2^i, 后继的 sg 只会是 2^0, 2^1 … 2^{i - 1}，选任意个 sg 值异或起来得到的是 0 ~ 2^i - 1，因此 mex 出来就是 2^i。</p>
-<p>这就等价于对后继的重标号取 mex，非常喵喵</p>
-<h2 id="7-15-E"><a href="#7-15-E" class="headerlink" title="[7.15 E]"></a>[7.15 E]</h2><hr>
-<p>真就 O(nlogn) 算法满地爬呗。。。比赛时没想有点可惜</p>
-<p>可以 dfs 序上建主席树，或者 dsu on tree + 树状数组，或者线段树合并，etc。。</p>
-<h2 id="7-15-F"><a href="#7-15-F" class="headerlink" title="[7.15 F]"></a>[7.15 F]</h2><hr>
-<p>巧妙的构造。题意其实就是构造一个没有等差数列的排列。每次按奇偶位排序，例如奇数位放前面、偶数位放后面，这样就消除了跨越左右的等差数列，分治思想</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/Week2测试题解/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/15/Week2测试题解/" itemprop="url">
-                  Week2测试题解
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-15T08:14:40+08:00">
-                2020-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="AIZU2989"><a href="#AIZU2989" class="headerlink" title="AIZU2989"></a><a href="https://vjudge.net/contest/381744#problem/B" target="_blank" rel="noopener">AIZU2989</a></h2><hr>
-<p>giao，全想着 L、R 逆推了，但是写挂了，爬。。实际上有更好写的做法</p>
-<p>发现 ai 相对顺序无关，可以先从小到大排序。容易发现操作都是 小于某数的向左 大于某数的向右，ai 一直具有单调性（这个我想到了。。）  二分就好了</p>
-<h2 id="AIZU2990"><a href="#AIZU2990" class="headerlink" title="AIZU2990"></a><a href="https://vjudge.net/contest/381744#problem/C" target="_blank" rel="noopener">AIZU2990</a></h2><hr>
-<p>注意，初始只能往右走。就是个 sb 题！！题目读错了哭</p>
-<p>一直在想 set，但这题用 set 会很麻烦。</p>
-<p>序列差分，算出每个点经过的次数 x，来回的次数就是 max{x}，减去的前后缀也必定是 经过 x 次点的最左和最右。。。</p>
-<h2 id="AGC041B"><a href="#AGC041B" class="headerlink" title="AGC041B"></a><a href="https://atcoder.jp/contests/agc041/tasks/agc041_b" target="_blank" rel="noopener">AGC041B</a></h2><hr>
-<p>不错的题，容易想到答案满足单调性，可以二分。二分的位置只要奋力超过或赶上 p 即可，那么 m 位评委尽量不投 p 就好了。</p>
-<h2 id="AIZU2992"><a href="#AIZU2992" class="headerlink" title="AIZU2992"></a><a href="https://vjudge.net/contest/381744#problem/E" target="_blank" rel="noopener">AIZU2992</a></h2><hr>
-<p>不是很难的dp，可惜题目读不懂。。</p>
-<p>显然 a，r，b 从大到小排序最优。dp，红色总数不能超过 totr，黑色总数不能超过 totb，所以 f[i, j, k] 表示前 i + j 中有 i 红，j 黑，红色总数为 k 的最大不改变颜色的气球数量</p>
-<h2 id="AIZU2995"><a href="#AIZU2995" class="headerlink" title="AIZU2995"></a><a href="https://vjudge.net/contest/381744#problem/F" target="_blank" rel="noopener">AIZU2995</a></h2><hr>
-<p>好题！</p>
-<p>考虑整棵树，每个点选 ci 还是 di，这跟“树”这个结构没有关系，就是一个经典问题：一个 n 个点 m 条边的图，每条边连接 ci 和 di，可以染黑 ci 或 di，问最大黑点数</p>
-<p>显然是 min{|V|, |E|}：首先最多有 |V| 个，其次如果边为 V - 1（是树）那就是 V - 1</p>
-<p>min{|V|, |E|} = |V| - 1 + [是否存在非树边]，并查集维护就好了。</p>
-<p>对于每个子树：dsu on tree。考虑到 有删除操作，用可撤销并查集维护。是真的难写（</p>
-<h2 id="AIZU2991"><a href="#AIZU2991" class="headerlink" title="AIZU2991"></a><a href="https://vjudge.net/contest/381744#problem/G" target="_blank" rel="noopener">AIZU2991</a></h2><hr>
-<p>2^{n+1} 中选 2^n 个，也就是选一半</p>
-<p>v 和 v ^ X 必然选一个，&amp;值为 A 的对必然不选一个，|值为 O 的对必然不选一个（找这样的对，枚举子集即可</p>
-<p>2-sat，输出卡行末空格恶心了我半天</p>
-<h2 id="AIZU2994"><a href="#AIZU2994" class="headerlink" title="AIZU2994"></a><a href="https://vjudge.net/contest/381744#problem/H" target="_blank" rel="noopener">AIZU2994</a></h2><hr>
-<p>C = V - E + F</p>
-<p>C：连通块数   V：点数   E：边数   F：内部区域数</p>
-<p>（注意网格图经常考这个）</p>
-<p>由期望的线性性得，E(C) = E(V) - E(E) + E(F)</p>
-<p>而本题是树，F 为 0</p>
-<p>所以 E(c1c2) = E(v1v2) + E(e1e2) - E(v1e2) - E(v2e1)</p>
-<ul>
-<li><p>点点贡献：可以推柿子（别忘了组合数），也有更灵活的解法。考虑一对点 (a, b) 的贡献（a 在树 1 中，b 在树 2 中），是 1 / 4, 而总共有 n(n - 1) 对点，所以就是 n(n - 1) / 4</p>
-</li>
-<li><p>点边贡献：枚举树 2 中一条边 (u, v)，与树 1 中点 x 的贡献是 1 / 8, 总共是 (n - 1)(n - 2) / 8</p>
-</li>
-<li><p>边边贡献：这个就不能 O(1) 算了，枚举树 2 中一条边 (u, v)，与树 1 中边的总贡献是 (n - 1 - u和v在树 1 中连的边) / 16</p>
-</li>
-</ul>
-<p>套路，据我哥说在他们那个时候，乘积期望也是套路题哇！多练多练</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/【习题选讲】树的进阶/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/15/【习题选讲】树的进阶/" itemprop="url">
-                  【习题选讲】树的进阶
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-15T07:36:40+08:00">
-                2020-07-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>难度递增！</p>
-<h2 id="CF1305D"><a href="#CF1305D" class="headerlink" title="CF1305D"></a><a href="https://codeforces.com/problemset/problem/1305/D" target="_blank" rel="noopener">CF1305D</a></h2><hr>
-<p>n / 2 次询问，想到每次删至少两个节点。最暴力的思路是选任意两个节点，将 lca 为根的两个节点所在的子树删掉，但是这会被一条链的情况卡成询问 n 次。考虑选任意两个叶子，若 lca 等于其中之一那么那个叶子就是根，否则删除两个叶子。</p>
-<h2 id="CF1210C"><a href="#CF1210C" class="headerlink" title="CF1210C"></a><a href="https://codeforces.com/problemset/problem/1210/C" target="_blank" rel="noopener">CF1210C</a></h2><hr>
-<p>询问每条链的 gcd 之和。考虑 gcd 一个很重要的性质：长度为 n 的区间所有子区间的 gcd 不会超过 logn 个。log 级别，开 vector 或者 map 存每个节点为下端点的链gcd，每次更新只有 logn 复杂度。</p>
-<h2 id="CF980E"><a href="#CF980E" class="headerlink" title="CF980E"></a><a href="https://codeforces.com/problemset/problem/980/E" target="_blank" rel="noopener">CF980E</a></h2><hr>
-<p>考虑到 2^i 是个很特殊的东西，必然贪心的选 i 大的节点。按 i 从大到小排序，i 节点保证被选的前提是 i 到根的所有节点都保留，暴力判保留节点后是否超过 n - K 会 TLE，可以用 dfs 序上树状数组。做标记暴力跳就好了，反正是 O(n).</p>
-<h2 id="CF1098C"><a href="#CF1098C" class="headerlink" title="CF1098C"></a><a href="https://codeforces.com/problemset/problem/1098/C" target="_blank" rel="noopener">CF1098C</a></h2><hr>
-<p>考虑 K（最大分支）满足二分性质，先二分出最终答案 ans，判能否构成树的条件是：一条链形式的子树和 &gt;= S, K 叉树形式的子树和 &lt;= S。构造也很容易，我的方法是将一条链的末尾节点不断挂上来，填一棵 K 叉树。</p>
-<h2 id="CF1149C"><a href="#CF1149C" class="headerlink" title="CF1149C"></a><a href="https://codeforces.com/contest/1149/problem/C" target="_blank" rel="noopener">CF1149C</a></h2><hr>
-<p>有意思的题，考虑直径的括号序列，必然是 )))())))…(((((()(((( 这样 ‘)))))’ + 匹配括号 + ‘(((((‘ 的形式。经典套路，将 ( 设为 1，) 设为 -1，答案就是相邻的两段序列之差最大值，可以用线段树维护（各种细节啊啊啊。。</p>
-<h2 id="CF1083C"><a href="#CF1083C" class="headerlink" title="CF1083C"></a><a href="https://codeforces.com/contest/1083/problem/C" target="_blank" rel="noopener">CF1083C</a></h2><hr>
-<p>有意思的题+1，询问每条链最大的 mex。神仙做法。首先，能线段树维护的信息都具有<strong>可合并性</strong>。容易想到二分 mex，判能否构成链。线段树 [l, r] 节点表示 权值为 l ~ r 的节点能否构成链，合并时枚举端点用 lca 判点是否在路径上即可。最后外面那个二分也可以省掉，直接在线段树上“二分”，统计答案。</p>
-<h2 id="AGC023F"><a href="#AGC023F" class="headerlink" title="AGC023F"></a><a href="https://atcoder.jp/contests/agc023/tasks/agc023_f" target="_blank" rel="noopener">AGC023F</a></h2><hr>
-<p>神仙题++</p>
-<p>先考虑前置问题：两个 01 序列相接，逆序对尽量小</p>
-<p>设它们 01 个数分别为 sx0, sx1, sy0, sy1, x &lt; y</p>
-<p>显然 sx1 <em> sy0 &lt;= sx0 </em> sy1 时不必交换两者。</p>
-<p>变形：sx1 / sx0 &lt;= sy1 / sy0.</p>
-<p>考虑此题，初始时将点看作连通块，取出目前没有被选且 s1 / s0 最小的连通块（堆维护）</p>
-<p>若它的父亲已经被选，就选了它；否则容易证明它一定会在它的根的父亲被选后立刻被选，就将它和根的父亲所在连通块合并，得到新的连通块</p>
-<p>类似的还有 POJ2054-Color a Tree，贪心的每次将最大的点和它父亲合并</p>
-<h2 id="CF1168D"><a href="#CF1168D" class="headerlink" title="CF1168D"></a><a href="https://codeforces.com/contest/1168/problem/d" target="_blank" rel="noopener">CF1168D</a></h2><hr>
-<p>充要条件是所有叶子的深度相同，设为 mxdep, 设 lenx = mxdep - depx</p>
-<p>且对于任何节点 x，sum{f(x, c)} &lt;= lenx，其中 f(x, c) 表示任何一条 x 到其子树中叶子的链上 c 出现次数的最大值</p>
-<p>证必要性：显然       证充分性：据说用归纳法证明</p>
-<p>怎么处理修改？总不能每次暴力往上跳修改 f(x, c) 吧。</p>
-<p>注意到当节点只有一个孩子时不需要判上面那个东西，相当于可以忽视</p>
-<p>因此想到将父亲只有自己一个孩子的节点向上压缩，修改的复杂度就是深度</p>
-<p>而满足每一层的节点个数都严格大于上一层（不然就压缩了），深度只有 sqrt(n)</p>
-<p>总复杂度就是 O(Qsqrt(n)), 非常的喵！</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/09/【习题选讲】字符串/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/09/【习题选讲】字符串/" itemprop="url">
-                  【习题选讲】字符串
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-09T19:10:40+08:00">
-                2020-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="POJ3167"><a href="#POJ3167" class="headerlink" title="[POJ3167]"></a>[POJ3167]</h2><hr>
-<p>KMP + 树状数组，注意细节</p>
-<h2 id="CF547E"><a href="#CF547E" class="headerlink" title="[CF547E]"></a>[CF547E]</h2><hr>
-<p>套路好题（</p>
-<p>首先有个性质：AC自动机 fail 树上的父亲节点是子节点的子串。</p>
-<p>然后就有个经典套路：AC自动机上找一个串的出现次数可以在 fail 树上跑。</p>
-<p>将询问离线，从小到大插入 AC 自动机（插入方法是节点 val = 1），树状数组维护 dfs 序算询问点子树中 1 的个数。</p>
-<h2 id="965E"><a href="#965E" class="headerlink" title="[965E]"></a>[965E]</h2><hr>
-<p>考虑在 Trie 上做。然后就变成一棵有许多黑点的 Trie 树，要将黑点尽可能地放到祖先节点去。</p>
-<p>优先队列维护，优先放原本深度大的点。</p>
-<h2 id="HDU3336"><a href="#HDU3336" class="headerlink" title="[HDU3336]"></a>[HDU3336]</h2><hr>
-<p>KMP 性质题。AC 自动机上找串出现次数可以跑 fail 树，但本题要所有前缀，会TLE。</p>
-<p>考虑 fail 指针意义，设计 DP：f[i] 表示以 i 结尾的所有前缀个数，f[i] = f[fail[i]] + 1.</p>
-<h2 id="HDU5536"><a href="#HDU5536" class="headerlink" title="[HDU5536]"></a>[HDU5536]</h2><hr>
-<p>套路题直接上 01 trie，值得注意的是：本题 n^3 会 TLE，因为重复插入了很多串； n^2 枚举 i 和 j 再减掉 Trie 中 i 和 j 串的贡献就可以过啦。</p>
-<hr>
-<p>总结：</p>
-<ul>
-<li><p>KMP 和 AC 自动机可解决出现位置（分别用 fail 指针和 fail 树）；</p>
-</li>
-<li><p>想除去 Trie 或 AC 自动机中某个串时只要将 串沿途的 val -= 1 就好了</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/08/[HDU4653]-我的微积分初探/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/08/[HDU4653]-我的微积分初探/" itemprop="url">
-                  [HDU4653]-我的微积分初探
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-08T15:20:40+08:00">
-                2020-07-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="https://coderoj.gitee.io/2020/07/01/3880663/" target="_blank" rel="noopener">同班大佬刚了一晚的博客</a></p>
-<p>真的很神了，从他的博客里也能学到理论知识，本篇博客主要对上文中部分文字做解释 ~</p>
-<ul>
-<li><p>原函数：对于一个定义在某区间的已知函数f(x)，如果存在可导函数F(x)，使得在该区间内的任一点都存在dF(x)=f(x)dx，则在该区间内就称函数F(x)为函数f(x)的原函数。</p>
-</li>
-<li><p>牛顿-莱布尼茨公式（微积分基本定理）：一个连续函数在区间 [a，b] 上的定积分等于它的任意一个原函数在区间 [a，b] 上的增量</p>
-</li>
-</ul>
-<p>——用<a href="https://www.shuxuele.com/calculus/integration-introduction.html" target="_blank" rel="noopener">点这里</a> 注水那个例子来解释，连续函数就是 f(x) = 2x, 原函数就是 F(x) = x^2 + C</p>
-<ul>
-<li><p>根据<a href="https://www.shuxuele.com/calculus/integration-rules.html" target="_blank" rel="noopener">积分法则</a>可以得到$\int^1_0 y^{p-1}<em>dx = (\frac{1}{p}</em>y^p)|^1_0$，其中等式右边表示 将 1 和 0 代入 $\frac{1}{p}*y^p$ 后相减，原理是👆微积分基本定理</p>
-</li>
-<li><p>对于两个不相关的事件，乘积的期望 = 期望的乘积，且本题在单位球中（半径为 1），因此 k 扩展那里 $ans(p, n, k) = ans(p, n - 1, k - 1) * ans(p, n, 0)$，相当于把第 k 个的距离缩到第 0 个的距离范围内。</p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/【习题选讲】贪心/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/07/07/【习题选讲】贪心/" itemprop="url">
-                  【习题选讲】贪心
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-07-07T19:20:40+08:00">
-                2020-07-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>专题助我发现：我贪心弱的一！！！多练！！！</p>
-<h2 id="CF1373F"><a href="#CF1373F" class="headerlink" title="CF1373F"></a><a href="https://codeforces.com/problemset/problem/1373/F" target="_blank" rel="noopener">CF1373F</a></h2><hr>
-<p>做法一：二分 + 贪心 O(nlogn)（题解做法）</p>
-<p>本题单调性体现在哪呢？？显然当第一个电站供应量确定时，所有电站的供应量都确定了</p>
-<p>设 b[1] 流给 a[1] 的量为 x</p>
-<p>有两种情况：<br>· “断流”，即 x 太大，导致 b[1] 给 a[2] 供应太少，导致后面断流<br>· 流一圈后从 b[n] 流回 a[1] 的量加上 x 不 &gt;= a[1]，因为中途可能有点满流</p>
-<p>也就是说 x 太大太小都不行，二分传回值标记一下就行了。</p>
-<p>做法二：差分约束 O(n)</p>
-<p>观察到有很多限制，设 x[i] 表示 b[i] 给 a[i] 的量就可以差分约束，但是 spfa 跑是 n^2 的好像会被卡，，观察建成的图，是一朵菊花的样子，而我们只要判是否有正权环就行，这个可以 O(n) 做。</p>
-<p>做法二 Code：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e6</span> + <span class="number">10</span>, inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll T, n, a[N], b[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        ll tot = <span class="number">0</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;a[i]), tot -= a[i];</span><br><span class="line">        rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;b[i]), tot += b[i];</span><br><span class="line">        <span class="keyword">if</span> (tot &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        	<span class="built_in">puts</span>(<span class="string">"NO"</span>); <span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">bool</span> ff = <span class="number">1</span>;</span><br><span class="line">		ll mn = b[<span class="number">1</span>], sum = <span class="number">0</span>;</span><br><span class="line">		rep(i, <span class="number">1</span>, <span class="number">2</span> * n) &#123;</span><br><span class="line">			sum += a[i % n + <span class="number">1</span>] - b[i % n + <span class="number">1</span>];</span><br><span class="line">			mn = min(mn, sum + b[i % n + <span class="number">1</span>]);</span><br><span class="line">			<span class="keyword">if</span> (sum - mn &gt; <span class="number">0</span>) &#123;</span><br><span class="line">				ff = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">        <span class="built_in">puts</span>(ff ? <span class="string">"YES"</span> : <span class="string">"NO"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="NOIP2012国王游戏"><a href="#NOIP2012国王游戏" class="headerlink" title="NOIP2012国王游戏"></a><a href="https://www.luogu.com.cn/problem/P1080" target="_blank" rel="noopener">NOIP2012国王游戏</a></h2><hr>
-<p>很经典的题，贪心 + 高精度</p>
-<p>邻项交换，微扰可以证明贪心正确性</p>
-<h2 id="CF1251E2"><a href="#CF1251E2" class="headerlink" title="CF1251E2"></a><a href="https://codeforces.com/problemset/problem/1251/E2" target="_blank" rel="noopener">CF1251E2</a></h2><hr>
-<p>考虑选择 x 人时，所有 mi &lt; x 的人都会自动投票，所以将 m 降序排列且降序处理</p>
-<h2 id="CF1329C"><a href="#CF1329C" class="headerlink" title="CF1329C"></a><a href="https://codeforces.com/problemset/problem/1329/C" target="_blank" rel="noopener">CF1329C</a></h2><hr>
-<p>一句话题意：拿掉元素和尽可能大的同时维护二叉堆性质</p>
-<p>我们肯定贪心的取靠近根结点的位置，每个位置取到不能取为止。</p>
-<p>什么叫不能取？它扯上来那条链的末尾节点深度为 g 了。所以我们对于每个节点维护链尾节点就好了！</p>
-<h2 id="AtCoder-cf17-final-d"><a href="#AtCoder-cf17-final-d" class="headerlink" title="AtCoder-cf17_final_d"></a><a href="https://atcoder.jp/contests/cf17-final/tasks/cf17_final_d?lang=en" target="_blank" rel="noopener">AtCoder-cf17_final_d</a></h2><hr>
-<p><a href="https://img.atcoder.jp/cf17-final/editorial.pdf" target="_blank" rel="noopener">https://img.atcoder.jp/cf17-final/editorial.pdf</a></p>
-<p>· 贪心 + dp</p>
-<p>关于为什么按 hi + pi 升序排列，官方题解说的很有道理，大致意思就是 显然对于高度的限制<strong>越松越好</strong>，通过邻项微扰来证明贪心正确性。</p>
-<p>这边提供另外一种证明：考虑一个合法的选的序列，对于每一个 i 必须满足 sum_{j &lt;= i}{h_j} &lt;= h_i + p_i,<br>因为前缀和递增所以 hi + pi 也必须递增。</p>
-<p>总之是一道很妙的题！</p>
-<h2 id="HDU5380"><a href="#HDU5380" class="headerlink" title="HDU5380"></a><a href="https://vjudge.net/problem/HDU-5380" target="_blank" rel="noopener">HDU5380</a></h2><hr>
-<p><a href="https://www.cnblogs.com/keximeiruguo/p/7684032.html" target="_blank" rel="noopener">https://www.cnblogs.com/keximeiruguo/p/7684032.html</a></p>
-<p>把糖果视作价格高低不同，就可以贪心了（这题好hard</p>
-<h2 id="luogu1484种树"><a href="#luogu1484种树" class="headerlink" title="luogu1484种树"></a><a href="https://www.luogu.com.cn/problem/P1484" target="_blank" rel="noopener">luogu1484种树</a></h2><hr>
-<p>这类问题选择当前最优解时可能不是全局最优解，那怎么办？<strong>反悔贪心</strong> 可以使得贪心随便选择，都能到达正解。</p>
-<p>具体操作用优先队列。对于限制采用缩点（用了 i 就将 l[i]、i、r[i] 缩在一起，反悔了选择了 l[i] 和 r[i] 就将 l[l[i]]、l[i]、i、r[i]、r[r[i]] 缩在一起），反悔就将权值为 val[l[i]] + val[r[i]] - val[i] 的点入队，每次取队首就好了。</p>
-<h2 id="SP27102"><a href="#SP27102" class="headerlink" title="SP27102"></a><a href="https://www.luogu.com.cn/problem/SP27102" target="_blank" rel="noopener">SP27102</a></h2><hr>
-<p>我们优先格式化 a &lt;= b 的硬盘，按 a 从小到大排序，可以尽量用少的空间来换多的空间，贪心，使得策略最可能成功。</p>
-<hr>
-<p>总结：做贪心题直觉很重要，限制越松越好之类的 要体会到啊，多练。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/8/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/32/">32</a><a class="extend next" rel="next" href="/page/10/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
   </div>
+</header>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+        
+        <section id="about">
+  
+  <p style="display: inline">
+    
+      Find me on
+      <ul id="socialinfo">
+        
+          <li><a class="icon" target="_blank" href="http://github.com/sergodeeva"><i class="fa fa-github"></i></a></li>
+        
+          <li><a class="icon" target="_blank" href="/"><i class="fa fa-facebook"></i></a></li>
+        
+          <li><a class="icon" target="_blank" href="https://www.linkedin.com/in/natalyakosenko/"><i class="fa fa-linkedin"></i></a></li>
+        
+      </ul>.
+    
+  </p>
+</section>
 
+<section id="writing">
+  <span class="h1"><a href="/posts">Writing</a></span>
+  <ul class="post-list">
+    
       
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="imily" />
-          <p class="site-author-name" itemprop="name">imily</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">312</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">110</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
+    
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2099-11-29T16:00:00.000Z" itemprop="datePublished">2099-11-30</time>
+    </div>
 
-        <div class="links-of-author motion-element">
-          
-        </div>
 
+        <span>
+    
+        <a class="" href="/2099/11/30/【置顶】错误集锦/">【置顶】错误集锦</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2099-11-29T16:00:00.000Z" itemprop="datePublished">2099-11-30</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2099/11/30/【置顶】考前必看/">【置顶】考前必看</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2099-11-29T16:00:00.000Z" itemprop="datePublished">2099-11-30</time>
+    </div>
 
+
+        <span>
+    
+        <a class="" href="/2099/11/30/【置顶】待学/">【置顶】待学</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2099-11-29T16:00:00.000Z" itemprop="datePublished">2099-11-30</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2099/11/30/【置顶】OI自主学习内容安排/">【置顶】OI自主学习内容安排</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2099-11-29T16:00:00.000Z" itemprop="datePublished">2099-11-30</time>
+    </div>
 
+
+        <span>
+    
+        <a class="" href="/2099/11/30/【置顶】Ideas & Tricks/">【置顶】Ideas &amp; Tricks</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
         
+    <div class="meta">
+        <time datetime="2021-01-31T15:59:59.000Z" itemprop="datePublished">2021-01-31</time>
+    </div>
 
 
-      </section>
+        <span>
+    
+        <a class="" href="/2021/01/31/【计划】21Jan 学习计划/">21Jan 学习计划</a>
+    
 
-      
 
-      
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2021-01-30T12:03:37.000Z" itemprop="datePublished">2021-01-30</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2021/01/30/【学习笔记】竞赛图/">【学习笔记】竞赛图</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2021-01-05T11:30:40.000Z" itemprop="datePublished">2021-01-05</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2021/01/05/UOJ Long Round 1/">UOJ Long Round 1</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2021-01-04T06:48:40.000Z" itemprop="datePublished">2021-01-04</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2021/01/04/[LOJ6079]-养猫（线性规划转费用流）/">[LOJ6079]-养猫（线性规划转费用流）</a>
+    
+
+
+</span>
+      </li>
+    
+      <li class="post-item">
+        
+    <div class="meta">
+        <time datetime="2020-12-29T12:05:40.000Z" itemprop="datePublished">2020-12-29</time>
+    </div>
+
+
+        <span>
+    
+        <a class="" href="/2020/12/29/【学习笔记】斯特林数/">【学习笔记】斯特林数</a>
+    
+
+
+</span>
+      </li>
+    
+  </ul>
+  
+</section>
+
+
 
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">imily</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
-
-
-  
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

@@ -1,93 +1,12 @@
-<!doctype html>
-
-
-
-  
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
+<!DOCTYPE html>
+<html lang=zh>
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="CF&AT往届," />
-
-
-
-
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="[CF1076E]-Vasya and a Tree · 巧妙的dfs 没有数据结构可以直接维护，数据范围是3e5所以考虑dfs（？）  到达节点 x 时将 x 的操作执行掉（方法：根据深度维护一个树状数组，回溯时统计答案并消除影响） [CF731F]-Video Cards · 利用“倍数”· 观察数据范围：ai &amp;lt;= 2e5!!! y 要减到 x 的 k 倍时，y 在 xk ～ x(k">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="[CF1076E]-Vasya and a Tree · 巧妙的dfs 没有数据结构可以直接维护，数据范围是3e5所以考虑dfs（？）  到达节点 x 时将 x 的操作执行掉（方法：根据深度维护一个树状数组，回溯时统计答案并消除影响） [CF731F]-Video Cards · 利用“倍数”· 观察数据范围：ai &amp;lt;= 2e5!!! y 要减到 x 的 k 倍时，y 在 xk ～ x(k">
 <meta name="keywords" content="CF&amp;AT往届">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20Jun CF&amp;AT 练题汇总">
@@ -99,241 +18,129 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="20Jun CF&amp;AT 练题汇总">
 <meta name="twitter:description" content="[CF1076E]-Vasya and a Tree · 巧妙的dfs 没有数据结构可以直接维护，数据范围是3e5所以考虑dfs（？）  到达节点 x 时将 x 的操作执行掉（方法：根据深度维护一个树状数组，回溯时统计答案并消除影响） [CF731F]-Video Cards · 利用“倍数”· 观察数据范围：ai &amp;lt;= 2e5!!! y 要减到 x 的 k 倍时，y 在 xk ～ x(k">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2020/06/30/【计划】20Jun AT&CF 练题汇总/"/>
-
-
-
-
-
-  <title> 20Jun CF&AT 练题汇总 | imily's notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>20Jun CF&amp;AT 练题汇总</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
+<body>
     
-  
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2020/07/04/[AT2369]-Ants on a Circle/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2020/03/31/【计划】20Mar AT&CF 练题汇总/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&text=20Jun CF&amp;AT 练题汇总"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&is_video=false&description=20Jun CF&amp;AT 练题汇总"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=20Jun CF&amp;AT 练题汇总&body=Check out this article: http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&name=20Jun CF&amp;AT 练题汇总&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">imily's notes</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1076E-Vasya-and-a-Tree"><span class="toc-number">1.</span> <span class="toc-text">[CF1076E]-Vasya and a Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF731F-Video-Cards"><span class="toc-number">2.</span> <span class="toc-text">[CF731F]-Video Cards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1163C1-Power-Transmission-Easy-Edition"><span class="toc-number">3.</span> <span class="toc-text">[CF1163C1]-Power Transmission(Easy Edition)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF981D-Bookshelves"><span class="toc-number">4.</span> <span class="toc-text">[CF981D]-Bookshelves</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF599D-Spongebob-and-Squares"><span class="toc-number">5.</span> <span class="toc-text">[CF599D]-Spongebob and Squares</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF148E-Porcelain"><span class="toc-number">6.</span> <span class="toc-text">[CF148E]-Porcelain</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1311F-Moving-Points"><span class="toc-number">7.</span> <span class="toc-text">[CF1311F]-Moving Points</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1043E-Train-Hard-Win-Easy"><span class="toc-number">8.</span> <span class="toc-text">[CF1043E]-Train Hard, Win Easy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1360H-Binary-Median"><span class="toc-number">9.</span> <span class="toc-text">[CF1360H]-Binary Median</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1157D-N-Problems-During-K-Days"><span class="toc-number">10.</span> <span class="toc-text">[CF1157D]-N Problems During K Days</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1015E2-Stars-Drawing-Hard-Edition"><span class="toc-number">11.</span> <span class="toc-text">[CF1015E2]-Stars Drawing (Hard Edition)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF792D-Paths-in-a-Complete-Binary-Tree"><span class="toc-number">12.</span> <span class="toc-text">[CF792D]-Paths in a Complete Binary Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1012C-Hills"><span class="toc-number">13.</span> <span class="toc-text">[CF1012C]-Hills</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19B-Checkout-Assistant"><span class="toc-number">14.</span> <span class="toc-text">[CF19B]-Checkout Assistant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF9D-How-many-trees"><span class="toc-number">15.</span> <span class="toc-text">[CF9D]-How many trees?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF730J-Bottles"><span class="toc-number">16.</span> <span class="toc-text">[CF730J]-Bottles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF946G-Almost-Increasing-Array"><span class="toc-number">17.</span> <span class="toc-text">[CF946G]-Almost Increasing Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF478D-Red-Green-Towers"><span class="toc-number">18.</span> <span class="toc-text">[CF478D]-Red-Green Towers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1132F-Clear-the-String"><span class="toc-number">19.</span> <span class="toc-text">[CF1132F]-Clear the String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1344A-Hilbert’s-Hotel"><span class="toc-number">20.</span> <span class="toc-text">[CF1344A]-Hilbert’s Hotel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF140A-New-Year-Table"><span class="toc-number">21.</span> <span class="toc-text">[CF140A]-New Year Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF141C-Queue"><span class="toc-number">22.</span> <span class="toc-text">[CF141C]-Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF141D-Take-off-Ramps"><span class="toc-number">23.</span> <span class="toc-text">[CF141D]-Take-off Ramps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF145B-Lucky-Number-2"><span class="toc-number">24.</span> <span class="toc-text">[CF145B]-Lucky Number 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF242E-XOR-on-Segment"><span class="toc-number">25.</span> <span class="toc-text">[CF242E]-XOR on Segment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF380C-Sereja-and-Brackets"><span class="toc-number">26.</span> <span class="toc-text">[CF380C]-Sereja and Brackets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1244C-The-Football-Season"><span class="toc-number">27.</span> <span class="toc-text">[CF1244C]-The Football Season</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1359D"><span class="toc-number">28.</span> <span class="toc-text">[CF1359D]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF181D-Word-Cut"><span class="toc-number">29.</span> <span class="toc-text">[CF181D]-Word Cut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF176C-Playing-with-Superglue"><span class="toc-number">30.</span> <span class="toc-text">[CF176C]-Playing with Superglue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF180E"><span class="toc-number">31.</span> <span class="toc-text">[CF180E]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF148D"><span class="toc-number">32.</span> <span class="toc-text">[CF148D]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF453B"><span class="toc-number">33.</span> <span class="toc-text">[CF453B]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF453C"><span class="toc-number">34.</span> <span class="toc-text">[CF453C]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF182C"><span class="toc-number">35.</span> <span class="toc-text">[CF182C]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF187B"><span class="toc-number">36.</span> <span class="toc-text">[CF187B]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF198E"><span class="toc-number">37.</span> <span class="toc-text">[CF198E]</span></a></li></ol>
+    </div>
+  </span>
 </div>
 
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-
-      
-    </ul>
-  
-
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
     
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/【计划】20Jun AT&CF 练题汇总/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
     
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                20Jun CF&AT 练题汇总
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-06-30T23:59:59+08:00">
-                2020-06-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
+    <h1 class="posttitle" itemprop="name headline">
+        20Jun CF&amp;AT 练题汇总
+    </h1>
 
 
-    <div class="post-body" itemprop="articleBody">
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notes</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2020-06-30T15:59:59.000Z" itemprop="datePublished">2020-06-30</time>
+    </div>
+
 
       
-      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/CF-AT往届/">CF&AT往届</a>
+    </div>
 
-      
-        <h2 id="CF1076E-Vasya-and-a-Tree"><a href="#CF1076E-Vasya-and-a-Tree" class="headerlink" title="[CF1076E]-Vasya and a Tree"></a>[CF1076E]-Vasya and a Tree</h2><hr>
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="CF1076E-Vasya-and-a-Tree"><a href="#CF1076E-Vasya-and-a-Tree" class="headerlink" title="[CF1076E]-Vasya and a Tree"></a>[CF1076E]-Vasya and a Tree</h2><hr>
 <p>· 巧妙的dfs</p>
 <p>没有数据结构可以直接维护，数据范围是3e5所以考虑dfs（？）  到达节点 x 时将 x 的操作执行掉（方法：根据深度维护一个树状数组，回溯时统计答案并消除影响）</p>
 <h2 id="CF731F-Video-Cards"><a href="#CF731F-Video-Cards" class="headerlink" title="[CF731F]-Video Cards"></a>[CF731F]-Video Cards</h2><hr>
@@ -472,372 +279,110 @@
 <p>可以线段树 + set 维护，每个 dis 处都有个 set，迷惑操作但是很好写（</p>
 <p>这是题解做法，要是真比赛碰到我八成会杠二维数点，留坑待填</p>
 
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CF-AT往届/" rel="tag"># CF&AT往届</a>
-          
-        </div>
-      
-
-      
-        
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2020/03/31/【计划】20Mar AT&CF 练题汇总/" rel="next" title="20Mar CF&AT 练题汇总">
-                <i class="fa fa-chevron-left"></i> 20Mar CF&AT 练题汇总
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/07/04/[AT2369]-Ants on a Circle/" rel="prev" title="[AT2369]-Ants on a Circle">
-                [AT2369]-Ants on a Circle <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
   </div>
+</article>
 
 
-          </div>
-          
 
-
-          
-  <div class="comments" id="comments">
+    </div>
     
-  </div>
+      <div id="footer-post-container">
+  <div id="footer-post">
 
-
-        </div>
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
         
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+      </ul>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1076E-Vasya-and-a-Tree"><span class="toc-number">1.</span> <span class="toc-text">[CF1076E]-Vasya and a Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF731F-Video-Cards"><span class="toc-number">2.</span> <span class="toc-text">[CF731F]-Video Cards</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1163C1-Power-Transmission-Easy-Edition"><span class="toc-number">3.</span> <span class="toc-text">[CF1163C1]-Power Transmission(Easy Edition)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF981D-Bookshelves"><span class="toc-number">4.</span> <span class="toc-text">[CF981D]-Bookshelves</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF599D-Spongebob-and-Squares"><span class="toc-number">5.</span> <span class="toc-text">[CF599D]-Spongebob and Squares</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF148E-Porcelain"><span class="toc-number">6.</span> <span class="toc-text">[CF148E]-Porcelain</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1311F-Moving-Points"><span class="toc-number">7.</span> <span class="toc-text">[CF1311F]-Moving Points</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1043E-Train-Hard-Win-Easy"><span class="toc-number">8.</span> <span class="toc-text">[CF1043E]-Train Hard, Win Easy</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1360H-Binary-Median"><span class="toc-number">9.</span> <span class="toc-text">[CF1360H]-Binary Median</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1157D-N-Problems-During-K-Days"><span class="toc-number">10.</span> <span class="toc-text">[CF1157D]-N Problems During K Days</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1015E2-Stars-Drawing-Hard-Edition"><span class="toc-number">11.</span> <span class="toc-text">[CF1015E2]-Stars Drawing (Hard Edition)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF792D-Paths-in-a-Complete-Binary-Tree"><span class="toc-number">12.</span> <span class="toc-text">[CF792D]-Paths in a Complete Binary Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1012C-Hills"><span class="toc-number">13.</span> <span class="toc-text">[CF1012C]-Hills</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19B-Checkout-Assistant"><span class="toc-number">14.</span> <span class="toc-text">[CF19B]-Checkout Assistant</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF9D-How-many-trees"><span class="toc-number">15.</span> <span class="toc-text">[CF9D]-How many trees?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF730J-Bottles"><span class="toc-number">16.</span> <span class="toc-text">[CF730J]-Bottles</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF946G-Almost-Increasing-Array"><span class="toc-number">17.</span> <span class="toc-text">[CF946G]-Almost Increasing Array</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF478D-Red-Green-Towers"><span class="toc-number">18.</span> <span class="toc-text">[CF478D]-Red-Green Towers</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1132F-Clear-the-String"><span class="toc-number">19.</span> <span class="toc-text">[CF1132F]-Clear the String</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1344A-Hilbert’s-Hotel"><span class="toc-number">20.</span> <span class="toc-text">[CF1344A]-Hilbert’s Hotel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF140A-New-Year-Table"><span class="toc-number">21.</span> <span class="toc-text">[CF140A]-New Year Table</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF141C-Queue"><span class="toc-number">22.</span> <span class="toc-text">[CF141C]-Queue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF141D-Take-off-Ramps"><span class="toc-number">23.</span> <span class="toc-text">[CF141D]-Take-off Ramps</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF145B-Lucky-Number-2"><span class="toc-number">24.</span> <span class="toc-text">[CF145B]-Lucky Number 2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF242E-XOR-on-Segment"><span class="toc-number">25.</span> <span class="toc-text">[CF242E]-XOR on Segment</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF380C-Sereja-and-Brackets"><span class="toc-number">26.</span> <span class="toc-text">[CF380C]-Sereja and Brackets</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1244C-The-Football-Season"><span class="toc-number">27.</span> <span class="toc-text">[CF1244C]-The Football Season</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF1359D"><span class="toc-number">28.</span> <span class="toc-text">[CF1359D]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF181D-Word-Cut"><span class="toc-number">29.</span> <span class="toc-text">[CF181D]-Word Cut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF176C-Playing-with-Superglue"><span class="toc-number">30.</span> <span class="toc-text">[CF176C]-Playing with Superglue</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF180E"><span class="toc-number">31.</span> <span class="toc-text">[CF180E]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF148D"><span class="toc-number">32.</span> <span class="toc-text">[CF148D]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF453B"><span class="toc-number">33.</span> <span class="toc-text">[CF453B]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF453C"><span class="toc-number">34.</span> <span class="toc-text">[CF453C]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF182C"><span class="toc-number">35.</span> <span class="toc-text">[CF182C]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF187B"><span class="toc-number">36.</span> <span class="toc-text">[CF187B]</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF198E"><span class="toc-number">37.</span> <span class="toc-text">[CF198E]</span></a></li></ol>
+    </div>
 
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="imily" />
-          <p class="site-author-name" itemprop="name">imily</p>
-           
-              <p class="site-description motion-element" itemprop="description"></p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">312</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">110</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1076E-Vasya-and-a-Tree"><span class="nav-number">1.</span> <span class="nav-text">[CF1076E]-Vasya and a Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF731F-Video-Cards"><span class="nav-number">2.</span> <span class="nav-text">[CF731F]-Video Cards</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1163C1-Power-Transmission-Easy-Edition"><span class="nav-number">3.</span> <span class="nav-text">[CF1163C1]-Power Transmission(Easy Edition)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF981D-Bookshelves"><span class="nav-number">4.</span> <span class="nav-text">[CF981D]-Bookshelves</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF599D-Spongebob-and-Squares"><span class="nav-number">5.</span> <span class="nav-text">[CF599D]-Spongebob and Squares</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF148E-Porcelain"><span class="nav-number">6.</span> <span class="nav-text">[CF148E]-Porcelain</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1311F-Moving-Points"><span class="nav-number">7.</span> <span class="nav-text">[CF1311F]-Moving Points</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1043E-Train-Hard-Win-Easy"><span class="nav-number">8.</span> <span class="nav-text">[CF1043E]-Train Hard, Win Easy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1360H-Binary-Median"><span class="nav-number">9.</span> <span class="nav-text">[CF1360H]-Binary Median</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1157D-N-Problems-During-K-Days"><span class="nav-number">10.</span> <span class="nav-text">[CF1157D]-N Problems During K Days</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1015E2-Stars-Drawing-Hard-Edition"><span class="nav-number">11.</span> <span class="nav-text">[CF1015E2]-Stars Drawing (Hard Edition)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF792D-Paths-in-a-Complete-Binary-Tree"><span class="nav-number">12.</span> <span class="nav-text">[CF792D]-Paths in a Complete Binary Tree</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1012C-Hills"><span class="nav-number">13.</span> <span class="nav-text">[CF1012C]-Hills</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF19B-Checkout-Assistant"><span class="nav-number">14.</span> <span class="nav-text">[CF19B]-Checkout Assistant</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF9D-How-many-trees"><span class="nav-number">15.</span> <span class="nav-text">[CF9D]-How many trees?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF730J-Bottles"><span class="nav-number">16.</span> <span class="nav-text">[CF730J]-Bottles</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF946G-Almost-Increasing-Array"><span class="nav-number">17.</span> <span class="nav-text">[CF946G]-Almost Increasing Array</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF478D-Red-Green-Towers"><span class="nav-number">18.</span> <span class="nav-text">[CF478D]-Red-Green Towers</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1132F-Clear-the-String"><span class="nav-number">19.</span> <span class="nav-text">[CF1132F]-Clear the String</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1344A-Hilbert’s-Hotel"><span class="nav-number">20.</span> <span class="nav-text">[CF1344A]-Hilbert’s Hotel</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF140A-New-Year-Table"><span class="nav-number">21.</span> <span class="nav-text">[CF140A]-New Year Table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF141C-Queue"><span class="nav-number">22.</span> <span class="nav-text">[CF141C]-Queue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF141D-Take-off-Ramps"><span class="nav-number">23.</span> <span class="nav-text">[CF141D]-Take-off Ramps</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF145B-Lucky-Number-2"><span class="nav-number">24.</span> <span class="nav-text">[CF145B]-Lucky Number 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF242E-XOR-on-Segment"><span class="nav-number">25.</span> <span class="nav-text">[CF242E]-XOR on Segment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF380C-Sereja-and-Brackets"><span class="nav-number">26.</span> <span class="nav-text">[CF380C]-Sereja and Brackets</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1244C-The-Football-Season"><span class="nav-number">27.</span> <span class="nav-text">[CF1244C]-The Football Season</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF1359D"><span class="nav-number">28.</span> <span class="nav-text">[CF1359D]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF181D-Word-Cut"><span class="nav-number">29.</span> <span class="nav-text">[CF181D]-Word Cut</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF176C-Playing-with-Superglue"><span class="nav-number">30.</span> <span class="nav-text">[CF176C]-Playing with Superglue</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF180E"><span class="nav-number">31.</span> <span class="nav-text">[CF180E]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF148D"><span class="nav-number">32.</span> <span class="nav-text">[CF148D]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF453B"><span class="nav-number">33.</span> <span class="nav-text">[CF453B]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF453C"><span class="nav-number">34.</span> <span class="nav-text">[CF453C]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF182C"><span class="nav-number">35.</span> <span class="nav-text">[CF182C]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF187B"><span class="nav-number">36.</span> <span class="nav-text">[CF187B]</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CF198E"><span class="nav-number">37.</span> <span class="nav-text">[CF198E]</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&text=20Jun CF&amp;AT 练题汇总"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&is_video=false&description=20Jun CF&amp;AT 练题汇总"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=20Jun CF&amp;AT 练题汇总&body=Check out this article: http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&title=20Jun CF&amp;AT 练题汇总"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/06/30/【计划】20Jun AT&amp;CF 练题汇总/&name=20Jun CF&amp;AT 练题汇总&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
 
     </div>
-  </aside>
 
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
 
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2021</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">imily</span>
+  </div>
 </div>
 
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Mist
-  </a>
-</div>
-
-
-        
-
-        
-      </div>
-    </footer>
-
     
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
   </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-  
-
-
-  
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/posts/">Posts</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/friends/">Friends</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
