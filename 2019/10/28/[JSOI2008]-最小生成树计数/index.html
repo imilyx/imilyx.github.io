@@ -1,12 +1,93 @@
-<!DOCTYPE html>
-<html lang=zh>
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
 <head>
-    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="传送门 真实涨姿势了！！！ 先来两个定理，然后这题就会容易许多：   对于每个MST，每种边权所使用的边数相同 所有MST中边权 &amp;lt;= w 的边组成的图的连通性相同   1 的证明 2 的证明 对于这道题：每种边权的数量和作用都是不变的，且 具有相同边权的边不超过 10 条 ，就可以对于每种边权计算可行的方案数，根据乘法原理相乘即为答案。 code :12345678910111213141">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="最小生成树," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="传送门 真实涨姿势了！！！ 先来两个定理，然后这题就会容易许多：   对于每个MST，每种边权所使用的边数相同 所有MST中边权 &amp;lt;= w 的边组成的图的连通性相同   1 的证明 2 的证明 对于这道题：每种边权的数量和作用都是不变的，且 具有相同边权的边不超过 10 条 ，就可以对于每种边权计算可行的方案数，根据乘法原理相乘即为答案。 code :12345678910111213141">
 <meta name="keywords" content="最小生成树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[JSOI2008]-最小生成树计数">
@@ -18,129 +99,241 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[JSOI2008]-最小生成树计数">
 <meta name="twitter:description" content="传送门 真实涨姿势了！！！ 先来两个定理，然后这题就会容易许多：   对于每个MST，每种边权所使用的边数相同 所有MST中边权 &amp;lt;= w 的边组成的图的连通性相同   1 的证明 2 的证明 对于这道题：每种边权的数量和作用都是不变的，且 具有相同边权的边不超过 10 条 ，就可以对于每种边权计算可行的方案数，根据乘法原理相乘即为答案。 code :12345678910111213141">
-    
-    
-        
-          
-              <link rel="shortcut icon" href="/images/favicon.ico">
-          
-        
-        
-          
-            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
-          
-        
-        
-          
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-          
-        
-    
-    <!-- title -->
-    <title>[JSOI2008]-最小生成树计数</title>
-    <!-- styles -->
-    <link rel="stylesheet" href="/css/style.css">
-    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-    
-    
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/"/>
+
+
+
+
+
+  <title> [JSOI2008]-最小生成树计数 | imily's notes </title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </head>
 
-<body>
-    
-      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
-  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
-  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
-  <span id="menu">
-    <span id="nav">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/posts/">Posts</a></li>
-         
-          <li><a href="/tags/">Tags</a></li>
-         
-          <li><a href="/friends/">Friends</a></li>
-        
-      </ul>
-    </span>
-    <br/>
-    <span id="actions">
-      <ul>
-        
-        <li><a class="icon" href="/2019/10/29/[POI2015]-LOG/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/10/15/[POJ2778]-DNA Sequence/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
-        
-        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
-        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
-      </ul>
-      <span id="i-prev" class="info" style="display:none;">Previous post</span>
-      <span id="i-next" class="info" style="display:none;">Next post</span>
-      <span id="i-top" class="info" style="display:none;">Back to top</span>
-      <span id="i-share" class="info" style="display:none;">Share post</span>
-    </span>
-    <br/>
-    <div id="share" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&text=[JSOI2008]-最小生成树计数"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&is_video=false&description=[JSOI2008]-最小生成树计数"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[JSOI2008]-最小生成树计数&body=Check out this article: http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&name=[JSOI2008]-最小生成树计数&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
-</ul>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-    </div>
-    <div id="toc">
-      
-    </div>
-  </span>
-</div>
-
-    
-    <div class="content index width mx-auto px2 my4">
-        
-        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-  <header>
-    
-    <h1 class="posttitle" itemprop="name headline">
-        [JSOI2008]-最小生成树计数
-    </h1>
-
-
-
-    <div class="meta">
-      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notes</span>
-      </span>
-      
-    <div class="postdate">
-        <time datetime="2019-10-28T14:00:40.000Z" itemprop="datePublished">2019-10-28</time>
-    </div>
-
-
-      
-    <div class="article-tags">
-        <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/最小生成树/">最小生成树</a>
-    </div>
-
-
-    </div>
-  </header>
   
 
-  <div class="content" itemprop="articleBody">
-    <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1016" target="_blank" rel="noopener">传送门</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">imily's notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imily">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imily's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                [JSOI2008]-最小生成树计数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-28T22:00:40+08:00">
+                2019-10-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1016" target="_blank" rel="noopener">传送门</a></p>
 <p>真实涨姿势了！！！</p>
 <p>先来两个定理，然后这题就会容易许多：</p>
 <blockquote>
@@ -154,110 +347,347 @@
 <p>对于这道题：每种边权的数量和作用都是不变的，且 <strong>具有相同边权的边不超过 10 条</strong> ，就可以对于每种边权计算可行的方案数，根据乘法原理相乘即为答案。</p>
 <p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ！！！具有相同权值的边不会超过10条！！！</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">31011</span>, N = <span class="number">1e3</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, cnt, ans = <span class="number">1</span>, sum, fa[N], chk;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">edge</span> &#123;</span> <span class="keyword">int</span> x, y, z; &#125;e[N];</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span> <span class="keyword">int</span> l, r, num; &#125;a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(edge a, edge b)</span> </span>&#123; <span class="keyword">return</span> a.z &lt; b.z; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getfa</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fa[x] == x ? x : getfa(fa[x]);  <span class="comment">// 不用路径压缩的原因：方便逆向操作</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> pos, <span class="keyword">int</span> tot)</span> </span>&#123;  <span class="comment">// 2^10 很稳</span></span><br><span class="line">    <span class="keyword">if</span> (pos == a[x].r + <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (tot == a[x].num) ++sum;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> fx = getfa(e[pos].x), fy = getfa(e[pos].y);</span><br><span class="line">    <span class="keyword">if</span> (fx != fy) &#123;</span><br><span class="line">        fa[fx] = fy;</span><br><span class="line">        dfs(x, pos + <span class="number">1</span>, tot + <span class="number">1</span>);</span><br><span class="line">        fa[fx] = fx, fa[fy] = fy; <span class="comment">// 逆向操作在这儿！</span></span><br><span class="line">    &#125;</span><br><span class="line">    dfs(x, pos + <span class="number">1</span>, tot);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) fa[i] = i;</span><br><span class="line">    rep(i, <span class="number">1</span>, m)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;e[i].x, &amp;e[i].y, &amp;e[i].z);</span><br><span class="line">    sort(e + <span class="number">1</span>, e + m + <span class="number">1</span>, cmp);</span><br><span class="line"></span><br><span class="line">    a[cnt = <span class="number">1</span>].l = <span class="number">1</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">        <span class="keyword">if</span> (e[i].z != e[i - <span class="number">1</span>].z) a[++cnt].l = i, a[cnt - <span class="number">1</span>].r = i - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> x = getfa(e[i].x), y = getfa(e[i].y);</span><br><span class="line">        <span class="keyword">if</span> (x != y) &#123;</span><br><span class="line">            fa[x] = y;</span><br><span class="line">            a[cnt].num++;</span><br><span class="line">            chk++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (chk != n - <span class="number">1</span>) &#123; <span class="built_in">puts</span>(<span class="string">"0"</span>); <span class="keyword">return</span> <span class="number">0</span>; &#125;  <span class="comment">// 不要忘记判定最小生成树的存在！</span></span><br><span class="line">    a[cnt].r = m;</span><br><span class="line"></span><br><span class="line">    rep(i, <span class="number">1</span>, n) fa[i] = i;</span><br><span class="line">    rep(i, <span class="number">1</span>, cnt) &#123;</span><br><span class="line">        sum = <span class="number">0</span>;</span><br><span class="line">        dfs(i, a[i].l, <span class="number">0</span>);</span><br><span class="line">        ans = ans * sum % mod;</span><br><span class="line">        rep(j, a[i].l, a[i].r) &#123;</span><br><span class="line">            <span class="keyword">int</span> x = getfa(e[j].x), y = getfa(e[j].y);</span><br><span class="line">            <span class="keyword">if</span> (x != y) fa[x] = y;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
-  </div>
-</article>
-
-
-
-    </div>
-    
-      <div id="footer-post-container">
-  <div id="footer-post">
-
-    <div id="nav-footer" style="display: none">
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/posts/">Posts</a></li>
-         
-          <li><a href="/tags/">Tags</a></li>
-         
-          <li><a href="/friends/">Friends</a></li>
-        
-      </ul>
-    </div>
-
-    <div id="toc-footer" style="display: none">
       
     </div>
 
-    <div id="share-footer" style="display: none">
-      <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&text=[JSOI2008]-最小生成树计数"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&is_video=false&description=[JSOI2008]-最小生成树计数"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=[JSOI2008]-最小生成树计数&body=Check out this article: http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&title=[JSOI2008]-最小生成树计数"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2019/10/28/[JSOI2008]-最小生成树计数/&name=[JSOI2008]-最小生成树计数&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
-</ul>
+    <div>
+      
+        
 
+      
     </div>
 
-    <div id="actions-footer">
-      <ul>
-        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
-        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
-        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
-        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
-      </ul>
+    <div>
+      
+        
+
+      
     </div>
 
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/最小生成树/" rel="tag"># 最小生成树</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/10/15/[POJ2778]-DNA Sequence/" rel="next" title="[POJ2778]-DNA Sequence">
+                <i class="fa fa-chevron-left"></i> [POJ2778]-DNA Sequence
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/10/29/[POI2015]-LOG/" rel="prev" title="[POI2015]-LOG">
+                [POI2015]-LOG <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="imily" />
+          <p class="site-author-name" itemprop="name">imily</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">312</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index-1.html">
+                <span class="site-state-item-count">110</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">imily</span>
 </div>
 
-    
-    <footer id="footer">
-  <div class="footer-left">
-    Copyright &copy; 2021 imily
-  </div>
-  <div class="footer-right">
-    <nav>
-      <ul>
-         
-          <li><a href="/">Home</a></li>
-         
-          <li><a href="/about/">About</a></li>
-         
-          <li><a href="/posts/">Posts</a></li>
-         
-          <li><a href="/tags/">Tags</a></li>
-         
-          <li><a href="/friends/">Friends</a></li>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
         
-      </ul>
-    </nav>
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+  
 
 </body>
 </html>
-<!-- styles -->
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
-<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
-
-<!-- jquery -->
-<script src="/lib/jquery/jquery.min.js"></script>
-<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
-<script src="/js/main.js"></script>
-
-
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-37473492-6', 'auto');
-        ga('send', 'pageview');
-    </script>
-
-
-
