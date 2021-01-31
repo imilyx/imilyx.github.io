@@ -258,144 +258,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/27/【学习笔记】LCT/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="imily">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="imily's notes">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2020/12/27/【学习笔记】LCT/" itemprop="url">
-                  【学习笔记】LCT
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-27T17:47:40+08:00">
-                2020-12-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>之前学的。以 备 重 修 qwq</p>
-<p>把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。</p>
-<h3 id="access-x"><a href="#access-x" class="headerlink" title="$access(x)$"></a>$access(x)$</h3><ul>
-<li><p>打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子</p>
-</li>
-<li><p>这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父亲是谁”的信息）</p>
-</li>
-</ul>
-<h3 id="makeroot-x"><a href="#makeroot-x" class="headerlink" title="$makeroot(x)$"></a>$makeroot(x)$</h3><ul>
-<li>先 $access$，此时 $x$ 成了和根在同一 $splay$ 中深度最大、中序遍历最末的点</li>
-<li>再 $splay$，此时 $x$ 成了所在 $splay$ 的根，但仍是深度最大。为了让 $x$ 成为根、变得深度最小，我们翻转 $x$ 的左右子树。<strong>注意：此操作不影响其他 $splay$ 的深度顺序。</strong></li>
-</ul>
-<h3 id="findroot-x"><a href="#findroot-x" class="headerlink" title="$findroot(x)$"></a>$findroot(x)$</h3><ul>
-<li>不断跳左儿子</li>
-<li><h2 id="珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧："><a href="#珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧：" class="headerlink" title="珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧："></a>珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ch[y][<span class="number">0</span>] == x &amp;&amp; !ch[x][<span class="number">1</span>]) &#123;</span><br><span class="line">    cut;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><a href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。" class="headerlink" title="$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。"></a>$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</h2><p>（模拟赛大爆炸</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -511,6 +373,144 @@
 <p>所以匈牙利或者 $dinic$ 找最大匹配，再 dfs 找最小点覆盖，最大独立集 = 最小点覆盖补集。注意这题可重。</p>
 <p><em>彩蛋：$dinic$ 在二分图上是 $O(n\sqrt{n})$ 的哦</em></p>
 <p>upd: $96$ 分我太疑惑了？</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/27/【学习笔记】LCT/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="imily">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="imily's notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2020/12/27/【学习笔记】LCT/" itemprop="url">
+                  【学习笔记】LCT
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-27T17:47:40+08:00">
+                2020-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前学的。以 备 重 修 qwq</p>
+<p>把树剖成许多链，每条链用 $splay$ 维护，中序遍历深度递增。</p>
+<h3 id="access-x"><a href="#access-x" class="headerlink" title="$access(x)$"></a>$access(x)$</h3><ul>
+<li><p>打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 $splay$ 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa[x]$ 所在 $splay$ 中充作 $fa[x]$ 右儿子</p>
+</li>
+<li><p>这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父亲是谁”的信息）</p>
+</li>
+</ul>
+<h3 id="makeroot-x"><a href="#makeroot-x" class="headerlink" title="$makeroot(x)$"></a>$makeroot(x)$</h3><ul>
+<li>先 $access$，此时 $x$ 成了和根在同一 $splay$ 中深度最大、中序遍历最末的点</li>
+<li>再 $splay$，此时 $x$ 成了所在 $splay$ 的根，但仍是深度最大。为了让 $x$ 成为根、变得深度最小，我们翻转 $x$ 的左右子树。<strong>注意：此操作不影响其他 $splay$ 的深度顺序。</strong></li>
+</ul>
+<h3 id="findroot-x"><a href="#findroot-x" class="headerlink" title="$findroot(x)$"></a>$findroot(x)$</h3><ul>
+<li>不断跳左儿子</li>
+<li><h2 id="珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧："><a href="#珍爱生命，远离-findroot-。。。-cut-里判能否-cut-的部分还是这样吧：" class="headerlink" title="珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧："></a>珍爱生命，远离 $findroot$。。。$cut()$ 里判能否 $cut$ 的部分还是这样吧：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ch[y][<span class="number">0</span>] == x &amp;&amp; !ch[x][<span class="number">1</span>]) &#123;</span><br><span class="line">    cut;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><a href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。" class="headerlink" title="$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。"></a>$LCT$ 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</h2><p>（模拟赛大爆炸</p>
 
           
         
