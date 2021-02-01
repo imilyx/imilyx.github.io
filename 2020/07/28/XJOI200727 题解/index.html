@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="XJOI200727 题解">
 <meta property="og:url" content="http://yoursite.com/2020/07/28/XJOI200727 题解/index.html">
-<meta property="og:site_name" content="imily&#39;s notes">
+<meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i]\ mod\ k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-14T07:08:15.516Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notes</span>
+        <span itemprop="name">imily's notebook</span>
       </span>
       
     <div class="postdate">
