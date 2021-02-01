@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="1. [POJ3662]-Telephone Lines https://vjudge.net/problem/POJ-3662 题意：在无向图上求一条从 1 到 N 的路径，使得路径上第 K + 1 大的边权尽量小。 本题答案具有单调性，因为边权越大，合法的方案一定包含了边权更小的方案。所以我们可以二分答案，把问题转化为：是否存在一种合法的方案，使得第 K + 1 边权不超过 mid。 转">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-13T11:04:40.312Z">
+<meta property="og:updated_time" content="2021-02-01T07:14:02.604Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【习题选讲】最短路">
 <meta name="twitter:description" content="1. [POJ3662]-Telephone Lines https://vjudge.net/problem/POJ-3662 题意：在无向图上求一条从 1 到 N 的路径，使得路径上第 K + 1 大的边权尽量小。 本题答案具有单调性，因为边权越大，合法的方案一定包含了边权更小的方案。所以我们可以二分答案，把问题转化为：是否存在一种合法的方案，使得第 K + 1 边权不超过 mid。 转">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【习题选讲】最短路</title>
+    <title>【习题选讲】最短路</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/07/05/【习题选讲】最小生成树/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/07/04/[POJ1094]-Sorting It All Out/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/最短路/">最短路</a>
+        
     </div>
 
 
@@ -177,7 +173,7 @@
 <p>其中 1 &lt;= i, j &lt;= P。</p>
 <p>上式其实是矩阵乘法，我们用快速幂解决，只要将原来的乘法换为加法，原来的加法换为 min 运算。最后 $(A^N)[S, E]$ 即为本题答案。</p>
 <p>时间复杂度 $O(T^3logN)$ 。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

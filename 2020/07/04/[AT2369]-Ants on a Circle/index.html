@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6 弱化版1：（上面博客T1）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 T2） 解法：碰撞的过程可以看作交换编号，因此可以">
+    <meta name="description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：点我 弱化版1：（上面博客 $T1$）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 $T2$） 解法：碰撞的过程可以看作交换编号，因此可以得出结论：编号为 $i$ 的蚂蚁碰到 $x$ 个逆向的蚂蚁后编号变为 $i + x$。 本题：一个道理">
 <meta name="keywords" content="思维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[AT2369]-Ants on a Circle">
 <meta property="og:url" content="http://yoursite.com/2020/07/04/[AT2369]-Ants on a Circle/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
-<meta property="og:description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6 弱化版1：（上面博客T1）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 T2） 解法：碰撞的过程可以看作交换编号，因此可以">
+<meta property="og:description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：点我 弱化版1：（上面博客 $T1$）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 $T2$） 解法：碰撞的过程可以看作交换编号，因此可以得出结论：编号为 $i$ 的蚂蚁碰到 $x$ 个逆向的蚂蚁后编号变为 $i + x$。 本题：一个道理">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-05T03:16:36.291Z">
+<meta property="og:updated_time" content="2021-02-01T05:56:58.629Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AT2369]-Ants on a Circle">
-<meta name="twitter:description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6 弱化版1：（上面博客T1）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 T2） 解法：碰撞的过程可以看作交换编号，因此可以">
+<meta name="twitter:description" content="两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象 网络上也有类似的：点我 弱化版1：（上面博客 $T1$）要求所有最终的位置，从小到大输出，不要求一一对应 解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了 弱化版2：（上面博客 $T2$） 解法：碰撞的过程可以看作交换编号，因此可以得出结论：编号为 $i$ 的蚂蚁碰到 $x$ 个逆向的蚂蚁后编号变为 $i + x$。 本题：一个道理">
     
     
         
@@ -143,12 +143,12 @@
 
   <div class="content" itemprop="articleBody">
     <p>两人碰面后方向相反速度不变——这种题有个名字：弹性碰撞（还挺形象</p>
-<p>网络上也有类似的：<a href="https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6" target="_blank" rel="noopener">https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6</a></p>
-<p>弱化版1：（上面博客T1）要求所有最终的位置，从小到大输出，不要求一一对应</p>
+<p>网络上也有类似的：<a href="https://www.cnblogs.com/liuchanglc/p/12700770.html#_label6" target="_blank" rel="noopener">点我</a></p>
+<p>弱化版1：（上面博客 $T1$）要求所有最终的位置，从小到大输出，不要求一一对应</p>
 <p>解法：可以看作相遇的蚂蚁们穿过了彼此，发生碰撞了</p>
-<p>弱化版2：（上面博客 T2）</p>
-<p>解法：碰撞的过程可以看作交换编号，因此可以得出结论：编号为 i 的蚂蚁碰到 x 个逆向的蚂蚁后编号变为 i + x。</p>
-<p>本题：一个道理，可以看作一只蚂蚁穿过 0 ～ l - 1，所有编号都会左移/右移一位</p>
+<p>弱化版2：（上面博客 $T2$）</p>
+<p>解法：碰撞的过程可以看作交换编号，因此可以得出结论：编号为 $i$ 的蚂蚁碰到 $x$ 个逆向的蚂蚁后编号变为 $i + x$。</p>
+<p>本题：一个道理，可以看作一只蚂蚁穿过 $0$ ~ $l - 1$，所有编号都会左移/右移一位</p>
 <p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, L, T, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; L &gt;&gt; T;</span><br><span class="line">	rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">		<span class="keyword">int</span> w; <span class="built_in">scanf</span>(<span class="string">"%lld%d"</span>, &amp;a[i], &amp;w);</span><br><span class="line">		a[i] += (w == <span class="number">1</span> ? T : -T);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">	rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">		pos += a[i] / L - (a[i] % L &lt; <span class="number">0</span>);</span><br><span class="line">		a[i] = (a[i] % L + L) % L;</span><br><span class="line">	&#125;</span><br><span class="line">	sort(a + <span class="number">1</span>, a + n + <span class="number">1</span>);</span><br><span class="line">	pos = (pos % n + n) % n + <span class="number">1</span>;</span><br><span class="line">	rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, a[pos]);</span><br><span class="line">		pos = (pos == n ? <span class="number">1</span> : pos + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
   </div>

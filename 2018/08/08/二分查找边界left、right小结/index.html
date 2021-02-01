@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="这个也是很没办法，17年的错了，05年的又错了。。。 那么来总结一下常见的几种：  left &amp;lt; right, mid = (left + right) / 2, left = mid + 1, right = mid.  left &amp;lt; right, mid = (left + right + 1) / 2, left = mid, right = mid - 1.  left &amp;lt">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-20T14:36:51.036Z">
+<meta property="og:updated_time" content="2021-02-01T07:19:05.211Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="二分查找边界left、right小结">
 <meta name="twitter:description" content="这个也是很没办法，17年的错了，05年的又错了。。。 那么来总结一下常见的几种：  left &amp;lt; right, mid = (left + right) / 2, left = mid + 1, right = mid.  left &amp;lt; right, mid = (left + right + 1) / 2, left = mid, right = mid - 1.  left &amp;lt">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>二分查找边界left、right小结</title>
+    <title>二分查找边界left、right小结</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/08/08/[SPOJ-CMPLS]-Complete the Sequence!/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/08/07/[TYVJ2020]-Rainbow的信号/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/计算机常识-初赛/">计算机常识/初赛</a>
+        
     </div>
 
 
@@ -157,7 +153,7 @@
 <p>目前碰到的就这些，实数域的不在这儿，但自己写程序时还是专背一种好了。</p>
 <hr>
 <p>突然发现蛮神奇的东西：如果要用前两种写法的话，输出答案就是 l；如果用第三种的话，if (chk(mid)) ans = mid，答案就是 ans。通过各OJ上的做题经验得证，还是第三种写法较为保险。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

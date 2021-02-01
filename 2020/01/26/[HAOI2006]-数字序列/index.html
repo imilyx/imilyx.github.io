@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 i &amp;lt; j, ai 和 aj 两者可同时保留当且仅当 aj - ai &amp;gt;= j - i, 即 aj - j &amp;gt;= ai - i。令 bi = ai - i，那么就是 nlogn 求 b 的最长不下降子序列长度 len，第一问答案就是 n - len。 第二问 这位大佬 讲的很">
+    <meta name="description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 $i &amp;lt; j$, $a_i$ 和 $a_j$ 两者可同时保留当且仅当 $a_j - a_i \geq j - i$, 即 $a_j - j \geq a_i - i$。令 $b_i = a_i - i$，那么就是 $nlogn$ 求 $b$ 的最长不下降子序列长度 $len$，第一问答案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[HAOI2006]-数字序列">
 <meta property="og:url" content="http://yoursite.com/2020/01/26/[HAOI2006]-数字序列/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
-<meta property="og:description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 i &amp;lt; j, ai 和 aj 两者可同时保留当且仅当 aj - ai &amp;gt;= j - i, 即 aj - j &amp;gt;= ai - i。令 bi = ai - i，那么就是 nlogn 求 b 的最长不下降子序列长度 len，第一问答案就是 n - len。 第二问 这位大佬 讲的很">
+<meta property="og:description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 $i &amp;lt; j$, $a_i$ 和 $a_j$ 两者可同时保留当且仅当 $a_j - a_i \geq j - i$, 即 $a_j - j \geq a_i - i$。令 $b_i = a_i - i$，那么就是 $nlogn$ 求 $b$ 的最长不下降子序列长度 $len$，第一问答案">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-26T09:41:37.804Z">
+<meta property="og:updated_time" content="2021-02-01T06:19:28.796Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[HAOI2006]-数字序列">
-<meta name="twitter:description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 i &amp;lt; j, ai 和 aj 两者可同时保留当且仅当 aj - ai &amp;gt;= j - i, 即 aj - j &amp;gt;= ai - i。令 bi = ai - i，那么就是 nlogn 求 b 的最长不下降子序列长度 len，第一问答案就是 n - len。 第二问 这位大佬 讲的很">
+<meta name="twitter:description" content="传送门 一道很有意思的思（jié）维（lùn）题。 首先，严格上升这个东西非常恶心，我们把它变形一下：若 $i &amp;lt; j$, $a_i$ 和 $a_j$ 两者可同时保留当且仅当 $a_j - a_i \geq j - i$, 即 $a_j - j \geq a_i - i$。令 $b_i = a_i - i$，那么就是 $nlogn$ 求 $b$ 的最长不下降子序列长度 $len$，第一问答案">
     
     
         
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>[HAOI2006]-数字序列</title>
+    <title>[HAOI2006]-数字序列</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -72,10 +72,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/02/01/【习题选讲】虚树/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2020/01/13/[AT2149]-Snuke's Coloring 2/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -138,15 +134,15 @@
   <div class="content" itemprop="articleBody">
     <p><a href="https://www.luogu.com.cn/problem/P2501" target="_blank" rel="noopener">传送门</a></p>
 <p>一道很有意思的思（jié）维（lùn）题。</p>
-<p>首先，严格上升这个东西非常恶心，我们把它变形一下：若 i &lt; j, ai 和 aj 两者可同时保留当且仅当 aj - ai &gt;= j - i, 即 aj - j &gt;= ai - i。令 bi = ai - i，那么就是 nlogn 求 b 的最长不下降子序列长度 len，第一问答案就是 n - len。</p>
-<p>第二问 <a href="https://www.luogu.com.cn/blog/cicos/solution-p2501" target="_blank" rel="noopener">这位大佬</a> 讲的很详细。简单描述一下，将 a 变的上升，等价于将 b 变的不下降。</p>
-<p>一个最长不下降子序列中相邻两项在 b 中，假设是 i 和 j，那么不存在 i &lt; k &lt; j, bi &lt;= bk &lt;= bj，否则 k 也应当在最长不下降子序列中。因此 i ~ j 之间的数只有比 bi 小的或比 bj 大的。</p>
-<p>给一个结论：i &lt; k &lt; j, 将 i ~ k 变成 bi，将 k + 1 ~ j 变成 bj，必定是最优解<strong>之一</strong>。这个可以看上面大佬的博客动图，非常直观。</p>
+<p>首先，严格上升这个东西非常恶心，我们把它变形一下：若 $i &lt; j$, $a_i$ 和 $a_j$ 两者可同时保留当且仅当 $a_j - a_i \geq j - i$, 即 $a_j - j \geq a_i - i$。令 $b_i = a_i - i$，那么就是 $nlogn$ 求 $b$ 的最长不下降子序列长度 $len$，第一问答案就是 $n - len$。</p>
+<p>第二问 <a href="https://www.luogu.com.cn/blog/cicos/solution-p2501" target="_blank" rel="noopener">这位大佬</a> 讲的很详细。简单描述一下，将 $a$ 变的上升，等价于将 $b$ 变的不下降。</p>
+<p>一个最长不下降子序列中相邻两项在 $b$ 中，假设是 $i$ 和 $j$，那么不存在 $i &lt; k &lt; j$, $b_i \leq b_k \leq b_j$，否则 $k$ 也应当在最长不下降子序列中。因此 $i$ ~ $j$ 之间的数只有比 $b_i$ 小的或比 $b_j$ 大的。</p>
+<p>给一个结论：$i &lt; k &lt; j$, 将 $i$ ~ $k$ 变成 $b_i$，将 $k + 1$ ~ $j$ 变成 $b_j$，必定是最优解<strong>之一</strong>。这个可以看上面大佬的博客动图，非常直观。</p>
 <p><strong>ATTENTION：这个结论是用来构造最优解的！！是构造！！方便计算的那种！！！！</strong></p>
 <p>以后碰到求最优解，要记得试试用结论或性质来辅助计算。</p>
-<p>还有一个问题，就是最长不下降子序列可能有很多个，子序列中第 i 到第 i + 1 可能有很多不同的段。我们可以用邻接表存一下 b 中每个 i 在最长不下降子序列中对应的前一步在 b 中的坐标们，简单 DP 即可。看起来是 n ^ 3 的，实际上跑的贼快。。</p>
+<p>还有一个问题，就是最长不下降子序列可能有很多个，子序列中第 $i$ 到第 $i + 1$ 可能有很多不同的段。我们可以用邻接表存一下 $b$ 中每个 $i$ 在最长不下降子序列中对应的前一步在 $b$ 中的坐标们，简单 dp 即可。看起来是 $n ^ 3$ 的，实际上跑的贼快。。</p>
 <p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 超好题</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">35005</span>, inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, a[N], b[N], d[N], len;</span><br><span class="line"><span class="keyword">int</span> to[N &lt;&lt; <span class="number">1</span>], lnk[N], nxt[N &lt;&lt; <span class="number">1</span>], cnt;</span><br><span class="line">ll sumL[N], sumR[N], f[N], pos[N];</span><br><span class="line"><span class="comment">// pos[i]: b[i] 在最长不下降子序列中的位置</span></span><br><span class="line"><span class="comment">// f[i] 表示 b 中 1 ~ i 变为最长不下降的最小代价</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    to[++cnt] = y, nxt[cnt] = lnk[x], lnk[x] = cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]), b[i] = a[i] - i;</span><br><span class="line">    d[len = <span class="number">1</span>] = b[<span class="number">1</span>], pos[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    b[<span class="number">0</span>] = -inf, b[++n] = inf; <span class="comment">// 最长不下降子序列可能有很多个，"n++" 方便操作</span></span><br><span class="line">    rep(i, <span class="number">2</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b[i] &gt;= d[len]) d[++len] = b[i], pos[i] = len;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">int</span> j = upper_bound(d + <span class="number">1</span>, d + len + <span class="number">1</span>, b[i]) - d; <span class="comment">// 如果是最长上升，改成 lower_bound</span></span><br><span class="line">            pos[i] = j;</span><br><span class="line">            d[j] = b[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, n - len);</span><br><span class="line">    add(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n) add(pos[i], i);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> o = lnk[pos[i] - <span class="number">1</span>]; o; o = nxt[o]) &#123;</span><br><span class="line">            <span class="keyword">int</span> j = to[o];</span><br><span class="line">            <span class="keyword">if</span> (j &gt; i || b[j] &gt; b[i]) <span class="keyword">continue</span>;</span><br><span class="line">            </span><br><span class="line">            sumL[j] = <span class="number">0</span>, sumR[j] = <span class="built_in">abs</span>(b[j] - b[i]);</span><br><span class="line">            rep(k, j + <span class="number">1</span>, i)</span><br><span class="line">                sumL[k] = sumL[k - <span class="number">1</span>] + <span class="built_in">abs</span>(b[k] - b[j]), sumR[k] = sumR[k - <span class="number">1</span>] + <span class="built_in">abs</span>(b[k] - b[i]);</span><br><span class="line">            rep(k, j, i)</span><br><span class="line">                f[i] = min(f[i], f[j] + sumL[k] - sumL[j] + sumR[i] - sumR[k]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, f[n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

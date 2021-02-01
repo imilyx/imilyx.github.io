@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 0，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(0,">
+    <meta name="description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 $0$，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(">
 <meta name="keywords" content="计数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LG4260]-博弈论与概率统计">
 <meta property="og:url" content="http://yoursite.com/2020/09/06/[LG4260]-博弈论与概率统计/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
-<meta property="og:description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 0，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(0,">
+<meta property="og:description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 $0$，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-07T06:36:48.208Z">
+<meta property="og:updated_time" content="2021-02-01T06:27:37.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LG4260]-博弈论与概率统计">
-<meta name="twitter:description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 0，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(0,">
+<meta name="twitter:description" content="赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？ 不能小于 $0$，想到了啥，卡特兰数！考虑平面上向右向上走问题 假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数 从 $(">
     
     
         
@@ -143,7 +143,7 @@
 
   <div class="content" itemprop="articleBody">
     <p>赢的场数都确定了，$p$ 一点用都没有，我们要算出得分之和以后除以 $C(n + m, n)$。所以这是道计数题？</p>
-<p>不能小于 0，想到了啥，卡特兰数！考虑平面上向右向上走问题</p>
+<p>不能小于 $0$，想到了啥，卡特兰数！考虑平面上向右向上走问题</p>
 <p>假设 $n \geq m$, 从 $(0, 0)$ 走到 $(n, m)$ 贡献是 $n - m$，方案数是 $C(n + m, n) - C(n + m, n + 1)$，就是用总数 - 碰到了边界线的方案数</p>
 <p>从 $(0, 0)$ 走到 $(n, m - 1)$ 贡献是 $n - m + 1$，方案数是 $C(n + m, n + 1) - C(n + m, n + 2)$</p>
 <p>…</p>

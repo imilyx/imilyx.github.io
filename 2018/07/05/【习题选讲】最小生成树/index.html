@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="1. [TYVJ1391]-走廊泼水节 http://www.joyoi.cn/problem/tyvj-1391 题意：给定一棵 N 个节点的树，要求增加若干条边，把这棵树扩充为完全图，并满足图的唯一最小生成树仍然是这棵树。求增加的边的权值总和最小是多少。 N &amp;lt;= 6000 ，边权均为非负整数。 考虑到最小生成树包含权值较小的边，而 kruskal 算法中每加进一条边连接两个连通块时，都">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-13T11:04:46.150Z">
+<meta property="og:updated_time" content="2021-02-01T07:17:08.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【习题选讲】最小生成树">
 <meta name="twitter:description" content="1. [TYVJ1391]-走廊泼水节 http://www.joyoi.cn/problem/tyvj-1391 题意：给定一棵 N 个节点的树，要求增加若干条边，把这棵树扩充为完全图，并满足图的唯一最小生成树仍然是这棵树。求增加的边的权值总和最小是多少。 N &amp;lt;= 6000 ，边权均为非负整数。 考虑到最小生成树包含权值较小的边，而 kruskal 算法中每加进一条边连接两个连通块时，都">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【习题选讲】最小生成树</title>
+    <title>【习题选讲】最小生成树</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/07/10/[APIO2010]-巡逻/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/07/04/【习题选讲】最短路/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/生成树/">生成树</a>
+        
     </div>
 
 
@@ -151,7 +147,7 @@
 <p><a href="https://vjudge.net/problem/POJ-2728" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-2728</a></p>
 <p>题意：给定一张 N 个点、M 条边的无向图，图中每条边 e 都有一个收益 Ce 和一个成本 Re。求该图的一棵生成树 T，使树中各边的收益之和除以成本之和，即 ${\sum_{e \in T} C_e} / {\sum_{e \in T} R_e}$ 最大。</p>
 <p>这是一道0/1分数规划问题，其实是要求最大生成树啦。虽说0/1分数规划NOIP不考，但也可趁此了解一下思想。没错，二分！我们二分一个值 mid，每条边上只有一个权值 $C_e - mid <em> R_e$ ，在新的无向图中求最大生成树，若最大生成树边权和非负，则令 l = mid，否则令 r = mid。至于为什么是 $C_e - mid </em> R_e$ 的形式，请出门右转百度，大概是不等式的转化。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

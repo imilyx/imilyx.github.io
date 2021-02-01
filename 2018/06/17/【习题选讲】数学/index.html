@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="[BZOJ1257]-余数之和https://www.lydsy.com/JudgeOnline/problem.php?id=1257将 mod 转换为除法，设 $g(x) = \lfloor k/{\lfloor k / x \rfloor} \rfloor$ ，可以证明 $\lfloor k / g(x) \rfloor \leq \lfloor k / x \rfloor$ ，又可证明">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-13T11:03:46.690Z">
+<meta property="og:updated_time" content="2021-02-01T07:17:15.096Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【习题选讲】数学">
 <meta name="twitter:description" content="[BZOJ1257]-余数之和https://www.lydsy.com/JudgeOnline/problem.php?id=1257将 mod 转换为除法，设 $g(x) = \lfloor k/{\lfloor k / x \rfloor} \rfloor$ ，可以证明 $\lfloor k / g(x) \rfloor \leq \lfloor k / x \rfloor$ ，又可证明">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【习题选讲】数学</title>
+    <title>【习题选讲】数学</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/06/19/初涉矩阵乘法/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/06/17/[CF-Gym-101775B]-Scapegoat/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -144,7 +140,7 @@
   <div class="content" itemprop="articleBody">
     <h3 id="BZOJ1257-余数之和"><a href="#BZOJ1257-余数之和" class="headerlink" title="[BZOJ1257]-余数之和"></a>[BZOJ1257]-余数之和</h3><p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1257" target="_blank" rel="noopener">https://www.lydsy.com/JudgeOnline/problem.php?id=1257</a><br>将 mod 转换为除法，设 $g(x) = \lfloor k/{\lfloor k / x \rfloor} \rfloor$ ，可以证明 $\lfloor k / g(x) \rfloor \leq \lfloor k / x \rfloor$ ，又可证明 $\lfloor k / g(x) \rfloor = \lfloor k / x \rfloor$ 。所以 $i \in [x, \lfloor k / \lfloor k / x \rfloor \rfloor]$ ，$\lfloor k / i \rfloor$ 的值都相等。$\lfloor k / i \rfloor$ 至多只有 $\sqrt{k}$ 个不同的值。用等差数列求和公式计算。$O(\sqrt{k})$ 。</p>
 <p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> n, k, ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lld%lld"</span>, &amp;n, &amp;k);</span><br><span class="line">    ans = n * k;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">1</span>, gx; x &lt;= n; x = gx + <span class="number">1</span>) &#123;</span><br><span class="line">        gx = k / x ? min(k / (k / x), n) : n;</span><br><span class="line">        ans -= (k / x) * (x + gx) * (gx - x + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

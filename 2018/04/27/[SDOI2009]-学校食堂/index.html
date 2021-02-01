@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="https://www.luogu.org/problemnew/show/P2157 这题是状压DP，因为B[i] &amp;lt;= 7。 所以我们可以用一个8位的二进制数来记录从i开始的8个人的打饭状态，1表示已打，0表示未打。 设f[i][j][k]表示第1～第i-1人已经打好，第i个人及ta身后的7个人打饭状态为j，最后打的人为i+k的最少时间。（由于k的范围为-8~7，所以存的时候要+8） 那">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T14:55:19.422Z">
+<meta property="og:updated_time" content="2021-02-01T06:51:25.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SDOI2009]-学校食堂">
 <meta name="twitter:description" content="https://www.luogu.org/problemnew/show/P2157 这题是状压DP，因为B[i] &amp;lt;= 7。 所以我们可以用一个8位的二进制数来记录从i开始的8个人的打饭状态，1表示已打，0表示未打。 设f[i][j][k]表示第1～第i-1人已经打好，第i个人及ta身后的7个人打饭状态为j，最后打的人为i+k的最少时间。（由于k的范围为-8~7，所以存的时候要+8） 那">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[SDOI2009]-学校食堂</title>
+    <title>[SDOI2009]-学校食堂</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/04/27/[CF24E]-Berland collider/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/04/22/KMP-字符串匹配/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/状压DP/">状压DP</a>
+        
     </div>
 
 
@@ -154,7 +150,7 @@
 <p>但从前往后枚举的同时不要忘记忍耐度这个限制条件，若有一个人无法满足前面人们忍耐度的最小值，就停止枚举，因为越后面越不符合要求了。</p>
 <p>CODE:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1005</span>, INF = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">int</span> test, n, T[N], B[N], f[N][<span class="number">1</span> &lt;&lt; <span class="number">8</span>][<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Chkmin</span><span class="params">(<span class="keyword">int</span> &amp;a, <span class="keyword">int</span> b)</span> </span>&#123;a = min(a, b);&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;test);</span><br><span class="line">	<span class="keyword">while</span> (test--) &#123;</span><br><span class="line">		<span class="keyword">int</span> r;  <span class="comment">// 忍耐度最小值</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;T[i], &amp;B[i]);</span><br><span class="line">		<span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">		f[<span class="number">1</span>][<span class="number">0</span>][<span class="number">7</span>] = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; (<span class="number">1</span> &lt;&lt; <span class="number">8</span>); j++)</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">-8</span>; k &lt;= <span class="number">7</span>; k++)</span><br><span class="line">					<span class="keyword">if</span> (f[i][j][k + <span class="number">8</span>] != INF) &#123;</span><br><span class="line">						<span class="keyword">if</span> (j &amp; <span class="number">1</span>) Chkmin(f[i + <span class="number">1</span>][j &gt;&gt; <span class="number">1</span>][k + <span class="number">7</span>], f[i][j][k + <span class="number">8</span>]);</span><br><span class="line">						<span class="keyword">else</span> &#123;</span><br><span class="line">							r = INF;</span><br><span class="line">							<span class="keyword">for</span> (<span class="keyword">int</span> h = <span class="number">0</span>; h &lt;= <span class="number">7</span>; h++)</span><br><span class="line">								<span class="keyword">if</span> (!((j &gt;&gt; h) &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">									<span class="keyword">if</span> (i + h &gt; r) <span class="keyword">break</span>;</span><br><span class="line">									Chkmin(r, i + h + B[i + h]);</span><br><span class="line">									Chkmin(f[i][j | (<span class="number">1</span> &lt;&lt; h)][h + <span class="number">8</span>], f[i][j][k + <span class="number">8</span>] + (i + k ? T[i + k] ^ T[i + h] : <span class="number">0</span>));</span><br><span class="line">								&#125;</span><br><span class="line">						&#125;</span><br><span class="line">					&#125;</span><br><span class="line">		<span class="keyword">int</span> ans = INF;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">-8</span>; i &lt;= <span class="number">0</span>; i++) ans = min(ans, f[n + <span class="number">1</span>][<span class="number">0</span>][i + <span class="number">8</span>]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>DP方程的题目乍一看到，蛙，根本没法转移，甚至想不到是一维还是二维三维，表示什么意义，但是最终的结果会涉及到题目给的所有条件，有些毫无头绪的想想题目中蕴含的逻辑，照着推一推，根据一个题目条件建立联系。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

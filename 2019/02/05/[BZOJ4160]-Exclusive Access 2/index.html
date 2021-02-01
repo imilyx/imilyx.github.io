@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="题意：给出 N 个点 M 条边的无向图，定向得到有向无环图，使得最长路最短。N &amp;lt;= 15, M &amp;lt;= 100. 这题真好啊！ 是比赛T2. 一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 di. 因为“无环”，所以对于每一条边 &amp;lt; v1, v2 &amp;gt;, d">
+    <meta name="description" content="题意：给出 $N$ 个点 $M$ 条边的无向图，定向得到有向无环图，使得最长路最短。$N \leq 15$, $M \leq 100$. 这题真好啊！ 是比赛 $T2$。一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 $di$. 因为“无环”，所以对于每一条边 $&amp;lt; v1,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ4160]-Exclusive Access 2">
 <meta property="og:url" content="http://yoursite.com/2019/02/05/[BZOJ4160]-Exclusive Access 2/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
-<meta property="og:description" content="题意：给出 N 个点 M 条边的无向图，定向得到有向无环图，使得最长路最短。N &amp;lt;= 15, M &amp;lt;= 100. 这题真好啊！ 是比赛T2. 一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 di. 因为“无环”，所以对于每一条边 &amp;lt; v1, v2 &amp;gt;, d">
+<meta property="og:description" content="题意：给出 $N$ 个点 $M$ 条边的无向图，定向得到有向无环图，使得最长路最短。$N \leq 15$, $M \leq 100$. 这题真好啊！ 是比赛 $T2$。一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 $di$. 因为“无环”，所以对于每一条边 $&amp;lt; v1,">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-05T09:17:03.212Z">
+<meta property="og:updated_time" content="2021-02-01T06:08:59.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[BZOJ4160]-Exclusive Access 2">
-<meta name="twitter:description" content="题意：给出 N 个点 M 条边的无向图，定向得到有向无环图，使得最长路最短。N &amp;lt;= 15, M &amp;lt;= 100. 这题真好啊！ 是比赛T2. 一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 di. 因为“无环”，所以对于每一条边 &amp;lt; v1, v2 &amp;gt;, d">
+<meta name="twitter:description" content="题意：给出 $N$ 个点 $M$ 条边的无向图，定向得到有向无环图，使得最长路最短。$N \leq 15$, $M \leq 100$. 这题真好啊！ 是比赛 $T2$。一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 $di$. 因为“无环”，所以对于每一条边 $&amp;lt; v1,">
     
     
         
@@ -75,7 +75,7 @@
         <li><a class="icon" href="/2019/02/07/[BZOJ4542]-大数/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2019/02/05/[HDU4638]-Group/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2019/01/31/位运算(bits)/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -136,16 +136,15 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>题意：给出 N 个点 M 条边的无向图，定向得到有向无环图，使得最长路最短。N &lt;= 15, M &lt;= 100.</p>
+    <p>题意：给出 $N$ 个点 $M$ 条边的无向图，定向得到有向无环图，使得最长路最短。$N \leq 15$, $M \leq 100$.</p>
 <p>这题真好啊！</p>
-<p>是比赛T2. 一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有……</p>
-<p>现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 di. 因为“无环”，所以对于每一条边 &lt; v1, v2 &gt;, d1 永远小于 d2。</p>
-<p>假设，这样的图存在环，那么 d1 &lt; d2 &lt; d3 &lt; … &lt; dk &lt; d1, 这不成立，所以该图不存在环。</p>
-<p>在这样的图中，最长链为 dmax - dmin. Hint！要输出 ans - 1 哦。</p>
-<p>为了使 dmax - dmin 最小，我们要使图的深度最小。怎么办呢？二进制DP。</p>
-<p>我们设 f(node) 为选择了一些点时的最小深度，其中 node 为 N 位二进制数表示每个点是否取。设 leaves 为该图的叶子结点，那么，f(node) = min{f(node - leaves) + 1}.</p>
-<p>叶子结点彼此之间是不连边的，所以可以预处理出 ok(node) 表示当 node 这些点能否为 leaves。</p>
-<p>所以就是这样。</p>
+<p>是比赛 $T2$。一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有……</p>
+<p>现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 $di$. 因为“无环”，所以对于每一条边 $&lt; v1, v2 &gt;$, $d1$ 永远小于 $d2$。</p>
+<p>假设，这样的图存在环，那么 $d1 &lt; d2 &lt; d3 &lt; … &lt; dk &lt; d1$, 这不成立，所以该图不存在环。</p>
+<p>在这样的图中，最长链为 $dmax - dmin$. Hint！要输出 $ans - 1$ 哦。</p>
+<p>为了使 $dmax - dmin$ 最小，我们要使图的深度最小。怎么办呢？二进制DP。</p>
+<p>我们设 $f(node)$ 为选择了一些点时的最小深度，其中 $node$ 为 $N$ 位二进制数表示每个点是否取。设 $leaves$ 为该图的叶子结点，那么，$f(node) = min{f(node - leaves) + 1}$.</p>
+<p>叶子结点彼此之间是不连边的，所以可以预处理出 $ok(node)$ 表示当 $node$ 这些点能否为 $leaves$。</p>
 <p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> m, mp[<span class="number">30</span>], cnt, G[<span class="number">30</span>][<span class="number">30</span>], f[<span class="number">1</span> &lt;&lt; <span class="number">15</span>], ok[<span class="number">1</span> &lt;&lt; <span class="number">15</span>];</span><br><span class="line"><span class="keyword">char</span> s1[<span class="number">10</span>], s2[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">    <span class="built_in">memset</span>(mp, <span class="number">-1</span>, <span class="keyword">sizeof</span>(mp));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s%s"</span>, s1, s2);</span><br><span class="line">        <span class="keyword">if</span> (mp[s1[<span class="number">0</span>] - <span class="string">'A'</span>] == <span class="number">-1</span>) mp[s1[<span class="number">0</span>] - <span class="string">'A'</span>] = cnt++;</span><br><span class="line">        <span class="keyword">if</span> (mp[s2[<span class="number">0</span>] - <span class="string">'A'</span>] == <span class="number">-1</span>) mp[s2[<span class="number">0</span>] - <span class="string">'A'</span>] = cnt++;</span><br><span class="line">        G[mp[s1[<span class="number">0</span>] - <span class="string">'A'</span>]][mp[s2[<span class="number">0</span>] - <span class="string">'A'</span>]] = G[mp[s2[<span class="number">0</span>] - <span class="string">'A'</span>]][mp[s1[<span class="number">0</span>] - <span class="string">'A'</span>]] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">memset</span>(f, <span class="number">0x3f</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; cnt); i++) &#123;</span><br><span class="line">        ok[i] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cnt; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">0</span>; k &lt; cnt; k++)</span><br><span class="line">                <span class="keyword">if</span> (j != k &amp;&amp; (i &amp; (<span class="number">1</span> &lt;&lt; j)) &amp;&amp; (i &amp; (<span class="number">1</span> &lt;&lt; k)) &amp;&amp; G[j][k]) &#123;</span><br><span class="line">                    ok[i] = <span class="number">0</span>; <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; cnt); i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = i; t; t = (t - <span class="number">1</span>) &amp; i)</span><br><span class="line">            <span class="keyword">if</span> (ok[t])</span><br><span class="line">                f[i] = min(f[i], f[i - t] + <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, f[(<span class="number">1</span> &lt;&lt; cnt) - <span class="number">1</span>] - <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
   </div>

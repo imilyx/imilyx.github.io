@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="错排公式 求解 n 个相异的元素排成一排 p1, p2, … pn，pi 不在第 i 位的方案数。 解法：设 $D(i)$ 表示有 $n = i$ 时的方案数。若 n 排在第 k 位，k 排在第 n 位，则有 $D(n - 2)$ 的方案数。又因 k 有 $n - 1$ 种取值，故有 $(n - 1)(D(n - 2))$ 种方案数。若 n 排在第 k 位，第 n 位的不是 k， 则除 n 外有一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-10T00:10:34.237Z">
+<meta property="og:updated_time" content="2021-02-01T07:18:11.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="组合数学">
 <meta name="twitter:description" content="错排公式 求解 n 个相异的元素排成一排 p1, p2, … pn，pi 不在第 i 位的方案数。 解法：设 $D(i)$ 表示有 $n = i$ 时的方案数。若 n 排在第 k 位，k 排在第 n 位，则有 $D(n - 2)$ 的方案数。又因 k 有 $n - 1$ 种取值，故有 $(n - 1)(D(n - 2))$ 种方案数。若 n 排在第 k 位，第 n 位的不是 k， 则除 n 外有一">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>组合数学</title>
+    <title>组合数学</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/06/03/[TYVJ1051]-选课/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/06/01/整数拆分/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -155,7 +151,7 @@
 <p>Hint: 可别将 $F(n)$ 与错排公式记错了！</p>
 <h3 id="Catalan数"><a href="#Catalan数" class="headerlink" title="Catalan数"></a>Catalan数</h3><hr>
 <p>$C(n) = \binom{2n}{n} - \binom{2n}{n + 1} = \frac{\binom{2n}{n}}{n + 1}$</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

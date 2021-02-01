@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="题目链接 因为范围很小，而且搜索的话搜索量太大，适宜用状压DP！ 设 f[i, j, k] 表示处理了 i 行，已放 j 个，第 i 行状态为 k 的方案数。暴力大转移！ 时间复杂度最大是 $9511511*81 = 190357209$，海星 code :123456789101112131415161718192021222324252627282930313233343536373839#i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-24T11:11:11.821Z">
+<meta property="og:updated_time" content="2021-02-01T06:51:03.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SCOI2005]-互不侵犯">
 <meta name="twitter:description" content="题目链接 因为范围很小，而且搜索的话搜索量太大，适宜用状压DP！ 设 f[i, j, k] 表示处理了 i 行，已放 j 个，第 i 行状态为 k 的方案数。暴力大转移！ 时间复杂度最大是 $9511511*81 = 190357209$，海星 code :123456789101112131415161718192021222324252627282930313233343536373839#i">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[SCOI2005]-互不侵犯</title>
+    <title>[SCOI2005]-互不侵犯</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/05/24/[SCOI2007]-蜥蜴/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/05/21/[网络流24题]-负载平衡问题/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/状压DP/">状压DP</a>
+        
     </div>
 
 
@@ -147,7 +143,7 @@
 <p>设 f[i, j, k] 表示处理了 i 行，已放 j 个，第 i 行状态为 k 的方案数。暴力大转移！</p>
 <p>时间复杂度最大是 $9<em>511</em>511*81 = 190357209$，海星</p>
 <p>code :<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;bits/stdc++.h&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">typedef long long ll;</span><br><span class="line">int n, K, all;</span><br><span class="line">const int N = 550;</span><br><span class="line">ll f[15][100][N], cnt[N];</span><br><span class="line">int ok[N], nxt[N][N];</span><br><span class="line"></span><br><span class="line">void prework() &#123;</span><br><span class="line">    for (int i = 0; i &lt;= all; i++)</span><br><span class="line">        if ((i &amp; (i &gt;&gt; 1)) == 0) &#123;  // 不能放相邻位置</span><br><span class="line">            int tot = 0;</span><br><span class="line">            for (int x = i; x; x &gt;&gt;= 1) tot += (x &amp; 1);</span><br><span class="line">            cnt[i] = tot;</span><br><span class="line">            ok[i] = 1;</span><br><span class="line">        &#125;</span><br><span class="line">    for (int i = 0; i &lt;= all; i++) if (ok[i])</span><br><span class="line">        for (int j = 0; j &lt;= all; j++) if (ok[j])</span><br><span class="line">            if ((i &amp; j) == 0 &amp;&amp; (i &amp; (j &gt;&gt; 1)) == 0 &amp;&amp; (j &amp; (i &gt;&gt; 1)) == 0)  // 处理相邻两行间的可行状态</span><br><span class="line">                nxt[i][j] = 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">    scanf(&quot;%d%d&quot;, &amp;n, &amp;K);</span><br><span class="line">    all = (1 &lt;&lt; n) - 1;</span><br><span class="line">    prework();</span><br><span class="line">    for (int i = 0; i &lt;= all; i++) if (ok[i]) f[1][cnt[i]][i] = 1;</span><br><span class="line">    for (int i = 1; i &lt; n; i++)</span><br><span class="line">        for (int j = 0; j &lt;= all; j++) if (ok[j])</span><br><span class="line">            for (int k = 0; k &lt;= all; k++)</span><br><span class="line">                if (ok[k] &amp;&amp; nxt[k][j])</span><br><span class="line">                    for (int p = cnt[j]; p &lt;= K - cnt[k]; p++)</span><br><span class="line">                        f[i + 1][cnt[k] + p][k] += f[i][p][j];</span><br><span class="line">    ll ans = 0;</span><br><span class="line">    for (int i = 0; i &lt;= all; i++) ans += f[n][K][i];</span><br><span class="line">    printf(&quot;%lld\n&quot;, ans);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

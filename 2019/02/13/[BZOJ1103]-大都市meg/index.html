@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="题目链接 使一条边 (x, y) 权值为 0 等价于给 y 及 y 的子树减一。 求 x 到 1 的路径长度即求区间 [l[1], l[x]] 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;bits/stdc+">
+    <meta name="description" content="题目链接 使一条边 $(x, y)$ 权值为 $0$ 等价于给 $y$ 及 $y$ 的子树减一。 求 $x$ 到 $1$ 的路径长度即求区间 $[l[1], l[x]]$ 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include">
 <meta name="keywords" content="dfs序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ1103]-大都市meg">
 <meta property="og:url" content="http://yoursite.com/2019/02/13/[BZOJ1103]-大都市meg/index.html">
 <meta property="og:site_name" content="imily&#39;s notes">
-<meta property="og:description" content="题目链接 使一条边 (x, y) 权值为 0 等价于给 y 及 y 的子树减一。 求 x 到 1 的路径长度即求区间 [l[1], l[x]] 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;bits/stdc+">
+<meta property="og:description" content="题目链接 使一条边 $(x, y)$ 权值为 $0$ 等价于给 $y$ 及 $y$ 的子树减一。 求 $x$ 到 $1$ 的路径长度即求区间 $[l[1], l[x]]$ 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-02-13T12:38:32.134Z">
+<meta property="og:updated_time" content="2021-02-01T06:01:45.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[BZOJ1103]-大都市meg">
-<meta name="twitter:description" content="题目链接 使一条边 (x, y) 权值为 0 等价于给 y 及 y 的子树减一。 求 x 到 1 的路径长度即求区间 [l[1], l[x]] 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include &amp;lt;bits/stdc+">
+<meta name="twitter:description" content="题目链接 使一条边 $(x, y)$ 权值为 $0$ 等价于给 $y$ 及 $y$ 的子树减一。 求 $x$ 到 $1$ 的路径长度即求区间 $[l[1], l[x]]$ 的值。 code :12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include">
     
     
         
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[BZOJ1103]-大都市meg</title>
+    <title>[BZOJ1103]-大都市meg</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/02/22/[luogu3387]-缩点模版/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/02/13/[POJ3321]-Apple Tree/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/dfs序/">dfs序</a>
+        
     </div>
 
 
@@ -143,10 +139,10 @@
 
   <div class="content" itemprop="articleBody">
     <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1103" target="_blank" rel="noopener">题目链接</a></p>
-<p>使一条边 (x, y) 权值为 0 等价于给 y 及 y 的子树减一。</p>
-<p>求 x 到 1 的路径长度即求区间 [l[1], l[x]] 的值。</p>
+<p>使一条边 $(x, y)$ 权值为 $0$ 等价于给 $y$ 及 $y$ 的子树减一。</p>
+<p>求 $x$ 到 $1$ 的路径长度即求区间 $[l[1], l[x]]$ 的值。</p>
 <p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lowbit(x) ((x) &amp; (-x))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">25e4</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, cnt, top, T;</span><br><span class="line"><span class="keyword">int</span> C[N &lt;&lt; <span class="number">1</span>], lnk[N &lt;&lt; <span class="number">1</span>], to[N &lt;&lt; <span class="number">1</span>], nxt[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line"><span class="keyword">int</span> st[N], fa[N], l[N], r[N];</span><br><span class="line"><span class="keyword">char</span> s[<span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">    to[++cnt] = v, nxt[cnt] = lnk[u], lnk[u] = cnt;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> u, <span class="keyword">int</span> fa)</span> </span>&#123;</span><br><span class="line">    l[u] = ++T;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[u]; i; i = nxt[i])</span><br><span class="line">        <span class="keyword">if</span> (to[i] != fa) dfs(to[i], u);</span><br><span class="line">    r[u] = ++T;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">upd</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (; x &lt;= <span class="number">2</span> * n; x += lowbit(x)) C[x] += val;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> ret = <span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span> (; x; x -= lowbit(x)) ret += C[x];</span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> u, v; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;u, &amp;v);</span><br><span class="line">        add(u, v), add(v, u);</span><br><span class="line">    &#125;</span><br><span class="line">    dfs(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) upd(l[i], <span class="number">1</span>), upd(r[i], <span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n + m - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%s"</span>, s);</span><br><span class="line">        <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'A'</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x, y; <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;y);</span><br><span class="line">            upd(l[y], <span class="number">-1</span>), upd(r[y], <span class="number">1</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (s[<span class="number">0</span>] == <span class="string">'W'</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> x; <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;x);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, query(l[x]));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

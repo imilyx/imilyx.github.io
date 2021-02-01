@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="http://www.joyoi.cn/problem/tyvj-1051 题意：有 N 门课，每个学生可选 M 课，有些选修课程有先修课程，最多只有一门先修课。可能有多门课程有相同的先修课。每门选修课有相应的学分。请设计一个选修方案。$N \leq 300$ ，$1 \leq M \leq N$ 。 很容易看出来是森林，不可能成环，而且存在许多根结点，这是树形DP应该没错了。为了方便转移，我">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T08:41:25.158Z">
+<meta property="og:updated_time" content="2021-02-01T06:54:30.682Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[TYVJ1051]-选课">
 <meta name="twitter:description" content="http://www.joyoi.cn/problem/tyvj-1051 题意：有 N 门课，每个学生可选 M 课，有些选修课程有先修课程，最多只有一门先修课。可能有多门课程有相同的先修课。每门选修课有相应的学分。请设计一个选修方案。$N \leq 300$ ，$1 \leq M \leq N$ 。 很容易看出来是森林，不可能成环，而且存在许多根结点，这是树形DP应该没错了。为了方便转移，我">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[TYVJ1051]-选课</title>
+    <title>[TYVJ1051]-选课</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/06/06/[POJ3585]-Accumulation Degree/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/06/01/组合数学/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/树形DP/">树形DP</a>
+        
     </div>
 
 
@@ -151,7 +147,7 @@
 <p>该方程其实是一个分组背包模型，其中第 i 组的第 j 个物品体积为 j ，价值为 $F[y_i][j]$ ，总容积为 $t - 1$。同样，我们使用倒序循环。</p>
 <p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e2</span> + <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, score[N], f[N][N];</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; son[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dp</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    f[x][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; son[x].size(); i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> y = son[x][i];</span><br><span class="line">        dp(y);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = m; t &gt;= <span class="number">0</span>; --t)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = t; j &gt;= <span class="number">0</span>; --j)</span><br><span class="line">                f[x][t] = max(f[x][t], f[x][t - j] + f[y][j]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (x != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> t = m; t &gt; <span class="number">0</span>; --t)</span><br><span class="line">            f[x][t] = f[x][t - <span class="number">1</span>] + score[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> x;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x, &amp;score[i]);</span><br><span class="line">        son[x].push_back(i);</span><br><span class="line">    &#125;</span><br><span class="line">    dp(<span class="number">0</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, f[<span class="number">0</span>][m]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这一类题目被称为背包类树形DP，又称有树形依赖的背包问题。节点编号通常被作为第一维，体积通常被作为第二维。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="LeetCode 提交方式真的十分清奇古怪哇。。。 题意：定义 conn(s, n) 为 n 个字符串 s 首尾相接形成的字符串，例如，conn(“abc”, 2) = “abcabc”. 我们称字符串 “abdbec” 能生成 “abc”，而 “acbbe” 不能生成 “abc”. 一句话，若 a 能生成 b，则 b 是 a 的一个不连续字串。给定两个字符串 s1, s2, 以及两个整数 n1，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-16T14:51:31.813Z">
+<meta property="og:updated_time" content="2021-02-01T06:26:19.929Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LeetCode466]-Count The Repetitions">
 <meta name="twitter:description" content="LeetCode 提交方式真的十分清奇古怪哇。。。 题意：定义 conn(s, n) 为 n 个字符串 s 首尾相接形成的字符串，例如，conn(“abc”, 2) = “abcabc”. 我们称字符串 “abdbec” 能生成 “abc”，而 “acbbe” 不能生成 “abc”. 一句话，若 a 能生成 b，则 b 是 a 的一个不连续字串。给定两个字符串 s1, s2, 以及两个整数 n1，">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[LeetCode466]-Count The Repetitions</title>
+    <title>[LeetCode466]-Count The Repetitions</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/09/18/[CF913C]-Party Lemonade/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/09/16/[NOIP2012]-开车旅行/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/倍增DP/">倍增DP</a>
+        
     </div>
 
 
@@ -153,7 +149,7 @@
 <p>最后对DP得到的状态进行拼接。</p>
 <p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll f[<span class="number">105</span>][<span class="number">32</span>];</span><br><span class="line"><span class="built_in">string</span> s1, s2;</span><br><span class="line"><span class="keyword">int</span> n1, n2;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; s1 &gt;&gt; n1 &gt;&gt; s2 &gt;&gt; n2;</span><br><span class="line">    <span class="keyword">int</span> len1 = s1.length(), len2 = s2.length();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> pos = i;</span><br><span class="line">        f[i][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; len2; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (s1[pos] != s2[j]) &#123;</span><br><span class="line">                pos = (pos + <span class="number">1</span>) % len1;</span><br><span class="line">                <span class="keyword">if</span> (++cnt &gt;= len1) &#123;</span><br><span class="line">                    <span class="built_in">cout</span> &lt;&lt; <span class="number">0</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">                    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            pos = (pos + <span class="number">1</span>) % len1;</span><br><span class="line">            f[i][<span class="number">0</span>] += cnt + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= <span class="number">30</span>; j++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; len1; i++)</span><br><span class="line">            f[i][j] = f[i][j - <span class="number">1</span>] + f[(i + f[i][j - <span class="number">1</span>]) % len1][j - <span class="number">1</span>];</span><br><span class="line">    ll m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> st = <span class="number">0</span>; st &lt; len1; st++) &#123;</span><br><span class="line">        ll x = st, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">30</span>; j &gt;= <span class="number">0</span>; j--)</span><br><span class="line">            <span class="keyword">if</span> (x + f[x % len1][j] &lt;= len1 * n1) &#123;</span><br><span class="line">                x += f[x % len1][j];</span><br><span class="line">                ans += <span class="number">1</span> &lt;&lt; j;</span><br><span class="line">            &#125;</span><br><span class="line">        m = max(m, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; m / n2 &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这里先挂一个main()函数里的代码吧～</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

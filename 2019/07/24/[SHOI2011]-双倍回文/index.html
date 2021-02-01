@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="传送门 计算 g[i] = p[i] / 2 (即每个 i 的最大回文半径)。 枚举双倍回文子串中心 i（s[i] = ‘#’），枚举左右回文子串的中心距离 i 的长度 j。若 g[i - j] &amp;gt;= j, g[i + j] &amp;gt;= j (能覆盖 i)，则计算贡献。 大概 BZ 此题数据水，我这种做法能过诶。。QAQ code :12345678910111213141516171819">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-07-24T15:44:23.762Z">
+<meta property="og:updated_time" content="2021-02-01T06:53:40.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SHOI2011]-双倍回文">
 <meta name="twitter:description" content="传送门 计算 g[i] = p[i] / 2 (即每个 i 的最大回文半径)。 枚举双倍回文子串中心 i（s[i] = ‘#’），枚举左右回文子串的中心距离 i 的长度 j。若 g[i - j] &amp;gt;= j, g[i + j] &amp;gt;= j (能覆盖 i)，则计算贡献。 大概 BZ 此题数据水，我这种做法能过诶。。QAQ code :12345678910111213141516171819">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[SHOI2011]-双倍回文</title>
+    <title>[SHOI2011]-双倍回文</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2019/07/25/[SCOI2005]-骑士精神/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2019/07/24/[TJOI2017]-可乐/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/Manacher/">Manacher</a>
+        
     </div>
 
 
@@ -147,7 +143,7 @@
 <p>枚举双倍回文子串中心 i（s[i] = ‘#’），枚举左右回文子串的中心距离 i 的长度 j。若 g[i - j] &gt;= j, g[i + j] &gt;= j (能覆盖 i)，则计算贡献。</p>
 <p>大概 BZ 此题数据水，我这种做法能过诶。。QAQ</p>
 <p>code :<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> n, p[N], g[N];</span><br><span class="line"><span class="keyword">char</span> t[N], s[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">manacher</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> mx = <span class="number">0</span>, pos = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; mx) p[i] = min(p[pos * <span class="number">2</span> - i], mx - i);</span><br><span class="line">        <span class="keyword">else</span> p[i] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (s[i + p[i] + <span class="number">1</span>] == s[i - p[i] - <span class="number">1</span>]) ++p[i];</span><br><span class="line">        <span class="keyword">if</span> (mx &lt; i + p[i]) mx = i + p[i], pos = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%s"</span>, t);</span><br><span class="line">    s[<span class="number">0</span>] = <span class="string">'^'</span>, s[<span class="number">1</span>] = <span class="string">'#'</span>;</span><br><span class="line">    <span class="keyword">int</span> j = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        s[j++] = t[i], s[j++] = <span class="string">'#'</span>;</span><br><span class="line">    &#125; s[j] = <span class="string">'&amp;'</span>;</span><br><span class="line">    manacher(j);</span><br><span class="line"></span><br><span class="line">    rep(i, <span class="number">0</span>, n - <span class="number">1</span>) g[i] = p[<span class="number">2</span> * i + <span class="number">1</span>] / <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = g[i] / <span class="number">2</span>; j &amp;&amp; j * <span class="number">4</span> &gt; ans; j--)</span><br><span class="line">            <span class="keyword">if</span> (g[i + j] &gt;= j &amp;&amp; g[i - j] &gt;= j) ans = max(ans, <span class="number">4</span> * j);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

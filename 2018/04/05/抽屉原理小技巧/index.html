@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-28T14:13:55.802Z">
+<meta property="og:updated_time" content="2021-02-01T07:18:40.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽屉原理小技巧">
 <meta name="twitter:description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>抽屉原理小技巧</title>
+    <title>抽屉原理小技巧</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/04/06/多重背包-二进制思想优化/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/02/03/【学习笔记】欧几里得与扩展欧几里得/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -148,7 +144,7 @@
 <p>这就妙在用两个去撞一个，撞掉一个总还有一个剩余的，是不是很方便？</p>
 <p>也有例题：<br>输入n个点的x，y轴坐标及价值，要求选择三个点，满足三点不在同一横轴且不在同一纵轴上的情况下，三点之和最大；<br>这就好办了，枚举第二个点，第二个的左半部分为第一个点所在地，右半部分为第三个点所在地，<br>左右枚举纵轴，各选三个点，一个点用来‘撞’枚举的第二点的横轴，接下来两个交叉搭配也OK了。</p>
 <p>其实这巧妙地应用了抽屉原理，算是一种小技巧：比要求多取。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

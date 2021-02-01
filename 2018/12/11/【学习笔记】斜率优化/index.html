@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： $$f[i] = \min_{0 \leq j &amp;lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$ 其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-13T11:02:24.771Z">
+<meta property="og:updated_time" content="2021-02-01T07:12:27.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】斜率优化">
 <meta name="twitter:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： $$f[i] = \min_{0 \leq j &amp;lt; i}{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2}$$ 其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【学习笔记】斜率优化</title>
+    <title>【学习笔记】斜率优化</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/12/15/[BZOJ1096]-仓库建设/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/11/30/[SCOI2009]-windy数/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -168,7 +164,7 @@
 <li>将该 DP 式子化成 y = kx + b 的形式</li>
 <li>套路式斜率优化</li>
 </ol>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 

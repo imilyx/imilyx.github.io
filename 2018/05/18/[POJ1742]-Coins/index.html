@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="https://vjudge.net/problem/POJ-1742 题意：给定 n 个数，值分别为 ai，个数分别为 ci，选择若干面值相加，若能组成 S，便称面值 S 能被拼成。求 1～m 中有多少个数能被拼成。 从个数限制 ci 可以看出，这是多重背包模型。用 Boolean 数组 f[i] 表示 i 能否被拼成。1～n 枚举使用每种值，同时 1～m 枚举当前若用了 a[i]，j 能否拼成">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-01T10:47:26.829Z">
+<meta property="og:updated_time" content="2021-02-01T06:45:33.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[POJ1742]-Coins">
 <meta name="twitter:description" content="https://vjudge.net/problem/POJ-1742 题意：给定 n 个数，值分别为 ai，个数分别为 ci，选择若干面值相加，若能组成 S，便称面值 S 能被拼成。求 1～m 中有多少个数能被拼成。 从个数限制 ci 可以看出，这是多重背包模型。用 Boolean 数组 f[i] 表示 i 能否被拼成。1～n 枚举使用每种值，同时 1～m 枚举当前若用了 a[i]，j 能否拼成">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>[POJ1742]-Coins</title>
+    <title>[POJ1742]-Coins</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2018/05/19/[POJ1015]-Jury Compromise/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2018/05/13/[POJ1958]-Strange Towers of Hanoi/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -133,7 +129,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/背包/">背包</a>
+        
     </div>
 
 
@@ -151,7 +147,7 @@
 </ol>
 <p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>, M = <span class="number">100005</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, a[N], c[N], used[M], ans;</span><br><span class="line"><span class="keyword">bool</span> f[M];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;m), n &amp;&amp; m) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;c[i]);</span><br><span class="line">        <span class="built_in">memset</span>(f, <span class="literal">false</span>, <span class="keyword">sizeof</span>(f));</span><br><span class="line">        f[<span class="number">0</span>] = <span class="literal">true</span>, ans = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; j++) used[j] = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = a[i]; j &lt;= m; j++)</span><br><span class="line">                <span class="keyword">if</span> (!f[j] &amp;&amp; f[j - a[i]] &amp;&amp; used[j - a[i]] &lt; c[i])</span><br><span class="line">                    f[j] = <span class="literal">true</span>, used[j] = used[j - a[i]] + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">            <span class="keyword">if</span> (f[i]) ans++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>这道题只关注是否可行，而非一般背包的最优解问题，算一种特殊的性质，used[] 辅助实现限制，注意不要忘了 f[] 与 used[] 的清零。同时利用贪心思想，仅当 f[j] = false，不得不使用第 i 种数值时才进行转移，保证不漏掉可行解。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 
