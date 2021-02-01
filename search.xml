@@ -4,24 +4,11 @@
   
     
     <entry>
-      <title>【置顶】考前必看</title>
-      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E8%80%83%E5%89%8D%E5%BF%85%E7%9C%8B/"/>
-      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E8%80%83%E5%89%8D%E5%BF%85%E7%9C%8B/</url>
+      <title>【置顶】错误集锦</title>
+      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
+      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/</url>
       
-        <content type="html"><![CDATA[<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul><li>记得开 long long! 为了避免中间变量没开，可以 ctrl + F, 搜索 int，若有漏网之鱼可加以改正。</li></ul><h3 id="部分分"><a href="#部分分" class="headerlink" title="部分分"></a>部分分</h3><ul><li><p>最好不要无脑写暴力。观察部分分表，有特殊性质的量力写。如果有转折较大且分数较多的点，好好想想，也许出题人觉得这个好写，适合普遍大众，而且是本题的一个重点思路呢。因为，比赛并不是全部题目面向dalao的。</p></li><li><p>10^5 的数据范围一般就是多项式算法；50 以内的怎么也是指数级，状压或者什么的。</p></li><li><p>充满信心。不要算分。只有在比较哪个部分分更多的情况下算分。</p></li></ul><h3 id="思考策略"><a href="#思考策略" class="headerlink" title="思考策略"></a>思考策略</h3><ul><li><p>可以从开头考虑，根据推出的性质猜想，同时从结尾结论倒着推进，两边推进。</p></li><li><p>可以在条件繁多或受牵制时，暂时忽略部分条件，简化题目，再由特殊到一般。</p></li></ul><h3 id="时间安排策略"><a href="#时间安排策略" class="headerlink" title="时间安排策略"></a>时间安排策略</h3><ul><li><p>最后十五分钟，要光荣地，奋战到底。最后时间只留给一道题，只开一档分，因为非常紧张。</p></li><li><p>NOIP 结尾30～45分钟准备收尾。</p></li><li><p>要果断选题，去看丢掉的题是于事无补的。放了就是放了，心态会平静很多。</p></li></ul><h3 id="精神要养足！！"><a href="#精神要养足！！" class="headerlink" title="精神要养足！！"></a>精神要养足！！</h3><ul><li>早睡能带来好运气(<em>¯︶¯</em>) NOIP 前三周 11 点前睡，前两周 10:20 前睡。</li></ul>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>【置顶】OI自主学习内容安排</title>
-      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91OI%E8%87%AA%E4%B8%BB%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92/"/>
-      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91OI%E8%87%AA%E4%B8%BB%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92/</url>
-      
-        <content type="html"><![CDATA[<p><em>SPECIAL:</em></p><p><em>练习：</em></p><p><em>比赛：</em></p><p><em>其他：</em></p><hr><p><em>待学习：</em></p><p><em>待巩固：</em></p>]]></content>
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我要把 fst 分的场子钉在耻辱柱上</span><br></pre></td></tr></table></figure><h2 id="多测清空：特别是建图，cnt清否？lnk清否？deg清否？"><a href="#多测清空：特别是建图，cnt清否？lnk清否？deg清否？" class="headerlink" title="多测清空：特别是建图，cnt清否？lnk清否？deg清否？"></a>多测清空：特别是建图，cnt清否？lnk清否？deg清否？</h2><h2 id="set：不能在-it-的-for-循环中-erase-it"><a href="#set：不能在-it-的-for-循环中-erase-it" class="headerlink" title="set：不能在 it 的 for 循环中 erase(it)"></a>set：不能在 it 的 for 循环中 erase(it)</h2><h2 id="dp-要注意如果有-f-i-min-f-i-j-g-j-，注意判-f-i-j-g-j-会不会炸-long-long（初始值是-1e18-的话会炸！！！）"><a href="#dp-要注意如果有-f-i-min-f-i-j-g-j-，注意判-f-i-j-g-j-会不会炸-long-long（初始值是-1e18-的话会炸！！！）" class="headerlink" title="dp 要注意如果有 f[i] = min(f[i - j] + g[j])，注意判 f[i - j] + g[j] 会不会炸 long long（初始值是 1e18 的话会炸！！！）"></a>dp 要注意如果有 f[i] = min(f[i - j] + g[j])，注意判 f[i - j] + g[j] 会不会炸 long long（初始值是 1e18 的话会炸！！！）</h2><p>——wc2020 场外赛 25 pts$</p><h2 id="分母是否为-0？nan！"><a href="#分母是否为-0？nan！" class="headerlink" title="分母是否为 0？nan！"></a>分母是否为 0？nan！</h2><p>——模拟赛 100 -&gt; 0</p><h2 id="取模模-0-了吗？RE！"><a href="#取模模-0-了吗？RE！" class="headerlink" title="取模模 0 了吗？RE！"></a>取模模 0 了吗？RE！</h2><p>——做题，wa 了 inf 次</p><h2 id="取模取对了吗？正负对了吗？最好输出前-ans-mod-mod！"><a href="#取模取对了吗？正负对了吗？最好输出前-ans-mod-mod！" class="headerlink" title="取模取对了吗？正负对了吗？最好输出前 (ans += mod) %= mod！"></a>取模取对了吗？正负对了吗？最好输出前 (ans += mod) %= mod！</h2><p>——noi2020同步赛 D1T2 ？分</p><h2 id="字母打错了吗？"><a href="#字母打错了吗？" class="headerlink" title="字母打错了吗？"></a>字母打错了吗？</h2><p>——noi2020同步赛 D1T3 24 分，r1、r2 打成 c1、c2</p><h2 id="空间开大了吗？哪怕卡着都不行！"><a href="#空间开大了吗？哪怕卡着都不行！" class="headerlink" title="空间开大了吗？哪怕卡着都不行！"></a>空间开大了吗？哪怕卡着都不行！</h2><p>——模拟赛 80 -&gt; 0</p><h2 id="空间开小了吗？2e5-开了-1e5？"><a href="#空间开小了吗？2e5-开了-1e5？" class="headerlink" title="空间开小了吗？2e5 开了 1e5？"></a>空间开小了吗？2e5 开了 1e5？</h2><p>——模拟赛 80 -&gt; 50</p><h2 id="floor-x-是小于等于-x-的最大整数，ceil-x-是大于-x-的最小整数"><a href="#floor-x-是小于等于-x-的最大整数，ceil-x-是大于-x-的最小整数" class="headerlink" title="floor(x) 是小于等于 x 的最大整数，ceil(x) 是大于 x 的最小整数"></a>floor(x) 是小于等于 x 的最大整数，ceil(x) 是<strong>大于</strong> x 的最小整数</h2><p>——模拟赛 fst 了一定分</p><h2 id="C-n-m-里写-if-n-lt-m-return-0-了吗？"><a href="#C-n-m-里写-if-n-lt-m-return-0-了吗？" class="headerlink" title="C(n, m) 里写 if (n &lt; m) return 0; 了吗？"></a>C(n, m) 里写 if (n &lt; m) return 0; 了吗？</h2><h2 id="builtin-popcount-不适宜计算-long-long-类型的答案（不知道为啥）"><a href="#builtin-popcount-不适宜计算-long-long-类型的答案（不知道为啥）" class="headerlink" title="__builtin_popcount() 不适宜计算 long long 类型的答案（不知道为啥）"></a>__builtin_popcount() 不适宜计算 long long 类型的答案（不知道为啥）</h2><h2 id="double-题用-int-计算斜率-坐标了吗？"><a href="#double-题用-int-计算斜率-坐标了吗？" class="headerlink" title="double 题用 int 计算斜率/坐标了吗？"></a>double 题用 int 计算斜率/坐标了吗？</h2><h2 id="输出-0-的输出-1-了吗？输出-1-的输出-0-了吗？"><a href="#输出-0-的输出-1-了吗？输出-1-的输出-0-了吗？" class="headerlink" title="输出 0 的输出 -1 了吗？输出 -1 的输出 0 了吗？"></a>输出 0 的输出 -1 了吗？输出 -1 的输出 0 了吗？</h2><p>——模拟赛 100 -&gt; 60</p><h2 id="变量重名了吗？外面-i-里面也是-i"><a href="#变量重名了吗？外面-i-里面也是-i" class="headerlink" title="变量重名了吗？外面 i 里面也是 i"></a>变量重名了吗？外面 i 里面也是 i</h2><h2 id="SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。"><a href="#SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。" class="headerlink" title="SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。"></a>SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。</h2><h2 id="递归函数里的变量（比如数组的项首）别开在全局"><a href="#递归函数里的变量（比如数组的项首）别开在全局" class="headerlink" title="递归函数里的变量（比如数组的项首）别开在全局"></a>递归函数里的变量（比如数组的项首）别开在全局</h2><p>——bzoj3636 调半天</p><h2 id="注意-n、m-等主要变量的最大范围是否出现在同一档分里"><a href="#注意-n、m-等主要变量的最大范围是否出现在同一档分里" class="headerlink" title="注意 n、m 等主要变量的最大范围是否出现在同一档分里"></a>注意 n、m 等主要变量的最大范围是否出现在同一档分里</h2><p>——模拟赛的惨痛遭遇 挂 80pts</p><h2 id="不要再不排序求前缀和了！！！💢💢💢"><a href="#不要再不排序求前缀和了！！！💢💢💢" class="headerlink" title="不要再不排序求前缀和了！！！💢💢💢"></a>不要再不排序求前缀和了！！！💢💢💢</h2><p>——模拟赛 100 -&gt; 0</p><h2 id="线段树要记得-pushdown-和-update。。。"><a href="#线段树要记得-pushdown-和-update。。。" class="headerlink" title="线段树要记得 pushdown 和 update。。。"></a>线段树要记得 pushdown 和 update。。。</h2><h2 id="Tarjan-边双要记录入边"><a href="#Tarjan-边双要记录入边" class="headerlink" title="Tarjan 边双要记录入边"></a>Tarjan 边双要记录入边</h2><h2 id="数组-5e5-开成-1e5"><a href="#数组-5e5-开成-1e5" class="headerlink" title="数组 5e5 开成 1e5"></a>数组 5e5 开成 1e5</h2><p>——模拟赛 100 -&gt; 60</p><h2 id="线段树-if-lx-gt-rx-return"><a href="#线段树-if-lx-gt-rx-return" class="headerlink" title="线段树 if (lx &gt; rx) return;"></a>线段树 <code>if (lx &gt; rx) return;</code></h2><p>——模拟赛 100 -&gt; 30</p><h2 id="链式前向星-i-nxt-i-老是写错。"><a href="#链式前向星-i-nxt-i-老是写错。" class="headerlink" title="链式前向星 i = nxt[i] 老是写错。"></a>链式前向星 <code>i = nxt[i]</code> 老是写错。</h2><p>——虫逢 T 成 sb</p>]]></content>
       
       
       
@@ -43,6 +30,19 @@
     
     
     <entry>
+      <title>【置顶】OI自主学习内容安排</title>
+      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91OI%E8%87%AA%E4%B8%BB%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92/"/>
+      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91OI%E8%87%AA%E4%B8%BB%E5%AD%A6%E4%B9%A0%E5%86%85%E5%AE%B9%E5%AE%89%E6%8E%92/</url>
+      
+        <content type="html"><![CDATA[<p><em>SPECIAL:</em></p><p><em>练习：</em></p><p><em>比赛：</em></p><p><em>其他：</em></p><hr><p><em>待学习：</em></p><p><em>待巩固：</em></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【置顶】待学</title>
       <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E5%BE%85%E5%AD%A6/"/>
       <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E5%BE%85%E5%AD%A6/</url>
@@ -56,11 +56,11 @@
     
     
     <entry>
-      <title>【置顶】错误集锦</title>
-      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
-      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/</url>
+      <title>【置顶】考前必看</title>
+      <link href="2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E8%80%83%E5%89%8D%E5%BF%85%E7%9C%8B/"/>
+      <url>2099/11/30/%E3%80%90%E7%BD%AE%E9%A1%B6%E3%80%91%E8%80%83%E5%89%8D%E5%BF%85%E7%9C%8B/</url>
       
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我要把 fst 分的场子钉在耻辱柱上</span><br></pre></td></tr></table></figure><h2 id="多测清空：特别是建图，cnt清否？lnk清否？deg清否？"><a href="#多测清空：特别是建图，cnt清否？lnk清否？deg清否？" class="headerlink" title="多测清空：特别是建图，cnt清否？lnk清否？deg清否？"></a>多测清空：特别是建图，cnt清否？lnk清否？deg清否？</h2><h2 id="set：不能在-it-的-for-循环中-erase-it"><a href="#set：不能在-it-的-for-循环中-erase-it" class="headerlink" title="set：不能在 it 的 for 循环中 erase(it)"></a>set：不能在 it 的 for 循环中 erase(it)</h2><h2 id="dp-要注意如果有-f-i-min-f-i-j-g-j-，注意判-f-i-j-g-j-会不会炸-long-long（初始值是-1e18-的话会炸！！！）"><a href="#dp-要注意如果有-f-i-min-f-i-j-g-j-，注意判-f-i-j-g-j-会不会炸-long-long（初始值是-1e18-的话会炸！！！）" class="headerlink" title="dp 要注意如果有 f[i] = min(f[i - j] + g[j])，注意判 f[i - j] + g[j] 会不会炸 long long（初始值是 1e18 的话会炸！！！）"></a>dp 要注意如果有 f[i] = min(f[i - j] + g[j])，注意判 f[i - j] + g[j] 会不会炸 long long（初始值是 1e18 的话会炸！！！）</h2><p>——wc2020 场外赛 25 pts$</p><h2 id="分母是否为-0？nan！"><a href="#分母是否为-0？nan！" class="headerlink" title="分母是否为 0？nan！"></a>分母是否为 0？nan！</h2><p>——模拟赛 100 -&gt; 0</p><h2 id="取模模-0-了吗？RE！"><a href="#取模模-0-了吗？RE！" class="headerlink" title="取模模 0 了吗？RE！"></a>取模模 0 了吗？RE！</h2><p>——做题，wa 了 inf 次</p><h2 id="取模取对了吗？正负对了吗？最好输出前-ans-mod-mod！"><a href="#取模取对了吗？正负对了吗？最好输出前-ans-mod-mod！" class="headerlink" title="取模取对了吗？正负对了吗？最好输出前 (ans += mod) %= mod！"></a>取模取对了吗？正负对了吗？最好输出前 (ans += mod) %= mod！</h2><p>——noi2020同步赛 D1T2 ？分</p><h2 id="字母打错了吗？"><a href="#字母打错了吗？" class="headerlink" title="字母打错了吗？"></a>字母打错了吗？</h2><p>——noi2020同步赛 D1T3 24 分，r1、r2 打成 c1、c2</p><h2 id="空间开大了吗？哪怕卡着都不行！"><a href="#空间开大了吗？哪怕卡着都不行！" class="headerlink" title="空间开大了吗？哪怕卡着都不行！"></a>空间开大了吗？哪怕卡着都不行！</h2><p>——模拟赛 80 -&gt; 0</p><h2 id="空间开小了吗？2e5-开了-1e5？"><a href="#空间开小了吗？2e5-开了-1e5？" class="headerlink" title="空间开小了吗？2e5 开了 1e5？"></a>空间开小了吗？2e5 开了 1e5？</h2><p>——模拟赛 80 -&gt; 50</p><h2 id="floor-x-是小于等于-x-的最大整数，ceil-x-是大于-x-的最小整数"><a href="#floor-x-是小于等于-x-的最大整数，ceil-x-是大于-x-的最小整数" class="headerlink" title="floor(x) 是小于等于 x 的最大整数，ceil(x) 是大于 x 的最小整数"></a>floor(x) 是小于等于 x 的最大整数，ceil(x) 是<strong>大于</strong> x 的最小整数</h2><p>——模拟赛 fst 了一定分</p><h2 id="C-n-m-里写-if-n-lt-m-return-0-了吗？"><a href="#C-n-m-里写-if-n-lt-m-return-0-了吗？" class="headerlink" title="C(n, m) 里写 if (n &lt; m) return 0; 了吗？"></a>C(n, m) 里写 if (n &lt; m) return 0; 了吗？</h2><h2 id="builtin-popcount-不适宜计算-long-long-类型的答案（不知道为啥）"><a href="#builtin-popcount-不适宜计算-long-long-类型的答案（不知道为啥）" class="headerlink" title="__builtin_popcount() 不适宜计算 long long 类型的答案（不知道为啥）"></a>__builtin_popcount() 不适宜计算 long long 类型的答案（不知道为啥）</h2><h2 id="double-题用-int-计算斜率-坐标了吗？"><a href="#double-题用-int-计算斜率-坐标了吗？" class="headerlink" title="double 题用 int 计算斜率/坐标了吗？"></a>double 题用 int 计算斜率/坐标了吗？</h2><h2 id="输出-0-的输出-1-了吗？输出-1-的输出-0-了吗？"><a href="#输出-0-的输出-1-了吗？输出-1-的输出-0-了吗？" class="headerlink" title="输出 0 的输出 -1 了吗？输出 -1 的输出 0 了吗？"></a>输出 0 的输出 -1 了吗？输出 -1 的输出 0 了吗？</h2><p>——模拟赛 100 -&gt; 60</p><h2 id="变量重名了吗？外面-i-里面也是-i"><a href="#变量重名了吗？外面-i-里面也是-i" class="headerlink" title="变量重名了吗？外面 i 里面也是 i"></a>变量重名了吗？外面 i 里面也是 i</h2><h2 id="SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。"><a href="#SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。" class="headerlink" title="SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。"></a>SG函数使用的前提条件：对于任意局面，两个玩家的决策集合相同。</h2><h2 id="递归函数里的变量（比如数组的项首）别开在全局"><a href="#递归函数里的变量（比如数组的项首）别开在全局" class="headerlink" title="递归函数里的变量（比如数组的项首）别开在全局"></a>递归函数里的变量（比如数组的项首）别开在全局</h2><p>——bzoj3636 调半天</p><h2 id="注意-n、m-等主要变量的最大范围是否出现在同一档分里"><a href="#注意-n、m-等主要变量的最大范围是否出现在同一档分里" class="headerlink" title="注意 n、m 等主要变量的最大范围是否出现在同一档分里"></a>注意 n、m 等主要变量的最大范围是否出现在同一档分里</h2><p>——模拟赛的惨痛遭遇 挂 80pts</p><h2 id="不要再不排序求前缀和了！！！💢💢💢"><a href="#不要再不排序求前缀和了！！！💢💢💢" class="headerlink" title="不要再不排序求前缀和了！！！💢💢💢"></a>不要再不排序求前缀和了！！！💢💢💢</h2><p>——模拟赛 100 -&gt; 0</p><h2 id="线段树要记得-pushdown-和-update。。。"><a href="#线段树要记得-pushdown-和-update。。。" class="headerlink" title="线段树要记得 pushdown 和 update。。。"></a>线段树要记得 pushdown 和 update。。。</h2><h2 id="Tarjan-边双要记录入边"><a href="#Tarjan-边双要记录入边" class="headerlink" title="Tarjan 边双要记录入边"></a>Tarjan 边双要记录入边</h2><h2 id="数组-5e5-开成-1e5"><a href="#数组-5e5-开成-1e5" class="headerlink" title="数组 5e5 开成 1e5"></a>数组 5e5 开成 1e5</h2><p>——模拟赛 100 -&gt; 60</p><h2 id="线段树-if-lx-gt-rx-return"><a href="#线段树-if-lx-gt-rx-return" class="headerlink" title="线段树 if (lx &gt; rx) return;"></a>线段树 <code>if (lx &gt; rx) return;</code></h2><p>——模拟赛 100 -&gt; 30</p><h2 id="链式前向星-i-nxt-i-老是写错。"><a href="#链式前向星-i-nxt-i-老是写错。" class="headerlink" title="链式前向星 i = nxt[i] 老是写错。"></a>链式前向星 <code>i = nxt[i]</code> 老是写错。</h2><p>——虫逢 T 成 sb</p>]]></content>
+        <content type="html"><![CDATA[<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul><li>记得开 long long! 为了避免中间变量没开，可以 ctrl + F, 搜索 int，若有漏网之鱼可加以改正。</li></ul><h3 id="部分分"><a href="#部分分" class="headerlink" title="部分分"></a>部分分</h3><ul><li><p>最好不要无脑写暴力。观察部分分表，有特殊性质的量力写。如果有转折较大且分数较多的点，好好想想，也许出题人觉得这个好写，适合普遍大众，而且是本题的一个重点思路呢。因为，比赛并不是全部题目面向dalao的。</p></li><li><p>10^5 的数据范围一般就是多项式算法；50 以内的怎么也是指数级，状压或者什么的。</p></li><li><p>充满信心。不要算分。只有在比较哪个部分分更多的情况下算分。</p></li></ul><h3 id="思考策略"><a href="#思考策略" class="headerlink" title="思考策略"></a>思考策略</h3><ul><li><p>可以从开头考虑，根据推出的性质猜想，同时从结尾结论倒着推进，两边推进。</p></li><li><p>可以在条件繁多或受牵制时，暂时忽略部分条件，简化题目，再由特殊到一般。</p></li></ul><h3 id="时间安排策略"><a href="#时间安排策略" class="headerlink" title="时间安排策略"></a>时间安排策略</h3><ul><li><p>最后十五分钟，要光荣地，奋战到底。最后时间只留给一道题，只开一档分，因为非常紧张。</p></li><li><p>NOIP 结尾30～45分钟准备收尾。</p></li><li><p>要果断选题，去看丢掉的题是于事无补的。放了就是放了，心态会平静很多。</p></li></ul><h3 id="精神要养足！！"><a href="#精神要养足！！" class="headerlink" title="精神要养足！！"></a>精神要养足！！</h3><ul><li>早睡能带来好运气(<em>¯︶¯</em>) NOIP 前三周 11 点前睡，前两周 10:20 前睡。</li></ul>]]></content>
       
       
       
@@ -73,7 +73,7 @@
       <link href="2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/"/>
       <url>2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/</url>
       
-        <content type="html"><![CDATA[<h2 id="mathcal-2-1"><a href="#mathcal-2-1" class="headerlink" title="$\mathcal{2.1}$"></a>$\mathcal{2.1}$</h2><hr><h3 id="ICPC-WF-2019-交通堵塞"><a href="#ICPC-WF-2019-交通堵塞" class="headerlink" title="$ICPC\ WF\ 2019-交通堵塞$"></a><a href="https://loj.ac/p/6587" target="_blank" rel="noopener">$ICPC\ WF\ 2019-交通堵塞$</a></h3><p>令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。</p><p>将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数，$a \in [0, X)$。现在我们要解同余方程组 $kX + a + x_i \geq r_i\ mod\ p_i$，对于不同的 $a$ 分别处理（这里概率显然是可加的），就只要关心 $k$ 了。</p><p>设 $S$ 为满足条件的 $k$ 的 $kX + a$ 构成的集合，那么 $kX + a \in S\ mod\ p_i$ 变形为 $k \in S\ mod\ \frac{p_i}{gcd(p_i, X)}$。怎么合并解集呢？</p><p>对于两个同余方程，设解集分别为 $S_1$ 和 $S_2$, 若它们模数互质，则解集为 $S_1 \times S_2$。</p><p>所以取 $X = lcm(1, \cdots, 10) = 2520$，你会发现由于 $p_i \in [1, 100]$，所有 $\frac{p_i}{gcd(p_i, X)}$ 都只有一种因数！每种质数作为模数的解集大小乘起来就行。</p><p>数据范围很宽，大力三重循环枚举，复杂度 $O(100nX)$</p><p><a href="https://loj.ac/s/1052240" target="_blank" rel="noopener">$Code$</a></p>]]></content>
+        <content type="html"><![CDATA[<h2 id="mathcal-2-1"><a href="#mathcal-2-1" class="headerlink" title="$\mathcal{2.1}$"></a>$\mathcal{2.1}$</h2><hr><h3 id="ICPC-WF-2019-交通堵塞"><a href="#ICPC-WF-2019-交通堵塞" class="headerlink" title="$ICPC\ WF\ 2019-交通堵塞$"></a><a href="https://loj.ac/p/6587" target="_blank" rel="noopener">$ICPC\ WF\ 2019-交通堵塞$</a></h3><p>令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。</p><p>将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数，$a \in [0, X)$。现在我们要解同余方程组 $kX + a + x_i \geq r_i\ mod\ p_i$，对于不同的 $a$ 分别处理（这里概率显然是可加的），就只要关心 $k$ 了。</p><p>设 $S$ 为满足条件的 $k$ 的 $kX + a$ 构成的集合，那么 $kX + a \in S\ mod\ p_i$ 变形为 $k \in S\ mod\ \frac{p_i}{gcd(p_i, X)}$。怎么合并解集呢？</p><p>对于两个同余方程，设解集分别为 $S_1$ 和 $S_2$, 若它们模数互质，则解集为 $S_1 \times S_2$。</p><p>所以取 $X = lcm(1, \cdots, 10) = 2520$，你会发现由于 $p_i \in [1, 100]$，所有 $\frac{p_i}{gcd(p_i, X)}$ 都只有一种因数！每种质数作为模数的解集大小乘起来就行。</p><p>数据范围很宽，大力三重循环枚举，复杂度 $O(100nX)$</p><p><a href="https://loj.ac/s/1052240" target="_blank" rel="noopener">$Code$</a></p><h3 id="Vim"><a href="#Vim" class="headerlink" title="$Vim$"></a><a href="https://loj.ac/p/2687" target="_blank" rel="noopener">$Vim$</a></h3><p><a href="https://www.cnblogs.com/Itst/p/10339605.html" target="_blank" rel="noopener">大佬</a></p><p>dp 如何划分阶段？我们还是从左往右，规定：每个位置 i 的贡献是从它出发直到到达下一个右边的位置的操作数（即从 i 出发，跨越 [i, i + 1] 的）。这个导致了线头 dp 的特点：“路径”在 dp 过程中不是连续的，而是许多个线头不断延长拼起来的。</p><p>设 f_{i, j} 表示</p><p><a href="https://loj.ac/s/1053317" target="_blank" rel="noopener">$Code$</a></p>]]></content>
       
       
       
@@ -374,6 +374,19 @@
     
     
     <entry>
+      <title>NOIP2020 总结 &amp; 题解</title>
+      <link href="2020/09/14/NOIP2020%20%E6%80%BB%E7%BB%93%20&amp;%20%E9%A2%98%E8%A7%A3/"/>
+      <url>2020/09/14/NOIP2020%20%E6%80%BB%E7%BB%93%20&amp;%20%E9%A2%98%E8%A7%A3/</url>
+      
+        <content type="html"><![CDATA[<h2 id="写在-NOIP2020-之后"><a href="#写在-NOIP2020-之后" class="headerlink" title="写在 NOIP2020 之后"></a>写在 NOIP2020 之后</h2><hr><p>T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。</p><p>想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！<strong>“永远不要用行为上的努力来掩盖思维上的懒惰。”</strong></p><h2 id="成绩出了"><a href="#成绩出了" class="headerlink" title="成绩出了"></a>成绩出了</h2><hr><p>丧气话删了。“世上一切不幸都是由于当事者能力不足”</p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr><h3 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h3><p>先 乘 后 除 /吐血 痛失 30 分，<strong>痛失高一赛季！</strong></p><p>正解就维护指数</p><h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>好吧。。这题就是复杂度优化题。后面东西用树状数组我做到了，前面那个用倍增我真想不到啊。。</p><p>肯定要枚举 AB，然后发现确定了 AB 的长度，C 的奇数个数只有 2 种值，就很简单了。</p><h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>据说我写的是 $70$ 分，就每次挑两个柱子，当前柱有 $x$ 个黑，$y$ 个白（显然颜色不重要，我们就看作黑白），然后把两个柱子准备一下，即一个留 $x$ 个空位，一个留 $y$ 个空位，但我调了很久，还写挂了，痛失 $70$ 分。赛后看题解知道自己只想到了几个关键细节中的一个。</p><p>我们钦定总有一个柱子是空的，即每次操作完，有 $n$ 个柱子都是满的，这样可以简化很多。（第二个细节）</p><p>先看 $n = 2$ 的情况。发现可以在不改变其他柱子状态的情况下整理一个柱子，即白的在下，黑的在上。（第三个细节）</p><p>然后可以将柱子整理成同色的，具体就是，通过空柱子，我们可以 $reverse$ 一个柱子；两个柱子选一种颜色的球，<strong>需要保证两个柱子上此颜色的球数之和 $\leq m$</strong>，给丢到空柱子上，用一个柱子上的球填满另一个柱子再将塞到空柱子上的球拿回放在这个柱子上。（第四个细节）</p><p>$n &gt; 2$ 的情况分治就好了，复杂度 $O(5nmlogn)$，极限数据只跑了 $500000$。</p><p>需要注意的是，可能存在一个柱子颜色全是黑或全是白，merge 的时候可能会 $&gt; m$，需要特判。</p><h3 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h3><p>暴 力 写 挂 我是屑</p><p>又是构造又是多项式的，爽啦。</p><p>对于暴力和正解都很重要的一个思想：每维是独立的。</p><p>如果模拟两轮没走完，发现每轮合法位置的变化量是线性的，即对于第 $i$ 维，第一轮走了 $a_i$，第二轮走了 $b_i$，那么再走 $x$ 轮减少的就是 $b_i - (a_i - b_i) * x$</p><p>枚举 $i$，现在计算的是第 $x + 2$ 轮做完第 $i$ 步的答案，合法的位置数是每维的合法位置乘起来。</p><p>将 $x$ 看作自变量，枚举 $i$，第 $x$ 轮走了 $i$ 步的答案是 $f(x) = \prod_j (tot_{j, i} - (a_j - b_j) * x)$，$tot_{j, i}$ 表示第 $j$ 维走了 $i$ 步的合法位置数</p><p>$\prod$ 写作 $\sum$, $f(x) = \sum_i c_i x^i$，最终答案即为 $\sum_i c_i (\sum\limits_{i = 1}^{mx} x_i)$（$mx$ 是走的轮数上限。</p><p>后面这玩意是个自然数幂和，$k \leq 3$ 时有通项公式，$k &gt; 3$ 时可以预处理因为题目保证 $max_{w_i} \leq 1e6$.</p><p>$O(nk^2)$，乘法是 $k^2$, 听说因为 $F$ 变化量小，通过什么拉格朗日插值可以做到 $O(nk)$（蒟蒻不会内个</p><h1 id="「不要在脑海里激情澎湃一会儿就当努力过了。」"><a href="#「不要在脑海里激情澎湃一会儿就当努力过了。」" class="headerlink" title="「不要在脑海里激情澎湃一会儿就当努力过了。」"></a><em>「不要在脑海里激情澎湃一会儿就当努力过了。」</em></h1>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【学习笔记】平面图</title>
       <link href="2020/09/14/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%B9%B3%E9%9D%A2%E5%9B%BE/"/>
       <url>2020/09/14/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E5%B9%B3%E9%9D%A2%E5%9B%BE/</url>
@@ -387,19 +400,6 @@
             <tag> 平面图 </tag>
             
         </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>NOIP2020 总结 &amp; 题解</title>
-      <link href="2020/09/14/NOIP2020%20%E6%80%BB%E7%BB%93%20&amp;%20%E9%A2%98%E8%A7%A3/"/>
-      <url>2020/09/14/NOIP2020%20%E6%80%BB%E7%BB%93%20&amp;%20%E9%A2%98%E8%A7%A3/</url>
-      
-        <content type="html"><![CDATA[<h2 id="写在-NOIP2020-之后"><a href="#写在-NOIP2020-之后" class="headerlink" title="写在 NOIP2020 之后"></a>写在 NOIP2020 之后</h2><hr><p>T3 构造我直接傻眼，搞了俩小时一分没得（这构造本质是模拟）。最近大赛考非正常题越来越多了，对码力的要求也逐步上升，这俩我都不擅长。对而且我还不擅长思维题。我擅长啥呢？套路题（有手就行的 sb 题）。</p><p>想要多写 LOJ 的神题、套路题、非正常题，想学生成函数。在役的时间，有一天便看一天的风景，dp 套 dp、生成函数这些人类智慧不看会后悔的吧 qvq？ 向前跋涉吧！<strong>“永远不要用行为上的努力来掩盖思维上的懒惰。”</strong></p><h2 id="成绩出了"><a href="#成绩出了" class="headerlink" title="成绩出了"></a>成绩出了</h2><hr><p>丧气话删了。“世上一切不幸都是由于当事者能力不足”</p><h2 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h2><hr><h3 id="T1"><a href="#T1" class="headerlink" title="T1"></a>T1</h3><p>先 乘 后 除 /吐血 痛失 30 分，<strong>痛失高一赛季！</strong></p><p>正解就维护指数</p><h3 id="T2"><a href="#T2" class="headerlink" title="T2"></a>T2</h3><p>好吧。。这题就是复杂度优化题。后面东西用树状数组我做到了，前面那个用倍增我真想不到啊。。</p><p>肯定要枚举 AB，然后发现确定了 AB 的长度，C 的奇数个数只有 2 种值，就很简单了。</p><h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>据说我写的是 $70$ 分，就每次挑两个柱子，当前柱有 $x$ 个黑，$y$ 个白（显然颜色不重要，我们就看作黑白），然后把两个柱子准备一下，即一个留 $x$ 个空位，一个留 $y$ 个空位，但我调了很久，还写挂了，痛失 $70$ 分。赛后看题解知道自己只想到了几个关键细节中的一个。</p><p>我们钦定总有一个柱子是空的，即每次操作完，有 $n$ 个柱子都是满的，这样可以简化很多。（第二个细节）</p><p>先看 $n = 2$ 的情况。发现可以在不改变其他柱子状态的情况下整理一个柱子，即白的在下，黑的在上。（第三个细节）</p><p>然后可以将柱子整理成同色的，具体就是，通过空柱子，我们可以 $reverse$ 一个柱子；两个柱子选一种颜色的球，<strong>需要保证两个柱子上此颜色的球数之和 $\leq m$</strong>，给丢到空柱子上，用一个柱子上的球填满另一个柱子再将塞到空柱子上的球拿回放在这个柱子上。（第四个细节）</p><p>$n &gt; 2$ 的情况分治就好了，复杂度 $O(5nmlogn)$，极限数据只跑了 $500000$。</p><p>需要注意的是，可能存在一个柱子颜色全是黑或全是白，merge 的时候可能会 $&gt; m$，需要特判。</p><h3 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h3><p>暴 力 写 挂 我是屑</p><p>又是构造又是多项式的，爽啦。</p><p>对于暴力和正解都很重要的一个思想：每维是独立的。</p><p>如果模拟两轮没走完，发现每轮合法位置的变化量是线性的，即对于第 $i$ 维，第一轮走了 $a_i$，第二轮走了 $b_i$，那么再走 $x$ 轮减少的就是 $b_i - (a_i - b_i) * x$</p><p>枚举 $i$，现在计算的是第 $x + 2$ 轮做完第 $i$ 步的答案，合法的位置数是每维的合法位置乘起来。</p><p>将 $x$ 看作自变量，枚举 $i$，第 $x$ 轮走了 $i$ 步的答案是 $f(x) = \prod_j (tot_{j, i} - (a_j - b_j) * x)$，$tot_{j, i}$ 表示第 $j$ 维走了 $i$ 步的合法位置数</p><p>$\prod$ 写作 $\sum$, $f(x) = \sum_i c_i x^i$，最终答案即为 $\sum_i c_i (\sum\limits_{i = 1}^{mx} x_i)$（$mx$ 是走的轮数上限。</p><p>后面这玩意是个自然数幂和，$k \leq 3$ 时有通项公式，$k &gt; 3$ 时可以预处理因为题目保证 $max_{w_i} \leq 1e6$.</p><p>$O(nk^2)$，乘法是 $k^2$, 听说因为 $F$ 变化量小，通过什么拉格朗日插值可以做到 $O(nk)$（蒟蒻不会内个</p><h1 id="「不要在脑海里激情澎湃一会儿就当努力过了。」"><a href="#「不要在脑海里激情澎湃一会儿就当努力过了。」" class="headerlink" title="「不要在脑海里激情澎湃一会儿就当努力过了。」"></a><em>「不要在脑海里激情澎湃一会儿就当努力过了。」</em></h1>]]></content>
-      
-      
       
     </entry>
     
@@ -2972,9 +2972,9 @@
       
         <tags>
             
-            <tag> 排列组合 </tag>
-            
             <tag> 计数DP </tag>
+            
+            <tag> 排列组合 </tag>
             
         </tags>
       
