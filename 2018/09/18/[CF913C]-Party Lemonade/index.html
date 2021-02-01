@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●–●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min{c[i + 1], 2 * c[i]}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看">
 <meta name="keywords" content="贪心">
 <meta property="og:type" content="article">

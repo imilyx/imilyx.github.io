@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="第一次碰到不会做的区间 dp。。这题的难点在于设计 dp 状态。。 发现普通的思路 $f[i, j]$ 没有办法做 $f[i, j, k]$ 表示在区间 $[i, j]$ 前放了 $k$ 个与 $c[i]$ 同色的球，连带着新加的球全部消掉的最小球数。 $f[i, j, k] =$  $f[i, j, k + 1] + 1$（在前面加一个球） $f[i + 1, j, k + 1]$ $(c[i]">
 <meta name="keywords" content="思维,区间dp">
 <meta property="og:type" content="article">

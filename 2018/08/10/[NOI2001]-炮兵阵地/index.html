@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="https://vjudge.net/problem/POJ-1185 题意略。 本题可以采用dfs搜索与位运算，然而位运算非常巧妙，我们就用状压DP实现此题。 每个位置能否放置炮兵与它上面两行对应位置上有无炮兵和是否位于山地有关。发现，M 很小，而 N 较大，我们可以用一个 0 ～ $2 ^ M + 1$ 之间的十进制整数表示每一行的炮兵放置情况。 这样，我们设 F[i, j, k] 表示第 i">
 <meta name="keywords" content="状压DP">
 <meta property="og:type" content="article">

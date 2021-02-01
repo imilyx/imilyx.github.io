@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="题目链接 题意：给定一个长度为 N 的字符串 S，对 S 的每一个前缀，如果它的最大循环次数大于1，则输出该前缀的最小循环元长度和最大循环次数。 首先我们要了解，对于一个前缀 S[1 ~ i], i - next[i] 就是最小循环元。 可以这么理解，我们假设到达位置 i - 1 时，字符串一直循环完整，那么到第 i 位时失配了。根据 KMP 算法的进行，我们要进行回溯。 现在循环节的末尾是 i">
 <meta name="keywords" content="KMP">
 <meta property="og:type" content="article">

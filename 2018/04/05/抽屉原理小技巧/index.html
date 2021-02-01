@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
 <meta name="keywords" content="技巧">
 <meta property="og:type" content="article">

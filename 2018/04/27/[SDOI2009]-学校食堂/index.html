@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="https://www.luogu.org/problemnew/show/P2157 这题是状压DP，因为B[i] &amp;lt;= 7。 所以我们可以用一个8位的二进制数来记录从i开始的8个人的打饭状态，1表示已打，0表示未打。 设f[i][j][k]表示第1～第i-1人已经打好，第i个人及ta身后的7个人打饭状态为j，最后打的人为i+k的最少时间。（由于k的范围为-8~7，所以存的时候要+8） 那">
 <meta name="keywords" content="状压DP">
 <meta property="og:type" content="article">

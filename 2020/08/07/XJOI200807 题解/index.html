@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="A 这题就是典型的部分分提醒正解。 01 那部分可以引导想到 bitset，但 $O(q  n / 32)$ 的显然不对，于是想到 $O(q  2^k / 32)$ 的，即 $f[i, s]$ 表示在第 i 个所在集合 s 中有没有值“扩散”到第 i 个，然后 or 和 and 操作能分别代替 max 和 min 操作，就做完了。 123456789101112131415161718192021">
 <meta name="keywords" content="思维,模拟赛,概率与期望">
 <meta property="og:type" content="article">

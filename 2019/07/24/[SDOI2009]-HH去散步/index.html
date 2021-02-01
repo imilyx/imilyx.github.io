@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="传送门 t 这么大！矩阵乘法无疑 唯一需要注意的是：HH 不走回头路。。怎么办呢？ 我们可以记录边的编号，dp[i, j] 表示从 i 这条边走到 j 这条边。这样在构造转移矩阵的时候，就可以不把 T[i, i ^ 1] 置为 1 了（i 和 i ^ 1 是一对边） 边的编号从 2 开始，我们把不存在的初始边称为 1，那么答案就是 sigma{dp[1, B 点周围边的编号]}. code :12">
 <meta name="keywords" content="矩阵乘法">
 <meta property="og:type" content="article">

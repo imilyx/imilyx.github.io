@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="题目链接 题意略。 这是一道DP妙题（倍增是用来优化的(●–●)）。 我们用 ga(i) 和 gb(i) 分别表示从 i 这个城市出发，小A和小B能到达的下一个城市。求 ga 和 gb 时，我们可以运用平衡树（set），查找距离当前城市最近和次近的两个城市。 可以发现，只要我们知道出发城市和天数，就能计算出到达城市和A、B行驶的路程长度，且天数还能反映轮到睡开车，因此我们就用天数作为阶段，所在城市">
 <meta name="keywords" content="倍增DP">
 <meta property="og:type" content="article">

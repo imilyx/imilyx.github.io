@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="这类有限制的计数问题，套路在状态设计上。一般是区间上的问题，切入点是发现 dp 的要点有当前位置和满足限制的位置以及满足了哪些限制；转移就是 对于同一种限制同一个右端点找到最大的左端点，这之间必须有一个满足要求的位置。 $CF1327F$ 按位处理，可以算出每一位的答案然后乘起来。子问题的解决必须是 $O(n)$ 的！！ 限制为 1 很好处理，全部强制为 1 就可以了；为 0 就比较难搞，要求至少">
 <meta name="keywords" content="计数,思维">
 <meta property="og:type" content="article">

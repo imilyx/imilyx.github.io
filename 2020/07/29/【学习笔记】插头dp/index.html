@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang=zh>
-<head>
+<head><meta name="generator" content="Hexo 3.9.0">
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="这个讲的还不错 重修插头dp！今日主题：讲讲那些奇怪的插头们  划分阶段（从上到下、从左到右逐格递推）：qvq，轮廓线以上就是已经处理好的状态，只等着根据当前格的插头状态往下推了。 根据当前格有无左、上插头，推向有无右、下插头的状态。 关于换行，我们编号 m + 1 个位置 0 ~ m, 显然当前行 0 ~ m - 1 的会转移到 1 ~ m，右移一位就好了。 朴素的轮廓线只有 0/1 表示有无插">
 <meta name="keywords" content="插头dp">
 <meta property="og:type" content="article">
