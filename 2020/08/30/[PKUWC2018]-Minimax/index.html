@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+    <meta name="description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： f[i, j] = f[ls, j] * (p[i] * \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) * \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] * (p[i] *">
 <meta name="keywords" content="线段树合并,概率与期望,整体dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[PKUWC2018]-Minimax">
 <meta property="og:url" content="http://yoursite.com/2020/08/30/[PKUWC2018]-Minimax/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+<meta property="og:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： f[i, j] = f[ls, j] * (p[i] * \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) * \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] * (p[i] *">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:38:19.265Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[PKUWC2018]-Minimax">
-<meta name="twitter:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： $$f[i, j] = f[ls, j]  (p[i]  \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i])  \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j]  (p[i]  \s">
+<meta name="twitter:description" content="传送门 以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移： f[i, j] = f[ls, j] * (p[i] * \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) * \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] * (p[i] *">
     
     
         
@@ -144,8 +144,7 @@
   <div class="content" itemprop="articleBody">
     <p><a href="https://www.luogu.com.cn/problem/P5298" target="_blank" rel="noopener">传送门</a></p>
 <p>以前好像碰到过类似 dp 套路？离散化，$f[i, j]$ 表示第 $j$ 小的数留到了 $i$ 节点的概率。转移：</p>
-<p>$$f[i, j] = f[ls, j] <em> (p[i] </em> \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) <em> \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] </em> (p[i] <em> \sum\limits_{k = 1}^{j - 1} f[ls, k] + (1 - p[i]) </em> \sum\limits_{k = j + 1}^m f[ls, k])$$</p>
-<p>发现每个叶子结点的权值都不同，且都只会贡献一次，<strong>想到线段树合并</strong>（注意要合并的东西必须是 $O(n)$ 及以下级别的，不然上不了线段树合并）。然后发现线段树可以很好地维护区间和、区间乘标记等东西！</p>
+<script type="math/tex; mode=display">f[i, j] = f[ls, j] * (p[i] * \sum\limits_{k = 1}^{j - 1} f[rs, k] + (1 - p[i]) * \sum\limits_{k = j + 1}^m f[rs, k]) + f[rs, j] * (p[i] * \sum\limits_{k = 1}^{j - 1} f[ls, k] + (1 - p[i]) * \sum\limits_{k = j + 1}^m f[ls, k])</script><p>发现每个叶子结点的权值都不同，且都只会贡献一次，<strong>想到线段树合并</strong>（注意要合并的东西必须是 $O(n)$ 及以下级别的，不然上不了线段树合并）。然后发现线段树可以很好地维护区间和、区间乘标记等东西！</p>
 <p>（哇线段树合并复杂度是啥呀我又不会了）</p>
 <p>好吧来看看，合并两颗线段树的复杂度约等于它们 <strong>重合</strong> 的点数，设树有 $n$ 个节点，线段长度是 $m$，总复杂度就是 $O(nlogm)$（感性理解就是每加进来一个点最多增加 $logm$ 的复杂度）</p>
 <p>这类题，即用动态开点线段树优化的二维dp，有个新名词叫做“整体dp”！</p>

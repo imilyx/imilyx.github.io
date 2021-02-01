@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+    <meta name="description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)L \equiv 0 (mod\ B)那么那个下取整就可以拆了，整理一下： \frac{L(B + 1)}{B} \eq">
 <meta name="keywords" content="比赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="APIO2019 题解">
 <meta property="og:url" content="http://yoursite.com/2020/08/04/APIO2019 题解/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+<meta property="og:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)L \equiv 0 (mod\ B)那么那个下取整就可以拆了，整理一下： \frac{L(B + 1)}{B} \eq">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-06T10:45:10.641Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="APIO2019 题解">
-<meta name="twitter:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） $$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$ $$L \equiv 0 (mod\ B)$$ 那么那个下取整就可以拆了，整理一下： $$\frac{L(B">
+<meta name="twitter:description" content="$T1. 奇怪装置$ 考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &amp;lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小） L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)L \equiv 0 (mod\ B)那么那个下取整就可以拆了，整理一下： \frac{L(B + 1)}{B} \eq">
     
     
         
@@ -144,15 +144,10 @@
   <div class="content" itemprop="articleBody">
     <h2 id="T1-奇怪装置"><a href="#T1-奇怪装置" class="headerlink" title="$T1. 奇怪装置$"></a><a href="https://loj.ac/problem/3144" target="_blank" rel="noopener">$T1. 奇怪装置$</a></h2><hr>
 <p>考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小）</p>
-<p>$$L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)$$</p>
-<p>$$L \equiv 0 (mod\ B)$$</p>
-<p>那么那个下取整就可以拆了，整理一下：</p>
-<p>$$\frac{L(B + 1)}{B} \equiv 0 (mod\ A)$$</p>
-<p>有一个定理：$ac \equiv bc(mod\ m)$，则 $a \equiv b(mod\ \frac{m}{gcd(m, c)})$，于是</p>
-<p>$$L \equiv 0 (mod\ \frac{AB}{gcd(AB, B + 1)})$$</p>
-<p>而因为 $gcd(x, x + 1) = 1$ 恒成立，所以</p>
-<p>$$L \equiv 0 (mod\ \frac{AB}{gcd(A, B + 1)})$$</p>
-<p>得到了周期大小，我们将区间在模 $L$ 意义下求区间覆盖就好了。</p>
+<script type="math/tex; mode=display">L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)</script><script type="math/tex; mode=display">L \equiv 0 (mod\ B)</script><p>那么那个下取整就可以拆了，整理一下：</p>
+<script type="math/tex; mode=display">\frac{L(B + 1)}{B} \equiv 0 (mod\ A)</script><p>有一个定理：$ac \equiv bc(mod\ m)$，则 $a \equiv b(mod\ \frac{m}{gcd(m, c)})$，于是</p>
+<script type="math/tex; mode=display">L \equiv 0 (mod\ \frac{AB}{gcd(AB, B + 1)})</script><p>而因为 $gcd(x, x + 1) = 1$ 恒成立，所以</p>
+<script type="math/tex; mode=display">L \equiv 0 (mod\ \frac{AB}{gcd(A, B + 1)})</script><p>得到了周期大小，我们将区间在模 $L$ 意义下求区间覆盖就好了。</p>
 <h2 id="T2-桥梁"><a href="#T2-桥梁" class="headerlink" title="$T2. 桥梁$"></a><a href="https://loj.ac/problem/3145" target="_blank" rel="noopener">$T2. 桥梁$</a></h2><hr>
 <p>1、2、4档部分分都挺好拿的？那不就有 43 pts 了</p>
 <p>考虑没有修改操作：对于每个询问，将值大于等于 wi 的边加入并查集，最终答案就是 si 所在并查集大小。但加入修改的话，枚举所有边或者所有操作都 TLE。显然这是因为，询问太多的时候枚举边会炸，修改太多的时候枚举操作会炸。</p>

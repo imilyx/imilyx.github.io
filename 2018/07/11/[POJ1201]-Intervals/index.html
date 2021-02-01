@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： $$s[b_i] - s[a_i - 1] \geq c_i$$ 超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，">
+    <meta name="description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： s[b_i] - s[a_i - 1] \geq c_i超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，可以根据题">
 <meta name="keywords" content="差分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[POJ1201]-Intervals">
 <meta property="og:url" content="http://yoursite.com/2018/07/11/[POJ1201]-Intervals/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： $$s[b_i] - s[a_i - 1] \geq c_i$$ 超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，">
+<meta property="og:description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： s[b_i] - s[a_i - 1] \geq c_i超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，可以根据题">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:40:22.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[POJ1201]-Intervals">
-<meta name="twitter:description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： $$s[b_i] - s[a_i - 1] \geq c_i$$ 超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，">
+<meta name="twitter:description" content="https://vjudge.net/problem/POJ-1201 题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。 分析条件：设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么： s[b_i] - s[a_i - 1] \geq c_i超级明显的差分约束系统？ 那么，我们还要创造一些初始化的条件，可以根据题">
     
     
         
@@ -145,8 +145,7 @@
     <p><a href="https://vjudge.net/problem/POJ-1201" target="_blank" rel="noopener">https://vjudge.net/problem/POJ-1201</a></p>
 <p>题意：从 0 ～ 50000 中选出尽量少的整数，使每个区间 $[a_i, b_i]$ 内都有至少 $c_i$ 个数被选。</p>
 <p>分析条件：<br>设 $s[k]$ 表示 0 ～ k 之间最少选出多少个数，那么：</p>
-<p>$$s[b_i] - s[a_i - 1] \geq c_i$$</p>
-<p>超级明显的差分约束系统？</p>
+<script type="math/tex; mode=display">s[b_i] - s[a_i - 1] \geq c_i</script><p>超级明显的差分约束系统？</p>
 <p>那么，我们还要创造一些初始化的条件，可以根据题目中隐含的条件来：</p>
 <ol>
 <li>$s[k] - s[k - 1] \geq 0$</li>

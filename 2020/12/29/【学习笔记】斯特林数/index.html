@@ -140,14 +140,9 @@
 <p>第一类斯特林数：$n$ 元置换分为 $k$ 个轮换的方案数。有：$\sum\limits_{k = 0}^n S_1(n, k) = n!$</p>
 <p>第二类斯特林数：$n$ 个元素划分为 $k$ 个非空集合的方案数。有：$\sum\limits_{k = 0}^n S_2(n, k) = B_n$，其中 $B_n$ 为贝尔数，表示 $n$ 的划分方案数。</p>
 <p>递推：</p>
-<p>$$S_1(n, k) = S_1(n - 1, k - 1) + (n - 1) S_1(n - 1, k)$$</p>
-<p>$$S_2(n, k) = S_2(n - 1, k - 1) + k S_2(n - 1, k)$$</p>
-<p>幂之间转换：</p>
-<p>$$x^{\underline{n}} = \sum\limits_{k = 0}^n (-1)^{n - k} S_1(n, k) x^k \Longleftrightarrow x^n = \sum\limits_{k = 0}^n S_2(n, k) x^{\underline{k}}$$</p>
-<p>$$x^{\overline{n}} = \sum\limits_{k = 0}^n  S_1(n, k) x^k \Longleftrightarrow x^n = \sum\limits_{k = 0}^n (-1)^{n - k} S_2(n, k) x^{\overline{k}}$$</p>
-<p>设 $L(n, k) = \sum_j S_1(n, j) S_2(j, k) = \binom{n - 1}{k - 1} \frac{n!}{k!}$，则有</p>
-<p>$$x^{\overline{n}} = \sum\limits_{k = 0}^n L(n, k)x^{\underline{k}} \Longleftrightarrow x^{\underline{n}} = \sum\limits_{k = 0}^n (-1)^{n - k} L(n, k) x^{\overline{k}}$$</p>
-<p>（这是由前两条推出的，目前不知道有什么用</p>
+<script type="math/tex; mode=display">S_1(n, k) = S_1(n - 1, k - 1) + (n - 1) S_1(n - 1, k)</script><script type="math/tex; mode=display">S_2(n, k) = S_2(n - 1, k - 1) + k S_2(n - 1, k)</script><p>幂之间转换：</p>
+<script type="math/tex; mode=display">x^{\underline{n}} = \sum\limits_{k = 0}^n (-1)^{n - k} S_1(n, k) x^k \Longleftrightarrow x^n = \sum\limits_{k = 0}^n S_2(n, k) x^{\underline{k}}</script><script type="math/tex; mode=display">x^{\overline{n}} = \sum\limits_{k = 0}^n  S_1(n, k) x^k \Longleftrightarrow x^n = \sum\limits_{k = 0}^n (-1)^{n - k} S_2(n, k) x^{\overline{k}}</script><p>设 $L(n, k) = \sum_j S_1(n, j) S_2(j, k) = \binom{n - 1}{k - 1} \frac{n!}{k!}$，则有</p>
+<script type="math/tex; mode=display">x^{\overline{n}} = \sum\limits_{k = 0}^n L(n, k)x^{\underline{k}} \Longleftrightarrow x^{\underline{n}} = \sum\limits_{k = 0}^n (-1)^{n - k} L(n, k) x^{\overline{k}}</script><p>（这是由前两条推出的，目前不知道有什么用</p>
 
   </div>
 </article>

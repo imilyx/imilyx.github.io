@@ -150,13 +150,9 @@
 <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><hr>
 <p>对多项式大师来说是套路题，对我来说。。qvq</p>
 <p>容易想到枚举模后乘积。</p>
-<p>$$F(x) = \sum [a_i == x]$$</p>
-<p>$$ans = \sum\limits_d d \sum_{(xy\bmod P == d)}F(x)F(y)$$</p>
-<p>我们想到了卷积，但这还不是卷积形式，于是再化一步：</p>
-<p>$$F(x) = \sum [g^{a_i} == x]$$</p>
-<p>其中 g 是 P 的原根之一</p>
-<p>$$ans = \sum\limits_d g^d \sum_{((x + y)\bmod P == d)}F(x)F(y)$$</p>
-<p>那这就是个循环卷积啦。</p>
+<script type="math/tex; mode=display">F(x) = \sum [a_i == x]</script><script type="math/tex; mode=display">ans = \sum\limits_d d \sum_{(xy\bmod P == d)}F(x)F(y)</script><p>我们想到了卷积，但这还不是卷积形式，于是再化一步：</p>
+<script type="math/tex; mode=display">F(x) = \sum [g^{a_i} == x]</script><p>其中 g 是 P 的原根之一</p>
+<script type="math/tex; mode=display">ans = \sum\limits_d g^d \sum_{((x + y)\bmod P == d)}F(x)F(y)</script><p>那这就是个循环卷积啦。</p>
 <p>关于原根：原根的定义和性质：对于任何 $0$ ~ $P - 1$ 中的数 $i$、$j$($i \neq j$), 有 $g^i \neq g^j(\bmod P)$，即 $g^i$ 在 mod P 意义下可以取遍 $0$ ~ $P - 1$ 所有数。</p>
 <p>关于找原根：原根很小，一般在 100 以内，枚举，若存在 P 的因子 x 使得 $g^{\frac{P - 1}{x}} \equiv 1 (\bmod P)$ 那么 g 就不是原根。否则就是。</p>
 <h2 id="D"><a href="#D" class="headerlink" title="D"></a>D</h2><hr>

@@ -257,7 +257,8 @@
 <p>剩余没有互相限制的位置可以任意取 $0$ 或 $1$。为什么？？考虑用线性基的思想构造解（假设当前要取第 $x$ 位为 $1$）：通过一些操作把 $n$ 个数消成上三角；对于第 $x$ 位为 $0$ 的 $a_i$ 把 $a_i$ 取反，否则不动。把 $a$ 全部 &amp; 起来，$x$ 位上必然是 $1$；同时由于 $x$ 没有互相限制的位置，没有其他位上为 $1$。</p>
 <h3 id="重返现世"><a href="#重返现世" class="headerlink" title="$重返现世$"></a><a href="https://www.luogu.com.cn/problem/P4707" target="_blank" rel="noopener">$重返现世$</a></h3><hr>
 <p>好像第一次做 $k-th\ \min-\max$ 容斥的题。。可能只是板子题，但是 $dp$ 容斥系数的方法挺重要，碰到好几次了记录一下。</p>
-<p>$\min_k$ 和 $\max_k$ 可以转化。<br>$$E(\max_k(S)) = \sum\limits_{T \subset S} (-1)^{|T| - k} C(|T| - 1, k - 1) * E(\min(T))$$<br>$$E(\min(T)) = \frac{m}{\sum\limits_{t \in T} p_t}$$<br>容斥这东西的系数显然可以 $dp$，老套路了。</p>
+<p>$\min_k$ 和 $\max_k$ 可以转化。</p>
+<script type="math/tex; mode=display">E(\max_k(S)) = \sum\limits_{T \subset S} (-1)^{|T| - k} C(|T| - 1, k - 1) * E(\min(T))</script><script type="math/tex; mode=display">E(\min(T)) = \frac{m}{\sum\limits_{t \in T} p_t}</script><p>容斥这东西的系数显然可以 $dp$，老套路了。</p>
 <p>考虑状态怎么设计，我们可以把 $k$ 和 $E(\min(T))$ 给表示到状态里：$f[i, j, k]$ 表示, 当前到第 $i$ 种原料，$\sum p_t = j$, 柿子中的 $k = k$ 时, $\sum\limits_{T \subset S} (-1)^{|T| - k} C(|T| - 1, k - 1)$ 的和。转移：</p>
 <p>$f[i, j, k] = f[i - 1, j, k]$ (不选 $i$)</p>
 <p>$+ f[i - 1, j - p_i, k - 1] - f[i - 1, j - p_i, k]$（选 $i$）</p>
@@ -315,7 +316,7 @@
 </ol>
 <p>懂了吗？线段树只要维护原始最短路的断边情况。$[L, R]$ 表示不用区间 $[L, R]$ 的边的最短路</p>
 <p>经典套路：<strong>批量</strong>维护删除某个点或边的可以尝试分治</p>
-<p>某条边 $(u, v)$ 所在的最短路，对删除<em>连接 $u$ 的、在 $u$ 之前，在最短路上的最后点</em> ~ <em>连接 $v$ 的、在 $v$ 之后，在最短路上的最前点</em>之间的边有贡献</p>
+<p>某条边 $(u, v)$ 所在的最短路，对删除_连接 $u$ 的、在 $u$ 之前，在最短路上的最后点_ ~ _连接 $v$ 的、在 $v$ 之后，在最短路上的最前点_之间的边有贡献</p>
 <h3 id="CF516E"><a href="#CF516E" class="headerlink" title="$CF516E$"></a><a href="https://www.luogu.com.cn/problem/CF516E" target="_blank" rel="noopener">$CF516E$</a></h3><p>我即数学黑洞！</p>
 <p>设 $x = i % n$, $y = i % m$</p>
 <p>$i = k1 <em> n + x = k2 </em> m + y$</p>

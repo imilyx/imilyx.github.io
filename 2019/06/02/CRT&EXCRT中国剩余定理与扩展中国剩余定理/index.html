@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的： $$\begin{cases}x\equiv a_1(mod\ m_1)\x\equiv a_2(mod\ m_2)\\ \vdots\x\equiv a_k(mod\ m_k)\end{cases}$$ 可以假设">
+    <meta name="description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的：  \begin{cases} x\equiv a_1(mod\ m_1)\\ x\equiv a_2(mod\ m_2)\\ \ \vdots\\ x\equiv a_k(mod\ m_k) \end{cases}可">
 <meta name="keywords" content="同余方程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CRT&amp;EXCRT中国剩余定理与扩展中国剩余定理">
 <meta property="og:url" content="http://yoursite.com/2019/06/02/CRT&EXCRT中国剩余定理与扩展中国剩余定理/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的： $$\begin{cases}x\equiv a_1(mod\ m_1)\x\equiv a_2(mod\ m_2)\\ \vdots\x\equiv a_k(mod\ m_k)\end{cases}$$ 可以假设">
+<meta property="og:description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的：  \begin{cases} x\equiv a_1(mod\ m_1)\\ x\equiv a_2(mod\ m_2)\\ \ \vdots\\ x\equiv a_k(mod\ m_k) \end{cases}可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-07-26T12:27:32.920Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CRT&amp;EXCRT中国剩余定理与扩展中国剩余定理">
-<meta name="twitter:description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的： $$\begin{cases}x\equiv a_1(mod\ m_1)\x\equiv a_2(mod\ m_2)\\ \vdots\x\equiv a_k(mod\ m_k)\end{cases}$$ 可以假设">
+<meta name="twitter:description" content="这真的超容易忘。。。所以特此记录一篇博客！ CRT（中国剩余定理）  前言：必须是模数两两互质的情况哦！  中国剩余定理，又称孙子定理（古人好厉害哇 是用来解决下面这种同余方程组的：  \begin{cases} x\equiv a_1(mod\ m_1)\\ x\equiv a_2(mod\ m_2)\\ \ \vdots\\ x\equiv a_k(mod\ m_k) \end{cases}可">
     
     
         
@@ -149,8 +149,13 @@
 </ul>
 <p>中国剩余定理，又称孙子定理（古人好厉害哇</p>
 <p>是用来解决下面这种同余方程组的：</p>
-<p>$$<br>\begin{cases}<br>x\equiv a_1(mod\ m_1)\<br>x\equiv a_2(mod\ m_2)\<br>\ \vdots\<br>x\equiv a_k(mod\ m_k)<br>\end{cases}$$</p>
-<p>可以假设 $n_1 \equiv a_1(mod\ m_1)$, $n_2 \equiv a_2(mod\ m_2)$, $\cdots$, $n_k \equiv a_k(mod\ m_k)$</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x\equiv a_1(mod\ m_1)\\
+x\equiv a_2(mod\ m_2)\\
+\ \vdots\\
+x\equiv a_k(mod\ m_k)
+\end{cases}</script><p>可以假设 $n_1 \equiv a_1(mod\ m_1)$, $n_2 \equiv a_2(mod\ m_2)$, $\cdots$, $n_k \equiv a_k(mod\ m_k)$</p>
 <p>设 $M = m_1 <em> m_2 </em> … * m_k$. $M_i = M / m_i$.</p>
 <p>为了使得 $n_1 + n_2 \equiv a_1(mod\ m_1)$, n2 必须是 m1 的倍数。同理可得：</p>
 <ul>

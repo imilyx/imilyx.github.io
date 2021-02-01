@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+    <meta name="description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2  max(w, h) + 2$, 那么这个矩形*一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
 <meta name="keywords" content="线段树,单调栈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[AT2149]-Snuke&#39;s Coloring 2">
 <meta property="og:url" content="http://yoursite.com/2020/01/13/[AT2149]-Snuke's Coloring 2/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+<meta property="og:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2  max(w, h) + 2$, 那么这个矩形*一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T05:56:23.133Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[AT2149]-Snuke&#39;s Coloring 2">
-<meta name="twitter:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
+<meta name="twitter:description" content="ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的 传送门！飞 这位dalao说得好，我若讲不清楚可看ta的！ 首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2  max(w, h) + 2$, 那么这个矩形*一定过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做">
     
     
         
@@ -145,7 +145,7 @@
     <p>ARC 的 D 啊这是！！！毒瘤 qwq。。不过挺有意思的</p>
 <p><a href="https://vjudge.net/problem/AtCoder-2149" target="_blank" rel="noopener">传送门！飞</a></p>
 <p><a href="https://www.cnblogs.com/coco-night/p/9677691.html" target="_blank" rel="noopener">这位dalao说得好，我若讲不清楚可看ta的！</a></p>
-<p>首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 * max(w, h) + 2$, 那么这个矩形<strong>一定</strong>过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做完后将图翻转再做一次前者）</p>
+<p>首先，一切的一切之前！要先公布一个性质。。（什么时候才能自己找啊qwq），就是这个矩形周长一定大于等于 $2 <em> max(w, h) + 2$, 那么这个矩形<em>*一定</em></em>过 $x = \frac{w}{2}$ 或 $y = \frac{h}{2}$ 中的一条，接下来以后者为例。（别忘记做完后将图翻转再做一次前者）</p>
 <p>有了<strong>过中线</strong>的保证，我们就可以把点分成中线上下两部分处理。</p>
 <p>找！定！量！这个定量就是一条竖着的扫描线，身份是矩形的右边界。。$O(n ^ 2)$的朴素算法就是从右边界往左扫，单调栈维护<strong>最</strong>值。考虑如何优化。</p>
 <p>用线段树<strong>帮助</strong>维护扫描线左边（即扫过区域）每个点所在直线为左边界时的最大矩形周长，加加减减具体可看 dalao 博客链接，其核心就是线段的和差。。显然是可以维护的！！</p>

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2$$ 真是惭愧">
+    <meta name="description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： \sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2真是惭愧 ◑﹏◐">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CF-Gym-101775B]-Scapegoat">
 <meta property="og:url" content="http://yoursite.com/2018/06/17/[CF-Gym-101775B]-Scapegoat/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2$$ 真是惭愧">
+<meta property="og:description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： \sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2真是惭愧 ◑﹏◐">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:14:11.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CF-Gym-101775B]-Scapegoat">
-<meta name="twitter:description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： $$\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2$$ 真是惭愧">
+<meta name="twitter:description" content="传送门 题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？Hint：方差公式： \sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2真是惭愧 ◑﹏◐">
     
     
         
@@ -144,14 +144,10 @@
   <div class="content" itemprop="articleBody">
     <p><a href="https://vjudge.net/problem/Gym-101775B" target="_blank" rel="noopener">传送门</a></p>
 <p>题意：有 $N$ 个大点，$M$ 个小点，每个大点可以连多个小点，且至少得连一个小点，每个小点必须被一个大点连。每个大点有一个权值 $c_i$，被这个大点连的小点的权值之和即为大点权值。需要求出怎么连，在满足题意的情况下小点权值方差最小？<br>Hint：方差公式：</p>
-<p>$$\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2$$</p>
-<p>真是惭愧 ◑﹏◐ 当时题意都没读懂…<br>可以发现，小点这么求：</p>
-<p>$$\sigma^2 = \frac{1}{m}\sum(x_i - \frac{1}{m}\sum x_j)^2$$</p>
-<p>可以发现，小点的总权值之和即为大点总权值之和，是一个已知的常数，我们用 $S$ 表示。<br>完全平方公式得：</p>
-<p>$$\sigma^2 = \frac{1}{m}\sum({x_i}^2 - \frac{2}{m}Sx_i + \frac{1}{m^2}S^2)$$</p>
-<p>拆开来化简得：</p>
-<p>$$\frac{1}{m}\sum{x_i}^2 - \frac{S^2}{m^2}$$</p>
-<p>由于 $\frac{1}{m}$ 、 $\frac{S^2}{m^2}$ 全是常数，可以直接得到，我们就不去考虑，现在要解决 $\sum{x_i}^2$ 的问题。</p>
+<script type="math/tex; mode=display">\sigma^2 = \frac{1}{n}\sum(x_i - \frac{1}{n}\sum x_j)^2</script><p>真是惭愧 ◑﹏◐ 当时题意都没读懂…<br>可以发现，小点这么求：</p>
+<script type="math/tex; mode=display">\sigma^2 = \frac{1}{m}\sum(x_i - \frac{1}{m}\sum x_j)^2</script><p>可以发现，小点的总权值之和即为大点总权值之和，是一个已知的常数，我们用 $S$ 表示。<br>完全平方公式得：</p>
+<script type="math/tex; mode=display">\sigma^2 = \frac{1}{m}\sum({x_i}^2 - \frac{2}{m}Sx_i + \frac{1}{m^2}S^2)</script><p>拆开来化简得：</p>
+<script type="math/tex; mode=display">\frac{1}{m}\sum{x_i}^2 - \frac{S^2}{m^2}</script><p>由于 $\frac{1}{m}$ 、 $\frac{S^2}{m^2}$ 全是常数，可以直接得到，我们就不去考虑，现在要解决 $\sum{x_i}^2$ 的问题。</p>
 <p>实在是太难考虑了 ◑﹏◐ 那换一个角度吧</p>
 <p>我们发现，一个大点连着小点，每个小点获得的大点分出的权值肯定是越均匀越好（均分咯），设大点权值为 $C$ ，小点个数为 $M$ ，则 $x_i$ 为 $\frac{C}{M}$ 。</p>
 <p>$\sum{x_i}^2$ 则为 $M(\frac{C}{M})^2$ 即为 $\frac{C^2}{M}$ 。</p>

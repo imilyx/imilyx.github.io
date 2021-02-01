@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 $$x_1\ opt_1\ x_2\ opt_2\ x_3\ …\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c$$ 其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i">
+    <meta name="description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 x_1\ opt_1\ x_2\ opt_2\ x_3\ ...\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i &amp;lt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="位运算(bits)">
 <meta property="og:url" content="http://yoursite.com/2019/01/31/位运算(bits)/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 $$x_1\ opt_1\ x_2\ opt_2\ x_3\ …\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c$$ 其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i">
+<meta property="og:description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 x_1\ opt_1\ x_2\ opt_2\ x_3\ ...\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i &amp;lt">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-12-13T11:06:17.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="位运算(bits)">
-<meta name="twitter:description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 $$x_1\ opt_1\ x_2\ opt_2\ x_3\ …\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c$$ 其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i">
+<meta name="twitter:description" content="题意：定义 G(x) 为 x 的二进制表示中 1 的个数。 小C有一个奇妙的方程 x_1\ opt_1\ x_2\ opt_2\ x_3\ ...\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。 此外，对于 $x_i$, 须满足 $0 \leq x_i &amp;lt">
     
     
         
@@ -138,8 +138,7 @@
   <div class="content" itemprop="articleBody">
     <h2 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h2><p>定义 G(x) 为 x 的二进制表示中 1 的个数。</p>
 <p>小C有一个奇妙的方程</p>
-<p>$$x_1\ opt_1\ x_2\ opt_2\ x_3\ …\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c$$</p>
-<p>其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。</p>
+<script type="math/tex; mode=display">x_1\ opt_1\ x_2\ opt_2\ x_3\ ...\ x_{n - 1}\ opt_{n - 1}\ x_n\ =\ c</script><p>其中 $opt_i$ 为 AND, OR, XOR 三种位运算中的一种。我们定义优先级是相同的，即计算顺序为从左到右。</p>
 <p>此外，对于 $x_i$, 须满足 $0 \leq x_i &lt; 2^m$ 且 $G(x_i) = a_i$, 保证 $0 \leq c &lt; 2^m$.</p>
 <p>求一组 $x_i$ 的取值满足上述所有约束。若不存在，输出 OvO。</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>A掉了这道巨题，窝很开心啊( ´▽｀)</p>

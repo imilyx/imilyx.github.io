@@ -143,9 +143,7 @@
 <p>根据“拼凑”思想，我们可以采用“试填法”。</p>
 <p>我们可以这样来描述一个状态：F[i, j, k] 表示用 i 块长度不同的木板构成栅栏，最左边的木板长度从小到大排在第 j 位，且位置状态为 k（k = 0 代表低位，k = 1 代表高位）。</p>
 <p>预处理每一个 F[i, j, k]，其中方程为：</p>
-<p>$$F[i, j, 0] = \sum\limits_{p = j}^{i - 1}F[i - 1, p, 1]$$</p>
-<p>$$F[i, j, 1] = \sum\limits_{p = 1}^{j - 1}F[i - 1, p, 0]$$</p>
-<p>注意，以下两种表达是等价的（很像离散化）：</p>
+<script type="math/tex; mode=display">F[i, j, 0] = \sum\limits_{p = j}^{i - 1}F[i - 1, p, 1]</script><script type="math/tex; mode=display">F[i, j, 1] = \sum\limits_{p = 1}^{j - 1}F[i - 1, p, 0]</script><p>注意，以下两种表达是等价的（很像离散化）：</p>
 <ul>
 <li>用长度为 1 ～ i 的木板构成栅栏，其中最左边的长度为 j。</li>
 <li>用 i 块长度不同的木板构成栅栏，其中最左边的长度排在第 j 位。</li>

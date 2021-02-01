@@ -175,7 +175,7 @@
 <p>$calc(l, r)$ 为 $[l, r]$ 的逆序对个数。看起来像斜率优化但它不能。。我相信一定可以优化！</p>
 <p>发现有决策单调性：$calc(l - 1, r + 1) + calc(l, r) \geq calc(l - 1, r) + calc(l, r + 1)$<br>易证。<br>于是可以经典决策单调分治 + 树状数组推区间。<br>$O(Knlog^2n)$</p>
 <h2 id="mathcal-12-8"><a href="#mathcal-12-8" class="headerlink" title="$\mathcal{12.8}$"></a>$\mathcal{12.8}$</h2><hr>
-<h3 id="洛谷4128-有色图"><a href="#洛谷4128-有色图" class="headerlink" title="$洛谷4128-有色图$"></a><a href="https://www.luogu.com.cn/problem/P4128" target="_blank" rel="noopener">$洛谷4128-有色图$</a></h3><p>染色的是边，转的是点。考虑对于某种转点方案，其等价类个数。那边就要分<em>连接同个循环的点</em>和<em>连接不同循环的点</em>讨论。</p>
+<h3 id="洛谷4128-有色图"><a href="#洛谷4128-有色图" class="headerlink" title="$洛谷4128-有色图$"></a><a href="https://www.luogu.com.cn/problem/P4128" target="_blank" rel="noopener">$洛谷4128-有色图$</a></h3><p>染色的是边，转的是点。考虑对于某种转点方案，其等价类个数。那边就要分_连接同个循环的点_和_连接不同循环的点_讨论。</p>
 <p>同个循环：设长度为 $b_i$，有 $b_i / 2$ 种等价类</p>
 <p>不同循环：等价类大小为 $lcm(b_i, b_j)$，等价类个数为 $b_i * b_j / lcm(b_i, b_j) = gcd(b_i, b_j)$</p>
 <p>现在知道了具体 $b_i$ 就能算答案了。<br>考虑 $n$ 的分拆，$n$ 只有 $53$，十分稳（实际上要 $7e7$）（问题不大）</p>
@@ -311,10 +311,8 @@
 <p>$bitset$ 好想，$30$ 分暴力拿到。接着思路想下去，考虑优化。</p>
 <p>$f[i, j]$ 表示前 $i$ 种物品，选了 $j$ 种，能选的体积，第三维用 $bitset$ 表示。</p>
 <p>换二三维。</p>
-<p>$$f[i, j] = f[i - 1, j]\ |\ OR_{k = 1}^{c[i]} (f[i - 1, j - k * v[i]] &lt;&lt; 1)$$</p>
-<p>换一二维。</p>
-<p>$$f[j] = f[j]\ |\ OR_{k = 1}^{c[i]} (f[j - k * v[i]] &lt;&lt; 1)$$</p>
-<p>发现对 $j$ 以 $mod\ v[i]$ 值分类，每类互不干扰，于是可以分别拎出来算，那就明显了：求区间或。</p>
+<script type="math/tex; mode=display">f[i, j] = f[i - 1, j]\ |\ OR_{k = 1}^{c[i]} (f[i - 1, j - k * v[i]] << 1)</script><p>换一二维。</p>
+<script type="math/tex; mode=display">f[j] = f[j]\ |\ OR_{k = 1}^{c[i]} (f[j - k * v[i]] << 1)</script><p>发现对 $j$ 以 $mod\ v[i]$ 值分类，每类互不干扰，于是可以分别拎出来算，那就明显了：求区间或。</p>
 <p><del>那不直接 st 表嘛</del>清醒点，平白多个 $log$（据说可以用 $\pm1\ rmq$ 实现，用人话就是分块 $st$ 表）</p>
 <p><del>那不直接前后缀嘛</del>清醒点，不可逆</p>
 <p>于是巧妙分块，以 $c[i]$ 为块大小，每块维护前后缀或就可以了。然后要加一些指标集优化不然会 T 成 40。</p>
@@ -382,8 +380,7 @@
 <p>暴力 $dp$, $f[x, c]$ 表示 $x$ 权值为 $c$ 的方案数，则 $f[x, c] = \prod s[y, c]$ 其中 $s$ 是 $f$ 的前缀和</p>
 <p>$D$ 太大了，但考虑到只会出现 $n$ 种权值，可以以离散化的思想求出 $f[x, c]$ 表示 $x$ 的权值在当前有的权值中排名第 $c$ 小。但组合数就不能直接求了——出现的权值种类不知道。</p>
 <p>考虑 $f[1, i]$ 是啥，就是用了 $\leq i$ 种权值且一定用了第 $i$ 种权值的方案数，那容斥不就好了么？</p>
-<p>$$F[i] = f[1, i] - \sum\limits_{j = 1}^{i - 1} C(i - 1, j - 1) * F[j]$$</p>
-<p><a href="http://codeforces.com/contest/995/submission/102377434" target="_blank" rel="noopener">$Code$</a></p>
+<script type="math/tex; mode=display">F[i] = f[1, i] - \sum\limits_{j = 1}^{i - 1} C(i - 1, j - 1) * F[j]</script><p><a href="http://codeforces.com/contest/995/submission/102377434" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="mathcal-12-27"><a href="#mathcal-12-27" class="headerlink" title="$\mathcal{12.27}$"></a>$\mathcal{12.27}$</h2><hr>
 <h3 id="XJOI1628"><a href="#XJOI1628" class="headerlink" title="XJOI1628"></a>XJOI1628</h3><h4 id="T3-7"><a href="#T3-7" class="headerlink" title="T3"></a>T3</h4><p>构造一个排列使得权值最大——用费用流求解。只有三种连边，线段树优化建图即可。</p>
 <h4 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h4><p>一眼广义 SAM 但是根本不会（那是不是不叫“一眼”？</p>

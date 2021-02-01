@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： $$f[i] = \min{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]}$$ 维护前缀和">
+    <meta name="description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： f[i] = \min\{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]\}维护前缀和 $P">
 <meta name="keywords" content="斜率优化">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ1096]-仓库建设">
 <meta property="og:url" content="http://yoursite.com/2018/12/15/[BZOJ1096]-仓库建设/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： $$f[i] = \min{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]}$$ 维护前缀和">
+<meta property="og:description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： f[i] = \min\{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]\}维护前缀和 $P">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:00:32.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[BZOJ1096]-仓库建设">
-<meta name="twitter:description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： $$f[i] = \min{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]}$$ 维护前缀和">
+<meta name="twitter:description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： f[i] = \min\{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]\}维护前缀和 $P">
     
     
         
@@ -141,15 +141,12 @@
     <p><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1096" target="_blank" rel="noopener">题目链接</a></p>
 <p>贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。</p>
 <p>设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移：</p>
-<p>$$f[i] = \min{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]}$$</p>
-<p>维护前缀和 $P[i]$ 为 $p$ 的前缀和，$g[i]$ 为 $x[i] * p[i]$ 的前缀和：</p>
-<p>$$f[i] = f[j] + (P[i - 1] - P[j]) * x[i] - (g[i - 1] - g[j]) + c[i]$$</p>
-<p>转化为一次函数形式：</p>
+<script type="math/tex; mode=display">f[i] = \min\{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]\}</script><p>维护前缀和 $P[i]$ 为 $p$ 的前缀和，$g[i]$ 为 $x[i] * p[i]$ 的前缀和：</p>
+<script type="math/tex; mode=display">f[i] = f[j] + (P[i - 1] - P[j]) * x[i] - (g[i - 1] - g[j]) + c[i]</script><p>转化为一次函数形式：</p>
 <p>$f[j] + P[i - 1] <em> x[i] - g[i - 1] + g[j] + c[i] = x[i] </em> P[j] + f[i]$</p>
 <p>($y = kx + b$)</p>
 <p>去掉没用的项，得：</p>
-<p>$$f[j] + g[j] = x[i] * P[j] + f[i]$$</p>
-<p>坐标点为 $(P[j], f[j] + g[j])$</p>
+<script type="math/tex; mode=display">f[j] + g[j] = x[i] * P[j] + f[i]</script><p>坐标点为 $(P[j], f[j] + g[j])$</p>
 <p>记得开 long long !!</p>
 <p>$Slope$ 函数要用 double!!</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e6</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, m, h, t, l, r;</span><br><span class="line">ll x[N], p[N], c[N], g[N], P[N], q[N], f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">X</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> P[i]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Y</span><span class="params">(<span class="keyword">int</span> i)</span> </span>&#123; <span class="keyword">return</span> f[i] + g[i]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">Slope</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123; <span class="keyword">return</span> (<span class="keyword">double</span>)(Y(j) - Y(i)) / (<span class="keyword">double</span>)(X(j) - X(i)); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; x[i] &gt;&gt; p[i] &gt;&gt; c[i];</span><br><span class="line">        P[i] = P[i - <span class="number">1</span>] + p[i], g[i] = g[i - <span class="number">1</span>] + x[i] * p[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; Slope(q[l], q[l + <span class="number">1</span>]) &lt; x[i]) l++;</span><br><span class="line">        f[i] = f[q[l]] + (P[i - <span class="number">1</span>] - P[q[l]]) * x[i] - g[i - <span class="number">1</span>] + g[q[l]] + c[i];</span><br><span class="line">        <span class="keyword">while</span> (l &lt; r &amp;&amp; Slope(q[r - <span class="number">1</span>], q[r]) &gt; Slope(q[r], i)) r--;</span><br><span class="line">        q[++r] = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; f[n] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><!-- flag of hidden posts -->
