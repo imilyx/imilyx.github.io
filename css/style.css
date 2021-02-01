@@ -1409,7 +1409,7 @@ pre code {
 .highlight {
   font-family: "Menlo", "Meslo LG", monospace;
   -webkit-border-radius: 4px;
-  border-radius: 4px;
+  border-radius: 10px;
   padding: 0px 15px;
   overflow-x: auto;
   margin: 1rem 0 1rem 0;

@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="新年新坑~ $\mathcal{1.2}$ Todo: vp UOJ，订正今天模拟赛, 订正胡策 4，vp AGC012/043，学习斯特林数，巩固 SAM 和生成函数，uoj交互题，清华集训14、16、17，集训队作业，EI与动态图loj560, 3104 SAMPAM最长反链FWT exp ln agc023eagc023dagc020fagc032eagc035eagc029f 订正昨天 T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-01T02:17:29.130Z">
+<meta property="og:updated_time" content="2021-02-01T03:13:03.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Jan 学习计划">
 <meta name="twitter:description" content="新年新坑~ $\mathcal{1.2}$ Todo: vp UOJ，订正今天模拟赛, 订正胡策 4，vp AGC012/043，学习斯特林数，巩固 SAM 和生成函数，uoj交互题，清华集训14、16、17，集训队作业，EI与动态图loj560, 3104 SAMPAM最长反链FWT exp ln agc023eagc023dagc020fagc032eagc035eagc029f 订正昨天 T">
@@ -290,8 +290,8 @@
 <h3 id="世界是个动物园"><a href="#世界是个动物园" class="headerlink" title="世界是个动物园"></a><a href="https://uoj.ac/problem/451" target="_blank" rel="noopener">世界是个动物园</a></h3><p>写在「【学习笔记】竞赛图」里了。</p>
 <h3 id="XJOI1661"><a href="#XJOI1661" class="headerlink" title="$XJOI1661$"></a>$XJOI1661$</h3><h4 id="T1-6"><a href="#T1-6" class="headerlink" title="$T1$"></a>$T1$</h4><p>组合意义题，我试过但没想出来。。。</p>
 <p>视作 有 $2$ 行 $m$ 列的格子，选 $i$ 列并且在这 $2i$ 个格子和另外散的 $n - m$ 个格子中选出 $k$ 个的方案数。生成函数为 $(x + 1)^{n - m} (x^2 + 2x + 1 + 1)^m$，其中 $x^2$ 表示选了这列并选了两个格子，$2x$ 表示选了这列并选了一个格子，$1 + 1$ 分别表示选了这列但没选格子 和 没选这列。求出它的第 $[x^k]$ 项。</p>
-<h4 id="T2-6"><a href="#T2-6" class="headerlink" title="$T2$"></a>$T2$</h4><p>lj题面，都是正整数！首先把 n 对 k 取模—— n + k 的答案就是 n 的策略每步 + 1。设硬币正反面分别为 x 和 y。<strong>重点：每种翻硬币的操作序列都对应一个 x 和一个 y，而 y 可以根据 x 来定，所以我们要统计的是，哪个 x 对应的合法序列数最多。</strong></p>
-<p>设 x 出现 l 次，则 y 出现 k - l 次，lx + (k - l)y = n, lx \equiv n pmod k - l</p>
+<h4 id="T2-6"><a href="#T2-6" class="headerlink" title="$T2$"></a>$T2$</h4><p>lj题面，都是正整数！首先把 $n$ 对 $k$ 取模—— $n + k$ 的答案就是 $n$ 的策略每步 $+ 1$。设硬币正反面分别为 $x$ 和 $y$。<strong>重点：每种翻硬币的操作序列都对应一个 $x$ 和一个 $y$，而 $y$ 可以根据 $x$ 来定，所以我们要统计的是，哪个 $x$ 对应的合法序列数最多。</strong></p>
+<p>设 $x$ 出现 $l$ 次，则 $y$ 出现 $k - l$ 次，$lx + (k - l)y = n$, $lx \equiv n \pmod k - l$，$x \equiv n \pmod{\frac{k - l}{gcd(k - l, l)}}$</p>
 <h4 id="T3-6"><a href="#T3-6" class="headerlink" title="$T3$"></a>$T3$</h4><p>原题 LOJ6072。</p>
 <p>把点分为三种：「选」「不选」「$-1$」，分别用 $a$、$b$、$c$ 表示。$c$ 固定，$a$ 个数在 $[0, n - c]$ 间。</p>
 <p>连边情况：$a$ - $a$, $a$ - $b$, $a$ - $c$, $b$ - $c$。</p>
@@ -299,6 +299,7 @@
 <p>$b$ 只要全和 $c$ 连，$a$ 却要求相邻点至少一个不为 $-1$，所以直接做矩阵树求出的是「至多」$x$ 个 $a$ 的生成树个数。这个嘛二项式反演就搞掉了。$O(n^4+n2^{n/2})$ </p>
 <hr>
 <p>搞了博客，想换 theme 的话改 Hexo 目录下 _config.yml 里第 24 行为 : archieves，以及第 66 行。</p>
+<p>README 要看啊，不然事倍功半（卒</p>
 
   </div>
 </article>
