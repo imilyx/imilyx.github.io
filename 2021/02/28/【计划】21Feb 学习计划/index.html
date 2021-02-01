@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notes">
 <meta property="og:description" content="$\mathcal{2.1}$ []">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-01T02:18:06.073Z">
+<meta property="og:updated_time" content="2021-02-01T02:33:40.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Feb 学习计划">
 <meta name="twitter:description" content="$\mathcal{2.1}$ []">
@@ -70,7 +70,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2099/11/30/【置顶】考前必看/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2099/11/30/【置顶】待学/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2021/01/31/【计划】21Jan 学习计划/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -229,6 +229,36 @@
 <script src="/lib/jquery/jquery.min.js"></script>
 <script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
 <script src="/js/main.js"></script>
+
+<!-- search -->
+  <script src="/js/search.js"></script>
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input");
+    var $resultArea = $("#search-result");
+
+    inputArea.onfocus = function() {
+      var search_path = "search.xml";
+      if (search_path.length == 0) {
+        search_path = "search.xml";
+      }
+      var path = "/" + search_path;
+      searchFunc(path, 'search-input', 'search-result');
+    }
+
+    inputArea.onkeydown = function(){
+        if(event.keyCode==13){
+            return false
+        }
+    }
+
+    $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
+        if (!$(e.target).text()) {
+            $(".search-no-result").show(200);
+        } else {
+            $(".search-no-result").hide();
+        }
+    })
+  </script>
 
 
     <!-- Google Analytics -->

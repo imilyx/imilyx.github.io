@@ -158,7 +158,7 @@
 <p>定义：形如 $f(n) = \sum_{i = 1}^d a_if(n - i)$ ，其中 d、ai 为常数的递推式，称为线性常系数递推式，每一项都和它前面 d 项有关，又称d阶线性常系数递推式。这一类题目的时间复杂度是 $O(d^3 logn)$（据说要是 i 从 1 到 n 的话就成了卷积？）</p>
 <p>这样要求解 $f(n)$ 就很像第一题了：</p>
 <p>$${\begin{bmatrix} f(n) \ f(n - 1) \ \vdots \ f(n - d + 1)\end{bmatrix}} = {\begin{bmatrix} f(n - 1)\ f(n - 2) \ \vdots\ f(n - d)\end{bmatrix}} * {\begin{bmatrix} a1 &amp; a2 &amp; a3 &amp; \cdots &amp; ad\ 1 &amp; 0 &amp; 0 &amp;\cdots &amp; 0\ 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0\ \vdots &amp; &amp; \ddots &amp; &amp; \vdots\ 0 &amp; 0 &amp; \cdots &amp; 1 &amp; 0\end{bmatrix}}$$</p>
-<ol>
+<ol start="2">
 <li>给定 n 个点，数条无向边，求从一个点走 K 步的路径总数。</li>
 </ol>
 <p>首先用 $G[][]$ 来存有向边，然后我们发现如果用 $F[step][i]$ 来表示走 step 步到 i 的方案数，转移方程就是：</p>
