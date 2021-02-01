@@ -1412,7 +1412,7 @@ pre code {
   border-radius: 10px;
   padding: 0px 15px;
   overflow-x: auto;
-  margin: 1rem 0 1rem 0;
+  margin: 1em 0;
 }
 .highlight figcaption {
   zoom: 1;
