@@ -9,14 +9,14 @@
     <meta name="description" content="$Boruvka..Bvrouka…Brouvka….???$ $Boruvka$ 是一个古老的最小生成树算法，综合了 $Kruskal$ 和 $Prim$.（我觉得更像是进阶版 $Prim$） 它的算法流程是：初始时每个节点都是一个连通块，每次从每个块伸出去一条最短边，然后把新形成的连通块缩成一个新的块。每次 块个数至少减半，所以时间复杂度是 log 的。算法正确性可以参考 $Prim$ 的，相">
 <meta name="keywords" content="最小生成树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】Boruvka算法">
-<meta property="og:url" content="http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/index.html">
+<meta property="og:title" content="【学习笔记】Boruvka">
+<meta property="og:url" content="http://yoursite.com/2020/08/01/【学习笔记】Boruvka/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$Boruvka..Bvrouka…Brouvka….???$ $Boruvka$ 是一个古老的最小生成树算法，综合了 $Kruskal$ 和 $Prim$.（我觉得更像是进阶版 $Prim$） 它的算法流程是：初始时每个节点都是一个连通块，每次从每个块伸出去一条最短边，然后把新形成的连通块缩成一个新的块。每次 块个数至少减半，所以时间复杂度是 log 的。算法正确性可以参考 $Prim$ 的，相">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-12-13T11:02:40.800Z">
+<meta property="og:updated_time" content="2021-02-02T01:48:39.404Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【学习笔记】Boruvka算法">
+<meta name="twitter:title" content="【学习笔记】Boruvka">
 <meta name="twitter:description" content="$Boruvka..Bvrouka…Brouvka….???$ $Boruvka$ 是一个古老的最小生成树算法，综合了 $Kruskal$ 和 $Prim$.（我觉得更像是进阶版 $Prim$） 它的算法流程是：初始时每个节点都是一个连通块，每次从每个块伸出去一条最短边，然后把新形成的连通块缩成一个新的块。每次 块个数至少减半，所以时间复杂度是 log 的。算法正确性可以参考 $Prim$ 的，相">
     
     
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【学习笔记】Boruvka算法</title>
+    <title>【学习笔记】Boruvka</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -89,16 +89,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&text=【学习笔记】Boruvka算法"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&is_video=false&description=【学习笔记】Boruvka算法"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=【学习笔记】Boruvka算法&body=Check out this article: http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&name=【学习笔记】Boruvka算法&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&text=【学习笔记】Boruvka"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&is_video=false&description=【学习笔记】Boruvka"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Boruvka&body=Check out this article: http://yoursite.com/2020/08/01/【学习笔记】Boruvka/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&name=【学习笔记】Boruvka&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -115,7 +115,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        【学习笔记】Boruvka算法
+        【学习笔记】Boruvka
     </h1>
 
 
@@ -203,16 +203,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&text=【学习笔记】Boruvka算法"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&is_video=false&description=【学习笔记】Boruvka算法"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=【学习笔记】Boruvka算法&body=Check out this article: http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&title=【学习笔记】Boruvka算法"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka算法/&name=【学习笔记】Boruvka算法&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&text=【学习笔记】Boruvka"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&is_video=false&description=【学习笔记】Boruvka"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Boruvka&body=Check out this article: http://yoursite.com/2020/08/01/【学习笔记】Boruvka/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&title=【学习笔记】Boruvka"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2020/08/01/【学习笔记】Boruvka/&name=【学习笔记】Boruvka&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
