@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜$">
+    <meta name="description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！这其实是个树，而每个位置若能填 x，则也能填 y（y &amp;lt; x）。也就是有单调性，考虑二分。 $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜">
 <meta property="og:type" content="article">
 <meta property="og:title" content="九省联考2018 乱写">
 <meta property="og:url" content="http://yoursite.com/2021/02/02/九省联考2018 乱写/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜$">
+<meta property="og:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！这其实是个树，而每个位置若能填 x，则也能填 y（y &amp;lt; x）。也就是有单调性，考虑二分。 $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-02T07:25:30.819Z">
+<meta property="og:updated_time" content="2021-02-02T10:35:27.897Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
-<meta name="twitter:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜$">
+<meta name="twitter:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！这其实是个树，而每个位置若能填 x，则也能填 y（y &amp;lt; x）。也就是有单调性，考虑二分。 $秘密袭击$ $劈配$ $林克卡特树$ $制胡窜">
     
     
         
@@ -140,6 +140,7 @@
 <h2 id="一双木棋"><a href="#一双木棋" class="headerlink" title="$一双木棋$"></a>$一双木棋$</h2><hr>
 <p>有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。<a href="https://loj.ac/s/1054666" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="IIIDX"><a href="#IIIDX" class="headerlink" title="$IIIDX$"></a>$IIIDX$</h2><hr>
+<p>我太菜了！这其实是个树，而<strong>每个位置若能填 x，则也能填 y（y &lt; x）</strong>。也就是有单调性，考虑二分。</p>
 <h2 id="秘密袭击"><a href="#秘密袭击" class="headerlink" title="$秘密袭击$"></a>$秘密袭击$</h2><hr>
 <h2 id="劈配"><a href="#劈配" class="headerlink" title="$劈配$"></a>$劈配$</h2><hr>
 <h2 id="林克卡特树"><a href="#林克卡特树" class="headerlink" title="$林克卡特树$"></a>$林克卡特树$</h2><hr>
