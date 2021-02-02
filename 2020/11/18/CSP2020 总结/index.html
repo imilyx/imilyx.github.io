@@ -153,8 +153,12 @@
 <p><a href="https://loj.ac/submission/990045" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="T4-贪吃蛇"><a href="#T4-贪吃蛇" class="headerlink" title="$T4. 贪吃蛇$"></a>$T4. 贪吃蛇$</h2><hr>
 <p>这题看似简单 实则不愧对其第四题的地位。。。思维严密，挺有意思的。</p>
-<p>重要性质（与 16 年的蚯蚓十分相似）：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进食的蛇丢进另一个队列里，发现当前丢的一定是进食过的蛇里最弱的</span><br></pre></td></tr></table></figure></p>
-<p>猜想：如果当前 $max$ 吃了 $min$，不会变成 $min$，就一定会吃<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">证明：之后吃了的 max 会比当前吃完的 max 更小。</span><br></pre></td></tr></table></figure></p>
+<p>重要性质（与 16 年的蚯蚓十分相似）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">进食的蛇丢进另一个队列里，发现当前丢的一定是进食过的蛇里最弱的</span><br></pre></td></tr></table></figure>
+
+<p>猜想：如果当前 $max$ 吃了 $min$，不会变成 $min$，就一定会吃</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">证明：之后吃了的 max 会比当前吃完的 max 更小。</span><br></pre></td></tr></table></figure>
+
 <p>所以分为两个阶段：</p>
 <ol>
 <li>当前 $max$ 吃了 $min$，不会变成 $min$，就一直吃</li>

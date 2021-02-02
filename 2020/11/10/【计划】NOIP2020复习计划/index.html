@@ -180,13 +180,15 @@
 <li>强连通分量的基图是边双连通分量，即存在一种给边双分量中的边定向的方案使得其强连通。易证！XD</li>
 </ul>
 <h2 id="tarjan双联通分量"><a href="#tarjan双联通分量" class="headerlink" title="tarjan双联通分量"></a>tarjan双联通分量</h2><h2 id="割点和桥"><a href="#割点和桥" class="headerlink" title="割点和桥"></a>割点和桥</h2><h2 id="圆方树"><a href="#圆方树" class="headerlink" title="圆方树"></a>圆方树</h2><h2 id="基环树"><a href="#基环树" class="headerlink" title="基环树"></a>基环树</h2><ul>
-<li>分别对树和环处理。</li>
+<li><p>分别对树和环处理。</p>
+</li>
 <li><p>扣环：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">getlop</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> fr)</span> </span>&#123;  <span class="comment">// 这里是扣两个点的环，记录的不是 fa 而是来的那条边</span></span><br><span class="line">    <span class="keyword">if</span> (vis[x]) &#123; rt = x; <span class="keyword">return</span> <span class="number">1</span>; &#125;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[x]; i; i = nxt[i]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ((i &gt;&gt; <span class="number">1</span>) == fr) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">int</span> y = to[i];</span><br><span class="line">        <span class="keyword">int</span> t = getlop(y, i &gt;&gt; <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (t) &#123;</span><br><span class="line">            <span class="keyword">if</span> (t == <span class="number">1</span>) &#123;</span><br><span class="line">                lop[++num] = x, dis[num] = val[i], inl[x] = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (x != rt) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            &#125; <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><a href="https://www.luogu.com.cn/problem/P4381" target="_blank" rel="noopener">IOI2008-Island</a>, 小清新基环树题，求每棵树的直径之和</p>
 </li>
-<li><a href="https://www.luogu.com.cn/paste/uc2gqdkt" target="_blank" rel="noopener">ARC079D-Namori Grundy</a></li>
+<li><p><a href="https://www.luogu.com.cn/paste/uc2gqdkt" target="_blank" rel="noopener">ARC079D-Namori Grundy</a></p>
+</li>
 </ul>
 <h2 id="点分治"><a href="#点分治" class="headerlink" title="点分治"></a>点分治</h2><h2 id="2-sat"><a href="#2-sat" class="headerlink" title="2-sat"></a>2-sat</h2><ul>
 <li>有诸多限制，非此即彼的逻辑关系，且是二元关系。</li>
@@ -249,15 +251,20 @@
 <li><a href="http://uoj.ac/submission/430504" target="_blank" rel="noopener">[UOJ58]-糖果公园</a>，一道朴实无华的带修树上莫队（这里采用的是直接跳 LCA + 直接分块，也可以欧拉序）</li>
 </ul>
 <h2 id="bitset"><a href="#bitset" class="headerlink" title="bitset"></a>bitset</h2><h2 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h2><h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h2><ul>
-<li>lazy-tag<h2 id="线段树合并"><a href="#线段树合并" class="headerlink" title="线段树合并"></a>线段树合并</h2></li>
-<li>经常结合树上问题食用，限制就是插入的信息一定得是 O(n) 级别的复杂度才不会错。。来证明一下它 O(nlogn) 的复杂度吧：发现合并两棵线段树的复杂度是它们重合的点数，合并两个点的复杂度是 O(logn)，共合并 n - 1 次所以是 O(nlogn)。</li>
-<li>除了权值啊下标线段树合并的，还能做 01 trie 合并哦。</li>
+<li><p>lazy-tag</p>
+<h2 id="线段树合并"><a href="#线段树合并" class="headerlink" title="线段树合并"></a>线段树合并</h2></li>
+<li><p>经常结合树上问题食用，限制就是插入的信息一定得是 O(n) 级别的复杂度才不会错。。来证明一下它 O(nlogn) 的复杂度吧：发现合并两棵线段树的复杂度是它们重合的点数，合并两个点的复杂度是 O(logn)，共合并 n - 1 次所以是 O(nlogn)。</p>
+</li>
+<li><p>除了权值啊下标线段树合并的，还能做 01 trie 合并哦。</p>
+</li>
 <li><p><a href="https://loj.ac/submission/932042" target="_blank" rel="noopener">LOJ3303(01 trie 合并)</a></p>
 </li>
 <li><p>动态开点</p>
 </li>
-<li>zkw？</li>
-<li>主席树</li>
+<li><p>zkw？</p>
+</li>
+<li><p>主席树</p>
+</li>
 </ul>
 <h2 id="splay"><a href="#splay" class="headerlink" title="splay"></a>splay</h2><h2 id="树套树"><a href="#树套树" class="headerlink" title="树套树"></a>树套树</h2><hr>
 <h1 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a><em>计算几何</em></h1><p>觉得不会考所以只复习凸包（</p>

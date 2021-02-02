@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证：12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e,">
+    <meta name="description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证： 12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XJOI200814 题解">
 <meta property="og:url" content="http://yoursite.com/2020/08/14/XJOI200814 题解/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证：12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e,">
+<meta property="og:description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证： 12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-14T23:33:36.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XJOI200814 题解">
-<meta name="twitter:description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证：12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e,">
+<meta name="twitter:description" content="今天赛 1 是联赛难度。感到自己有很多不足。 赛2：什么叫做乱搞啊 /kk 赛1    赛2 1A 没想出来但这种题有可能会出现在正式赛场上，所以要会乱搞啊！ 正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。 有个伪证： 12345678(a, b, c, d), e, f(h, i, j), k, l, m划了括号的是选的。1. j = e 那么不选 (i, j) 改选 (e">
     
     
         
@@ -148,7 +148,9 @@
 <h2 id="1A"><a href="#1A" class="headerlink" title="1A"></a>1A</h2><hr>
 <p>没想出来但这种题有可能会出现在正式赛场上，<strong>所以要会乱搞啊！</strong></p>
 <p>正解就是选出 K / m 个整行加上 K % m 个在同一行的元素。</p>
-<p>有个伪证：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(a, b, c, d), e, f</span><br><span class="line">(h, i, j), k, l, m</span><br><span class="line"></span><br><span class="line">划了括号的是选的。</span><br><span class="line">1. j = e 那么不选 (i, j) 改选 (e, f) 不会更劣</span><br><span class="line">2. j &gt; e 不选 (i, j) 改选 (e, f)</span><br><span class="line">3. j &lt; e 那么 b &gt;= c &gt;= d &gt;= e &gt; j &gt;= k &gt;= l &gt;= m，不选 (b, c, d) 改选 (k, l, m)</span><br><span class="line">所以大概可以说明两行可以合并成一行，即必须取满其中一行。</span><br></pre></td></tr></table></figure></p>
+<p>有个伪证：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">(a, b, c, d), e, f</span><br><span class="line">(h, i, j), k, l, m</span><br><span class="line"></span><br><span class="line">划了括号的是选的。</span><br><span class="line">1. j = e 那么不选 (i, j) 改选 (e, f) 不会更劣</span><br><span class="line">2. j &gt; e 不选 (i, j) 改选 (e, f)</span><br><span class="line">3. j &lt; e 那么 b &gt;= c &gt;= d &gt;= e &gt; j &gt;= k &gt;= l &gt;= m，不选 (b, c, d) 改选 (k, l, m)</span><br><span class="line">所以大概可以说明两行可以合并成一行，即必须取满其中一行。</span><br></pre></td></tr></table></figure>
+
 <h2 id="1B"><a href="#1B" class="headerlink" title="1B"></a>1B</h2><hr>
 <p>图论今天真的要刷起来了，这题 lca 搞一搞就好了啊！都忘光了。。。树上路径就是到 lca 的路径啊。。。</p>
 <p>那么分两种情况：</p>
@@ -164,7 +166,7 @@
 <p>这很 Atcoder 啊。。神仙构造 + 大乱搞题？咕咕</p>
 <h2 id="2B"><a href="#2B" class="headerlink" title="2B"></a>2B</h2><hr>
 <p>竟然给我乱搞出来了！考虑操作序列是形如 $(((S + k_1a)b + k_2a)b + k_3a)b + …$ 这样的。我们枚举有几个 $b$（显然只有 log 种），就变成类似于进制，所以要让 $\sum_i k_i$ 最小，只要“能减则减”就可以了。</p>
-<p>—-分割线—-</p>
+<p>—分割线—</p>
 <p>我错了。这题没有一点素质，它的重点根本就是分类讨论，我吐了 思博题💢</p>
 <p>!s   !t   s &lt; t   !a   !b   b = 1 这些你都判了吗</p>
 <h2 id="2C"><a href="#2C" class="headerlink" title="2C"></a>2C</h2><hr>

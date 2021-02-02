@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
+    <meta name="description" content="有这样一个题目，n次询问，每次询问x[1]x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]x[i]的最大值，R[i]表示x[n]x[i]的最大值，则x[1]x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这个用a1">
 <meta name="keywords" content="技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="抽屉原理小技巧">
 <meta property="og:url" content="http://yoursite.com/2018/04/05/抽屉原理小技巧/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
+<meta property="og:description" content="有这样一个题目，n次询问，每次询问x[1]x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]x[i]的最大值，R[i]表示x[n]x[i]的最大值，则x[1]x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这个用a1">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:18:40.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽屉原理小技巧">
-<meta name="twitter:description" content="有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这">
+<meta name="twitter:description" content="有这样一个题目，n次询问，每次询问x[1]x[n]中除x[i]以外的最大值；第一种想法是利用前缀和后缀和，L[i]表示x[1]x[i]的最大值，R[i]表示x[n]x[i]的最大值，则x[1]x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]); 这当然是可以的，————但今天重点介绍的是第二种方法 首先我们用O(n)计算x[1]~x[n]之间前两大的数，这个用a1">
     
     
         
@@ -138,7 +138,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>有这样一个题目，n次询问，每次询问x[1]~x[n]中除x[i]以外的最大值；<br>第一种想法是利用前缀和后缀和，<br>L[i]表示x[1]~x[i]的最大值，R[i]表示x[n]~x[i]的最大值，<br>则x[1]~x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]);</p>
+    <p>有这样一个题目，n次询问，每次询问x[1]<del>x[n]中除x[i]以外的最大值；<br>第一种想法是利用前缀和后缀和，<br>L[i]表示x[1]</del>x[i]的最大值，R[i]表示x[n]<del>x[i]的最大值，<br>则x[1]</del>x[n]中除x[i]以外的最大值 = max(L[i - 1], R[i + 1]);</p>
 <p>这当然是可以的，<br>————但今天重点介绍的是第二种方法</p>
 <p>首先我们用O(n)计算x[1]~x[n]之间前两大的数，<br>这个用a1,a2记录就成————<br>然后你想，每次不就询问一个x[i]吗？<br>也就是说，x[i]如果等于a1, 那就输出a2；否则输出a1.</p>
 <p>这就妙在用两个去撞一个，撞掉一个总还有一个剩余的，是不是很方便？</p>

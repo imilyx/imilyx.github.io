@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+    <meta name="description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE： 12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
 <meta name="keywords" content="技巧">
 <meta property="og:type" content="article">
 <meta property="og:title" content="枚举子集的飘逸写法">
 <meta property="og:url" content="http://yoursite.com/2018/05/28/枚举子集的飘逸写法/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+<meta property="og:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE： 12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-02-07T16:24:50.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="枚举子集的飘逸写法">
-<meta name="twitter:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE：12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
+<meta name="twitter:description" content="要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。 很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。要一次概括所有物体的选择情况，二进制就是很好的选择。 CODE： 12345for (int i = 0; i &amp;lt; (1 &amp;lt;&amp;lt; n); ++i) &amp;#123;  // i 枚举所有物体的选择情况">
     
     
         
@@ -144,10 +144,13 @@
   <div class="content" itemprop="articleBody">
     <p>要二进制枚举子集啦（准确地说是先枚举集合 S 再枚举 S 的子集 T），其中 S 最多有 n 个元素。</p>
 <p>很容易想到，每个物体有取（1）和不取（0）两种情况，那么总共有 $2^n$ 种情况。<br>要一次概括所有物体的选择情况，二进制就是很好的选择。</p>
-<p>CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); ++i) &#123;  <span class="comment">// i 枚举所有物体的选择情况</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j; j = (j - <span class="number">1</span>) &amp; i) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>CODE：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); ++i) &#123;  <span class="comment">// i 枚举所有物体的选择情况</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = i; j; j = (j - <span class="number">1</span>) &amp; i) &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, j);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <p>为什么第二层循环中是 j = (j - 1) &amp; i 呢？<br>这样起到了将 j 中有效位（为1）逐渐删除的效果。<br>例如，当 i = 101000 时，j 初始为 101000，第一轮变为 100111，&amp; i 后变为 100000，成功将最后一个1删除。</p>
 <p>时间复杂度计算很玄学，可以发现 S 有 $\binom{n}{i}$ 种选法，i 个中还有 $2^i$ 种选取情况。<br>所以就是：</p>
-<script type="math/tex; mode=display">\sum_{i=0}^n{\binom{n}{i} * 2^i}</script><p>再通过某种玄学证明可得该式 = $3^n$。(20.02.07upd: 就是二项式定理啦！！！即 (1 + 2) ^ n) </p>
+<p>$$\sum_{i=0}^n{\binom{n}{i} * 2^i}$$</p>
+<p>再通过某种玄学证明可得该式 = $3^n$。(20.02.07upd: 就是二项式定理啦！！！即 (1 + 2) ^ n) </p>
 <p>同样的，若枚举 S 的子集 T，再枚举 T 的子集 T1，时间复杂度就是 $4^n$。</p>
 <p>需要注意的是，O($3^n$) 表示 &lt;= $3^n$，而 $3^n$ 就是 $3^n$，是一个准确值。</p>
 <p>顺带的，若要枚举集合 U 中的子集 S 和 T，其中 S 与 T 无重复元素，只需枚举 S，再在 U 中除 S 的元素中枚举 T。</p>

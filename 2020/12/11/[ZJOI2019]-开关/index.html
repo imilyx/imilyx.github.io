@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。 F_i(x) = \sum\limits_{n \">
+    <meta name="description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。$$F_i(x) = \sum\limits_{n">
 <meta name="keywords" content="生成函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[ZJOI2019]-开关">
 <meta property="og:url" content="http://yoursite.com/2020/12/11/[ZJOI2019]-开关/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。 F_i(x) = \sum\limits_{n \">
+<meta property="og:description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。$$F_i(x) = \sum\limits_{n">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:06:08.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ZJOI2019]-开关">
-<meta name="twitter:description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。 F_i(x) = \sum\limits_{n \">
+<meta name="twitter:description" content="$方法一:生成函数$“神仙题！”（平庸的 xml 发出惊叹） 生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。 设 $P = \sum p$. 分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。$$F_i(x) = \sum\limits_{n">
     
     
         
@@ -145,21 +145,32 @@
     <h2 id="方法一-生成函数"><a href="#方法一-生成函数" class="headerlink" title="$方法一:生成函数$"></a>$方法一:生成函数$</h2><p>“神仙题！”（平庸的 xml 发出惊叹）</p>
 <p>生成函数怎么想到的啊？/yiw 但的确很符合，因为按键是有顺序的，而每个键按多少次概率也不同，适合用形式幂级数表示。</p>
 <p>设 $P = \sum p$.</p>
-<p>分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。</p>
-<script type="math/tex; mode=display">F_i(x) = \sum\limits_{n \geq 0} [n\ mod\ 2 == s_i] \frac{ ( \frac{p_i}{P} ) ^n}{n!} x^n</script><script type="math/tex; mode=display">F(x) = \prod F_i(x)</script><p>写成 OGF <script type="math/tex">f(x) = \sum_k (k! * [x^k]F(x)) * x^k</script></p>
+<p>分开考虑每个键。考虑 $[x^k]F_i(x)$ 表示第 $i$ 个位置按了 $k$ 次的概率贡献。当然是 EGF 啦因为是有顺序的按。<br>$$F_i(x) = \sum\limits_{n \geq 0} [n\ mod\ 2 == s_i] \frac{ ( \frac{p_i}{P} ) ^n}{n!} x^n$$<br>$$F(x) = \prod F_i(x)$$<br>写成 OGF $$f(x) = \sum_k (k! * [x^k]F(x)) * x^k$$</p>
 <p>$[x^k]G_i(x)$ 表示第 $i$ 个位置按了 $k$ 次，状态不变的概率。</p>
 <p>然而只有 $F$ 能干啥呢？我们要求的是<strong>第一次</strong>到达目标状态，所以需要容斥。具体来说，设 $g(x)$ 表示 $k$ 次状态不变的 OGF，可按上述方法求出；设 $h(x)$ 为答案 OGF，则 $f(x) = g(x) \cdot h(x)$, 则 $h(x) = \frac{f(x)}{g(x)}$.</p>
 <p>根据期望的定义，答案形如 $\sum_i if(i)$ 。啊这不就是 $h(1)$ 的导数嘛！$h’(1)$ 就是最终答案。</p>
-<script type="math/tex; mode=display">G_i(x) = \sum\limits_{n \geq 0} [n\ mod\ 2 == 0] \frac{( \frac{p_i}{P} )^n}{n!} x^n</script><script type="math/tex; mode=display">G(x) = \prod G_i(x)</script><p>写成 OGF <script type="math/tex">g(x) = \sum_k (k! * [x^k]G(x)) * x^k</script></p>
-<p>写成封闭形式</p>
-<script type="math/tex; mode=display">F_i(x) = \frac{e^{\frac{p_i}{P}x} + (-1)^{s_i} e^{-\frac{p_i}{P}x}}{2}</script><script type="math/tex; mode=display">F(x) = \prod \frac{e^{\frac{p_i}{P}x} + (-1)^{s_i} e^{-\frac{p_i}{P}x}}{2}</script><script type="math/tex; mode=display">G_i(x) = \frac{e^{\frac{p_i}{P}x} + e^{-\frac{p_i}{P}x}}{2}</script><script type="math/tex; mode=display">G(x) = \frac{e^{\frac{p_i}{P}x} + e^{-\frac{p_i}{P}x}}{2}</script><p>将 $F(x)$ 写成 $\sum c_i e^{\frac{i}{P}x}$ 的形式，则有</p>
-<script type="math/tex; mode=display">f(x) = \sum_k \left( k![x^k]F(x) \right) x^k</script><script type="math/tex; mode=display">= \sum_k k![x^k]( \sum_i c_i ( \sum_j \frac{(\frac{i}{P}x)^j}{j!} ) )x^k</script><script type="math/tex; mode=display">= \sum_k ( k! \sum_i c_i \frac{(\frac{i}{P})^k}{k!} ) x^k = \sum_k  (\sum_i c_i (\frac{i}{P})^k) x^k</script><script type="math/tex; mode=display">= \sum_i c_i \sum_k (\frac{i}{P})^k x^k = \sum_i \frac{c_i}{1 - \frac{i}{P}x}</script><p>同理有 $g(x) = \sum_i \frac{d_i}{1 - \frac{i}{P}x}$。$c_i$, $d_i$ 可以简单 $O(nP)$ 背包得出！</p>
+<p>$$G_i(x) = \sum\limits_{n \geq 0} [n\ mod\ 2 == 0] \frac{( \frac{p_i}{P} )^n}{n!} x^n$$<br>$$G(x) = \prod G_i(x)$$<br>写成 OGF $$g(x) = \sum_k (k! * [x^k]G(x)) * x^k$$</p>
+<p>写成封闭形式<br>$$F_i(x) = \frac{e^{\frac{p_i}{P}x} + (-1)^{s_i} e^{-\frac{p_i}{P}x}}{2}$$<br>$$F(x) = \prod \frac{e^{\frac{p_i}{P}x} + (-1)^{s_i} e^{-\frac{p_i}{P}x}}{2}$$<br>$$G_i(x) = \frac{e^{\frac{p_i}{P}x} + e^{-\frac{p_i}{P}x}}{2}$$<br>$$G(x) = \frac{e^{\frac{p_i}{P}x} + e^{-\frac{p_i}{P}x}}{2}$$<br>将 $F(x)$ 写成 $\sum c_i e^{\frac{i}{P}x}$ 的形式，则有</p>
+<p>$$f(x) = \sum_k \left( k![x^k]F(x) \right) x^k$$</p>
+<p>$$= \sum_k k![x^k]( \sum_i c_i ( \sum_j \frac{(\frac{i}{P}x)^j}{j!} ) )x^k$$</p>
+<p>$$= \sum_k ( k! \sum_i c_i \frac{(\frac{i}{P})^k}{k!} ) x^k = \sum_k  (\sum_i c_i (\frac{i}{P})^k) x^k $$</p>
+<p>$$= \sum_i c_i \sum_k (\frac{i}{P})^k x^k = \sum_i \frac{c_i}{1 - \frac{i}{P}x} $$</p>
+<p>同理有 $g(x) = \sum_i \frac{d_i}{1 - \frac{i}{P}x}$。$c_i$, $d_i$ 可以简单 $O(nP)$ 背包得出！</p>
 <p>补充求导加减乘除法法则：</p>
-<script type="math/tex; mode=display">(f(x) + g(x))' = f'(x) + g'(x)</script><script type="math/tex; mode=display">(f(x) - g(x))' = f'(x) - g'(x)</script><script type="math/tex; mode=display">(f(x) \cdot g(x))' = f'(x)g(x) + f(x)g'(x)</script><script type="math/tex; mode=display">(\frac{f(x)}{g(x)})' = \frac{f'(x)g(x) - f(x)g'(x)}{g(x)^2}</script><p>所以要求 $h’(x)$，只要计算出 $f(1)$, $f’(1)$, $g(1)$, $g’(1)$.</p>
+<p>$$(f(x) + g(x))’ = f’(x) + g’(x)$$</p>
+<p>$$(f(x) - g(x))’ = f’(x) - g’(x)$$</p>
+<p>$$(f(x) \cdot g(x))’ = f’(x)g(x) + f(x)g’(x)$$</p>
+<p>$$(\frac{f(x)}{g(x)})’ = \frac{f’(x)g(x) - f(x)g’(x)}{g(x)^2}$$</p>
+<p>所以要求 $h’(x)$，只要计算出 $f(1)$, $f’(1)$, $g(1)$, $g’(1)$.</p>
 <p><strong>然后又是常识问题：无知如我就想直接带 1 进去了，但这不行！！！因为 $i = P$ 项的存在，函数不收敛！！！</strong></p>
 <p>怎么办？乘上 $1 - x$</p>
-<script type="math/tex; mode=display">f(x) = c_P + \sum\limits_{i \neq P} \frac{c_i(1 - x)}{1 - \frac{i}{P}x}</script><script type="math/tex; mode=display">f(1) = c_P</script><script type="math/tex; mode=display">f'(x) = \sum\limits_i \frac{ -c_i(1 - \frac{i}{P}x) - (c_i - c_ix)(-\frac{i}{P}) }{(1 - \frac{i}{P}x)^2} = \sum\limits_i \frac{ (\frac{i}{P} - 1)c_i }{ (\frac{i}{P}x - 1)^2 }</script><script type="math/tex; mode=display">f'(1) = \sum\limits_{i \neq P} \frac{c_i}{\frac{i}{P} - 1}</script><p>同理 $g(1) = d_P$, $g’(1) = \sum\limits_{i \neq P} \frac{d_i}{\frac{i}{P} - 1}$</p>
-<script type="math/tex; mode=display">h'(1) = \sum\limits_{i \neq P} \frac{c_id_P - c_Pd_i}{(i - 1)d_P^2}</script><p>神奇！</p>
+<p>$$f(x) = c_P + \sum\limits_{i \neq P} \frac{c_i(1 - x)}{1 - \frac{i}{P}x}$$</p>
+<p>$$f(1) = c_P$$</p>
+<p>$$f’(x) = \sum\limits_i \frac{ -c_i(1 - \frac{i}{P}x) - (c_i - c_ix)(-\frac{i}{P}) }{(1 - \frac{i}{P}x)^2} = \sum\limits_i \frac{ (\frac{i}{P} - 1)c_i }{ (\frac{i}{P}x - 1)^2 } $$</p>
+<p>$$f’(1) = \sum\limits_{i \neq P} \frac{c_i}{\frac{i}{P} - 1}$$</p>
+<p>同理 $g(1) = d_P$, $g’(1) = \sum\limits_{i \neq P} \frac{d_i}{\frac{i}{P} - 1}$</p>
+<p>$$h’(1) = \sum\limits_{i \neq P} \frac{c_id_P - c_Pd_i}{(i - 1)d_P^2}$$</p>
+<p>神奇！</p>
 <p><a href="https://loj.ac/s/1010266" target="_blank" rel="noopener">$Code$</a></p>
 <p>从中获得的启示：</p>
 <ul>

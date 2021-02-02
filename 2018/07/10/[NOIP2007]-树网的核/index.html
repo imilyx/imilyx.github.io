@@ -154,8 +154,10 @@
 <p>该算法 $O(n log SUM)$ ，其中 $SUM$ 表示树网所有边的长度之和。</p>
 <p>据说还有一个 $O(n)$ 的算法。算出 $d[u_i]$ ，表示从每一个直径上的节点 $u1$ ~ $ut$ ，不经过直径上的其他节点，能够到达的最远点的距离。</p>
 <p>所以实际上答案是：</p>
-<script type="math/tex; mode=display">max(max_{i \leq k \leq j}\{d[u_k]\}, dist(u_1, u_i), dist(u_j, u_t))</script><p>由于直径的最长性（标黑加粗！），上式其实可简化为：</p>
-<script type="math/tex; mode=display">max(max_{1 \leq k \leq t}\{d[u_k]\}, dist(u_1, u_i), dist(u_j, u_t))</script><p>$max_{1 \leq k \leq t}\{d[u_k]\}$ 是定值，可以直接算出。</p>
+<p>$$max(max_{i \leq k \leq j}{d[u_k]}, dist(u_1, u_i), dist(u_j, u_t))$$</p>
+<p>由于直径的最长性（标黑加粗！），上式其实可简化为：</p>
+<p>$$max(max_{1 \leq k \leq t}{d[u_k]}, dist(u_1, u_i), dist(u_j, u_t))$$</p>
+<p>$max_{1 \leq k \leq t}{d[u_k]}$ 是定值，可以直接算出。</p>
 <p>所以最后只要用指针计算后两项，单调递增，$O(n)$ ！！</p>
 <p>所以说，算法从某种程度上，设计、优化是永无止境的啊，一定要多动脑，不要满足于AC。</p>
 <p>$O(n log SUM)$.</p>
