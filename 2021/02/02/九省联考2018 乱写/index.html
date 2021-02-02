@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比如 $n = 4$, $k = 2.0$, $1$ $1$ $1$ $2$ 和 $1$ $1$ $2$">
+    <meta name="description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:type" content="article">
 <meta property="og:title" content="九省联考2018 乱写">
 <meta property="og:url" content="http://yoursite.com/2021/02/02/九省联考2018 乱写/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比如 $n = 4$, $k = 2.0$, $1$ $1$ $1$ $2$ 和 $1$ $1$ $2$">
+<meta property="og:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-02T11:52:22.308Z">
+<meta property="og:updated_time" content="2021-02-02T14:07:20.243Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
-<meta name="twitter:description" content="传送门 $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。$Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比如 $n = 4$, $k = 2.0$, $1$ $1$ $1$ $2$ 和 $1$ $1$ $2$">
+<meta name="twitter:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
     
     
         
@@ -137,14 +137,29 @@
 
   <div class="content" itemprop="articleBody">
     <p><a href="https://loj.ac/p?keyword=%E4%B9%9D%E7%9C%81%E8%81%94%E8%80%83" target="_blank" rel="noopener">传送门</a></p>
+<p>按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-||</p>
 <h2 id="一双木棋"><a href="#一双木棋" class="headerlink" title="$一双木棋$"></a>$一双木棋$</h2><hr>
-<p>有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。<a href="https://loj.ac/s/1054666" target="_blank" rel="noopener">$Code$</a></p>
+<p>有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。</p>
+<p><a href="https://loj.ac/s/1054666" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="IIIDX"><a href="#IIIDX" class="headerlink" title="$IIIDX$"></a>$IIIDX$</h2><hr>
 <p>我太菜了！直接贪心在 $d$ 有重复的时候是错的，比如 $n = 4$, $k = 2.0$, $1$ $1$ $1$ $2$ 和 $1$ $1$ $2$ $1$。</p>
-<p>这其实是个树，而且填数是有<strong>单调性</strong>的。把 $d$ 从大到小排序，把树建出来，$x$ 如果要填在 $i$ 点，$x$ 及其左边「还没填的数个数」必须 $\geq size[i]$。如果选走了 $x$，对于小于 $x$ 的 $y$，就要更新 $y$ 左边「还没填的数个数」。</p>
-<p><strong>到达儿子时，要把父亲给它预留的位置去掉。</strong></p>
+<p>正解挺灵活的。建树，把 $d$ 从大到小排序。对每个权值维护一个 $c_i$ 表示<strong>别的节点至多能在 $i$ 左边拿走几个</strong>。我们知道把 $i$ 填到 $x$ 点就要在 $i$ 左边预留出 $size[x]$ 个空位放到 $x$ 的子树里，但是不能确定是哪些个空位因为会影响后面的判定。这时要把 $[i, n]$ 的 $c$ 减去 $size[x]$。</p>
+<p><strong>$c$ 实际上是用来限制同层的</strong>，所以往下走到儿子时，要把父亲给它预留的位置释放掉。</p>
 <p><a href="https://loj.ac/s/1055202" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="秘密袭击"><a href="#秘密袭击" class="headerlink" title="$秘密袭击$"></a>$秘密袭击$</h2><hr>
+<p>求树的每个连通块第 $K$ 大权值之和。类似整数概率公式一样的拆分权值：</p>
+<p>$$Ans = \sum\limits_{S} Kth \in S = \sum\limits_{i = 1}^W i \sum\limits_S [Kth \in S == i]$$</p>
+<p>$$= \sum\limits_{i = 1}^W \sum\limits_{S} [Kth \in S \geq i] = \sum\limits_{i = 1}^W \sum\limits_S [cnt(S, i) \geq K]$$</p>
+<p>其中 $cnt(S, i)$ 表示连通块 $S$ 中权值 $\geq i$ 的点数。</p>
+<p>问题转化为：枚举权值 $v$，统计 $\geq v$ 的权值出现次数 $\geq K$ 的连通块个数。 </p>
+<p>这似乎可以 dp？！$f_{i, j, k}$ 表示以 $i$ 为最浅点，权值 $\geq j$ 的出现次数为 $k$ 的连通块数。有：$f_{i, j, k} = \prod\limits_{v \in Son(i)} f_{v, j, k’}(\sum k’ = k - 1)$。答案就是 $\sum\limits_{k = 1}^K \sum\limits_{i = 1}^n \sum\limits_{j = 1}^W f_{i, j, k}$</p>
+<p>（据说 $O(n^2K)$ 能过，但来都来了是吧）</p>
+<p>令 $F_{i, j} = \sum\limits_{k = 0}^n f_{i, j, k} * x^k$，$G_{i, j} = \sum\limits_{x \in subtree(i)} F_{x, j}$。</p>
+<p>代 $n + 1$ 个点值进去，让 $F$ 是点值状态，转移就是对应位相乘，于是就用整体 dp 的思想在每个点上维护一棵线段树，用线段树合并转移。最后再拉格朗日插值插回来。</p>
+<p>为了方便，我们写一棵线段树，每个节点维护一个变换 $(a, b, c, d)$ 表示 $(aF + b, cF + d + G)$。$(a, b, c, d)$ 和 $(A, B, C, D)$ 相乘，得到 $(Aa, Ab + B, Ca + c, Cb + D + d)$</p>
+<p>初始化：$F_{i, j} = (val_i \geq j\ ?\ x : 1)$</p>
+<p>转移：$F_{i, j} *= F_{son_i, j}$, $G_{i, j} += G_{son_i, j}$</p>
+<p><a href>$Code$</a></p>
 <h2 id="劈配"><a href="#劈配" class="headerlink" title="$劈配$"></a>$劈配$</h2><hr>
 <h2 id="林克卡特树"><a href="#林克卡特树" class="headerlink" title="$林克卡特树$"></a>$林克卡特树$</h2><hr>
 <h2 id="制胡窜"><a href="#制胡窜" class="headerlink" title="$制胡窜$"></a>$制胡窜$</h2><hr>
