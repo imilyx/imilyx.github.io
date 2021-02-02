@@ -155,7 +155,7 @@
 <h3 id="D-Vasya-and-Triangle"><a href="#D-Vasya-and-Triangle" class="headerlink" title="D. Vasya and Triangle"></a>D. Vasya and Triangle</h3><hr>
 <p>因为存在多个答案，是构造题，所以挑最容易构的直角三角形就可以过。</p>
 <p>首先—三角形向量面积公司—叉积公式了解一下：$S = \frac{1}{2} |x_1y_2 - x_2y_1|$, 其中 $(x_1, y_1)$ $(x_2, y_2)$ 分别是三角形两边所表示向量的坐标。</p>
-<p>首先，根据叉积公式算出来的 2S 一定是整数，那么 $\frac{nm}{k}$ 一定是 0.5 的倍数，即 $\frac{2nm}{k}$ 应该是整数，反之若 $2 <em> n </em> m\ mod\ k \neq 0$, 无解.</p>
+<p>首先，根据叉积公式算出来的 2S 一定是整数，那么 $\frac{nm}{k}$ 一定是 0.5 的倍数，即 $\frac{2nm}{k}$ 应该是整数，反之若 $2 <em> n </em> m mod k \neq 0$, 无解.</p>
 <p>接下来是有解的情况。</p>
 <p>构造直角三角形，相当于构造一个 (0, 0) (X, 0) (Y, 0) 形式的直角三角形，那么 XY = 2S = 2nm / k = nm / (k / 2). 令 d = gcd(n, k), x1 = n / d, y1 = 0, x2 = 0, y2  = m / (k / d), x3 = y3 = 0.</p>
 <p>但是因为 k % 2 不一定 = 0, 所以如果 k % 2 = 0, k /= 2; 否则，如果 x1 &lt;= n / 2, x1 = 2x1, 否则 y2 = 2y2.</p>
@@ -245,23 +245,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

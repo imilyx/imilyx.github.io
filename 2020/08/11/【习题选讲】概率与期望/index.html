@@ -175,7 +175,7 @@
 <script type="math/tex; mode=display">f[i, j] = P_b \sum\limits_{k = 0}^{\infty} P_a^k (i + j + k)</script><script type="math/tex; mode=display">= P_b\sum\limits_{k = 0}^{\infty} P_a^k \times k + P_b(i + j)\sum\limits_{k = 0}^{\infty}P_a^k</script><script type="math/tex; mode=display">= i + j + \frac{P_a}{P_b}</script><h3 id="「PKUWC2018」猎人杀"><a href="#「PKUWC2018」猎人杀" class="headerlink" title="$「PKUWC2018」猎人杀$"></a><a href="https://loj.ac/problem/2541" target="_blank" rel="noopener">$「PKUWC2018」猎人杀$</a></h3><p>很妙的概率题。</p>
 <p>分母是变化的，很不好求。</p>
 <p>问题可以转化一波，变成：死掉的猎人依旧算在概率里面，每一轮一直开枪直到射死一个没死过的猎人。这样每次能选的就是全集了。</p>
-<p>设 $W = \sum w_i$, $T = \{w_i\ |\ (i\ has\ died)\}$, $sum(T) = \sum\limits_{i\ has\ died} w_i$</p>
+<p>设 $W = \sum w_i$, $T = \{w_i | (i has died)\}$, $sum(T) = \sum\limits_{i has died} w_i$</p>
 <p>转化前射死 $i$ 的概率 $P = \frac{wi}{(W - T)}$</p>
 <p>转化后射死 $i$ 的概率 $P = \frac{T}{W}P + \frac{wi}{W} = \frac{wi}{W - T}$</p>
 <p>两者相等。</p>
@@ -303,23 +303,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

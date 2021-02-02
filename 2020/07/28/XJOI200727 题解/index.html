@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i]\ mod\ k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于">
+    <meta name="description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i] mod k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于二分">
 <meta name="keywords" content="思维,模拟赛,NTT优化,容斥原理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XJOI200727 题解">
 <meta property="og:url" content="http://yoursite.com/2020/07/28/XJOI200727 题解/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i]\ mod\ k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于">
+<meta property="og:description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i] mod k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于二分">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-14T07:08:15.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XJOI200727 题解">
-<meta name="twitter:description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i]\ mod\ k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于">
+<meta name="twitter:description" content="只订了 A B，题真好（nán）啊 ~ A 答案是 $\sum (ai + k - a[i] mod k)$ 考虑 a[i] &amp;lt; k 的时候，这段长度就是 k 所以我们可以将 k 从小到大排序，对于每个 k 删掉 &amp;lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理 为什么这样复杂度是对的呢？每个 a[i] 被计算它的大小次，所以是 O(n + Qlogn) 的（瓶颈在于二分">
     
     
         
@@ -144,7 +144,7 @@
   <div class="content" itemprop="articleBody">
     <p>只订了 A B，题真好（nán）啊 ~</p>
 <h2 id="A"><a href="#A" class="headerlink" title="A"></a>A</h2><hr>
-<p>答案是 $\sum (ai + k - a[i]\ mod\ k)$</p>
+<p>答案是 $\sum (ai + k - a[i] mod k)$</p>
 <p>考虑 a[i] &lt; k 的时候，这段长度就是 k</p>
 <p>所以我们可以将 k 从小到大排序，对于每个 k 删掉 &lt; k 的 a[i]，对于剩下的点做前缀和、二分，边界特殊处理</p>
 <p>为什么这样复杂度是对的呢？<strong>每个 a[i] 被计算它的大小次</strong>，所以是 O(n + Qlogn) 的（瓶颈在于二分）</p>
@@ -163,8 +163,8 @@
 <p><strong>本题所有思考基于一个性质：对于 $gcd(a, b) = 1$，$l = a \times b$, $len(l) = lcm(len(a), len(b))$</strong></p>
 <p>所以只要考虑所有 = 质数的 m 就好了。</p>
 <p>考虑 f(n) 怎么算，显然 $f(n) = x \times a^n + \sum\limits_{i &lt; n} c \times a^i$</p>
-<p>那么就是要求 $x \times a^n + \sum\limits_{i &lt; n} c \times a^i \equiv x (mod\ m)$ 的最小 n</p>
-<p>即 $\frac{a^n - 1}{a - 1} \equiv x(1 - a^n) (mod\ m)$ </p>
+<p>那么就是要求 $x \times a^n + \sum\limits_{i &lt; n} c \times a^i \equiv x (mod m)$ 的最小 n</p>
+<p>即 $\frac{a^n - 1}{a - 1} \equiv x(1 - a^n) (mod m)$ </p>
 <p>然后开始分讨：</p>
 <ul>
 <li>a = 0：循环节为 1</li>
@@ -255,23 +255,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

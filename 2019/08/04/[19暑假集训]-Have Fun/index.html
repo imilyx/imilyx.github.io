@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="$\sout{NOT\ FUN\ AT\ ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边">
+    <meta name="description" content="$\sout{NOT FUN AT ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边一端黑">
 <meta name="keywords" content="博弈">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[19暑假集训]-Have Fun">
 <meta property="og:url" content="http://yoursite.com/2019/08/04/[19暑假集训]-Have Fun/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="$\sout{NOT\ FUN\ AT\ ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边">
+<meta property="og:description" content="$\sout{NOT FUN AT ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边一端黑">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T05:49:56.811Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[19暑假集训]-Have Fun">
-<meta name="twitter:description" content="$\sout{NOT\ FUN\ AT\ ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边">
+<meta name="twitter:description" content="$\sout{NOT FUN AT ALL}$ 原题 说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。 这是不影响正确性的！因为最后算的是分数差，若一条边一端黑">
     
     
         
@@ -138,7 +138,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>$\sout{NOT\ FUN\ AT\ ALL}$</p>
+    <p>$\sout{NOT FUN AT ALL}$</p>
 <p><a href="https://www.luogu.org/problem/P4643" target="_blank" rel="noopener">原题</a></p>
 <p>说是博弈，其实是思维题。若一条边两端都是黑色，则小 L 分数 += (两端点权 + 该边边权)；两端都是白色则小 G<br>分数 += (两端点权 + 该边边权)；否则小 L 分数 += (L 的点权 + (1 / 2)该边边权)，小 G 分数 += (G 的点权 + (1 / 2)该边边权)。</p>
 <p>这是不影响正确性的！因为最后算的是分数差，若一条边一端黑一端白，那么算差时就是（白点点权 - 黑点点权 + (1 / 2)该边边权 - (1 / 2)该边边权), 没问题滴～</p>
@@ -230,23 +230,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

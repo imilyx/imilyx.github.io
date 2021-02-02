@@ -145,7 +145,7 @@
     <h2 id="T1-奇怪装置"><a href="#T1-奇怪装置" class="headerlink" title="$T1. 奇怪装置$"></a><a href="https://loj.ac/problem/3144" target="_blank" rel="noopener">$T1. 奇怪装置$</a></h2><hr>
 <p>考虑到这有周期性，我们思考时刻 $t1$ 和 $t2$ $(t1 &lt; t2)$ 在何时意义相同：设 $L = t2 - t1$ （$L$ 即是周期大小）</p>
 <script type="math/tex; mode=display">L + \lfloor \frac{L}{B} \rfloor \equiv 0 (mod\ A)</script><script type="math/tex; mode=display">L \equiv 0 (mod\ B)</script><p>那么那个下取整就可以拆了，整理一下：</p>
-<script type="math/tex; mode=display">\frac{L(B + 1)}{B} \equiv 0 (mod\ A)</script><p>有一个定理：$ac \equiv bc(mod\ m)$，则 $a \equiv b(mod\ \frac{m}{gcd(m, c)})$，于是</p>
+<script type="math/tex; mode=display">\frac{L(B + 1)}{B} \equiv 0 (mod\ A)</script><p>有一个定理：$ac \equiv bc(mod m)$，则 $a \equiv b(mod \frac{m}{gcd(m, c)})$，于是</p>
 <script type="math/tex; mode=display">L \equiv 0 (mod\ \frac{AB}{gcd(AB, B + 1)})</script><p>而因为 $gcd(x, x + 1) = 1$ 恒成立，所以</p>
 <script type="math/tex; mode=display">L \equiv 0 (mod\ \frac{AB}{gcd(A, B + 1)})</script><p>得到了周期大小，我们将区间在模 $L$ 意义下求区间覆盖就好了。</p>
 <h2 id="T2-桥梁"><a href="#T2-桥梁" class="headerlink" title="$T2. 桥梁$"></a><a href="https://loj.ac/problem/3145" target="_blank" rel="noopener">$T2. 桥梁$</a></h2><hr>
@@ -252,23 +252,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

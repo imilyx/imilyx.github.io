@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最大权闭合子图"><span class="toc-number">1.</span> <span class="toc-text">最大权闭合子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Salty-Fish"><span class="toc-number">1.1.</span> <span class="toc-text">$Salty\ Fish$</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最大权闭合子图"><span class="toc-number">1.</span> <span class="toc-text">最大权闭合子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Salty-Fish"><span class="toc-number">1.1.</span> <span class="toc-text">$Salty Fish$</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -154,7 +154,7 @@
 </li>
 </ul>
 <p>习题：</p>
-<h3 id="Salty-Fish"><a href="#Salty-Fish" class="headerlink" title="$Salty\ Fish$"></a><a href="https://vjudge.net/problem/HDU-6634" target="_blank" rel="noopener">$Salty\ Fish$</a></h3><p>显然的最大权闭合子图模型。本质却是贪心——一个摄像头尽可能的清理掉子树里剩下的苹果中，深度大的。</p>
+<h3 id="Salty-Fish"><a href="#Salty-Fish" class="headerlink" title="$Salty Fish$"></a><a href="https://vjudge.net/problem/HDU-6634" target="_blank" rel="noopener">$Salty Fish$</a></h3><p>显然的最大权闭合子图模型。本质却是贪心——一个摄像头尽可能的清理掉子树里剩下的苹果中，深度大的。</p>
 <p>与深度有关就长链剖分，开一个 $map$，$mp[x, d]$ 维护 $x$ 子树中深度为 $d$ 的苹果个数。每个苹果只在所在长链的根处被合并一次，$O((n + m)logn)$</p>
 <p>然而这题要直接继承重儿子的 $map$，不然就 $MLE$。。以后写代码也注意一点。</p>
 <p><a href="http://acm.hdu.edu.cn/viewcode.php?rid=34972168" target="_blank" rel="noopener">$Code$</a></p>
@@ -188,7 +188,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最大权闭合子图"><span class="toc-number">1.</span> <span class="toc-text">最大权闭合子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Salty-Fish"><span class="toc-number">1.1.</span> <span class="toc-text">$Salty\ Fish$</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最大权闭合子图"><span class="toc-number">1.</span> <span class="toc-text">最大权闭合子图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Salty-Fish"><span class="toc-number">1.1.</span> <span class="toc-text">$Salty Fish$</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -243,23 +243,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

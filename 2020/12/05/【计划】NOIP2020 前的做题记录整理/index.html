@@ -251,12 +251,12 @@
 <p><a href="https://loj.ac/s/991228" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="HNOI2013-与或非"><a href="#HNOI2013-与或非" class="headerlink" title="$HNOI2013-与或非$"></a><a href="https://www.luogu.com.cn/problem/P3220" target="_blank" rel="noopener">$HNOI2013-与或非$</a></h3><hr>
 <p>（原来与非（$nand$）是真的存在啊，，不是为题而编出来的，，）</p>
-<p>这是个很强大的运算，$and$、$or$、$xor$、$not$ 均可用 $nand$ 来表示。$not\ A = A\ nand\ A$, $A\ and\ B = not\ (A\ nand\ B)$, $A\ or\ B = (not\ A)\ nand\ (not\ B)$，而 $xor$ 显然可以由另外三种表出。</p>
+<p>这是个很强大的运算，$and$、$or$、$xor$、$not$ 均可用 $nand$ 来表示。$not A = A nand A$, $A and B = not (A nand B)$, $A or B = (not A) nand (not B)$，而 $xor$ 显然可以由另外三种表出。</p>
 <p>所以题目等价于可以将 $n$ 个数任意位运算起来！吼吼</p>
 <p>变中找不变。若存在两个位置 $i$ 和 $j$ 使得 $n$ 个数的 $i$ 和 $j$ 位都相同，显然最终搞出的数 $i$ 和 $j$ 位也是相同的。因此数位 $dp$ 的时候从高位到低位考虑，确定当前位后必须将和它相同的位标记一下。</p>
 <p>剩余没有互相限制的位置可以任意取 $0$ 或 $1$。为什么？？考虑用线性基的思想构造解（假设当前要取第 $x$ 位为 $1$）：通过一些操作把 $n$ 个数消成上三角；对于第 $x$ 位为 $0$ 的 $a_i$ 把 $a_i$ 取反，否则不动。把 $a$ 全部 &amp; 起来，$x$ 位上必然是 $1$；同时由于 $x$ 没有互相限制的位置，没有其他位上为 $1$。</p>
 <h3 id="重返现世"><a href="#重返现世" class="headerlink" title="$重返现世$"></a><a href="https://www.luogu.com.cn/problem/P4707" target="_blank" rel="noopener">$重返现世$</a></h3><hr>
-<p>好像第一次做 $k-th\ \min-\max$ 容斥的题。。可能只是板子题，但是 $dp$ 容斥系数的方法挺重要，碰到好几次了记录一下。</p>
+<p>好像第一次做 $k-th \min-\max$ 容斥的题。。可能只是板子题，但是 $dp$ 容斥系数的方法挺重要，碰到好几次了记录一下。</p>
 <p>$\min_k$ 和 $\max_k$ 可以转化。</p>
 <script type="math/tex; mode=display">E(\max_k(S)) = \sum\limits_{T \subset S} (-1)^{|T| - k} C(|T| - 1, k - 1) * E(\min(T))</script><script type="math/tex; mode=display">E(\min(T)) = \frac{m}{\sum\limits_{t \in T} p_t}</script><p>容斥这东西的系数显然可以 $dp$，老套路了。</p>
 <p>考虑状态怎么设计，我们可以把 $k$ 和 $E(\min(T))$ 给表示到状态里：$f[i, j, k]$ 表示, 当前到第 $i$ 种原料，$\sum p_t = j$, 柿子中的 $k = k$ 时, $\sum\limits_{T \subset S} (-1)^{|T| - k} C(|T| - 1, k - 1)$ 的和。转移：</p>
@@ -420,23 +420,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

@@ -218,7 +218,7 @@
 </ul>
 <h2 id="nim博弈"><a href="#nim博弈" class="headerlink" title="nim博弈"></a>nim博弈</h2><ul>
 <li>n 堆石子，每堆有 a_i 个，每次选择一堆选若干个。XOR(a_i) = 0 则先手必败，否则先手必胜。</li>
-<li>证明：设 k = XOR(a_i), a_i 为包含 k 最高位的一堆个数，考虑取 $a_i - (a_i\ xor\  k)$ 个使得 a_i 变为 a_i\ xor\ k，这样总的异或和又变为 0。这跟 bash 博弈有异曲同工之妙的就是维持一个稳定态（后手必败态）。</li>
+<li>证明：设 k = XOR(a_i), a_i 为包含 k 最高位的一堆个数，考虑取 $a_i - (a_i xor  k)$ 个使得 a_i 变为 a_i xor k，这样总的异或和又变为 0。这跟 bash 博弈有异曲同工之妙的就是维持一个稳定态（后手必败态）。</li>
 </ul>
 <h2 id="Wythoff博弈"><a href="#Wythoff博弈" class="headerlink" title="Wythoff博弈"></a>Wythoff博弈</h2><ul>
 <li>两堆石子，两人轮流从任意一堆中取至少一个或同时从两堆中取同样多的物品，取不到者败。</li>
@@ -244,7 +244,7 @@
 <h2 id="分块"><a href="#分块" class="headerlink" title="分块"></a>分块</h2><h2 id="莫队"><a href="#莫队" class="headerlink" title="莫队"></a>莫队</h2><ul>
 <li>根号数据结构嘛。。1e5 内都可做。另外相邻状态能 $O(1)$ 转移。$O(log)$ 要看过不过得去了。。？</li>
 <li>不带修莫队：记录 $(l, r)$，按$l$ 第一关键字，$r$ 第二关键字排序。换块 $O(n)$，同一个块中 $O(\sqrt{n})$，所以总共 $O(n\sqrt{n})$</li>
-<li>带修莫队：记录 $(l, r, t)$，$t$ 表示第几次修改，按$l$ 第一关键字，$r$ 第二关键字，$t$ 第三关键字排序，每次若当前修改数比 $t$ 少就将没修改的修改，否则回退。注意如果修改 $(l, r)$ 里的信息要更新答案。复杂度不会分析，视作 $n = m$ 的话，块大小取 $n^{\frac{2}{3}}$ 时有最小值 $n^{\frac{5}{3}}$，所以大约是 $O(n^{\frac{5}{3}} + n\ log\ n)$</li>
+<li>带修莫队：记录 $(l, r, t)$，$t$ 表示第几次修改，按$l$ 第一关键字，$r$ 第二关键字，$t$ 第三关键字排序，每次若当前修改数比 $t$ 少就将没修改的修改，否则回退。注意如果修改 $(l, r)$ 里的信息要更新答案。复杂度不会分析，视作 $n = m$ 的话，块大小取 $n^{\frac{2}{3}}$ 时有最小值 $n^{\frac{5}{3}}$，所以大约是 $O(n^{\frac{5}{3}} + n log n)$</li>
 <li>树上莫队：还是序列问题，将树转化成欧拉序。注意特判 LCA。复杂度分析视作序列问题，带修和不带修复杂度同上⬆</li>
 <li><a href="http://uoj.ac/submission/430504" target="_blank" rel="noopener">[UOJ58]-糖果公园</a>，一道朴实无华的带修树上莫队（这里采用的是直接跳 LCA + 直接分块，也可以欧拉序）</li>
 </ul>
@@ -269,7 +269,7 @@
 </ul>
 <h2 id="AC自动机"><a href="#AC自动机" class="headerlink" title="AC自动机"></a>AC自动机</h2><h2 id="SA"><a href="#SA" class="headerlink" title="SA"></a>SA</h2><ul>
 <li>大多是用 $height$ 数组搞事情。（$height[i]$ 表示排名 $i$ 的后缀和排名 $i - 1$ 的后缀的最长公共前缀。）</li>
-<li>倍增 + 桶排不多说，复杂度 $O(n\ log\ n)$。重点是 $height$ 数组，有结论：$height[rk[i]] &gt;= height[rk[i - 1]] - 1$，近似单调，因此可以 $O(n)$ 求。</li>
+<li>倍增 + 桶排不多说，复杂度 $O(n log n)$。重点是 $height$ 数组，有结论：$height[rk[i]] &gt;= height[rk[i - 1]] - 1$，近似单调，因此可以 $O(n)$ 求。</li>
 <li><a href="https://loj.ac/submission/929295" target="_blank" rel="noopener">[NOI2016]-优秀的拆分</a></li>
 </ul>
 <h2 id="SAM"><a href="#SAM" class="headerlink" title="SAM"></a>SAM</h2><h2 id="manacher"><a href="#manacher" class="headerlink" title="manacher"></a>manacher</h2><hr>
@@ -365,23 +365,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

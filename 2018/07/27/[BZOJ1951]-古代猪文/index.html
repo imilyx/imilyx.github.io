@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d}\ mod\ 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q,">
+    <meta name="description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d} mod 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q, 9">
 <meta name="keywords" content="数论">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ1951]-古代猪文">
 <meta property="og:url" content="http://yoursite.com/2018/07/27/[BZOJ1951]-古代猪文/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d}\ mod\ 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q,">
+<meta property="og:description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d} mod 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q, 9">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:02:51.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[BZOJ1951]-古代猪文">
-<meta name="twitter:description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d}\ mod\ 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q,">
+<meta name="twitter:description" content="https://vjudge.net/problem/HYSBZ-1951 题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d} mod 999911659$ 。 数论经典题！出现了很多知识点，值得回顾！ 若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q, 9">
     
     
         
@@ -143,10 +143,10 @@
 
   <div class="content" itemprop="articleBody">
     <p><a href="https://vjudge.net/problem/HYSBZ-1951" target="_blank" rel="noopener">https://vjudge.net/problem/HYSBZ-1951</a></p>
-<p>题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d}\ mod\ 999911659$ 。</p>
+<p>题意：给定整数 q, n($1 \leq q, n \leq 10^9$)，计算 $q^{\sum_{d | n} C_{n}^d} mod 999911659$ 。</p>
 <p>数论经典题！出现了很多知识点，值得回顾！</p>
 <p>若 q = 999911659, 则上式结果为 0. 否则，因为 999911659 是质数，所以 q, 999911659 互质。由欧拉定理的推论得：</p>
-<script type="math/tex; mode=display">q^{\sum_{d | n} C_n^d}\ mod\ 999911659 \equiv q^{\sum_{d | n} C_n^d\ mod\ 999911658}\ (mod\ 999911659)</script><p>因此，本题的关键是计算 $q^{\sum_{d | n} C_n^d\ mod\ 999911658}\ (mod\ 999911659)$</p>
+<script type="math/tex; mode=display">q^{\sum_{d | n} C_n^d}\ mod\ 999911659 \equiv q^{\sum_{d | n} C_n^d\ mod\ 999911658}\ (mod\ 999911659)</script><p>因此，本题的关键是计算 $q^{\sum_{d | n} C_n^d mod 999911658} (mod 999911659)$</p>
 <p>尝试分解质因数，可以发现 $999911658 = 2 <em> 3 </em> 4679 * 35617$ 。</p>
 <p>我们可以枚举 n 的约数 d，然后运用 Lucas 定理求组合数 $C_n^d$ ，分别计算出 $\sum_{d | n} C_n^d$ 对 2, 3, 4679, 35617 四个质数的取模结果，记为 a1, a2, a3, a4。求组合数时，可以对于质数 p，预处理 p 以内的所有阶乘以及阶乘的模 p 乘法逆元，就能快速计算。</p>
 <p>最后用中国剩余定理求解线性同余方程组：</p>
@@ -245,23 +245,8 @@ x\ mod\ 35617\ =\ a4 \\
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
