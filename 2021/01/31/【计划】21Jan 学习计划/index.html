@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="新年新坑~ $\mathcal{1.2}$ Todo: vp UOJ，订正今天模拟赛, 订正胡策 4，vp AGC012/043，学习斯特林数，巩固 SAM 和生成函数，uoj交互题，清华集训14、16、17，集训队作业，EI与动态图loj560, 3104 SAMPAM最长反链FWT exp ln agc023eagc023dagc020fagc032eagc035eagc029f 订正昨天 T">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-02T07:20:19.999Z">
+<meta property="og:updated_time" content="2021-02-02T08:15:31.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Jan 学习计划">
 <meta name="twitter:description" content="新年新坑~ $\mathcal{1.2}$ Todo: vp UOJ，订正今天模拟赛, 订正胡策 4，vp AGC012/043，学习斯特林数，巩固 SAM 和生成函数，uoj交互题，清华集训14、16、17，集训队作业，EI与动态图loj560, 3104 SAMPAM最长反链FWT exp ln agc023eagc023dagc020fagc032eagc035eagc029f 订正昨天 T">
@@ -156,7 +156,9 @@
 <h4 id="棋盘"><a href="#棋盘" class="headerlink" title="棋盘"></a>棋盘</h4><p>赛场 WA 成 dog 的痛苦你懂吗。后来机房里有人构造出能卡的数据了，但是我 naive 以为我这做法从根本上就错了，实际上只要考虑一种情况：$n$ 为奇数，相邻两列撑满，且这两列距离为偶数。这就需要乱搞了——之间的列从上往下填，填不动了再从下往上填。</p>
 <h4 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h4><p>发现答案只和长度有关，而长度只有 $O(logn)$ 种。算一个长度的答案需要统计左区间贡献、右区间贡献和所有跨中点区间的贡献，要维护前后缀贡献和。</p>
 <h4 id="密集子图"><a href="#密集子图" class="headerlink" title="密集子图"></a>密集子图</h4><p>$1$ 到达每个点的最短路长度不超过 $11$，想到在最短路树上分层状压 $dp$（从浅到深和从深到浅显然都可以）。已有点集中只有上一深度的点能向当前点集连边，且当前点集中每个点都和至少一个上一深度的点连边。$dp_{d, s1, s2}$ 表示深度为 $d$ 的集合为 $s2$，深度 $\leq d$ 的集合为 $s1$，转移枚举两次子集，复杂度 $O(n4^n)$，卡我常不讲武德。</p>
-<h3 id="Fygon-2-0"><a href="#Fygon-2-0" class="headerlink" title="$Fygon\ 2.0$"></a><a href="https://codeforces.com/gym/101612/" target="_blank" rel="noopener">$Fygon\ 2.0$</a></h3><p>把这个 for 循环看作<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i in range(1, n)</span><br><span class="line">    if (j &lt;= i &amp;&amp; i &lt;= k)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Fygon-2-0"><a href="#Fygon-2-0" class="headerlink" title="$Fygon\ 2.0$"></a><a href="https://codeforces.com/gym/101612/" target="_blank" rel="noopener">$Fygon\ 2.0$</a></h3><p>把这个 for 循环看作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">i in range(1, n)</span><br><span class="line">    if (j &lt;= i &amp;&amp; i &lt;= k)</span><br></pre></td></tr></table></figure>
+
 <p>根据不等关系建图，是有向图，先缩点——显然有环的话（比如 $1$ -&gt; $i$ -&gt; $j$ -&gt; $1$）缩点后一个 $SCC$ 里的变量取值相同。<br>缩完是个 $DAG$，$DAG$ 点数就是 $n$ 的次数。</p>
 <p>那么系数是啥？考虑其意义，系数就是实际 $lag$++ 的次数占 $n^{DAG 点数}$ 的几分之几。<br>不考虑存在 $SCC$ 取值相同的情况，因为次数会减小，而我们假定 $n$ 趋近于 $\infty$<br>答案就是 $\frac{DAG 的拓扑序个数}{DAG 点数!}$，状压就好了。</p>
 <h3 id="文学"><a href="#文学" class="headerlink" title="$文学$"></a><a href="https://uoj.ac/problem/47" target="_blank" rel="noopener">$文学$</a></h3><p>题意：给你很多半平面，让你选一些包含所有点。</p>
@@ -201,19 +203,20 @@
 <p>最后一步是处理这个柿子。$5s$, $O(pq)$ 是可以过的！【震惊】我们只需要预处理组合数，$p^2$ 约去分子和分母的公因数，显然分子一定会被消成 1。</p>
 <h2 id="mathcal-1-7"><a href="#mathcal-1-7" class="headerlink" title="$\mathcal{1.7}$"></a>$\mathcal{1.7}$</h2><hr>
 <h3 id="XJOI1646"><a href="#XJOI1646" class="headerlink" title="[$XJOI1646$]"></a>[$XJOI1646$]</h3><p>今天的题烂极了，$T1$ 裸费用流，要 $dij$，$n^2$ 版本因为 $m$ 是 $n^2$ 级别而 $dij$ 复杂度是 $mlogn$；$T2$ $SAM$/$SA$ + 线段树几乎是裸题；$T3$ dancing links 裸题，我不会所以抱灵了。是冬令营模拟赛没错吧，xy 你醒醒！</p>
-<p>最可气的是我吧，$T2$ 没判<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (i + lcp &gt; n) continue;</span><br></pre></td></tr></table></figure></p>
+<p>最可气的是我吧，$T2$ 没判</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (i + lcp &gt; n) continue;</span><br></pre></td></tr></table></figure>
+
 <p>$RE$ 丢 $70$，qswl</p>
 <h1 id="xml-你写题必须考虑边界"><a href="#xml-你写题必须考虑边界" class="headerlink" title="xml 你写题必须考虑边界"></a>xml 你写题必须考虑边界</h1><p>hhz 说 $DLX$ 现在不大会考，所以不订正。</p>
 <h3 id="虫逢"><a href="#虫逢" class="headerlink" title="虫逢"></a><a href="https://uoj.ac/problem/45" target="_blank" rel="noopener">虫逢</a></h3><p>毫无头绪，只能膜题解。暴力做显然补星，本质是比较的对数太多了，考虑随机化减少比较。确定思考方向：最大化同源虫子的比较概率且尽量让不同源虫子的比较概率小。注意这里的“比较概率”指的是<strong>有机会进行比较的概率</strong>。</p>
-<p>随机为每个基因分配权值，定义一个虫子的关键值是它的基因最小值，那么一对虫子<strong>有机会</strong>进行比较当且仅当它们关键值相同，即一对同源虫子比较概率是 $1/3$（假设它们的基因集合分别为 $\{X, Y\}$, $\{X, Z\}$，设最小值在 $X$ 处的概率为 $P$，则显然最小值在 $Y$、$Z$ 处的概率也是 $P$，$P = 1/3$），一对不同源虫子比较概率是 $1/L$（题目输入格式那里说的是“集合”，我就理解为一只虫子的基因组里基因不重啦，给出的基因最劣就只有 $L$ 种啦）。</p>
+<p>随机为每个基因分配权值，定义一个虫子的关键值是它的基因最小值，那么一对虫子<strong>有机会</strong>进行比较当且仅当它们关键值相同，即一对同源虫子比较概率是 $1/3$（假设它们的基因集合分别为 ${X, Y}$, ${X, Z}$，设最小值在 $X$ 处的概率为 $P$，则显然最小值在 $Y$、$Z$ 处的概率也是 $P$，$P = 1/3$），一对不同源虫子比较概率是 $1/L$（题目输入格式那里说的是“集合”，我就理解为一只虫子的基因组里基因不重啦，给出的基因最劣就只有 $L$ 种啦）。</p>
 <p>同源虫子比较概率够大了，不同源虫子的比较概率却太大了。考虑为每个基因分配两个权值（其实就是双模 $hash$ 啦），两个概率分别变为 $1/9$ 和 $1/n$，做一次期望成功匹配 $n/9$ 对，期望做 $9$ 次，可以接受。</p>
 <p><a href="https://uoj.ac/submission/446541" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="量子破碎"><a href="#量子破碎" class="headerlink" title="量子破碎"></a><a href="https://uoj.ac/problem/328" target="_blank" rel="noopener">量子破碎</a></h3><p>别人说一眼 $FWT$，我连 $FWT$ 原理都忘掉了，赶快去复习。</p>
 <p>只能用前两个操作，第一个返回任意一个值不为 $0$ 的下标且返回后就重置序列，第二个那个 $+ 2^i$ 的形式很像 $FWT$。<strong>题目保证 $X \oplus Y$ 不变。</strong></p>
 <p>考虑构造 $A$ 矩阵使得它就是 $FWT$（允许乘上系数），普通的 $FWT$ 矩阵是这样的：</p>
-<script type="math/tex; mode=display">
-\begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}
-\quad</script><p>但它不满足 $AA^T = I$（手玩即可验证）。事实上让矩阵每个元素乘上 $\frac{1}{\sqrt{2}}$ 这个系数即可。</p>
+<p>$$<br>\begin{bmatrix} 1 &amp; 1 \ 1 &amp; -1 \end{bmatrix}<br>\quad<br>$$</p>
+<p>但它不满足 $AA^T = I$（手玩即可验证）。事实上让矩阵每个元素乘上 $\frac{1}{\sqrt{2}}$ 这个系数即可。</p>
 <p>现在我们能用操作二做 $FWT$ 了！考虑它实现了什么，以建立与操作一的联系：$a’_T = ( (-1)^{|T \cap X|} + (-1)^{|T \cap Y|} )a_X$（$a_X = a_Y$），而这个玩意只有在 $|T \cap X|$ 和 $|T \cap Y|$ 奇偶性相同的情况下才不为 $0$。由 $FWT$ 的推导过程可知，$T \cap (X \oplus Y)$ 为偶数。也就是说 query() 返回的任何值与 $X \oplus Y$ 的 $And$ 为偶数。由于随机，期望 $O(n)$ 次出解（<a href="https://wuhongxun.blog.uoj.ac/blog/3112" target="_blank" rel="noopener">官方题解</a>有详细说明，我不是很懂QAQ，只是觉得这玩意概率挺正确）</p>
 <p><a href="https://uoj.ac/submission/446587" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="AGC026F-Manju-Game"><a href="#AGC026F-Manju-Game" class="headerlink" title="[AGC026F-Manju\ Game]"></a>[AGC026F-Manju\ Game]</h3><p><a href="https://www.cnblogs.com/zhouzhendong/archive/2004/01/13/AGC026F.html" target="_blank" rel="noopener">周指导博客</a></p>
@@ -229,7 +232,8 @@
 <p>二分答案。不能同时出现一个串和它的子串，这对应在 $PAM$ 上就是建出由 $(x, ch[x, -])$ 和 $(x, fail[x])$ 组成的 $DAG$ 后在 $DAG$ 上求最长反链。什么你不知道什么是最长反链？<a href>指路caiji blog</a>。</p>
 <h4 id="T2-4"><a href="#T2-4" class="headerlink" title="$T2$"></a>$T2$</h4><p>LCT 没法让一对点的子树信息都正确！只能 $siz[y] - lit[y] - 1$ 了。</p>
 <h4 id="T3-4"><a href="#T3-4" class="headerlink" title="$T3$"></a>$T3$</h4><p>hhz 扔个柿子就跑了 “这是 $Pollard-Rho$ 板题”：</p>
-<script type="math/tex; mode=display">\sum\limits_{d | n} \sum\limits_{g | d} \mu(g) \phi(d)^K \sum\limits_{i = 1}^{\lfloor \frac{n}{gd} \rfloor} ig</script><p>对每个 $K$ 跑一遍 $P-R$。但我不会而且并不太想订，所以咕咕。。</p>
+<p>$$\sum\limits_{d | n} \sum\limits_{g | d} \mu(g) \phi(d)^K \sum\limits_{i = 1}^{\lfloor \frac{n}{gd} \rfloor} ig$$</p>
+<p>对每个 $K$ 跑一遍 $P-R$。但我不会而且并不太想订，所以咕咕。。</p>
 <h3 id="Raining-Season"><a href="#Raining-Season" class="headerlink" title="$Raining\ Season$"></a><a href="https://codeforces.com/contest/1019/problem/E" target="_blank" rel="noopener">$Raining\ Season$</a></h3><p>容易发现我们要求的是<strong>朝下</strong>的半平面交。普通的半平面交对本题没有启发性。实际上它可以用和求<strong>上</strong>凸壳几乎一样的方法解决，只需要把 $ax + b$ 看作 $(a, b)$。为什么？假设半平面交有 $a$ 和 $b$，弹 $b$ 出栈的条件是 $a$ 和 $b$ 的交点在 $c$ 下面；凸包弹 $b$ 出栈的条件是 $(b - a) \times (c - a) &gt; 0$；把两个柿子展开发现是一样的。<a href="https://trinkle.blog.uoj.ac/blog/235" target="_blank" rel="noopener">大佬博客写得挺详细。</a></p>
 <p>所以边分 + 闵可夫斯基合并凸包即可。<strong>注意：边分两倍空间。</strong></p>
 <p><a href="https://codeforces.com/contest/1019/submission/103716170" target="_blank" rel="noopener">$Code$</a></p>
@@ -241,10 +245,11 @@
 11           11
 00           10
 01           11
-</code></pre></li>
+</code></pre>
+</li>
 </ul>
 <p><a href="https://loj.ac/s/1029957" target="_blank" rel="noopener">$Code$</a></p>
-<h2 id="突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）"><a href="#突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）" class="headerlink" title="突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）"></a>突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）</h2><h1 id="春宵苦短，少女前进吧！"><a href="#春宵苦短，少女前进吧！" class="headerlink" title="春宵苦短，少女前进吧！"></a><em>春宵苦短，少女前进吧！</em></h1><p>学习二进制分组思想：在线，维护 $logn$ 个块，大小分别为 $2^k$, $2^{k - 1}$, $\cdots$, 动态往末尾插入新元素，当第 $i$ 块的 $size$ = 第 $i - 1$ 块的 $size$ 时就合并 $i$ 和 $i - 1$，查询就在 $logn$ 个块上二分，复杂度 $O(n <em> T(n) </em> logn)$，其中 $T(n)$ 时合并一次的复杂度。证明可以均摊分析（类似二进制加法），“到下一次操作的时间和块大小相等”，设 $n \cdot T(n)$ 为处理大小为 n 的块的时间，$O(\sum\limits_{i = 1}^{logn} \frac{n}{2^i} \cdot 2^i \cdot T(2^i) ) = O(n \cdot T(n) \cdot logn)$</p>
+<h2 id="突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）"><a href="#突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）" class="headerlink" title="突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）"></a>突然的安排，要回归文化课三周了，希望水平不降反升（你贪心了）</h2><h1 id="春宵苦短，少女前进吧！"><a href="#春宵苦短，少女前进吧！" class="headerlink" title="春宵苦短，少女前进吧！"></a><em>春宵苦短，少女前进吧！</em></h1><p>学习二进制分组思想：在线，维护 $logn$ 个块，大小分别为 $2^k$, $2^{k - 1}$, $\cdots$, 动态往末尾插入新元素，当第 $i$ 块的 $size$ = 第 $i - 1$ 块的 $size$ 时就合并 $i$ 和 $i - 1$，查询就在 $logn$ 个块上二分，复杂度 $O(n * T(n) * logn)$，其中 $T(n)$ 时合并一次的复杂度。证明可以均摊分析（类似二进制加法），“到下一次操作的时间和块大小相等”，设 $n \cdot T(n)$ 为处理大小为 n 的块的时间，$O(\sum\limits_{i = 1}^{logn} \frac{n}{2^i} \cdot 2^i \cdot T(2^i) ) = O(n \cdot T(n) \cdot logn)$</p>
 <h3 id="玄学"><a href="#玄学" class="headerlink" title="玄学"></a><a href="https://uoj.ac/problem/46" target="_blank" rel="noopener">玄学</a></h3><p>首先这操作支持复合。看到查询操作想到二进制拆分什么的… 没错，二进制分组，以操作为下标，每个块维护序列——显然有很多相邻位置的操作相同（因为 $q$ 个操作只会造成 $O(q)$ 种不同操作），把每块缩成一个点就好，总点数一只 $log$（不过是 $nlogn$ 还是 $qlogq$ 啊？），合并复杂度是 $O(块大小)$，归并即可。</p>
 <p><a href="https://uoj.ac/submission/447523" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="mathcal-1-16"><a href="#mathcal-1-16" class="headerlink" title="$\mathcal{1.16}$"></a>$\mathcal{1.16}$</h2><hr>
@@ -268,7 +273,7 @@
 <p> $AC - BC = x_1 - y_1 + 2 * y_2$</p>
 <p> 假设 $AC &lt; BC, y_1 &gt; x_1 + 2 * y_2$</p>
 <p> 由于 $y_1 &gt; y_2 &gt; x_2 &gt; x_1,$</p>
-<p> $AB = x_1 + y_1 &gt; 2 <em> x_1 + 2 </em> y_2$, $AC = x_2 + y_2 &lt; 2 * y_2 &lt; AB$，矛盾</p>
+<p> $AB = x_1 + y_1 &gt; 2 * x_1 + 2 * y_2$, $AC = x_2 + y_2 &lt; 2 * y_2 &lt; AB$，矛盾</p>
 </li>
 <li><p>$x_1 &gt; x_2, y_1 \leq y_2$</p>
 <p> 与 $2$ 同理.</p>
