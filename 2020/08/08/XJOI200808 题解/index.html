@@ -146,11 +146,10 @@
 <p>咕咕</p>
 <h2 id="B"><a href="#B" class="headerlink" title="B"></a>B</h2><hr>
 <p>部分分提醒正解。考虑 n &lt;= 2 时，设 $a_1 = A$, $a_2 = B$，那么 A 先取完时期望个数就是 $a_1 + \sum\limits_{i = 0}^{B - 1} \frac{C(A - 1 + i, i)}{2^{B + 1}} i$，B 先取完时就是 $a_1 + \sum\limits_{i = 0}^{A - 1} \frac{C(B - 1 + i, i)}{2^{B + 1}} B$。</p>
-<p>根据期望的线性性质，$ans = (\sum\limits_{i = 2}^n {第 i 个被拿的期望个数}) + a_1$。现在就是怎么求解每种球的期望个数。我们设第 i 种球的期望个数为 $f_i$。</p>
+<p>根据期望的线性性质，$ans = (\sum\limits_{i = 2}^n \{第 i 个被拿的期望个数\}) + a_1$。现在就是怎么求解每种球的期望个数。我们设第 i 种球的期望个数为 $f_i$。</p>
 <p>注意到选颜色是<strong>等概率</strong>的。本题中唯一的限制就是第一种球必须取完，那么 $f_i$ 只与在第一种球取完前 取了多少个第 i 种球有关，取其他球对它们没有影响，而且它们被取的概率是相同的，那就等价于之前的部分分算法。这样是 60 分。</p>
 <p>考虑优化：将上面的方法看作从 $(a_1, a_i)$ 出发每次随机向下或向左走一步，直到走到坐标轴。走到 $(0, a)$ 的贡献是 $a_i - a$，走到 $(a, 0)$ 的贡献是 $a_i$，就能列出贡献柿子：</p>
-<p>$$f_i = \sum\limits_{j = 0}^{a_i - 1} \frac{C(a_1 - 1 + j, j)}{2^{a_1 + j}} \times j + a_i(1 - \sum\limits_{j = 0}^{a_i - 1} \frac{C(a_1 - 1 + j, j)}{2^{a_1 + j}})$$</p>
-<p>容易发现 $a_i$ 增加 1 的时候 两部分的贡献分别都只会增加一项，可以 O(1) 算！这样就能线性求解了，是 O(值域) 的。</p>
+<script type="math/tex; mode=display">f_i = \sum\limits_{j = 0}^{a_i - 1} \frac{C(a_1 - 1 + j, j)}{2^{a_1 + j}} \times j + a_i(1 - \sum\limits_{j = 0}^{a_i - 1} \frac{C(a_1 - 1 + j, j)}{2^{a_1 + j}})</script><p>容易发现 $a_i$ 增加 1 的时候 两部分的贡献分别都只会增加一项，可以 O(1) 算！这样就能线性求解了，是 O(值域) 的。</p>
 <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><hr>
 <p>咕咕</p>
 
@@ -238,8 +237,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

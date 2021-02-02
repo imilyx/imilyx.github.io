@@ -179,7 +179,7 @@
 <p>同个循环：设长度为 $b_i$，有 $b_i / 2$ 种等价类</p>
 <p>不同循环：等价类大小为 $lcm(b_i, b_j)$，等价类个数为 $b_i * b_j / lcm(b_i, b_j) = gcd(b_i, b_j)$</p>
 <p>现在知道了具体 $b_i$ 就能算答案了。<br>考虑 $n$ 的分拆，$n$ 只有 $53$，十分稳（实际上要 $7e7$）（问题不大）</p>
-<p>我们枚举 $b$ 的多重集，系数也挺正常的：$\frac{n!}{\prod b_i!} * \prod (b_i - 1)! * \frac{1}{c_i!}$</p>
+<p>我们枚举 $b$ 的多重集，系数也挺正常的：$\frac{n!}{\prod b_i!} <em> \prod (b_i - 1)! </em> \frac{1}{c_i!}$</p>
 <p>其中第一项是把点分配到多重集里，第二项是每个集合排顺序（是置换嘛），第三项是除掉大小相同的集合算重的方案。</p>
 <p>有双倍经验题：HNOI2009-图的同构计数。第一反应是无标号连通图计数 + 背包——不对劲，我只会有标号的。再一想，边的有无不正对应着此题中染成黑或白色吗？于是看题解，果真就是有色图的卡常版——把 gcd 在中途计算掉就能 AC 此题。</p>
 <h2 id="mathcal-12-9"><a href="#mathcal-12-9" class="headerlink" title="$\mathcal{12.9}$"></a>$\mathcal{12.9}$</h2><hr>
@@ -258,7 +258,7 @@
 <h2 id="mathcal-12-20"><a href="#mathcal-12-20" class="headerlink" title="$\mathcal{12.20}$"></a>$\mathcal{12.20}$</h2><hr>
 <h3 id="XJOI1629"><a href="#XJOI1629" class="headerlink" title="$XJOI1629$"></a>$XJOI1629$</h3><h4 id="T1-1"><a href="#T1-1" class="headerlink" title="$T1$"></a>$T1$</h4><p>骗了 20 分。。= = 感性理解下最优解一定是 $max$ 里的 $\sum$ 相等的情况（正解告诉你就是一堆一次函数的交点），直接 $n^3$ 高斯消元解方程就能获得 $60$ 分的好成绩。</p>
 <p>关于正解——分治（$height$ 上建笛卡尔树）是神，从 $height$ 最小处划成两半，分 $k$ 就先分给一边 $1$，多了可以做完后乘比例，这个也超妙。分配的比例越大，$max$ 越大，比例与 $max$ 成正比，这还是显然的。</p>
-<p>左右合并，答案是 $max( lans * x + (1 - x) * h, rans * (1 - x) + x * h )$，是两个一次函数，必然存在一个交点，即两者相等，就是最小值，解方程算 $x$。</p>
+<p>左右合并，答案是 $max( lans <em> x + (1 - x) </em> h, rans <em> (1 - x) + x </em> h )$，是两个一次函数，必然存在一个交点，即两者相等，就是最小值，解方程算 $x$。</p>
 <p>也可以用 $SAM$ 的 $parent$ 树，树形 $dp$，合并两个子树的时候跟上面一样分配比例。</p>
 <h4 id="T2-1"><a href="#T2-1" class="headerlink" title="$T2$"></a>$T2$</h4><p>hhz 讲了从矩阵快速幂切入的方法，不断优优优化。</p>
 <p>首先考虑本质不同子序列怎么 $dp$：$dp[i]$ 表示以 $i$ 结尾的本质不同子序列个数，$dp[i] = 1 + \sum\limits_{j = 1}^n dp[lst_j]$</p>
@@ -311,10 +311,8 @@
 <p>$bitset$ 好想，$30$ 分暴力拿到。接着思路想下去，考虑优化。</p>
 <p>$f[i, j]$ 表示前 $i$ 种物品，选了 $j$ 种，能选的体积，第三维用 $bitset$ 表示。</p>
 <p>换二三维。</p>
-<p>$$f[i, j] = f[i - 1, j]\ |\ OR_{k = 1}^{c[i]} (f[i - 1, j - k * v[i]] &lt;&lt; 1)$$</p>
-<p>换一二维。</p>
-<p>$$f[j] = f[j]\ |\ OR_{k = 1}^{c[i]} (f[j - k * v[i]] &lt;&lt; 1)$$</p>
-<p>发现对 $j$ 以 $mod\ v[i]$ 值分类，每类互不干扰，于是可以分别拎出来算，那就明显了：求区间或。</p>
+<script type="math/tex; mode=display">f[i, j] = f[i - 1, j]\ |\ OR_{k = 1}^{c[i]} (f[i - 1, j - k * v[i]] << 1)</script><p>换一二维。</p>
+<script type="math/tex; mode=display">f[j] = f[j]\ |\ OR_{k = 1}^{c[i]} (f[j - k * v[i]] << 1)</script><p>发现对 $j$ 以 $mod\ v[i]$ 值分类，每类互不干扰，于是可以分别拎出来算，那就明显了：求区间或。</p>
 <p><del>那不直接 st 表嘛</del>清醒点，平白多个 $log$（据说可以用 $\pm1\ rmq$ 实现，用人话就是分块 $st$ 表）</p>
 <p><del>那不直接前后缀嘛</del>清醒点，不可逆</p>
 <p>于是巧妙分块，以 $c[i]$ 为块大小，每块维护前后缀或就可以了。然后要加一些指标集优化不然会 T 成 40。</p>
@@ -331,9 +329,7 @@
 <p><del>也许以后功成名就来出题，可以出四倍经验题，来一个 $D_{i, j, k, l}$（你这出题人不讲唔得！）</del></p>
 <h4 id="T3-5"><a href="#T3-5" class="headerlink" title="$T3$"></a>$T3$</h4><p>老题？牛客网上见过没切我爪巴。做法有一千种，根号、$2$/$3$ 只 $log$ 等等。</p>
 <p>考虑点分治，离线询问，每次处理过分治重心的询问，对于 $S -&gt; lca$ 就维护和以及最后的那个最小值（可以倍增找位置），对于 $lca -&gt; T$ 就维护第一个小于 $S -&gt; lca$ 最小值的位置（可以二分）</p>
-<p>思路很清楚，然后就是大力堆代码。有个地方没写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (mark[x]) continue;</span><br></pre></td></tr></table></figure>
-
+<p>思路很清楚，然后就是大力堆代码。有个地方没写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if (mark[x]) continue;</span><br></pre></td></tr></table></figure></p>
 <p>T 飞了 = =</p>
 <p>hhz：不用二分，对于 $S -&gt; lca$ 最小值从小到大排序依次做，把比当前最小值便宜的点加进图里，并查集维护根就可以啦不过是 $O(nlogn\alpha)$ 的，可以 $O(1)$ 树上并查集去掉 $\alpha$。（是我不会的科技）</p>
 <h3 id="歌唱王国"><a href="#歌唱王国" class="headerlink" title="$歌唱王国$"></a><a href="https://www.luogu.com.cn/problem/P4548" target="_blank" rel="noopener">$歌唱王国$</a></h3><p>妙诶。。掷骰子类型题的概率生成函数：$F(x)$ 表示扔 $i$ 次成功的概率，$G(x)$ 表示扔 $i$ 次不成功的概率。然后根据扔骰子的后继可能能列出俩柿子：</p>
@@ -384,8 +380,7 @@
 <p>暴力 $dp$, $f[x, c]$ 表示 $x$ 权值为 $c$ 的方案数，则 $f[x, c] = \prod s[y, c]$ 其中 $s$ 是 $f$ 的前缀和</p>
 <p>$D$ 太大了，但考虑到只会出现 $n$ 种权值，可以以离散化的思想求出 $f[x, c]$ 表示 $x$ 的权值在当前有的权值中排名第 $c$ 小。但组合数就不能直接求了——出现的权值种类不知道。</p>
 <p>考虑 $f[1, i]$ 是啥，就是用了 $\leq i$ 种权值且一定用了第 $i$ 种权值的方案数，那容斥不就好了么？</p>
-<p>$$F[i] = f[1, i] - \sum\limits_{j = 1}^{i - 1} C(i - 1, j - 1) * F[j]$$</p>
-<p><a href="http://codeforces.com/contest/995/submission/102377434" target="_blank" rel="noopener">$Code$</a></p>
+<script type="math/tex; mode=display">F[i] = f[1, i] - \sum\limits_{j = 1}^{i - 1} C(i - 1, j - 1) * F[j]</script><p><a href="http://codeforces.com/contest/995/submission/102377434" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="mathcal-12-27"><a href="#mathcal-12-27" class="headerlink" title="$\mathcal{12.27}$"></a>$\mathcal{12.27}$</h2><hr>
 <h3 id="XJOI1628"><a href="#XJOI1628" class="headerlink" title="XJOI1628"></a>XJOI1628</h3><h4 id="T3-7"><a href="#T3-7" class="headerlink" title="T3"></a>T3</h4><p>构造一个排列使得权值最大——用费用流求解。只有三种连边，线段树优化建图即可。</p>
 <h4 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h4><p>一眼广义 SAM 但是根本不会（那是不是不叫“一眼”？</p>
@@ -413,14 +408,13 @@
 <h4 id="T7"><a href="#T7" class="headerlink" title="$T7$"></a>$T7$</h4><p>我看到那个 $3$ 操作啊我就大意了！我以为是 $splay$，根本不用的啊！就看作环形移位就好了啊！更改起点就好了啊！被偷袭了啊！</p>
 <p><strong>$FLAG$：今明两天搞完 $SAM$，得立刻回去搞 $AGC$ 和集训队作业和 $TC$ 好题了啊，落后于当代 $OI$ 了啊啊。。人傻没救了啊啊。。</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">OI is full of Theories...</span><br></pre></td></tr></table></figure>
-
 <h2 id="mathcal-12-30"><a href="#mathcal-12-30" class="headerlink" title="$\mathcal{12.30}$"></a>$\mathcal{12.30}$</h2><hr>
 <p>时光飞逝，日月如梭，光阴荏苒…（咳咳）xml 还是这么菜！$2021\ is\ coming$！再冲两天就快快乐乐跨年咯 ~</p>
 <h3 id="BJWC2018-Border-的四种求法"><a href="#BJWC2018-Border-的四种求法" class="headerlink" title="$BJWC2018-Border 的四种求法$"></a><a href="https://www.luogu.com.cn/problem/P4482" target="_blank" rel="noopener">$BJWC2018-Border 的四种求法$</a></h3><p>写在「SAM」里了。</p>
 <h3 id="CF1326F2"><a href="#CF1326F2" class="headerlink" title="$CF1326F2$"></a><a href="https://codeforces.com/contest/1326/problem/F2" target="_blank" rel="noopener">$CF1326F2$</a></h3><p>$nb$ 题。容易想到 $dp$ 出集合 $s$ 里的点形成链的方案数再拼起来，但这不对因为连接处点不一定没边。</p>
 <p>考虑子集反演。设答案数组为 $f$，则设 $g[S] = \sum\limits_{S \subseteq T} f[T]$，从意义上理解 $g$ 就是任选一些链，不管连接处，拼起来的方案数。只要求出 $g$ 就好了。</p>
 <p>对于链长度集合相同的方案只是交换顺序，方案数相同，我们仅考虑枚举 $n$ 的分拆。</p>
-<p>直接 $dp$（$dp’[s] = \sum dp[s - t] * g[t]$）要做 $n$ 的拆分数次子集卷积，复杂度大约是 $P(n) * n * 2^n$, 吃不消。</p>
+<p>直接 $dp$（$dp’[s] = \sum dp[s - t] <em> g[t]$）要做 $n$ 的拆分数次子集卷积，复杂度大约是 $P(n) </em> n * 2^n$, 吃不消。</p>
 <p>有神仙用容斥优化：对 $dp$ 进行容斥，捕捉容斥切口：令 $g[s]$ 表示使用 $s$ 集合里的点构成的某些长度的链方案数，$dp$ 若重复用点则必然会漏掉一些点不用，就可以容斥了。快在哪儿呢？原先中途边枚举拆分边卷，现在只要枚举完卷一次再容斥一次，复杂度是 $P(n) * 2^n$ ——稳了！</p>
 <p><a href="https://codeforces.com/contest/1326/submission/102753163" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="mathcal-12-31"><a href="#mathcal-12-31" class="headerlink" title="$\mathcal{12.31}$"></a>$\mathcal{12.31}$</h2><hr>
@@ -429,9 +423,7 @@
 <p>这是道误差分析题，任何数除以 999… 都是循环节，想到把 $\lfloor \frac{x}{111…} \rfloor$ 变成 $\lfloor \frac{9x}{10^i - 1} \rfloor$。整数位先加，再加小数位。</p>
 <p>然后咕咕了，实在变态啊。。</p>
 <h4 id="T2-9"><a href="#T2-9" class="headerlink" title="$T2$"></a>$T2$</h4><p>好题。容易想到 $n^2$ dp: $f[i, j]$ 表示到第 $i$ 位，两支队伍结尾分别是当前最高高度位置（这是固定的）和 $j$ 的最小不满度。这大概是没有前途的思路。</p>
-<p>考虑另一种暴力: 设 $Max$ 为当前出现的最大高度，$max$ 为当前出现的次大高度，$f[i, max]$ 表示到第 $i$ 位，次高高度为 $max$ 的最小不满度，则新加一个 $h$ 进来有两种转移—— $max$ 变与不变。就像最短路一样转移。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">h &gt; Max:</span><br><span class="line">    i  i+1</span><br><span class="line"> 低  ○   ○</span><br><span class="line">     ○ ↘ ○ 边权 0</span><br><span class="line"> 高  ○   ○</span><br><span class="line"></span><br><span class="line">h &lt; Max:</span><br><span class="line">    ○ → ○ 边权 max - h</span><br><span class="line">    ○   ○</span><br><span class="line">    ○   ○</span><br><span class="line"></span><br><span class="line">    ○ → ○ 边权 a</span><br><span class="line">    ○ → ○ 边权 a + 1</span><br><span class="line">    ○ → ○ 边权 a + 2</span><br><span class="line">    。。。</span><br><span class="line">    就是加等差数列啦。</span><br></pre></td></tr></table></figure>
-
+<p>考虑另一种暴力: 设 $Max$ 为当前出现的最大高度，$max$ 为当前出现的次大高度，$f[i, max]$ 表示到第 $i$ 位，次高高度为 $max$ 的最小不满度，则新加一个 $h$ 进来有两种转移—— $max$ 变与不变。就像最短路一样转移。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">h &gt; Max:</span><br><span class="line">    i  i+1</span><br><span class="line"> 低  ○   ○</span><br><span class="line">     ○ ↘ ○ 边权 0</span><br><span class="line"> 高  ○   ○</span><br><span class="line"></span><br><span class="line">h &lt; Max:</span><br><span class="line">    ○ → ○ 边权 max - h</span><br><span class="line">    ○   ○</span><br><span class="line">    ○   ○</span><br><span class="line"></span><br><span class="line">    ○ → ○ 边权 a</span><br><span class="line">    ○ → ○ 边权 a + 1</span><br><span class="line">    ○ → ○ 边权 a + 2</span><br><span class="line">    。。。</span><br><span class="line">    就是加等差数列啦。</span><br></pre></td></tr></table></figure></p>
 <p>两种做法，正做反做。</p>
 <p>正做需要区间加等差数列和维护前缀 $min$，采取差分思想，等差数列变成区间加常数，离散化下标，利用平衡树维护。</p>
 <p>反做就比较巧妙了，相当于反跑最短路，每一列点一定上小下大，为啥？分段证，$h &lt; max$ 时上小下大序列 + 上小下大等差数列，单调性显然；$h &gt; max$ 时只会平移和上移取 $min$，单调性显然。</p>
@@ -439,8 +431,8 @@
 <p>PS：这类题其实之前模拟赛遇到过，也是第一种暴力没前途、第二种暴力可以用 $Trie$ 树优化。</p>
 <h4 id="T3-10"><a href="#T3-10" class="headerlink" title="$T3$"></a>$T3$</h4><p>设 $f[i, j]$ 表示已经考虑了连续的 $i$ 个，选了里面 $j$ 个人，讨论新加一个人到开头/结尾，有：</p>
 <ul>
-<li>$f[i, j] = f[i - 1, j] * p^j + f[i - 1, j - 1] * q^{i - j}$</li>
-<li>$f[i, j] = f[i - 1, j] * q^j + f[i - 1, j - 1] * p^{i - j}$</li>
+<li>$f[i, j] = f[i - 1, j] <em> p^j + f[i - 1, j - 1] </em> q^{i - j}$</li>
+<li>$f[i, j] = f[i - 1, j] <em> q^j + f[i - 1, j - 1] </em> p^{i - j}$</li>
 </ul>
 <p>联立解得 $f[i - 1, j]$ 关于 $f[i - 1, j - 1]$ 的递推式，直接推就完事了！！！$f[i - 1, j] = \frac{ p^{i - j} - (1 - p)^{i - j} }{ p^j - (1 - p)^j } f[i - 1, j - 1]$，注意判 $p = \frac{1}{2}$ 的情况。</p>
 
@@ -528,8 +520,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

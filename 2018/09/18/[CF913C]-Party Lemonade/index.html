@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●–●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min{c[i + 1], 2 * c[i]}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看">
+    <meta name="description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●—●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min\{c[i + 1], 2 * c[i]\}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可">
 <meta name="keywords" content="贪心">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CF913C]-Party Lemonade">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/[CF913C]-Party Lemonade/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●–●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min{c[i + 1], 2 * c[i]}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看">
+<meta property="og:description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●—●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min\{c[i + 1], 2 * c[i]\}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:16:24.425Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[CF913C]-Party Lemonade">
-<meta name="twitter:description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●–●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min{c[i + 1], 2 * c[i]}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看">
+<meta name="twitter:description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●—●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min\{c[i + 1], 2 * c[i]\}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可">
     
     
         
@@ -140,10 +140,10 @@
   <div class="content" itemprop="articleBody">
     <p><a href="http://codeforces.com/problemset/problem/913/C" target="_blank" rel="noopener">题目链接</a></p>
 <p>题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。</p>
-<p>看到 2 的幂次方，首先就应该想到二进制啦(●–●)</p>
-<p>可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min{c[i + 1], 2 * c[i]}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看代码，该份代码刚好保证 sum 只计算 need = 1 的位的价值之和，同时又考虑了题例2的情况，非常妙！</p>
-<p>code:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll L, c[<span class="number">35</span>], sum, ans = <span class="number">1e18</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; L;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">cin</span> &gt;&gt; c[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">		c[i + <span class="number">1</span>] = min(c[i] * <span class="number">2</span>, c[i + <span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;  <span class="comment">// 从后往前哦</span></span><br><span class="line">		<span class="keyword">int</span> need = L &gt;&gt; i;</span><br><span class="line">		sum += need * c[i];</span><br><span class="line">		L -= need &lt;&lt; i;</span><br><span class="line">		ans = min(ans, sum + (L &gt; <span class="number">0</span>) * c[i]);  <span class="comment">// 并不是直接 ans = sum! 并不要求只有 need = 1，i 才有可能被购买，题例 2 就是很好的例子</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><!-- flag of hidden posts -->
+<p>看到 2 的幂次方，首先就应该想到二进制啦(●—●)</p>
+<p>可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min\{c[i + 1], 2 * c[i]\}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可以看代码，该份代码刚好保证 sum 只计算 need = 1 的位的价值之和，同时又考虑了题例2的情况，非常妙！</p>
+<p>code:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">ll L, c[<span class="number">35</span>], sum, ans = <span class="number">1e18</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; n &gt;&gt; L;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) <span class="built_in">cin</span> &gt;&gt; c[i];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">		c[i + <span class="number">1</span>] = min(c[i] * <span class="number">2</span>, c[i + <span class="number">1</span>]);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;  <span class="comment">// 从后往前哦</span></span><br><span class="line">		<span class="keyword">int</span> need = L &gt;&gt; i;</span><br><span class="line">		sum += need * c[i];</span><br><span class="line">		L -= need &lt;&lt; i;</span><br><span class="line">		ans = min(ans, sum + (L &gt; <span class="number">0</span>) * c[i]);  <span class="comment">// 并不是直接 ans = sum! 并不要求只有 need = 1，i 才有可能被购买，题例 2 就是很好的例子</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; ans &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<!-- flag of hidden posts -->
   </div>
 </article>
 
@@ -228,8 +228,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

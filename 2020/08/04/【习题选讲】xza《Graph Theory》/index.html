@@ -155,7 +155,6 @@
 <p>这个正确性比较显然：欧拉回路上每个点入度出度都想同，每个点连的辅助边最多 1 条，删去辅助边后仍能满足限制。</p>
 <p>复习欧拉回路基本写法：套圈法，其实就是把不同的环连在一起，<strong>dfs 函数还是有不少细节的</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[x]; i; i = nxt[i]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!mark[i]) &#123;</span><br><span class="line">            mark[i] = mark[i ^ <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            lnk[x] = nxt[i];  <span class="comment">// 当前弧优化</span></span><br><span class="line">            dfs(to[i]);</span><br><span class="line">            stk[++top] = id[i];</span><br><span class="line">            i = lnk[x];  <span class="comment">// !!!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="TC12330-CoinsGame"><a href="#TC12330-CoinsGame" class="headerlink" title="$TC12330-CoinsGame$"></a><a href="https://vjudge.net/problem/TopCoder-12330" target="_blank" rel="noopener">$TC12330-CoinsGame$</a></h2><hr>
 <p>假装你已经知道这是“等价类”的题目。考虑两个格子等价，当且仅当任意操作后原本在两个格子上的硬币要么同时在棋盘上，要么同时移出了棋盘，那么合法的方案至少有一个这样的格子对。</p>
 <p>发现正做很难，考虑补集转化。发现等价的关系是可以传递的，那么就形成了很多个团。等价关系可以 bfs 找，并查集维护。用总方案减去只选这些团的方案数就好了。</p>
@@ -255,8 +254,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码： 123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));">
+    <meta name="description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码：123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));    m">
 <meta name="keywords" content="数学">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Euler线性筛">
 <meta property="og:url" content="http://yoursite.com/2018/01/21/Euler线性筛/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码： 123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));">
+<meta property="og:description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码：123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));    m">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2019-05-04T14:37:59.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Euler线性筛">
-<meta name="twitter:description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码： 123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));">
+<meta name="twitter:description" content="欧拉筛法求质数 当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数. 欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N). 代码：123456789101112131415int vis[N], prime[N];void primes(int n) &amp;#123;    memset(vis, 0, sizeof(vis));    m">
     
     
         
@@ -145,8 +145,8 @@
     <h3 id="欧拉筛法求质数"><a href="#欧拉筛法求质数" class="headerlink" title="欧拉筛法求质数"></a>欧拉筛法求质数</h3><hr>
 <p>当我们知道一个数为质数时，它的倍数肯定不是质数，所以我们可以从 2 开始通过乘积筛掉所有的合数.</p>
 <p>欧拉筛法保证所有合数都是被它的最小质因子筛掉的，时间复杂度 O(N).</p>
-<p>代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> vis[N], prime[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">primes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    m = <span class="number">0</span>;  <span class="comment">// 质数数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            prime[++m] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prime[j] * i &gt; n) <span class="keyword">break</span>;</span><br><span class="line">            vis[i * prime[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;  <span class="comment">// 保证每个数只会被它的最小质因子筛去</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> vis[N], prime[N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">primes</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="keyword">sizeof</span>(vis));</span><br><span class="line">    m = <span class="number">0</span>;  <span class="comment">// 质数数量</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!vis[i]) &#123;</span><br><span class="line">            prime[++m] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (prime[j] * i &gt; n) <span class="keyword">break</span>;</span><br><span class="line">            vis[i * prime[j]] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (i % prime[j] == <span class="number">0</span>) <span class="keyword">break</span>;  <span class="comment">// 保证每个数只会被它的最小质因子筛去</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
   </div>
 </article>
 
@@ -231,8 +231,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

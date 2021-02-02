@@ -72,10 +72,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/09/25/Comet OJ Contest 75/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/09/08/以 CF1327F 为代表的一类限制计数问题/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -149,7 +149,7 @@
 <h3 id="T3"><a href="#T3" class="headerlink" title="T3"></a>T3</h3><p>据说我写的是 $70$ 分，就每次挑两个柱子，当前柱有 $x$ 个黑，$y$ 个白（显然颜色不重要，我们就看作黑白），然后把两个柱子准备一下，即一个留 $x$ 个空位，一个留 $y$ 个空位，但我调了很久，还写挂了，痛失 $70$ 分。赛后看题解知道自己只想到了几个关键细节中的一个。</p>
 <p>我们钦定总有一个柱子是空的，即每次操作完，有 $n$ 个柱子都是满的，这样可以简化很多。（第二个细节）</p>
 <p>先看 $n = 2$ 的情况。发现可以在不改变其他柱子状态的情况下整理一个柱子，即白的在下，黑的在上。（第三个细节）</p>
-<p>然后可以将柱子整理成同色的，具体就是，通过空柱子，我们可以 $reverse$ 一个柱子；两个柱子选一种颜色的球，**需要保证两个柱子上此颜色的球数之和 $\leq m$**，给丢到空柱子上，用一个柱子上的球填满另一个柱子再将塞到空柱子上的球拿回放在这个柱子上。（第四个细节）</p>
+<p>然后可以将柱子整理成同色的，具体就是，通过空柱子，我们可以 $reverse$ 一个柱子；两个柱子选一种颜色的球，<strong>需要保证两个柱子上此颜色的球数之和 $\leq m$</strong>，给丢到空柱子上，用一个柱子上的球填满另一个柱子再将塞到空柱子上的球拿回放在这个柱子上。（第四个细节）</p>
 <p>$n &gt; 2$ 的情况分治就好了，复杂度 $O(5nmlogn)$，极限数据只跑了 $500000$。</p>
 <p>需要注意的是，可能存在一个柱子颜色全是黑或全是白，merge 的时候可能会 $&gt; m$，需要特判。</p>
 <h3 id="T4"><a href="#T4" class="headerlink" title="T4"></a>T4</h3><p>暴 力 写 挂 我是屑</p>
@@ -246,8 +246,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

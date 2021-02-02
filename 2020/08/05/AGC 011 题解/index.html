@@ -145,7 +145,7 @@
     <p>AB 水题= =</p>
 <h2 id="C"><a href="#C" class="headerlink" title="C"></a>C</h2><hr>
 <p>C 比 D 难诶 /kk</p>
-<p><a href="https://blog.csdn.net/WerKeyTom_FTD/article/details/78216823?locationNum=5&fps=1" target="_blank" rel="noopener">看了题解</a></p>
+<p><a href="https://blog.csdn.net/WerKeyTom_FTD/article/details/78216823?locationNum=5&amp;fps=1" target="_blank" rel="noopener">看了题解</a></p>
 <p>特——别好的题！二分图真香</p>
 <p>$C = V - E + F$ 学呆了，用不到就有点难受= = ？</p>
 <p>原图中的独立点是最好搞的，设独立点个数为 p，则贡献为 $np * 2 - p^2$</p>
@@ -249,8 +249,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

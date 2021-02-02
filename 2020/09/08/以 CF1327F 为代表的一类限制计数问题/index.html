@@ -73,7 +73,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/09/14/NOIP2020 总结 & 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2020/09/08/[COCI2010]-ZUMA/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -162,8 +162,7 @@
 <p>区 间 上 树（</p>
 <p>这个比赛时连 dp 方程都想不到。。。就写了最暴力的指数级容斥。。<strong>但实际上跟前两题的 dp 设计思路是很相似的！</strong></p>
 <p>$dp[i, j]$ 表示 $i$ 的子树内状态已经确定，没有满足的链顶点的最大深度为 $j$ 的方案数（记录最深是因为深的满足了，浅的也满足了），边界就是链都满足了，$j = 0$</p>
-<p>$$dp[x, i] = (\sum\limits_{j = 0}^{dep_x} dp[x, i] \times dp[y, j]) + (\sum\limits_{j = 0}^i dp[x, i] \times dp[y, j]) + (\sum\limits_{j = 0}^{i - 1} dp[x, j] \times dp[y, i])$$</p>
-<p>前两部分分别是 $(x, y)$ 这条边为 1 和为 0 的方案数。</p>
+<script type="math/tex; mode=display">dp[x, i] = (\sum\limits_{j = 0}^{dep_x} dp[x, i] \times dp[y, j]) + (\sum\limits_{j = 0}^i dp[x, i] \times dp[y, j]) + (\sum\limits_{j = 0}^{i - 1} dp[x, j] \times dp[y, i])</script><p>前两部分分别是 $(x, y)$ 这条边为 1 和为 0 的方案数。</p>
 <p>二维dp，前缀和形式。。噫，这个东西和 pkuwc2018-minimax 好像啊！没错，就是整体dp，上线段树合并。</p>
 <p>跟 minimax 一样的，碰到叶子结点就返回，其他节点由儿子节点 upd 上来。</p>
 <p><a href="https://loj.ac/submission/927792" target="_blank" rel="noopener">$Code$</a></p>
@@ -252,8 +251,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 $$g(k) = C^{k}{n - 1} \times ( \prod{i = 1}^m C^{n - r_i - k}{n - k - 1} \sum\limits{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )$$ 发现很有希望，但是后面那个 sigma 不太">
+    <meta name="description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 g(k) = C^{k}_{n - 1} \times ( \prod_{i = 1}^m C^{n - r_i - k}_{n - k - 1} \sum\limits_{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )发现很有希望，但是后面那个 sigma 不太好">
 <meta name="keywords" content="计数,容斥原理,拉格朗日插值">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[SHOI2016]-成绩比较">
 <meta property="og:url" content="http://yoursite.com/2020/08/11/[SHOI2016]-成绩比较/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 $$g(k) = C^{k}{n - 1} \times ( \prod{i = 1}^m C^{n - r_i - k}{n - k - 1} \sum\limits{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )$$ 发现很有希望，但是后面那个 sigma 不太">
+<meta property="og:description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 g(k) = C^{k}_{n - 1} \times ( \prod_{i = 1}^m C^{n - r_i - k}_{n - k - 1} \sum\limits_{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )发现很有希望，但是后面那个 sigma 不太好">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:53:50.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[SHOI2016]-成绩比较">
-<meta name="twitter:description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 $$g(k) = C^{k}{n - 1} \times ( \prod{i = 1}^m C^{n - r_i - k}{n - k - 1} \sum\limits{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )$$ 发现很有希望，但是后面那个 sigma 不太">
+<meta name="twitter:description" content="首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。 g(k) = C^{k}_{n - 1} \times ( \prod_{i = 1}^m C^{n - r_i - k}_{n - k - 1} \sum\limits_{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )发现很有希望，但是后面那个 sigma 不太好">
     
     
         
@@ -143,10 +143,8 @@
 
   <div class="content" itemprop="articleBody">
     <p>首先发现恰好 K 名碾压的好难算啊！计数题嘛，想到容斥，f 恰好，g 至少，套路一波。</p>
-<p>$$g(k) = C^{k}<em>{n - 1} \times ( \prod</em>{i = 1}^m C^{n - r_i - k}<em>{n - k - 1} \sum\limits</em>{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )$$</p>
-<p>发现很有希望，但是后面那个 sigma 不太好搞，考虑拿出来预处理，运用二项式定理得</p>
-<p>$$\sum\limits_{l = 0}^{r_i - 1} C_{r_i - 1}^l (-1)^l U_i^{r_i - 1 - l} \sum\limits_{j = 1}^{U_i} j^{n - r_i + l}$$</p>
-<p>后面那个 sigma 是个自然数幂求和，用拉格朗日插值法求，然而我不会所以<strong>咕咕</strong></p>
+<script type="math/tex; mode=display">g(k) = C^{k}_{n - 1} \times ( \prod_{i = 1}^m C^{n - r_i - k}_{n - k - 1} \sum\limits_{j = 1}^{U_i} j^{n - r_i} (U_i - j)^{r_i - 1} )</script><p>发现很有希望，但是后面那个 sigma 不太好搞，考虑拿出来预处理，运用二项式定理得</p>
+<script type="math/tex; mode=display">\sum\limits_{l = 0}^{r_i - 1} C_{r_i - 1}^l (-1)^l U_i^{r_i - 1 - l} \sum\limits_{j = 1}^{U_i} j^{n - r_i + l}</script><p>后面那个 sigma 是个自然数幂求和，用拉格朗日插值法求，然而我不会所以<strong>咕咕</strong></p>
 
   </div>
 </article>
@@ -232,8 +230,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

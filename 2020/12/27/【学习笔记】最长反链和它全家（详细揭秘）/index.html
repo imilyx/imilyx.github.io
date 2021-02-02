@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="1同志，扫盲了！   链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而">
+    <meta name="description" content="1同志，扫盲了！  链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】最长反链和它全家（详细揭秘）">
 <meta property="og:url" content="http://yoursite.com/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="1同志，扫盲了！   链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而">
+<meta property="og:description" content="1同志，扫盲了！  链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-01-09T07:12:16.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】最长反链和它全家（详细揭秘）">
-<meta name="twitter:description" content="1同志，扫盲了！   链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而">
+<meta name="twitter:description" content="1同志，扫盲了！  链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。  反链：反链也是点集，不过其中任意两个点都不能走到彼此。   12最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实">
     
     
         
@@ -137,7 +137,6 @@
 
   <div class="content" itemprop="articleBody">
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同志，扫盲了！</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。</p>
 </li>
@@ -145,7 +144,6 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实现时都用网络流）</span><br><span class="line">最长链 = 最小反链覆盖</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>最大匹配：$DAG$ 的最大匹配概念同二分图的。</p>
 </li>
@@ -153,7 +151,6 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最小链覆盖 = 顶点数 - 最大匹配（刚开始没有匹配，显然成立；接下来每匹配一对点，匹配数 +1，路径数 -1。匹配数 = 每条路径点数边数和。）</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>最小不可重链覆盖：拆点，用匈牙利算法或者网络流求解，连 $(x_{out}, y_{in})$</p>
 </li>
@@ -163,7 +160,6 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大团 = 补图最大独立集</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><p>最小点覆盖：选择最少的点覆盖所有边。</p>
 </li>
@@ -171,7 +167,6 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大匹配 = 最小点覆盖</span><br><span class="line">    每条边一定连着一个匹配点，否则连两个未匹配点匹配数应该 +1。</span><br><span class="line">二分图 最大独立集 = 顶点数 - 最小点覆盖</span><br><span class="line">    把最小点覆盖剔除，剩下的点就没有边相连了。</span><br><span class="line">二分图 最小边覆盖 = 顶点数 - 最大匹配</span><br><span class="line">    显然。同时也告诉我们最小边覆盖就是在最大匹配的基础上加边，变成完美匹配。</span><br><span class="line">二分图 最小割 = 最小点权覆盖集 = 点权和 - 最大点权独立集</span><br></pre></td></tr></table></figure>
-
 <p>感觉类似题目（不 sb 的那种）都是用👆上面这套理论搞来搞去，比如 <a href="https://www.luogu.com.cn/problem/P4298" target="_blank" rel="noopener">$CTSC2008-祭祀$</a>：难点在构造方案。</p>
 <p>第二问好想，每个点删除后做一遍最长反链看是否只减小了 $1$。</p>
 <p>第一问，先说结论：选出新图所有 $x_{out}$ 和 $x_{in}$ 都在最大独立集里的点，就是原图最长反链。</p>
@@ -264,8 +259,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

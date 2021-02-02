@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于">
+    <meta name="description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
 <meta name="keywords" content="集合幂级数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】集合幂级数">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于">
+<meta property="og:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-01-10T15:49:44.644Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】集合幂级数">
-<meta name="twitter:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于">
+<meta name="twitter:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FWT 有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。 那么对于异">
     
     
         
@@ -143,16 +143,11 @@
 
   <div class="content" itemprop="articleBody">
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开了新世界的大门。</span><br></pre></td></tr></table></figure>
-
 <p>抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。</p>
 <h2 id="FWT"><a href="#FWT" class="headerlink" title="FWT"></a>FWT</h2><hr>
 <p>有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。</p>
 <p>那么对于异或卷积 $h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R = S] f_Lg_R$ 就有新的思路：</p>
-<p>$$h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R \oplus S = \emptyset] f_Lg_R$$</p>
-<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap (L \oplus R \oplus S)|} f_Lg_R$$</p>
-<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap L|} (-1)^{|T \cap R|} (-1)^{|T \cap S|} f_Lg_R$$</p>
-<p>$$= \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} ( \sum\limits_{L \subseteq 2^U} (-1)^{|T \cap L|} f_L ) ( \sum\limits_{R \subseteq 2^U} (-1)^{|T \cap R|} g_R )$$</p>
-<p>于是定义 FWT：$\hat{f_S} = \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
+<script type="math/tex; mode=display">h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R \oplus S = \emptyset] f_Lg_R</script><script type="math/tex; mode=display">= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap (L \oplus R \oplus S)|} f_Lg_R</script><script type="math/tex; mode=display">= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap L|} (-1)^{|T \cap R|} (-1)^{|T \cap S|} f_Lg_R</script><script type="math/tex; mode=display">= \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} ( \sum\limits_{L \subseteq 2^U} (-1)^{|T \cap L|} f_L ) ( \sum\limits_{R \subseteq 2^U} (-1)^{|T \cap R|} g_R )</script><p>于是定义 FWT：$\hat{f_S} = \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
 <p>IFWT：$\hat{f_S} = \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FWT_xor</span><span class="params">(ll a[], <span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> (!((j &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">                ll x = a[j], y = a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))];</span><br><span class="line">                a[j] = (x + y) % mod, a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] = (x - y + mod) % mod;</span><br><span class="line">                <span class="keyword">if</span> (op == <span class="number">-1</span>) (a[j] *= inv2) %= mod, (a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] *= inv2) %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   </div>
@@ -239,8 +234,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

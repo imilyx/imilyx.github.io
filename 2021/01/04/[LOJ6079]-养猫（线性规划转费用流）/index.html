@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组： $$\begin{array}{l}    x_1 + \cdots + x_{k} \geq ms \    x_1 + \cdots + x_{k} \leq k - me \">
+    <meta name="description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组：  \begin{array}{l}     x_1 + \cdots + x_{k} \geq ms \\     x_1 + \cdots + x_{k} \leq k - me \">
 <meta name="keywords" content="线性规划,费用流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[LOJ6079]-养猫（线性规划转费用流）">
 <meta property="og:url" content="http://yoursite.com/2021/01/04/[LOJ6079]-养猫（线性规划转费用流）/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组： $$\begin{array}{l}    x_1 + \cdots + x_{k} \geq ms \    x_1 + \cdots + x_{k} \leq k - me \">
+<meta property="og:description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组：  \begin{array}{l}     x_1 + \cdots + x_{k} \geq ms \\     x_1 + \cdots + x_{k} \leq k - me \">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-02T07:46:58.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[LOJ6079]-养猫（线性规划转费用流）">
-<meta name="twitter:description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组： $$\begin{array}{l}    x_1 + \cdots + x_{k} \geq ms \    x_1 + \cdots + x_{k} \leq k - me \">
+<meta name="twitter:description" content="先做了 $志愿者招募$，一样的套路——线性规划转费用流。 先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。 可以列出不等式组：  \begin{array}{l}     x_1 + \cdots + x_{k} \geq ms \\     x_1 + \cdots + x_{k} \leq k - me \">
     
     
         
@@ -145,12 +145,28 @@
     <p>先做了 <a href="https://www.luogu.com.cn/problem/P3980" target="_blank" rel="noopener">$志愿者招募$</a>，一样的套路——线性规划转费用流。</p>
 <p>先钦定所有时间吃东西，然后选一些时刻变成睡觉。$x_i = 0/1$ 表示 $i$ 时刻是否睡觉，是的话代价为 $s_i - e_i$。</p>
 <p>可以列出不等式组：</p>
-<p>$$<br>\begin{array}{l}<br>    x_1 + \cdots + x_{k} \geq ms \<br>    x_1 + \cdots + x_{k} \leq k - me \<br>    \cdots \<br>    x_{n - k + 1} + \cdots + x_n \leq k - me \<br>\end{array}<br>$$</p>
-<p>变成标准型（就是不等号变等号）：</p>
-<p>$$<br>\begin{array}{l}<br>    x_1 + \cdots + x_{k} = ms + y_1 \<br>    x_1 + \cdots + x_{k} = k - me - z_1 \<br>    \cdots \<br>    x_{n - k + 1} + \cdots + x_n = k - me - z_{n - k + 1} \<br>\end{array}<br>$$</p>
-<p>线性规划转费用流要求每个变量恰好出现一次为正、一次为负，于是添加一个等式 $0 = 0$ 并两两做差：</p>
-<p>$$<br>\begin{array}{l}<br>    x_1 + \cdots + x_{k} = ms + y_1 \<br>    y_1 + z_1 = k - ms - me \<br>    x_{k + 1} + (k - ms - me) = x_1 + z_1 + y_2 \<br>    \cdots \<br>    k - me = x_{n - k + 1} + \cdots + x_n + z_{n - k + 1} \<br>\end{array}<br>$$</p>
-<p>这一类线性规划转费用流的建模方法，是把等式看作点，等式平衡对应网络流中的流量平衡。</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+    x_1 + \cdots + x_{k} \geq ms \\
+    x_1 + \cdots + x_{k} \leq k - me \\
+    \cdots \\
+    x_{n - k + 1} + \cdots + x_n \leq k - me \\
+\end{array}</script><p>变成标准型（就是不等号变等号）：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+    x_1 + \cdots + x_{k} = ms + y_1 \\
+    x_1 + \cdots + x_{k} = k - me - z_1 \\
+    \cdots \\
+    x_{n - k + 1} + \cdots + x_n = k - me - z_{n - k + 1} \\
+\end{array}</script><p>线性规划转费用流要求每个变量恰好出现一次为正、一次为负，于是添加一个等式 $0 = 0$ 并两两做差：</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}
+    x_1 + \cdots + x_{k} = ms + y_1 \\
+    y_1 + z_1 = k - ms - me \\
+    x_{k + 1} + (k - ms - me) = x_1 + z_1 + y_2 \\
+    \cdots \\
+    k - me = x_{n - k + 1} + \cdots + x_n + z_{n - k + 1} \\
+\end{array}</script><p>这一类线性规划转费用流的建模方法，是把等式看作点，等式平衡对应网络流中的流量平衡。</p>
 <p>那么每个变量看作流，为正则是入，为负则是出。从出的等式向入的等式连 $(cap, val)$ 的边。例如本题中 $x_i$ 连边为 $(1, s_i - e_i)$，而 $y_i$, $z_i$ 等辅助变量连边为 $(\infty, 0)$。</p>
 <p>对于常数（设为 $c$）也要处理，为正则视为源点发出给你的，为负则视为你发出给汇点的：$(|c|, 0)$。</p>
 <p>正确性怎么理解呢qwq？最大流跑完了，每个点的等式都被满足</p>
@@ -241,8 +257,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

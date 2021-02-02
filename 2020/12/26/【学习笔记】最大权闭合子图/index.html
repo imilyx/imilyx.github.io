@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：**$S -&amp;gt; T$ 的流量就是损失。** 尽量选正权点为起点">
+    <meta name="description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：$S -&amp;gt; T$ 的流量就是损失。 尽量选正权点为起点，所以">
 <meta name="keywords" content="网络流">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】最大权闭合子图">
 <meta property="og:url" content="http://yoursite.com/2020/12/26/【学习笔记】最大权闭合子图/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：**$S -&amp;gt; T$ 的流量就是损失。** 尽量选正权点为起点">
+<meta property="og:description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：$S -&amp;gt; T$ 的流量就是损失。 尽量选正权点为起点，所以">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-12-27T15:56:35.763Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】最大权闭合子图">
-<meta name="twitter:description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：**$S -&amp;gt; T$ 的流量就是损失。** 尽量选正权点为起点">
+<meta name="twitter:description" content="最大权闭合子图 看到一篇很好的博客，终于会了这玩意儿！qwq 咱不来虚的哈，直接上正题  什么是最大权闭合子图：   每个点有点权，点权和最大的闭合子图即为最大权闭合子图  如何求解   先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。最大权闭合子图权值即为正权和 - 最大流。   证明（半感性）：$S -&amp;gt; T$ 的流量就是损失。 尽量选正权点为起点，所以">
     
     
         
@@ -150,7 +150,7 @@
 </li>
 <li><p>如何求解</p>
 <p>  先说结论：$S$ 向正权点连，边权为权值，$T$ 向负权点连，边权为权值绝对值。<strong>最大权闭合子图权值即为正权和 - 最大流。</strong></p>
-<p>  证明（半感性）：**$S -&gt; T$ 的流量就是损失。** 尽量选正权点为起点，所以 $S$ 向正权点连。一个正权点选会导致后续选一些负权点，但我们不知道选当前正权点是否优，就先选上，顶多后面被负权点损失掉为 $0$，不会亏。</p>
+<p>  证明（半感性）：<strong>$S -&gt; T$ 的流量就是损失。</strong> 尽量选正权点为起点，所以 $S$ 向正权点连。一个正权点选会导致后续选一些负权点，但我们不知道选当前正权点是否优，就先选上，顶多后面被负权点损失掉为 $0$，不会亏。</p>
 </li>
 </ul>
 <p>习题：</p>
@@ -243,8 +243,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

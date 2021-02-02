@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod * mod * 1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mo">
+    <meta name="description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod  mod  1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mod.">
 <meta name="keywords" content="其他">
 <meta property="og:type" content="article">
 <meta property="og:title" content="卡常小记">
 <meta property="og:url" content="http://yoursite.com/2018/08/20/卡常小记/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod * mod * 1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mo">
+<meta property="og:description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod  mod  1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mod.">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:18:49.850Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卡常小记">
-<meta name="twitter:description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod * mod * 1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mo">
+<meta name="twitter:description" content="方法一 有 gcd 的预处理，__gcd() 函数是 log 的。 方法二 有取模的可以优化，取模是 log 的。 mod 级别的数 x（加、减）： if (x &amp;gt; mod) x -= mod. $mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod  mod  1LL.   if (x &amp;gt; mod2) x -= mod2.  循环结束时 x %= mod.">
     
     
         
@@ -147,7 +147,7 @@
 <h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><hr>
 <p>有取模的可以优化，取模是 log 的。</p>
 <p>mod 级别的数 x（加、减）： if (x &gt; mod) x -= mod.</p>
-<p>$mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod * mod * 1LL.   if (x &gt; mod2) x -= mod2.  循环结束时 x %= mod.</p>
+<p>$mod^2$ 级别的数 x (乘、除) ：const ll mod2 = mod <em> mod </em> 1LL.   if (x &gt; mod2) x -= mod2.  循环结束时 x %= mod.</p>
 
   </div>
 </article>
@@ -233,8 +233,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
