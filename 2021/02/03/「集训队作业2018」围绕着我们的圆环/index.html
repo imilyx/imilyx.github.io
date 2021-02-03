@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$LOJ6040$ 加强版。高妙的线代题，虽然只用到了秩和线性空间的概念（完全不像今天国家队爷讲课那样让人摸不着头发哼！） 回顾矩阵乘法：$A(x, y) * B(y, z) \rightarrow C(x, z)$（绕晕了就看看这个👈） 考虑无修改怎么做，毫无头绪。 观察 $A$ 和 $C$ 的关系：$C$ 的列向量一定在 $A$ 列向量组成的线性空间里。 设 $A$ 的（列）秩为 $x$，$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-03T13:03:10.114Z">
+<meta property="og:updated_time" content="2021-02-03T13:18:19.585Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「集训队作业2018」围绕着我们的圆环">
 <meta name="twitter:description" content="$LOJ6040$ 加强版。高妙的线代题，虽然只用到了秩和线性空间的概念（完全不像今天国家队爷讲课那样让人摸不着头发哼！） 回顾矩阵乘法：$A(x, y) * B(y, z) \rightarrow C(x, z)$（绕晕了就看看这个👈） 考虑无修改怎么做，毫无头绪。 观察 $A$ 和 $C$ 的关系：$C$ 的列向量一定在 $A$ 列向量组成的线性空间里。 设 $A$ 的（列）秩为 $x$，$">
@@ -238,8 +238,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
