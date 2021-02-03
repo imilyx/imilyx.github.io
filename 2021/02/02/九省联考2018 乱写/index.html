@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-03T06:44:55.505Z">
+<meta property="og:updated_time" content="2021-02-03T09:19:37.296Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
 <meta name="twitter:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
@@ -169,11 +169,17 @@
 <p>感想：整体 dp 好神啊！整体 dp 套生成函数好神啊！</p>
 <p><a href="https://loj.ac/s/1055616" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="劈配"><a href="#劈配" class="headerlink" title="$劈配$"></a>$劈配$</h2><hr>
+<p>回忆起被「皮配」支配的恐惧 /jk 还好这道比较阳间，一道复杂度分析题</p>
+<p>第一问写一个“扩展”的二分图最大匹配就好了，具体来说每个后期被更改匹配导师的人新匹配的导师必须是同一志愿的，$O(n^3C)$</p>
+<p>第二问有显然的二分性，你可以二分 + 从前往后加人，但是这样是 $O(n^3Clogn)$。我们可以保留前缀不变的匹配状态，就是 $O(n^2Clogn)$ 的样子。</p>
+<p>但是有完全更简单的做法：在做第一问要替换人的时候尽量替换靠后的，顺便记录下来就可以了。</p>
+<p><a href="https://loj.ac/s/1056622" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="林克卡特树"><a href="#林克卡特树" class="headerlink" title="$林克卡特树$"></a>$林克卡特树$</h2><hr>
 <p>题意：让你选 $K + 1$ 条路径使得权值和最大。</p>
 <p>带权二分，$f[i, 0/1/2]$ 表示点 $i$ 的度数为 $j$ 时 $i$ 子树中的最优解（要记录路径数，写个 struct 就好了），分类讨论。</p>
 <p><a href="https://loj.ac/s/907209" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="制胡窜"><a href="#制胡窜" class="headerlink" title="$制胡窜$"></a>$制胡窜$</h2><hr>
+<p>大分类讨论题吗。。。有心情再写吧 /cy 被「秘密袭击」搞自闭了</p>
 
   </div>
 </article>
