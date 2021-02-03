@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike and Fish$ 题解 和上一题有异曲同">
+    <meta name="description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike\ and\ Fish$ 题解 和上一题有异">
 <meta name="keywords" content="思维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【习题选讲】xza《Graph Theory》">
 <meta property="og:url" content="http://yoursite.com/2020/08/04/【习题选讲】xza《Graph Theory》/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike and Fish$ 题解 和上一题有异曲同">
+<meta property="og:description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike\ and\ Fish$ 题解 和上一题有异">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-12-13T11:04:53.374Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【习题选讲】xza《Graph Theory》">
-<meta name="twitter:description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike and Fish$ 题解 和上一题有异曲同">
+<meta name="twitter:description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike\ and\ Fish$ 题解 和上一题有异">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TC10947-TwoSidedCards"><span class="toc-number">1.</span> <span class="toc-text">$TC10947-TwoSidedCards$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF547D-Mike-and-Fish"><span class="toc-number">2.</span> <span class="toc-text">$CF547D-Mike and Fish$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TC12330-CoinsGame"><span class="toc-number">3.</span> <span class="toc-text">$TC12330-CoinsGame$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19E-Fairy"><span class="toc-number">4.</span> <span class="toc-text">$CF19E-Fairy$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TC10947-TwoSidedCards"><span class="toc-number">1.</span> <span class="toc-text">$TC10947-TwoSidedCards$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF547D-Mike-and-Fish"><span class="toc-number">2.</span> <span class="toc-text">$CF547D-Mike\ and\ Fish$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TC12330-CoinsGame"><span class="toc-number">3.</span> <span class="toc-text">$TC12330-CoinsGame$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19E-Fairy"><span class="toc-number">4.</span> <span class="toc-text">$CF19E-Fairy$</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -147,7 +147,7 @@
 <p>我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。</p>
 <p>分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。</p>
 <p>背包合并。</p>
-<h2 id="CF547D-Mike-and-Fish"><a href="#CF547D-Mike-and-Fish" class="headerlink" title="$CF547D-Mike and Fish$"></a><a href="https://codeforces.com/problemset/problem/547/D" target="_blank" rel="noopener">$CF547D-Mike and Fish$</a></h2><hr>
+<h2 id="CF547D-Mike-and-Fish"><a href="#CF547D-Mike-and-Fish" class="headerlink" title="$CF547D-Mike\ and\ Fish$"></a><a href="https://codeforces.com/problemset/problem/547/D" target="_blank" rel="noopener">$CF547D-Mike\ and\ Fish$</a></h2><hr>
 <p><a href="https://blog.csdn.net/PoPoQQQ/article/details/46125833" target="_blank" rel="noopener">题解</a></p>
 <p>和上一题有异曲同工之妙。行-列，想到二元关系，于是行列建点，每个点都变成了一条有向边。设红色表示入边，蓝色表示出边，我们要给边定向，使得新图每个点的入度出度之差不超过 1。</p>
 <p>怎么做？考虑<strong>构造欧拉回路</strong>。复习一波欧拉回路的定义：欧拉回路是经过图 G 中<strong>所有</strong>边的回路。但目前二分图中有偶数个（一定是偶数个，因为保证有解）奇数度点。有奇数度点就很难处理！</p>
@@ -155,6 +155,7 @@
 <p>这个正确性比较显然：欧拉回路上每个点入度出度都想同，每个点连的辅助边最多 1 条，删去辅助边后仍能满足限制。</p>
 <p>复习欧拉回路基本写法：套圈法，其实就是把不同的环连在一起，<strong>dfs 函数还是有不少细节的</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[x]; i; i = nxt[i]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!mark[i]) &#123;</span><br><span class="line">            mark[i] = mark[i ^ <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">            lnk[x] = nxt[i];  <span class="comment">// 当前弧优化</span></span><br><span class="line">            dfs(to[i]);</span><br><span class="line">            stk[++top] = id[i];</span><br><span class="line">            i = lnk[x];  <span class="comment">// !!!</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="TC12330-CoinsGame"><a href="#TC12330-CoinsGame" class="headerlink" title="$TC12330-CoinsGame$"></a><a href="https://vjudge.net/problem/TopCoder-12330" target="_blank" rel="noopener">$TC12330-CoinsGame$</a></h2><hr>
 <p>假装你已经知道这是“等价类”的题目。考虑两个格子等价，当且仅当任意操作后原本在两个格子上的硬币要么同时在棋盘上，要么同时移出了棋盘，那么合法的方案至少有一个这样的格子对。</p>
 <p>发现正做很难，考虑补集转化。发现等价的关系是可以传递的，那么就形成了很多个团。等价关系可以 bfs 找，并查集维护。用总方案减去只选这些团的方案数就好了。</p>
@@ -199,7 +200,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TC10947-TwoSidedCards"><span class="toc-number">1.</span> <span class="toc-text">$TC10947-TwoSidedCards$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF547D-Mike-and-Fish"><span class="toc-number">2.</span> <span class="toc-text">$CF547D-Mike and Fish$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TC12330-CoinsGame"><span class="toc-number">3.</span> <span class="toc-text">$TC12330-CoinsGame$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19E-Fairy"><span class="toc-number">4.</span> <span class="toc-text">$CF19E-Fairy$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#TC10947-TwoSidedCards"><span class="toc-number">1.</span> <span class="toc-text">$TC10947-TwoSidedCards$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF547D-Mike-and-Fish"><span class="toc-number">2.</span> <span class="toc-text">$CF547D-Mike\ and\ Fish$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TC12330-CoinsGame"><span class="toc-number">3.</span> <span class="toc-text">$TC12330-CoinsGame$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF19E-Fairy"><span class="toc-number">4.</span> <span class="toc-text">$CF19E-Fairy$</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

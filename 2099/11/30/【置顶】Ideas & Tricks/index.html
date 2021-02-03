@@ -72,8 +72,10 @@
     <span id="actions">
       <ul>
         
+        <li><a class="icon" href="/2099/11/30/【置顶】错误集锦/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        <li><a class="icon" href="/2099/11/30/【置顶】错误集锦/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 学习计划/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -202,7 +204,8 @@
 <ul>
 <li><p>树状数组区间修改区间查询？</p>
 <p>  差分, $d_i = a_i - a_{i - 1}, a_i = \sum\limits_{j = 1}^i d_i$</p>
-<script type="math/tex; mode=display">\sum\limits_{i = 1}^x a_i = \sum\limits_{i = 1}^x \sum\limits_{j = 1}^i d_i = \sum\limits_{i = 1}^x d_i * (x - i + 1) = (x + 1) * \sum\limits_{i = 1}^x d_i - \sum\limits_{i = 1}^x d_i * i</script></li>
+<p>  $$\sum\limits_{i = 1}^x a_i = \sum\limits_{i = 1}^x \sum\limits_{j = 1}^i d_i = \sum\limits_{i = 1}^x d_i * (x - i + 1) = (x + 1) * \sum\limits_{i = 1}^x d_i - \sum\limits_{i = 1}^x d_i * i$$</p>
+</li>
 <li><p>区间问题转二维数点。</p>
 </li>
 </ul>

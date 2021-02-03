@@ -149,7 +149,7 @@
 <p>发现填了一个就要填一块，想到并查集。我们从下往上合并，注意不连通块合并的时候，方案数是相乘的。</p>
 <h2 id="HNOI2015-落忆枫音"><a href="#HNOI2015-落忆枫音" class="headerlink" title="[HNOI2015]-落忆枫音"></a><a href="https://www.luogu.com.cn/problem/P3244" target="_blank" rel="noopener">[HNOI2015]-落忆枫音</a></h2><hr>
 <p>$DAG$ 的树形图个数是 $\prod in[i]$（感性理解就是每个点找一个$fa$，由于不会形成环，怎么找都是合理的，据说可以用矩阵树定理证但蒟蒻不会）用严谨的语言表达，这个定理是<strong>有向无环图的生成外向树个数为所有入度非 0 的点的入度乘积</strong></p>
-<p>再考虑有环的情况，显然要减去一些有环存在的状态（这环一定包含新加进来的那条边啦） 即 $\frac{\prod in[i]}{\prod\limits_{i on circle} in[i]}$。$dp$, $g[x]$ 表示从 $ed$ 到 $x$ 的上面这个东西之和，所以 $g[x] = \frac{1}{in[x]}\sum\limits_y g[y]$。计算 $g$ 数组可以建反图 + 记忆化搜索（注意这里正反的智慧）所以答案就是 $(\prod in[i]) - g[st]$</p>
+<p>再考虑有环的情况，显然要减去一些有环存在的状态（这环一定包含新加进来的那条边啦） 即 $\frac{\prod in[i]}{\prod\limits_{i\ on\ circle} in[i]}$。$dp$, $g[x]$ 表示从 $ed$ 到 $x$ 的上面这个东西之和，所以 $g[x] = \frac{1}{in[x]}\sum\limits_y g[y]$。计算 $g$ 数组可以建反图 + 记忆化搜索（注意这里正反的智慧）所以答案就是 $(\prod in[i]) - g[st]$</p>
 
   </div>
 </article>
