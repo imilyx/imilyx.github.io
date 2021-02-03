@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-03T06:42:44.418Z">
+<meta property="og:updated_time" content="2021-02-03T06:44:55.505Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
 <meta name="twitter:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
@@ -164,7 +164,7 @@
 <li>$(F, G) \rightarrow (F, G + F)$</li>
 </ul>
 <p>非常繁琐，我们用矩阵来转移。但是矩阵常数大<del>跑不过暴力</del>，考虑函数复合维护 tag（这一步过于神奇）：观察到 $F$ 只会变成 $aF + b$, $G$ 只会变成 $G + cF + d$，于是每个节点维护一个四元组 $(a, b, c, d)$ 表示 $(aF + b, cF + d + G)$。合并 tag 就是 $(a, b, c, d)$ 和 $(A, B, C, D)$ 相乘，得到 $(Aa, Ab + B, Ca + c, Cb + D + d)$。单位元是 $(1, 0, 0, 0)$。</p>
-<p>$hint$：要写垃圾回收和 $unsigned$ $int$。</p>
+<p>hint：要写垃圾回收和 unsigned int。</p>
 <p>复杂度 $O(n^2logW)$。</p>
 <p>感想：整体 dp 好神啊！整体 dp 套生成函数好神啊！</p>
 <p><a href="https://loj.ac/s/1055616" target="_blank" rel="noopener">$Code$</a></p>
@@ -259,8 +259,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
