@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-07T05:02:40.652Z">
+<meta property="og:updated_time" content="2021-02-04T02:03:58.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】Ideas &amp; Tricks">
 <meta name="twitter:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
@@ -171,6 +171,8 @@
 </li>
 <li><p>形如 $dp[i] = \sum\limits_{j = 1}^{c_i} dp[i - j * d]$，可以每 $c_i$ 个设置关键点，$O(n)$ 预处理每个块前后缀和，$O(1)$ 查询。</p>
 </li>
+<li><p>dp 柿子写出来后信仰 BM。</p>
+</li>
 </ul>
 <h2 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h2><hr>
 <ul>
@@ -188,7 +190,11 @@
 </li>
 <li><p>有组合数形式的拆了，元素过大时可考虑下降幂/上升幂形式。</p>
 </li>
-<li><p>看到二维 $FFT$ 别怕，想想先计一维贡献、再计另一维贡献。（$UOJ574$）</p>
+<li><p>看到二维 $FFT$ 别怕，想想先计一维贡献、再计另一维贡献。（$UOJ574$-多线程计算）</p>
+</li>
+<li><p>多项式不一定要 FFT/NTT，可以点值对应位相乘最后插值插回来。（秘密袭击）</p>
+</li>
+<li><p>带删除的线性基（比如动态求 01 矩阵的秩）：对线性基中的每个元素记录它是由哪些向量异或得到的。如果 x  删除一个向量 $x$ 时，找到包含 $x$ 的最前面 $0$ 向量，找不到就找（围绕着我们的圆环）</p>
 </li>
 </ul>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><hr>
@@ -294,23 +300,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

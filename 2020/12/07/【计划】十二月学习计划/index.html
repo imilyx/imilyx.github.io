@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="我就是喜欢挖深坑! 长文给我的感觉特别安心啦其实是。然后一些题目的题解也要整理整理，学习计划也要安排给自己看。 $1.16$ 前的学习计划就, 刷  $CodePlus$（选） $NOI$（12 ~ 20） $JOI$（选）☑️ 清华集训（14 ~ ?）  多学数学知识:  群论☑️ 生成函数☑️ 单位根反演 斯特林相关  upd：完成度感人。  $\mathcal{12.7}$ 写了 $Poly">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-01T03:32:35.396Z">
+<meta property="og:updated_time" content="2021-02-03T23:47:16.397Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十二月学习计划">
 <meta name="twitter:description" content="我就是喜欢挖深坑! 长文给我的感觉特别安心啦其实是。然后一些题目的题解也要整理整理，学习计划也要安排给自己看。 $1.16$ 前的学习计划就, 刷  $CodePlus$（选） $NOI$（12 ~ 20） $JOI$（选）☑️ 清华集训（14 ~ ?）  多学数学知识:  群论☑️ 生成函数☑️ 单位根反演 斯特林相关  upd：完成度感人。  $\mathcal{12.7}$ 写了 $Poly">
@@ -208,17 +208,7 @@
 <h3 id="找树"><a href="#找树" class="headerlink" title="$找树$"></a><a href="https://loj.ac/p/6622" target="_blank" rel="noopener">$找树$</a></h3><p>要理解透。解法是矩阵树的变形应用：众所周知矩阵树只能求生成树个数和生成树边积和。考虑全是异或怎么做，就是加一维 $a[x, y, z]$ 表示矩阵 $[x, y]$ 位置值为 $[z]$ 的个数，那么求行列式的时候乘法变成 $FWT$ 就行了。</p>
 <p>但你怎么定义 $FWT$ 的逆元？太 $naive$ 了还是！</p>
 <p>先 $FWT$，对于每个 $[z]$ 求出行列式放在答案数组里，再把答案数组 $IFWT$ 回去就好了。复杂度 $O(n^32^w + n^2w2^w)$，$1e9$，在求行列式那里特判一下如果出现 $0$ 就直接返回 $0$，就 $AC$ 了。这是怎么一回事呢，小编也很惊讶。</p>
-<h3 id="希望"><a href="#希望" class="headerlink" title="$希望$"></a><a href="https://loj.ac/p/3053" target="_blank" rel="noopener">$希望$</a></h3><p>之前做的，记录一下。</p>
-<p>别被高大上的题目唬住了！思路就是算一个救援队的答案，然后 $k$ 次方。点 $x$ 子树里和子树外的要分开算。考虑直接算会算重——一个连通块会被算多次，应用经典“点减边”思想——连通块中点数 = 边数 + 1，就用点的答案减去边的答案。</p>
-<p>$f[x, i]$ 表示子树里深度不超过 $i$ 的连通块方案数，$g[x, i]$ 表示不包括子树里（但包括 $x$）的深度不超过 $i$ 的连通块方案数，两个一乘岂不美哉？</p>
-<p>转移方程超好写：</p>
-<ul>
-<li>$f[x, i] = (\prod f[y, i - 1]) + 1$</li>
-<li>$g[x, i] = (g[fa[x], i - 1] \prod f[son[fa[x]], i - 2]) + 1$</li>
-</ul>
-<p>$n$ $1e6$, $dp$ 又与深度有关，于是想到长剖优化。本题的思路到此为止，接下来 都 是 细 节</p>
-<p>$f$ 可以直接算，但是 $g$ 里面那个 $\prod$ 不好搞。</p>
-<p>用回退栈可以维护，做 $f$ 的时候从长到短遍历子树，做 $g$ 的时候从短到长遍历子树。</p>
+<h3 id="希望"><a href="#希望" class="headerlink" title="$希望$"></a><a href="https://loj.ac/p/3053" target="_blank" rel="noopener">$希望$</a></h3><p>写在「十二省联考」。</p>
 <h2 id="mathcal-12-16"><a href="#mathcal-12-16" class="headerlink" title="$\mathcal{12.16}$"></a>$\mathcal{12.16}$</h2><hr>
 <p>渐渐，对于安逸享乐的人它是一条长长的下坡路，通向深渊；对于上进的人它是一条长长的阶梯，通向天堂。</p>
 <p>为了不滑进深渊我只有拼尽全力。<strong>我要终止看题解的不良习惯——再这样下去，xml，你会光速退役的。</strong></p>
@@ -288,17 +278,8 @@
 <p>找到最小的合法旋转距离 $d$。实际上 $d$ 就是所有可行步长的 $gcd$。把相邻 $d$ 个看作一块再做 $burnside$。</p>
 <h4 id="T3-3"><a href="#T3-3" class="headerlink" title="$T3$"></a>$T3$</h4><p>好妙啊。就有这么个 $trick$：小于某个 $limit$ 的操作都被执行，就可以从小往大执行操作。</p>
 <p>注意到一个操作只有在 $gap \leq T$ 的时候才会被执行，就按 $gap$ 从小往大加入操作，线段树维护每个操作区间能走到的区间。</p>
-<h3 id="十二省联考2019-字符串问题"><a href="#十二省联考2019-字符串问题" class="headerlink" title="$十二省联考2019-字符串问题$"></a><a href="https://loj.ac/p/3049" target="_blank" rel="noopener">$十二省联考2019-字符串问题$</a></h3><p>很自然<del>套路</del>的题，容易想到建边用图做，也就是一个 $A$ 向它支配的 $B$ 连边，这个 $B$ 再向以它为前缀的 $A$ 连边，暴力连 $O(n^2)$，考虑优化。</p>
-<p>老套路，考虑图/树优化建边，这里对反串建 $SAM$，把 $A$ 串和 $B$ 串挂在对应的后缀树节点下，同个节点挂着的串相邻连边就避免了一个 $A$ 向一堆 $A$ 连的情况。</p>
-<p><a href="https://loj.ac/s/1017579" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="十二省联考-皮配"><a href="#十二省联考-皮配" class="headerlink" title="$十二省联考-皮配$"></a><a href="https://loj.ac/p/3051?keyword=3051" target="_blank" rel="noopener">$十二省联考-皮配$</a></h3><p>这题不讲唔得，它用繁多的变量来搞你心态！<del>大意了啊没有闪</del></p>
-<p>撇开这点，题并不难（但有点考逻辑</p>
-<p>首先发现派系和阵营是交错的，不管城市选什么阵营，里面的学校都可以任意选派系，城市的决定和学校的决定共同决定了导师。<strong>也就是说城市和学校独立。</strong></p>
-<p>先考虑 $k = 0$ 的情况，分别 $dp$ 算出 $f[i, j]$ 表示前 $i$ 个城市，$j$ 个人在蓝阵营的方案数；<br>$g[i, j]$ 表示前 $i$ 个城市，$j$ 个人在鸭派系的方案数。合法的相乘。</p>
-<p>按照选课的套路，$k = 0$ 的情况，没有限制的城市和学校同上做；<br>$k \neq 0$，有限制的城市需要选同个阵营，同城市的学校就必须捆绑考虑了：$f[i, j, k]$ 表示前 $i$ 个城市蓝阵营人数为 $j$，鸭派系人数为 $k$ 的方案数。</p>
-<p>然后滚掉一维就能 AC 辣!</p>
-<p><a href="https://loj.ac/s/1017744" target="_blank" rel="noopener">$Code$</a></p>
-<p><del>至此十二省联考只差一道骗分过样例了（这道打算咕掉）</del></p>
+<h3 id="十二省联考2019-字符串问题"><a href="#十二省联考2019-字符串问题" class="headerlink" title="$十二省联考2019-字符串问题$"></a><a href="https://loj.ac/p/3049" target="_blank" rel="noopener">$十二省联考2019-字符串问题$</a></h3><p>写在「十二省联考」。</p>
+<h3 id="十二省联考-皮配"><a href="#十二省联考-皮配" class="headerlink" title="$十二省联考-皮配$"></a><a href="https://loj.ac/p/3051?keyword=3051" target="_blank" rel="noopener">$十二省联考-皮配$</a></h3><p>写在「十二省联考」。</p>
 <h2 id="mathcal-12-23"><a href="#mathcal-12-23" class="headerlink" title="$\mathcal{12.23}$"></a>$\mathcal{12.23}$</h2><hr>
 <h3 id="XJOI1632"><a href="#XJOI1632" class="headerlink" title="$XJOI1632$"></a>$XJOI1632$</h3><p>XJ 现在题好像不那么旧了？点赞！我都要订！</p>
 <h4 id="T1-4"><a href="#T1-4" class="headerlink" title="$T1$"></a>$T1$</h4><p>求本质不同子串的本质不同子串，</p>
@@ -528,23 +509,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
