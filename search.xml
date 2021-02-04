@@ -213,19 +213,6 @@
     
     
     <entry>
-      <title>【学习笔记】最长反链和它全家（详细揭秘）</title>
-      <link href="2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E9%95%BF%E5%8F%8D%E9%93%BE%E5%92%8C%E5%AE%83%E5%85%A8%E5%AE%B6%EF%BC%88%E8%AF%A6%E7%BB%86%E6%8F%AD%E7%A7%98%EF%BC%89/"/>
-      <url>2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E9%95%BF%E5%8F%8D%E9%93%BE%E5%92%8C%E5%AE%83%E5%85%A8%E5%AE%B6%EF%BC%88%E8%AF%A6%E7%BB%86%E6%8F%AD%E7%A7%98%EF%BC%89/</url>
-      
-        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同志，扫盲了！</span><br></pre></td></tr></table></figure><ul><li><p>链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。</p></li><li><p>反链：反链也是点集，不过其中任意两个点都不能走到彼此。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实现时都用网络流）</span><br><span class="line">最长链 = 最小反链覆盖</span><br></pre></td></tr></table></figure><ul><li><p>最大匹配：$DAG$ 的最大匹配概念同二分图的。</p></li><li><p>最小链覆盖：也叫最小路径覆盖，作用如其名，分为可重和不可重。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最小链覆盖 = 顶点数 - 最大匹配（刚开始没有匹配，显然成立；接下来每匹配一对点，匹配数 +1，路径数 -1。匹配数 = 每条路径点数边数和。）</span><br></pre></td></tr></table></figure><ul><li><p>最小不可重链覆盖：拆点，用匈牙利算法或者网络流求解，连 $(x_{out}, y_{in})$</p></li><li><p>最小可重链覆盖：先传递闭包，再在形成的偏序集上做最小不可重链覆盖，跳过的点被当作重复经过，然而实现时一般用网络流建 $(x’, x, \infty)$ 这样的反边表示某些点被当作中间点做了传递闭包。</p></li><li><p>最大独立集：选出最多的点，其中两两无边相连。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大团 = 补图最大独立集</span><br></pre></td></tr></table></figure><ul><li><p>最小点覆盖：选择最少的点覆盖所有边。</p></li><li><p>最小边覆盖：选择最少的边覆盖所有点。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大匹配 = 最小点覆盖</span><br><span class="line">    每条边一定连着一个匹配点，否则连两个未匹配点匹配数应该 +1。</span><br><span class="line">二分图 最大独立集 = 顶点数 - 最小点覆盖</span><br><span class="line">    把最小点覆盖剔除，剩下的点就没有边相连了。</span><br><span class="line">二分图 最小边覆盖 = 顶点数 - 最大匹配</span><br><span class="line">    显然。同时也告诉我们最小边覆盖就是在最大匹配的基础上加边，变成完美匹配。</span><br><span class="line">二分图 最小割 = 最小点权覆盖集 = 点权和 - 最大点权独立集</span><br></pre></td></tr></table></figure><p>感觉类似题目（不 sb 的那种）都是用👆上面这套理论搞来搞去，比如 <a href="https://www.luogu.com.cn/problem/P4298" target="_blank" rel="noopener">$CTSC2008-祭祀$</a>：难点在构造方案。</p><p>第二问好想，每个点删除后做一遍最长反链看是否只减小了 $1$。</p><p>第一问，先说结论：选出新图所有 $x_{out}$ 和 $x_{in}$ 都在最大独立集里的点，就是原图最长反链。</p><p>证明：<br>有最大独立集合 $I$ = 顶点数 $2n$ - 最大匹配 $m$，设最长反链集合为 $A$，$I - A$ 为「$x_{out}$ 或 $x_{in}$ 在最大独立集里」的点集，$|I| - |A| \leq n$, $|A| \geq |I| - n = n - m$, 而 $|A| \leq n - m$，所以 $|A| = n - m =$ 原图最长反链。</p><p>所以匈牙利或者 $dinic$ 找最大匹配，再 dfs 找最小点覆盖，最大独立集 = 最小点覆盖补集。注意这题可重。</p><p><em>彩蛋：$dinic$ 在二分图上是 $O(n\sqrt{n})$ 的哦</em></p><p>upd: $96$ 分我太疑惑了？</p>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>【学习笔记】LCT</title>
       <link href="2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91LCT/"/>
       <url>2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91LCT/</url>
@@ -239,6 +226,19 @@
             <tag> LCT </tag>
             
         </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>【学习笔记】最长反链和它全家（详细揭秘）</title>
+      <link href="2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E9%95%BF%E5%8F%8D%E9%93%BE%E5%92%8C%E5%AE%83%E5%85%A8%E5%AE%B6%EF%BC%88%E8%AF%A6%E7%BB%86%E6%8F%AD%E7%A7%98%EF%BC%89/"/>
+      <url>2020/12/27/%E3%80%90%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%91%E6%9C%80%E9%95%BF%E5%8F%8D%E9%93%BE%E5%92%8C%E5%AE%83%E5%85%A8%E5%AE%B6%EF%BC%88%E8%AF%A6%E7%BB%86%E6%8F%AD%E7%A7%98%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">同志，扫盲了！</span><br></pre></td></tr></table></figure><ul><li><p>链：偏序关系中，链是形如 $a \leq b$ 的许多关系；$DAG$ 上，链是一个点集，其中任意两个点 $x$, $y$ 都能从 $x$ 到 $y$ 或从 $y$ 到 $x$。</p></li><li><p>反链：反链也是点集，不过其中任意两个点都不能走到彼此。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">最长反链 = 最小链覆盖（Dilworth 定理：最长反链 = 最小链精确（即不可重）覆盖，通过传递闭包可以转为最小链可重覆盖，然而实现时都用网络流）</span><br><span class="line">最长链 = 最小反链覆盖</span><br></pre></td></tr></table></figure><ul><li><p>最大匹配：$DAG$ 的最大匹配概念同二分图的。</p></li><li><p>最小链覆盖：也叫最小路径覆盖，作用如其名，分为可重和不可重。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">最小链覆盖 = 顶点数 - 最大匹配（刚开始没有匹配，显然成立；接下来每匹配一对点，匹配数 +1，路径数 -1。匹配数 = 每条路径点数边数和。）</span><br></pre></td></tr></table></figure><ul><li><p>最小不可重链覆盖：拆点，用匈牙利算法或者网络流求解，连 $(x_{out}, y_{in})$</p></li><li><p>最小可重链覆盖：先传递闭包，再在形成的偏序集上做最小不可重链覆盖，跳过的点被当作重复经过，然而实现时一般用网络流建 $(x’, x, \infty)$ 这样的反边表示某些点被当作中间点做了传递闭包。</p></li><li><p>最大独立集：选出最多的点，其中两两无边相连。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大团 = 补图最大独立集</span><br></pre></td></tr></table></figure><ul><li><p>最小点覆盖：选择最少的点覆盖所有边。</p></li><li><p>最小边覆盖：选择最少的边覆盖所有点。</p></li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">二分图 最大匹配 = 最小点覆盖</span><br><span class="line">    每条边一定连着一个匹配点，否则连两个未匹配点匹配数应该 +1。</span><br><span class="line">二分图 最大独立集 = 顶点数 - 最小点覆盖</span><br><span class="line">    把最小点覆盖剔除，剩下的点就没有边相连了。</span><br><span class="line">二分图 最小边覆盖 = 顶点数 - 最大匹配</span><br><span class="line">    显然。同时也告诉我们最小边覆盖就是在最大匹配的基础上加边，变成完美匹配。</span><br><span class="line">二分图 最小割 = 最小点权覆盖集 = 点权和 - 最大点权独立集</span><br></pre></td></tr></table></figure><p>感觉类似题目（不 sb 的那种）都是用👆上面这套理论搞来搞去，比如 <a href="https://www.luogu.com.cn/problem/P4298" target="_blank" rel="noopener">$CTSC2008-祭祀$</a>：难点在构造方案。</p><p>第二问好想，每个点删除后做一遍最长反链看是否只减小了 $1$。</p><p>第一问，先说结论：选出新图所有 $x_{out}$ 和 $x_{in}$ 都在最大独立集里的点，就是原图最长反链。</p><p>证明：<br>有最大独立集合 $I$ = 顶点数 $2n$ - 最大匹配 $m$，设最长反链集合为 $A$，$I - A$ 为「$x_{out}$ 或 $x_{in}$ 在最大独立集里」的点集，$|I| - |A| \leq n$, $|A| \geq |I| - n = n - m$, 而 $|A| \leq n - m$，所以 $|A| = n - m =$ 原图最长反链。</p><p>所以匈牙利或者 $dinic$ 找最大匹配，再 dfs 找最小点覆盖，最大独立集 = 最小点覆盖补集。注意这题可重。</p><p><em>彩蛋：$dinic$ 在二分图上是 $O(n\sqrt{n})$ 的哦</em></p><p>upd: $96$ 分我太疑惑了？</p>]]></content>
+      
+      
       
     </entry>
     
@@ -1328,27 +1328,6 @@
     
     
     <entry>
-      <title>[UOJ513]-清扫银河</title>
-      <link href="2020/07/27/%5BUOJ513%5D-%E6%B8%85%E6%89%AB%E9%93%B6%E6%B2%B3/"/>
-      <url>2020/07/27/%5BUOJ513%5D-%E6%B8%85%E6%89%AB%E9%93%B6%E6%B2%B3/</url>
-      
-        <content type="html"><![CDATA[<p><a href="http://peehs-moorhsum.blog.uoj.ac/blog/5486" target="_blank" rel="noopener">官方题解</a> 逻辑很清晰！</p><p>若有解则必然可以在 m + 1 次操作里出解。</p><p><strong>证明：</strong><br>首先要知道一个性质：无向图的任何环都可以由若干个非树边覆盖的环异或得到。也就是说有用的操作一只有 m - n + 1 个。</p><p>而操作二等价于每次选一个点，将与这个点相邻的边全部反转，也就是说有用的操作二有 n 个。</p><p>总共操作数为 m + 1 个，解异或方程组，必然可以在 m + 1 次操作里出解，况且多个操作二还可以合成一个呢。</p><p>但真的这样做却是 O(m^3 / 32) 的，考虑优化。</p><p>将所有 1 边形成的图称为目标子图。</p><p>根据<strong>欧拉回路</strong>的知识，若目标子图中每个节点的度数都是偶数，则必然可以通过不超过 m - n + 1 次操作一将边权都变成 0.</p><p>因此只要考虑，仅用操作二能否让目标子图中每个节点度数变成偶数。</p><p>这样是 O(n^3 / 32) 的。</p><p>异或什么的想想方程组啊，，，虽然暴力，但到底是个切入口。不过后续就需要找性质了。</p><p>正式做题时，逆推回去比较好：环上点的度数都是偶数…所以blabla</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">305</span>;</span><br><span class="line"><span class="keyword">int</span> T, n, m;</span><br><span class="line"><span class="built_in">bitset</span>&lt;N&gt; a[N], x;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Gauss</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!a[i][i]) &#123;</span><br><span class="line">            rep(j, i + <span class="number">1</span>, n) <span class="keyword">if</span> (a[j][i]) &#123; swap(a[i], a[j]); <span class="keyword">break</span>; &#125;</span><br><span class="line">            <span class="keyword">if</span> (!a[i][i]) <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        rep(j, i + <span class="number">1</span>, n) <span class="keyword">if</span> (a[j][i]) a[j] ^= a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i; --i) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = a[i][n + <span class="number">1</span>];</span><br><span class="line">        rep(j, i + <span class="number">1</span>, n) t ^= (a[i][j] * x[j]);</span><br><span class="line">        <span class="keyword">if</span> (!a[i][i] &amp;&amp; t) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        x[i] = t;</span><br><span class="line">    &#125; <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">            <span class="keyword">int</span> x, y, z; <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;z);</span><br><span class="line">            a[x][x].flip(), a[y][y].flip(), a[x][y] = <span class="number">1</span>, a[y][x] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (z) a[x][n + <span class="number">1</span>].flip(), a[y][n + <span class="number">1</span>].flip();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(Gauss() ? <span class="string">"yes"</span> : <span class="string">"no"</span>);</span><br><span class="line">        rep(i, <span class="number">1</span>, n) a[i].reset();</span><br><span class="line">        x.reset();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 思维 </tag>
-            
-            <tag> 高斯消元 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>[UOJ455]-雪灾与外卖</title>
       <link href="2020/07/27/%5BUOJ455%5D-%E9%9B%AA%E7%81%BE%E4%B8%8E%E5%A4%96%E5%8D%96/"/>
       <url>2020/07/27/%5BUOJ455%5D-%E9%9B%AA%E7%81%BE%E4%B8%8E%E5%A4%96%E5%8D%96/</url>
@@ -1364,6 +1343,27 @@
             <tag> 费用流 </tag>
             
             <tag> 可撤销贪心 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>[UOJ513]-清扫银河</title>
+      <link href="2020/07/27/%5BUOJ513%5D-%E6%B8%85%E6%89%AB%E9%93%B6%E6%B2%B3/"/>
+      <url>2020/07/27/%5BUOJ513%5D-%E6%B8%85%E6%89%AB%E9%93%B6%E6%B2%B3/</url>
+      
+        <content type="html"><![CDATA[<p><a href="http://peehs-moorhsum.blog.uoj.ac/blog/5486" target="_blank" rel="noopener">官方题解</a> 逻辑很清晰！</p><p>若有解则必然可以在 m + 1 次操作里出解。</p><p><strong>证明：</strong><br>首先要知道一个性质：无向图的任何环都可以由若干个非树边覆盖的环异或得到。也就是说有用的操作一只有 m - n + 1 个。</p><p>而操作二等价于每次选一个点，将与这个点相邻的边全部反转，也就是说有用的操作二有 n 个。</p><p>总共操作数为 m + 1 个，解异或方程组，必然可以在 m + 1 次操作里出解，况且多个操作二还可以合成一个呢。</p><p>但真的这样做却是 O(m^3 / 32) 的，考虑优化。</p><p>将所有 1 边形成的图称为目标子图。</p><p>根据<strong>欧拉回路</strong>的知识，若目标子图中每个节点的度数都是偶数，则必然可以通过不超过 m - n + 1 次操作一将边权都变成 0.</p><p>因此只要考虑，仅用操作二能否让目标子图中每个节点度数变成偶数。</p><p>这样是 O(n^3 / 32) 的。</p><p>异或什么的想想方程组啊，，，虽然暴力，但到底是个切入口。不过后续就需要找性质了。</p><p>正式做题时，逆推回去比较好：环上点的度数都是偶数…所以blabla</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">305</span>;</span><br><span class="line"><span class="keyword">int</span> T, n, m;</span><br><span class="line"><span class="built_in">bitset</span>&lt;N&gt; a[N], x;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">Gauss</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">        <span class="keyword">if</span> (!a[i][i]) &#123;</span><br><span class="line">            rep(j, i + <span class="number">1</span>, n) <span class="keyword">if</span> (a[j][i]) &#123; swap(a[i], a[j]); <span class="keyword">break</span>; &#125;</span><br><span class="line">            <span class="keyword">if</span> (!a[i][i]) <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        rep(j, i + <span class="number">1</span>, n) <span class="keyword">if</span> (a[j][i]) a[j] ^= a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n; i; --i) &#123;</span><br><span class="line">        <span class="keyword">int</span> t = a[i][n + <span class="number">1</span>];</span><br><span class="line">        rep(j, i + <span class="number">1</span>, n) t ^= (a[i][j] * x[j]);</span><br><span class="line">        <span class="keyword">if</span> (!a[i][i] &amp;&amp; t) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        x[i] = t;</span><br><span class="line">    &#125; <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; T;</span><br><span class="line">    <span class="keyword">while</span> (T--) &#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n &gt;&gt; m;</span><br><span class="line">        rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">            <span class="keyword">int</span> x, y, z; <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;x, &amp;y, &amp;z);</span><br><span class="line">            a[x][x].flip(), a[y][y].flip(), a[x][y] = <span class="number">1</span>, a[y][x] = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (z) a[x][n + <span class="number">1</span>].flip(), a[y][n + <span class="number">1</span>].flip();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">puts</span>(Gauss() ? <span class="string">"yes"</span> : <span class="string">"no"</span>);</span><br><span class="line">        rep(i, <span class="number">1</span>, n) a[i].reset();</span><br><span class="line">        x.reset();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 思维 </tag>
+            
+            <tag> 高斯消元 </tag>
             
         </tags>
       
@@ -3022,9 +3022,9 @@
       
         <tags>
             
-            <tag> 排列组合 </tag>
-            
             <tag> 计数DP </tag>
+            
+            <tag> 排列组合 </tag>
             
         </tags>
       
