@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-04T11:00:47.018Z">
+<meta property="og:updated_time" content="2021-02-04T11:17:39.922Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Feb 学习计划">
 <meta name="twitter:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
@@ -161,7 +161,7 @@
 <p>考虑一条链的情况，可以 cdq 分治。这启发我们点分治——把一个点到根的路径划分为许多段分治重心到分治子树根的路径，维护每个分治重心到分治子树根的路径凸壳，以更新分治子树的答案。复杂度 $O(nlog^2n)$，点分治一只 log，凸壳上二分一只 log。</p>
 <p><a href="https://uoj.ac/submission/453320" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="Ynoi2012-人生巅峰"><a href="#Ynoi2012-人生巅峰" class="headerlink" title="$Ynoi2012-人生巅峰$"></a><a href="https://www.luogu.com.cn/problem/P5527" target="_blank" rel="noopener">$Ynoi2012-人生巅峰$</a></h3><p>小清新。取模诶！根据抽屉原理，$2^{r - l + 1} &gt; maxV(r - l + 1)$，即 $r - l + 1 &gt; 13$ 时必然有解；剩下拿个 bitset dp 一下就好了。修改操作就预处理立方，树状数组记操作次数，查询时倍增。</p>
-<h3 id="石家庄的工人阶级队伍比较坚强"><a href="#石家庄的工人阶级队伍比较坚强" class="headerlink" title="石家庄的工人阶级队伍比较坚强"></a><a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a></h3><p>完全图，奇怪卷积。。。</p>
+<h3 id="石家庄的工人阶级队伍比较坚强"><a href="#石家庄的工人阶级队伍比较坚强" class="headerlink" title="石家庄的工人阶级队伍比较坚强"></a><a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a></h3><p>当然要化奇怪规则为一般。发现赢的相减为 $1$，取模意义下输的相减为 $2$，平局当然是 $0$ 了。记 $B_{x - y} = b_{u, v} = b_{cnt(x - y, 1), cnt(x - y, 2)}$。则 $f_{i, z} = \sum\limits_{x \oplus y = z} f_{i - 1, x} B_{y}$，其中 $\oplus$ 是三进制不进位加法。</p>
 
   </div>
 </article>
