@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="NOIP 前也做了不少好题！但是依然考的那么差。。。QAQ 每道题都很好！但太难了都没做太深入的思考 QAQ。。。所以接下来到 NOIP2021 的 300 多天要尽可能争取完整的做出题。 立下 Flag（希望它永远不倒）：每天都自己独立做出一道有质量的题$ZJOI2019-麻将$ $dp$ 套 $dp$ 就是状态间的转移也有 $dp$ 关系，$f[i]$ 转移到 $f[j]$, $i$ 和 $j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-05T11:38:22.681Z">
+<meta property="og:updated_time" content="2021-02-06T03:49:24.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NOIP2020 前的做题记录整理">
 <meta name="twitter:description" content="NOIP 前也做了不少好题！但是依然考的那么差。。。QAQ 每道题都很好！但太难了都没做太深入的思考 QAQ。。。所以接下来到 NOIP2021 的 300 多天要尽可能争取完整的做出题。 立下 Flag（希望它永远不倒）：每天都自己独立做出一道有质量的题$ZJOI2019-麻将$ $dp$ 套 $dp$ 就是状态间的转移也有 $dp$ 关系，$f[i]$ 转移到 $f[j]$, $i$ 和 $j">
@@ -261,7 +261,13 @@
 <p>变中找不变。若存在两个位置 $i$ 和 $j$ 使得 $n$ 个数的 $i$ 和 $j$ 位都相同，显然最终搞出的数 $i$ 和 $j$ 位也是相同的。因此数位 $dp$ 的时候从高位到低位考虑，确定当前位后必须将和它相同的位标记一下。</p>
 <p>剩余没有互相限制的位置可以任意取 $0$ 或 $1$。为什么？？考虑用线性基的思想构造解（假设当前要取第 $x$ 位为 $1$）：通过一些操作把 $n$ 个数消成上三角；对于第 $x$ 位为 $0$ 的 $a_i$ 把 $a_i$ 取反，否则不动。把 $a$ 全部 &amp; 起来，$x$ 位上必然是 $1$；同时由于 $x$ 没有互相限制的位置，没有其他位上为 $1$。</p>
 <h3 id="重返现世"><a href="#重返现世" class="headerlink" title="$重返现世$"></a><a href="https://www.luogu.com.cn/problem/P4707" target="_blank" rel="noopener">$重返现世$</a></h3><hr>
-<p>写在「反演杂烩」。</p>
+<p>好像第一次做 $k-th\ \min-\max$ 容斥的题。。可能只是板子题，但是 $dp$ 容斥系数的方法挺重要，碰到好几次了记录一下。</p>
+<p>$\min_k$ 和 $\max_k$ 可以转化。<br>$$E(\max_k(S)) = \sum\limits_{T \subset S} (-1)^{|T| - k} \binom{|T| - 1}{k - 1} * E(\min(T))$$<br>$$E(\min(T)) = \frac{m}{\sum\limits_{t \in T} p_t}$$<br>容斥这东西的系数显然可以 $dp$，老套路了。</p>
+<p>考虑状态怎么设计，我们可以把 $k$ 和 $E(\min(T))$ 给表示到状态里：$f[i, j, k]$ 表示, 当前到第 $i$ 种原料，$\sum p_t = j$, 柿子中的 $k = k$ 时, $\sum\limits_{T \subset S} (-1)^{|T| - k} \binom{|T| - 1}{k - 1}$ 的和。转移：</p>
+<p>$f[i, j, k] = f[i - 1, j, k]$ (不选 $i$)</p>
+<p>$+ f[i - 1, j - p_i, k - 1] - f[i - 1, j - p_i, k]$（选 $i$）</p>
+<p>这是因为 $|T|$ 增加 $1$ 时, $\binom{|T| - 1}{k - 1} = \binom{|T| - 2}{k - 1} + \binom{|T| - 2}{k - 2}$（根据组合数的定义）然后 $-1$ 的指数也改变了，负负得正。</p>
+<p>边界：$f[0, 0, k] = 0$,<br>$f[i, p_i, k] = f[i - 1, p_i, k] + (-1)^{1 - k}\binom{0}{k - 1}$，后面这坨等价于 $[k == 1]$</p>
 <h3 id="转盘"><a href="#转盘" class="headerlink" title="$转盘$"></a><a href="http://loj.ac/p/2495" target="_blank" rel="noopener">$转盘$</a></h3><hr>
 <p>我们发现如果时间被某个点限制住，就没必要在走到那个点的路上走走停停，直接在出发前一次停个够。</p>
 <p>破环成链，在起始点停满时间。枚举起始点，假设从 $st$ 开始，$ans = \min\limits_{st}( \max\limits_i( T_i - dist(i, st) ) ) + n - 1$</p>
@@ -418,23 +424,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
