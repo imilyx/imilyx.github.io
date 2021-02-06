@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反演">
+    <meta name="description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
 <meta name="keywords" content="集合幂级数,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】集合幂级数">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反演">
+<meta property="og:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T03:50:06.832Z">
+<meta property="og:updated_time" content="2021-02-06T03:54:32.627Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】集合幂级数">
-<meta name="twitter:description" content="1打开了新世界的大门。 抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反演">
+<meta name="twitter:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
     
     
         
@@ -143,6 +143,7 @@
 
   <div class="content" itemprop="articleBody">
     <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">打开了新世界的大门。</span><br></pre></td></tr></table></figure>
+
 <p>抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。</p>
 <h2 id="FMT"><a href="#FMT" class="headerlink" title="FMT"></a>FMT</h2><hr>
 <p>用来计算集合幂级数乘法。还有一种分治乘法，本质相同。</p>
@@ -154,54 +155,40 @@
 <h2 id="FWT"><a href="#FWT" class="headerlink" title="FWT"></a>FWT</h2><hr>
 <p>有结论：对于一个集合 $S$ 有 $\frac{1}{2^n} \sum\limits_{T \subseteq 2^U}(-1)^{|S\cap T|} = [S = \emptyset]$，证明考虑 $S$ 不为空时从 $S$ 里拎走一个数后 $-1$ 的正负性改变，与拎走前的抵消。</p>
 <p>那么对于异或卷积 $h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R = S] f_Lg_R$ 就有新的思路：</p>
-<script type="math/tex; mode=display">h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R \oplus S = \emptyset] f_Lg_R</script><script type="math/tex; mode=display">= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap (L \oplus R \oplus S)|} f_Lg_R</script><script type="math/tex; mode=display">= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap L|} (-1)^{|T \cap R|} (-1)^{|T \cap S|} f_Lg_R</script><script type="math/tex; mode=display">= \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} ( \sum\limits_{L \subseteq 2^U} (-1)^{|T \cap L|} f_L ) ( \sum\limits_{R \subseteq 2^U} (-1)^{|T \cap R|} g_R )</script><p>于是定义 FWT：$\hat{f_S} = \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
+<p>$$h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \oplus R \oplus S = \emptyset] f_Lg_R$$</p>
+<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap (L \oplus R \oplus S)|} f_Lg_R$$</p>
+<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap L|} (-1)^{|T \cap R|} (-1)^{|T \cap S|} f_Lg_R$$</p>
+<p>$$= \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} ( \sum\limits_{L \subseteq 2^U} (-1)^{|T \cap L|} f_L ) ( \sum\limits_{R \subseteq 2^U} (-1)^{|T \cap R|} g_R )$$</p>
+<p>于是定义 FWT：$\hat{f_S} = \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
 <p>IFWT：$\hat{f_S} = \frac{1}{2^n} \sum\limits_{T \subseteq 2^U} (-1)^{|T \cap S|} f_T$</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FWT_xor</span><span class="params">(ll a[], <span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> (!((j &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>)) &#123;</span><br><span class="line">                ll x = a[j], y = a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))];</span><br><span class="line">                a[j] = (x + y) % mod, a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] = (x - y + mod) % mod;</span><br><span class="line">                <span class="keyword">if</span> (op == <span class="number">-1</span>) (a[j] *= inv2) %= mod, (a[j + (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] *= inv2) %= mod;</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="Or-和-And-卷积"><a href="#Or-和-And-卷积" class="headerlink" title="Or 和 And 卷积"></a>Or 和 And 卷积</h2><hr>
 <p>以 Or 为例：</p>
-<script type="math/tex; mode=display">h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R = S] f_Lg_R</script><p>对两边同时做 FMT</p>
-<script type="math/tex; mode=display">\hat{h_S} = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R \subseteq S] f_Lg_R</script><script type="math/tex; mode=display">= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \subseteq S][R \subseteq S] f_Lg_R</script><p><strong>Or 卷积本质是高维前缀和。</strong> </p>
+<p>$$h_S = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R = S] f_Lg_R$$</p>
+<p>对两边同时做 FMT</p>
+<p>$$\hat{h_S} = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R \subseteq S] f_Lg_R$$</p>
+<p>$$= \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \subseteq S][R \subseteq S] f_Lg_R$$</p>
+<p><strong>Or 卷积本质是高维前缀和。</strong> </p>
 <p>And 卷积取反后做 Or 卷积再取反也是可行的 qwq。当然也有朴素的分治乘法。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FWT_or</span><span class="params">(ll a[], <span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; (<span class="number">1</span> &lt;&lt; n); k &lt;&lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i += (k &lt;&lt; <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j)</span><br><span class="line">                a[i + j + k] = (a[i + j + k] + a[i + j] * op + mod) % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FWT_and</span><span class="params">(ll a[], <span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt; (<span class="number">1</span> &lt;&lt; n); k &lt;&lt;= <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; (<span class="number">1</span> &lt;&lt; n); i += (k &lt;&lt; <span class="number">1</span>))</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; k; ++j)</span><br><span class="line">                a[i + j] = (a[i + j] + a[i + j + k] * op + mod) % mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// FMT(= FWT_and)</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">FMT</span><span class="params">(<span class="keyword">int</span> op = <span class="number">1</span>)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n)</span><br><span class="line">        rep(j, <span class="number">0</span>, (<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">if</span> ((j &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>)</span><br><span class="line">                f[j] = (f[j] + f[j - (<span class="number">1</span> &lt;&lt; (i - <span class="number">1</span>))] * op + mod) % mod;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="子集卷积"><a href="#子集卷积" class="headerlink" title="子集卷积"></a>子集卷积</h2><hr>
-<script type="math/tex; mode=display">\hat{h_S} = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R = S] [L \cap R = \emptyset] f_Lg_R</script><p>直接枚举子集 $3^n$。</p>
+<p>$$\hat{h_S} = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R = S] [L \cap R = \emptyset] f_Lg_R$$</p>
+<p>直接枚举子集 $3^n$。</p>
 <p>$[L \cup R = S] [L \cap R = \emptyset] = [L \oplus R = S][|L| + |R| = |S|]$，记录一个占位数量，分层卷。应该满足 $1$ 的个数恰好为两者之和，<strong>否则清空</strong>。$O(n^22^n)$</p>
 <h2 id="拓展（-K-进制异或卷积）"><a href="#拓展（-K-进制异或卷积）" class="headerlink" title="拓展（$K$ 进制异或卷积）"></a>拓展（$K$ 进制异或卷积）</h2><hr>
 <p>And, Or 卷积在 $K$ 进制下可以拓展为取 $\min$, $\max$，做高维前缀和。</p>
 <p>$K$ 进制下的 Xor 其实是两个向量列对列的不进位取模加法，<strong>是个高维 DFT</strong>，即<strong>在 $n$ 个维度上分别做大小为 $K$ 的循环卷积</strong>，因此需要用到 $K$ 次单位根 $\omega_K$。</p>
 <p>考虑 DFT 带单位根进去，实际上是乘了这么个矩阵（范德蒙德矩阵）：</p>
-<script type="math/tex; mode=display">
-T_k =
-\left[
-\begin{matrix}
-\omega_{k}^{0} & \omega_{k}^{0} & \omega_{k}^{0} & \cdots & \omega_{k}^{0} \\
-\omega_{k}^{0} & \omega_{k}^1 & \omega_{k}^2 & \cdots & \omega_{k}^{k - 1} \\
-\omega_{k}^{0} & \omega_{k}^2 & \omega_{k}^4 & \cdots & \omega_{k}^{2(k - 1)} \\
-\cdots & \cdots & \cdots & \ddots & \cdots \\
-\omega_{k}^{0} & \omega_{k}^{k - 1} & \omega_{k}^{2(k - 1)} & \cdots & \omega_{k}^{(k - 1)(k - 1)} \\
-\end{matrix}
-\right]</script><p>而 IDFT 实际上是乘了 $T_k$ 的逆矩阵：</p>
-<script type="math/tex; mode=display">
-T_k^{-1} = \frac{1}{k}
-\left[
-\begin{matrix}
-\omega_{k}^{0} & \omega_{k}^{0} & \omega_{k}^{0} & \cdots & \omega_{k}^{0} \\
-\omega_{k}^{0} & \omega_{k}^{-1} & \omega_{k}^{-2} & \cdots & \omega_{k}^{-(k - 1)} \\
-\omega_{k}^{0} & \omega_{k}^{-2} & \omega_{k}^{-4} & \cdots & \omega_{k}^{-2(k - 1)} \\
-\cdots & \cdots & \cdots & \ddots & \cdots \\
-\omega_{k}^{0} & \omega_{k}^{-(k - 1)} & \omega_{k}^{-2(k - 1)} & \cdots & \omega_{k}^{-(k - 1)(k - 1)} \\
-\end{matrix}
-\right]</script><p>依次枚举 $0$ ~ $n - 1$ 每维，将每维 DFT，再将点值对应相乘，最后 IDFT 回来（注意最后要除以 $K^n$，因为共有 $n$ 层，$T_k * T_k^{-1} = KE$，$E$ 为单位矩阵，每层都多乘了一个 $K$；也可以从 IFWT 原理理解）。正确性可以用递归的思想理解。</p>
-<p>复杂度 $O(n <em> K^{n - 1} </em> K^2)$（理解为 O(能过) 即可）</p>
+<p>$$<br>T_k =<br>\left[<br>\begin{matrix}<br>\omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \cdots &amp; \omega_{k}^{0} \<br>\omega_{k}^{0} &amp; \omega_{k}^1 &amp; \omega_{k}^2 &amp; \cdots &amp; \omega_{k}^{k - 1} \<br>\omega_{k}^{0} &amp; \omega_{k}^2 &amp; \omega_{k}^4 &amp; \cdots &amp; \omega_{k}^{2(k - 1)} \<br>\cdots &amp; \cdots &amp; \cdots &amp; \ddots &amp; \cdots \<br>\omega_{k}^{0} &amp; \omega_{k}^{k - 1} &amp; \omega_{k}^{2(k - 1)} &amp; \cdots &amp; \omega_{k}^{(k - 1)(k - 1)} \<br>\end{matrix}<br>\right]<br>$$</p>
+<p>而 IDFT 实际上是乘了 $T_k$ 的逆矩阵：</p>
+<p>$$<br>T_k^{-1} = \frac{1}{k}<br>\left[<br>\begin{matrix}<br>\omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \cdots &amp; \omega_{k}^{0} \<br>\omega_{k}^{0} &amp; \omega_{k}^{-1} &amp; \omega_{k}^{-2} &amp; \cdots &amp; \omega_{k}^{-(k - 1)} \<br>\omega_{k}^{0} &amp; \omega_{k}^{-2} &amp; \omega_{k}^{-4} &amp; \cdots &amp; \omega_{k}^{-2(k - 1)} \<br>\cdots &amp; \cdots &amp; \cdots &amp; \ddots &amp; \cdots \<br>\omega_{k}^{0} &amp; \omega_{k}^{-(k - 1)} &amp; \omega_{k}^{-2(k - 1)} &amp; \cdots &amp; \omega_{k}^{-(k - 1)(k - 1)} \<br>\end{matrix}<br>\right]<br>$$</p>
+<p>依次枚举 $0$ ~ $n - 1$ 每维，将每维 DFT，再将点值对应相乘，最后 IDFT 回来（注意最后要除以 $K^n$，因为共有 $n$ 层，$T_k * T_k^{-1} = KE$，$E$ 为单位矩阵，每层都多乘了一个 $K$；也可以从 IFWT 原理理解）。正确性可以用递归的思想理解。</p>
+<p>复杂度 $O(n * K^{n - 1} * K^2)$（理解为 O(能过) 即可）</p>
 <p>普通的 FWT 就是个特例啦，$\omega_2$ 这里取 $-1$，它的矩阵是：</p>
-<script type="math/tex; mode=display">
-T_2 =
-\left[
-\begin{matrix}
-1 & 1 \\
-1 & -1
-\end{matrix}
-\right]</script><h3 id="石家庄的工人阶级队伍比较坚强"><a href="#石家庄的工人阶级队伍比较坚强" class="headerlink" title="石家庄的工人阶级队伍比较坚强"></a><a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a></h3><p>当然要化奇怪规则为一般。发现赢的相减为 $1$，取模意义下输的相减为 $2$，平局当然是 $0$ 了。记 $B_{x - y} = b_{u, v} = b_{cnt(x - y, 1), cnt(x - y, 2)}$。则 $f_{i, z} = \sum\limits_{x + y = z} f_{i - 1, x} B_{y}$，这里的加减法是三进制不进位加减法。</p>
+<p>$$<br>T_2 =<br>\left[<br>\begin{matrix}<br>1 &amp; 1 \<br>1 &amp; -1<br>\end{matrix}<br>\right]<br>$$</p>
+<h3 id="石家庄的工人阶级队伍比较坚强"><a href="#石家庄的工人阶级队伍比较坚强" class="headerlink" title="石家庄的工人阶级队伍比较坚强"></a><a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a></h3><p>当然要化奇怪规则为一般。发现赢的相减为 $1$，取模意义下输的相减为 $2$，平局当然是 $0$ 了。记 $B_{x - y} = b_{u, v} = b_{cnt(x - y, 1), cnt(x - y, 2)}$。则 $f_{i, z} = \sum\limits_{x + y = z} f_{i - 1, x} B_{y}$，这里的加减法是三进制不进位加减法。</p>
 <p>所以这就是个 $n$ 维，每维长度 $3$ 的 DFT / $3$ 进制 FWT 做点值快速幂。用上面构造矩阵的方法构造一个 $3 * 3$ 单位根矩阵。$3$ 的单位根是 $\omega = \frac{-1+\sqrt{3}i}{2}$，我们选择扩域，但是 $\sqrt{3}$ 精度会有问题，所以我们把复数表示成 $a + b\omega$ 的形式而不是 $a + bi$，IDFT 之后 $\omega$ 就没了。</p>
 <p>根据 $\omega_3$ 的性质：$\omega^2 + \omega + 1 = 0$，可以推得乘法：$(a + b\omega)(c + d\omega) = (ac - bd) + (ad + bc - bd)\omega$</p>
 <p>IDFT 要除以 $n = 3^m$，需要 $n$ 存在逆元，即模数 $p$ 不是 $3$ 的倍数。题目那个性质保证了这点：用反证法，设存在正整数 $k = p / 3$，那么有 $1 / k + 1 / k(k + 1) = 1 / k = 3 / p$，矛盾。</p>
@@ -291,8 +278,23 @@ T_2 =
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

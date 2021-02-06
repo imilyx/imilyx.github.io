@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-04T03:04:25.251Z">
+<meta property="og:updated_time" content="2021-02-06T03:54:38.147Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】Ideas &amp; Tricks">
 <meta name="twitter:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
@@ -300,8 +300,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
