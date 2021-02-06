@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ 一个集合">
-<meta name="keywords" content="集合幂级数">
+    <meta name="description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
+<meta name="keywords" content="集合幂级数,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】集合幂级数">
 <meta property="og:url" content="http://yoursite.com/2020/08/07/【学习笔记】集合幂级数/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ 一个集合">
+<meta property="og:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-04T12:56:29.883Z">
+<meta property="og:updated_time" content="2021-02-05T14:08:46.704Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】集合幂级数">
-<meta name="twitter:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ 一个集合">
+<meta name="twitter:description" content="1打开了新世界的大门。  抽个时间补一下 ~ 不写点什么这玩意很快就在大脑里就变成黑箱子了。 FMT 用来计算集合幂级数乘法。还有一种分治乘法，本质相同。 FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$ FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$ （子集反">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FMT"><span class="toc-number">1.</span> <span class="toc-text">FMT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">2.</span> <span class="toc-text">FWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Or-和-And-卷积"><span class="toc-number">3.</span> <span class="toc-text">Or 和 And 卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子集卷积"><span class="toc-number">4.</span> <span class="toc-text">子集卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展（-K-进制-FWT）"><span class="toc-number">5.</span> <span class="toc-text">拓展（$K$ 进制 FWT）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卷积"><span class="toc-number">5.1.</span> <span class="toc-text">卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆卷积"><span class="toc-number">5.2.</span> <span class="toc-text">逆卷积</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FMT"><span class="toc-number">1.</span> <span class="toc-text">FMT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">2.</span> <span class="toc-text">FWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Or-和-And-卷积"><span class="toc-number">3.</span> <span class="toc-text">Or 和 And 卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子集卷积"><span class="toc-number">4.</span> <span class="toc-text">子集卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展（-K-进制异或卷积）"><span class="toc-number">5.</span> <span class="toc-text">拓展（$K$ 进制异或卷积）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#石家庄的工人阶级队伍比较坚强"><span class="toc-number">5.1.</span> <span class="toc-text">石家庄的工人阶级队伍比较坚强</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -133,7 +133,7 @@
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/集合幂级数/">集合幂级数</a>
+        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/集合幂级数/">集合幂级数</a>
     </div>
 
 
@@ -149,6 +149,7 @@
 <p>用来计算集合幂级数乘法。还有一种分治乘法，本质相同。</p>
 <p>FMT: $\hat{f_S} = \sum\limits_{T \subseteq S} f_T$</p>
 <p>FMI：$f_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} \hat{f_T}$</p>
+<p>（子集反演就是 FMT 和 FMI）</p>
 <p>一个集合幂级数有逆元当且仅当 FMT 后所有系数均不为 $0$。</p>
 <p>类似 FFT 带 $n$ 次单位根，我们可以看作往里带了一堆特征向量最后插值插了回来。但是由于博主过菜，论文这部分没看太懂。。</p>
 <h2 id="FWT"><a href="#FWT" class="headerlink" title="FWT"></a>FWT</h2><hr>
@@ -176,15 +177,22 @@
 <p>$$\hat{h_S} = \sum\limits_{L \subseteq 2^U} \sum\limits_{R \subseteq 2^U} [L \cup R = S] [L \cap R = \emptyset] f_Lg_R$$</p>
 <p>直接枚举子集 $3^n$。</p>
 <p>$[L \cup R = S] [L \cap R = \emptyset] = [L \oplus R = S][|L| + |R| = |S|]$，记录一个占位数量，分层卷。应该满足 $1$ 的个数恰好为两者之和，<strong>否则清空</strong>。$O(n^22^n)$</p>
-<h2 id="拓展（-K-进制-FWT）"><a href="#拓展（-K-进制-FWT）" class="headerlink" title="拓展（$K$ 进制 FWT）"></a>拓展（$K$ 进制 FWT）</h2><hr>
-<p>用向量表示：$V = {V_0, V_1, \cdots, V_{n - 1}}$，$V_i \in [0, K)$</p>
-<p><strong>表示成多项式就是 $0$ ~ $K^n - 1$ 这 $K^n$ 个位置上的系数。</strong></p>
-<h3 id="卷积"><a href="#卷积" class="headerlink" title="卷积"></a>卷积</h3><p>And, Or 卷积在 $K$ 进制下可以拓展为取 $\min$, $\max$，做高维前缀和。</p>
+<h2 id="拓展（-K-进制异或卷积）"><a href="#拓展（-K-进制异或卷积）" class="headerlink" title="拓展（$K$ 进制异或卷积）"></a>拓展（$K$ 进制异或卷积）</h2><hr>
+<p>And, Or 卷积在 $K$ 进制下可以拓展为取 $\min$, $\max$，做高维前缀和。</p>
 <p>$K$ 进制下的 Xor 其实是两个向量列对列的不进位取模加法，<strong>是个高维 DFT</strong>，即<strong>在 $n$ 个维度上分别做大小为 $K$ 的循环卷积</strong>，因此需要用到 $K$ 次单位根 $\omega_K$。</p>
-<p>依次枚举 $0$ ~ $n - 1$ 每位，将除了这位上都相同的数取出来依照这位上的值做 DFT。</p>
-<p>复杂度 $O(n * K^{n - 1} * K^2)$</p>
-<h3 id="逆卷积"><a href="#逆卷积" class="headerlink" title="逆卷积"></a>逆卷积</h3><p>换成 IDFT，最后除以序列总长度即 $K^n$</p>
-<p>习题：<a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a> <a href>题解</a></p>
+<p>考虑 DFT 带单位根进去，实际上是乘了这么个矩阵（范德蒙德矩阵）：</p>
+<p>$$<br>T_k =<br>\left[<br>\begin{matrix}<br>\omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \cdots &amp; \omega_{k}^{0} \<br>\omega_{k}^{0} &amp; \omega_{k}^1 &amp; \omega_{k}^2 &amp; \cdots &amp; \omega_{k}^{k - 1} \<br>\omega_{k}^{0} &amp; \omega_{k}^2 &amp; \omega_{k}^4 &amp; \cdots &amp; \omega_{k}^{2(k - 1)} \<br>\cdots &amp; \cdots &amp; \cdots &amp; \ddots &amp; \cdots \<br>\omega_{k}^{0} &amp; \omega_{k}^{k - 1} &amp; \omega_{k}^{2(k - 1)} &amp; \cdots &amp; \omega_{k}^{(k - 1)(k - 1)} \<br>\end{matrix}<br>\right]<br>$$</p>
+<p>而 IDFT 实际上是乘了 $T_k$ 的逆矩阵：</p>
+<p>$$<br>T_k^{-1} = \frac{1}{k}<br>\left[<br>\begin{matrix}<br>\omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \omega_{k}^{0} &amp; \cdots &amp; \omega_{k}^{0} \<br>\omega_{k}^{0} &amp; \omega_{k}^{-1} &amp; \omega_{k}^{-2} &amp; \cdots &amp; \omega_{k}^{-(k - 1)} \<br>\omega_{k}^{0} &amp; \omega_{k}^{-2} &amp; \omega_{k}^{-4} &amp; \cdots &amp; \omega_{k}^{-2(k - 1)} \<br>\cdots &amp; \cdots &amp; \cdots &amp; \ddots &amp; \cdots \<br>\omega_{k}^{0} &amp; \omega_{k}^{-(k - 1)} &amp; \omega_{k}^{-2(k - 1)} &amp; \cdots &amp; \omega_{k}^{-(k - 1)(k - 1)} \<br>\end{matrix}<br>\right]<br>$$</p>
+<p>依次枚举 $0$ ~ $n - 1$ 每维，将每维 DFT，再将点值对应相乘，最后 IDFT 回来（注意最后要除以 $K^n$，因为共有 $n$ 层，$T_k * T_k^{-1} = KE$，$E$ 为单位矩阵，每层都多乘了一个 $K$；也可以从 IFWT 原理理解）。正确性可以用递归的思想理解。</p>
+<p>复杂度 $O(n * K^{n - 1} * K^2)$（理解为 O(能过) 即可）</p>
+<p>普通的 FWT 就是个特例啦，$\omega_2$ 这里取 $-1$，它的矩阵是：</p>
+<p>$$<br>T_2 =<br>\left[<br>\begin{matrix}<br>1 &amp; 1 \<br>1 &amp; -1<br>\end{matrix}<br>\right]<br>$$</p>
+<h3 id="石家庄的工人阶级队伍比较坚强"><a href="#石家庄的工人阶级队伍比较坚强" class="headerlink" title="石家庄的工人阶级队伍比较坚强"></a><a href="https://uoj.ac/problem/272" target="_blank" rel="noopener">石家庄的工人阶级队伍比较坚强</a></h3><p>当然要化奇怪规则为一般。发现赢的相减为 $1$，取模意义下输的相减为 $2$，平局当然是 $0$ 了。记 $B_{x - y} = b_{u, v} = b_{cnt(x - y, 1), cnt(x - y, 2)}$。则 $f_{i, z} = \sum\limits_{x + y = z} f_{i - 1, x} B_{y}$，这里的加减法是三进制不进位加减法。</p>
+<p>所以这就是个 $n$ 维，每维长度 $3$ 的 DFT / $3$ 进制 FWT 做点值快速幂。用上面构造矩阵的方法构造一个 $3 * 3$ 单位根矩阵。$3$ 的单位根是 $\omega = \frac{-1+\sqrt{3}i}{2}$，我们选择扩域，但是 $\sqrt{3}$ 精度会有问题，所以我们把复数表示成 $a + b\omega$ 的形式而不是 $a + bi$，IDFT 之后 $\omega$ 就没了。</p>
+<p>根据 $\omega_3$ 的性质：$\omega^2 + \omega + 1 = 0$，可以推得乘法：$(a + b\omega)(c + d\omega) = (ac - bd) + (ad + bc - bd)\omega$</p>
+<p>IDFT 要除以 $n = 3^m$，需要 $n$ 存在逆元，即模数 $p$ 不是 $3$ 的倍数。题目那个性质保证了这点：用反证法，设存在正整数 $k = p / 3$，那么有 $1 / k + 1 / k(k + 1) = 1 / k = 3 / p$，矛盾。</p>
+<p><a href="https://uoj.ac/submission/453533" target="_blank" rel="noopener">$Code$</a></p>
 
   </div>
 </article>
@@ -215,7 +223,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FMT"><span class="toc-number">1.</span> <span class="toc-text">FMT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">2.</span> <span class="toc-text">FWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Or-和-And-卷积"><span class="toc-number">3.</span> <span class="toc-text">Or 和 And 卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子集卷积"><span class="toc-number">4.</span> <span class="toc-text">子集卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展（-K-进制-FWT）"><span class="toc-number">5.</span> <span class="toc-text">拓展（$K$ 进制 FWT）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#卷积"><span class="toc-number">5.1.</span> <span class="toc-text">卷积</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#逆卷积"><span class="toc-number">5.2.</span> <span class="toc-text">逆卷积</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#FMT"><span class="toc-number">1.</span> <span class="toc-text">FMT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#FWT"><span class="toc-number">2.</span> <span class="toc-text">FWT</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Or-和-And-卷积"><span class="toc-number">3.</span> <span class="toc-text">Or 和 And 卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#子集卷积"><span class="toc-number">4.</span> <span class="toc-text">子集卷积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#拓展（-K-进制异或卷积）"><span class="toc-number">5.</span> <span class="toc-text">拓展（$K$ 进制异或卷积）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#石家庄的工人阶级队伍比较坚强"><span class="toc-number">5.1.</span> <span class="toc-text">石家庄的工人阶级队伍比较坚强</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
