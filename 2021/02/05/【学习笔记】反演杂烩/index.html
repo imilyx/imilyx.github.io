@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： $$f_n = \sum\limits_{i = 0}^n \binom{n}{i}">
+    <meta name="description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_">
 <meta name="keywords" content="学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】反演杂烩">
 <meta property="og:url" content="http://yoursite.com/2021/02/05/【学习笔记】反演杂烩/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： $$f_n = \sum\limits_{i = 0}^n \binom{n}{i}">
+<meta property="og:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T03:50:10.280Z">
+<meta property="og:updated_time" content="2021-02-06T03:52:11.971Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】反演杂烩">
-<meta name="twitter:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： $$f_n = \sum\limits_{i = 0}^n \binom{n}{i}">
+<meta name="twitter:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_">
     
     
         
@@ -146,37 +146,20 @@
 <p>经典套路是 dp 容斥系数。</p>
 <h2 id="二项式反演"><a href="#二项式反演" class="headerlink" title="二项式反演"></a>二项式反演</h2><p>广义容斥。</p>
 <p>「恰好」与「至多」：</p>
-<p>$$f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_i \Longleftrightarrow g_n = \sum\limits_{i = 0}^n (-1)^{n - i} \binom{n}{i} f_i$$</p>
-<p>「恰好」与「至少」：</p>
-<p>$$f_k = \sum\limits_{i = k}^n \binom{i}{k} g_i \Longleftrightarrow g_k = \sum\limits_{i = k}^n (-1)^{i - k} \binom{i}{k} f_i$$</p>
-<h2 id="min-max-容斥"><a href="#min-max-容斥" class="headerlink" title="$\min-\max$ 容斥"></a>$\min-\max$ 容斥</h2><p>$$max(S) = \sum\limits_{T \subseteq S} (-1)^{|T| + 1} min(T) \Longleftrightarrow min(S) = \sum\limits_{T \subseteq S} (-1)^{|T| + 1} max(T)$$</p>
-<p>证明大概考虑设 $\max(S) = x$，只有 $T = {x}$ 时的 $\min(T)$ 为 $x$，其余时候必然存在一个 $y$ 使得 $\min(T \cup {y}) = \min(T)$，就抵消了</p>
+<script type="math/tex; mode=display">f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_i \Longleftrightarrow g_n = \sum\limits_{i = 0}^n (-1)^{n - i} \binom{n}{i} f_i</script><p>「恰好」与「至少」：</p>
+<script type="math/tex; mode=display">f_k = \sum\limits_{i = k}^n \binom{i}{k} g_i \Longleftrightarrow g_k = \sum\limits_{i = k}^n (-1)^{i - k} \binom{i}{k} f_i</script><h2 id="min-max-容斥"><a href="#min-max-容斥" class="headerlink" title="$\min-\max$ 容斥"></a>$\min-\max$ 容斥</h2><script type="math/tex; mode=display">max(S) = \sum\limits_{T \subseteq S} (-1)^{|T| + 1} min(T) \Longleftrightarrow min(S) = \sum\limits_{T \subseteq S} (-1)^{|T| + 1} max(T)</script><p>证明大概考虑设 $\max(S) = x$，只有 $T = \{x\}$ 时的 $\min(T)$ 为 $x$，其余时候必然存在一个 $y$ 使得 $\min(T \cup \{y\}) = \min(T)$，就抵消了</p>
 <p>这玩意还能应用到期望上去：套个 $E()$ 就好。</p>
 <p>一般来说不用真的枚举集合，信息只和集合大小有关。</p>
-<p>推广：通过求 $\min$ 来求 $kth\ \max$</p>
-<p>$$kth\ \max(S) = \sum\limits_{T \subseteq S} (-1)^{|T| - k} \binom{|T| - 1}{k - 1} \min(T)$$</p>
-<p>习题：<a href="https://www.luogu.com.cn/problem/P4707" target="_blank" rel="noopener">重返现世</a> <a href>题解</a></p>
-<p><a href="https://uoj.ac/problem/449" target="_blank" rel="noopener">喂鸽子</a> <a href>题解</a></p>
+<p>推广：通过求 $\min$ 来求 $kth \max$</p>
+<script type="math/tex; mode=display">kth\ \max(S) = \sum\limits_{T \subseteq S} (-1)^{|T| - k} \binom{|T| - 1}{k - 1} \min(T)</script><p>习题：<a href="https://www.luogu.com.cn/problem/P4707" target="_blank" rel="noopener">重返现世</a> <a href="http://localhost:4000/2020/12/05/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%91NOIP2020%20%E5%89%8D%E7%9A%84%E5%81%9A%E9%A2%98%E8%AE%B0%E5%BD%95%E6%95%B4%E7%90%86/#%E9%87%8D%E8%BF%94%E7%8E%B0%E4%B8%96" target="_blank" rel="noopener">题解</a></p>
+<p><a href="https://uoj.ac/problem/449" target="_blank" rel="noopener">喂鸽子</a> <a href="http://localhost:4000/2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#%E5%96%82%E9%B8%BD%E5%AD%90" target="_blank" rel="noopener">题解</a></p>
 <h2 id="子集反演"><a href="#子集反演" class="headerlink" title="子集反演"></a>子集反演</h2><p>就是 FMT 和 FMI。</p>
-<p>$$f_S = \sum\limits_{T \subseteq S} g_T \Longleftrightarrow g_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} f_T$$</p>
-<h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>本质是质因子集合的 FMT 和 FMI。</p>
-<p>$$f(n) = \sum\limits_{d | n} g(d) \Longleftrightarrow g(n) = \sum\limits_{d | n} \mu(d) f(\frac{n}{d})$$</p>
-<p>$$f(n) = \sum\limits_{n | d} g(d) \Longleftrightarrow g(n) = \sum\limits_{n | d} \mu(n) f(\frac{d}{n})$$</p>
-<p>最常用的：</p>
-<p>$$\sum\limits_{d \mid n} \mu(d) = [n == 1]$$</p>
-<h2 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h2><p>$$f_n = \sum\limits_{i = 1}^n {n \brace i} g_i \Longleftrightarrow g_n = \sum\limits_{i = 1}^n (-1)^{n - i} {n \brack i} f_i$$</p>
-<h2 id="单位根反演"><a href="#单位根反演" class="headerlink" title="单位根反演"></a>单位根反演</h2><p>$$[k \mid n] = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni}$$</p>
-<p>证明：若 $k \mid n$，那么：</p>
-<p>$$\frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni} = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} (\omega_k^n)^i = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^0 = 1$$</p>
-<p>若 $k \nmid n$，那么根据等比数列求和有：</p>
-<p>$$\frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni} = \frac{1}{k} \frac{\omega_k^{nk} - \omega_k^0}{\omega_k^n - 1} = 0$$</p>
-<p>应用于 $O(k)$ 提取多项式所有下标为 $k$ 倍数的项或系数（设第 $i$ 项系数为 $a_i$，下面是提系数）：</p>
-<p>$$\sum\limits_{i = 0}^{n / k} [x^{ik}] f(x)$$</p>
-<p>$$= \sum\limits_{i = 0}^n [k \mid i] [x^i] f(x)$$</p>
-<p>$$= \sum\limits_{i = 0}^n \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \omega_k^{ij} [x^i] f(x)$$</p>
-<p>$$= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \sum\limits_{i = 0}^n a_i (\omega_k^j)^i$$</p>
-<p>$$= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} f(\omega_{k}^j)$$</p>
-<p>现推也非常方便！「提取项」一个道理，就现推一下吧，总是能把单位根搞成函数自变量的。</p>
+<script type="math/tex; mode=display">f_S = \sum\limits_{T \subseteq S} g_T \Longleftrightarrow g_S = \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} f_T</script><h2 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h2><p>本质是质因子集合的 FMT 和 FMI。</p>
+<script type="math/tex; mode=display">f(n) = \sum\limits_{d | n} g(d) \Longleftrightarrow g(n) = \sum\limits_{d | n} \mu(d) f(\frac{n}{d})</script><script type="math/tex; mode=display">f(n) = \sum\limits_{n | d} g(d) \Longleftrightarrow g(n) = \sum\limits_{n | d} \mu(n) f(\frac{d}{n})</script><p>最常用的：</p>
+<script type="math/tex; mode=display">\sum\limits_{d \mid n} \mu(d) = [n == 1]</script><h2 id="斯特林反演"><a href="#斯特林反演" class="headerlink" title="斯特林反演"></a>斯特林反演</h2><script type="math/tex; mode=display">f_n = \sum\limits_{i = 1}^n {n \brace i} g_i \Longleftrightarrow g_n = \sum\limits_{i = 1}^n (-1)^{n - i} {n \brack i} f_i</script><h2 id="单位根反演"><a href="#单位根反演" class="headerlink" title="单位根反演"></a>单位根反演</h2><script type="math/tex; mode=display">[k \mid n] = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni}</script><p>证明：若 $k \mid n$，那么：</p>
+<script type="math/tex; mode=display">\frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni} = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} (\omega_k^n)^i = \frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^0 = 1</script><p>若 $k \nmid n$，那么根据等比数列求和有：</p>
+<script type="math/tex; mode=display">\frac{1}{k} \sum\limits_{i = 0}^{k - 1} \omega_k^{ni} = \frac{1}{k} \frac{\omega_k^{nk} - \omega_k^0}{\omega_k^n - 1} = 0</script><p>应用于 $O(k)$ 提取多项式所有下标为 $k$ 倍数的项或系数（设第 $i$ 项系数为 $a_i$，下面是提系数）：</p>
+<script type="math/tex; mode=display">\sum\limits_{i = 0}^{n / k} [x^{ik}] f(x)</script><script type="math/tex; mode=display">= \sum\limits_{i = 0}^n [k \mid i] [x^i] f(x)</script><script type="math/tex; mode=display">= \sum\limits_{i = 0}^n \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \omega_k^{ij} [x^i] f(x)</script><script type="math/tex; mode=display">= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \sum\limits_{i = 0}^n a_i (\omega_k^j)^i</script><script type="math/tex; mode=display">= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} f(\omega_{k}^j)</script><p>现推也非常方便！「提取项」一个道理，就现推一下吧，总是能把单位根搞成函数自变量的。</p>
 <p>习题：<a href="https://uoj.ac/problem/450" target="_blank" rel="noopener">复读机</a> <a href="http://localhost:4000/2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#%E5%A4%8D%E8%AF%BB%E6%9C%BA" target="_blank" rel="noopener">题解</a></p>
 <p><a href="http://loj.ac/p/6485" target="_blank" rel="noopener">LJJ 学二项式定理</a> <a href="http://localhost:4000/2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#LJJ-%E5%AD%A6%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">题解</a></p>
 
