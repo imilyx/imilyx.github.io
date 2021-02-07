@@ -6,17 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。">
+    <meta name="description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。 $LOJ6669$询问 n 次得出每个点深度，同时也得出了重链。按深度 bfs，对于当前点 $x$，从以根为链顶的重链开始，询问 $x$ 和该重链底的距离，得出 LCA 的深度，若刚好为 $dep_x + 1$ 则父亲找到，否则因为是二叉树，跳到该重链顶点唯一的轻儿子开">
+<meta name="keywords" content="思维">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【置顶】嘴巴">
 <meta property="og:url" content="http://yoursite.com/2099/11/30/【置顶】嘴巴/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。">
+<meta property="og:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。 $LOJ6669$询问 n 次得出每个点深度，同时也得出了重链。按深度 bfs，对于当前点 $x$，从以根为链顶的重链开始，询问 $x$ 和该重链底的距离，得出 LCA 的深度，若刚好为 $dep_x + 1$ 则父亲找到，否则因为是二叉树，跳到该重链顶点唯一的轻儿子开">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T11:32:36.477Z">
+<meta property="og:updated_time" content="2021-02-07T02:38:39.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】嘴巴">
-<meta name="twitter:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。">
+<meta name="twitter:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。 $LOJ6669$询问 n 次得出每个点深度，同时也得出了重链。按深度 bfs，对于当前点 $x$，从以根为链顶的重链开始，询问 $x$ 和该重链底的距离，得出 LCA 的深度，若刚好为 $dep_x + 1$ 则父亲找到，否则因为是二叉树，跳到该重链顶点唯一的轻儿子开">
     
     
         
@@ -72,10 +73,8 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2099/11/30/【置顶】错误集锦/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
-        
-        <li><a class="icon" href="/2099/11/30/【置顶】Ideas & Tricks/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2099/11/30/【置顶】错误集锦/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -102,7 +101,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6669"><span class="toc-number">1.</span> <span class="toc-text">$LOJ6669$</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -130,6 +129,11 @@
 
 
       
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/思维/">思维</a>
+    </div>
+
 
     </div>
   </header>
@@ -137,6 +141,7 @@
 
   <div class="content" itemprop="articleBody">
     <p>要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。</p>
+<h3 id="LOJ6669"><a href="#LOJ6669" class="headerlink" title="$LOJ6669$"></a><a href="https://loj.ac/p/6669" target="_blank" rel="noopener">$LOJ6669$</a></h3><p>询问 n 次得出每个点深度，<strong>同时也得出了重链</strong>。按深度 bfs，对于当前点 $x$，从以根为链顶的重链开始，询问 $x$ 和该重链底的距离，得出 LCA 的深度，若刚好为 $dep_x + 1$ 则父亲找到，否则<strong>因为是二叉树</strong>，跳到该重链顶点唯一的轻儿子开始新的重链询问。$O(nlogn)$</p>
 
   </div>
 </article>
@@ -167,7 +172,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6669"><span class="toc-number">1.</span> <span class="toc-text">$LOJ6669$</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
