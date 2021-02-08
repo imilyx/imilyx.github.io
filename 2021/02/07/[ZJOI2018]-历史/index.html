@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="传送门 $\mathscr{Part.1}$不难发现就是最大化 access 更改的边数。考虑不带修怎么做。变换一下问题就是最大化每个点被更改的次数和——每个点都可以独立计算，一个点贡献一次当且仅当相邻两次 access 发源于其不同的子树，并且每个点都可以取到其上限（只要合理安排该点每个子树的 access 顺序就可以了，大概可归纳证明） 点 $x$ 的上限是啥呢？设 $s_x = \sum\l">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-08T00:28:29.142Z">
+<meta property="og:updated_time" content="2021-02-08T05:55:52.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[ZJOI2018]-历史">
 <meta name="twitter:description" content="传送门 $\mathscr{Part.1}$不难发现就是最大化 access 更改的边数。考虑不带修怎么做。变换一下问题就是最大化每个点被更改的次数和——每个点都可以独立计算，一个点贡献一次当且仅当相邻两次 access 发源于其不同的子树，并且每个点都可以取到其上限（只要合理安排该点每个子树的 access 顺序就可以了，大概可归纳证明） 点 $x$ 的上限是啥呢？设 $s_x = \sum\l">
@@ -145,7 +145,7 @@
     <p><a href="https://uoj.ac/problem/374" target="_blank" rel="noopener">传送门</a></p>
 <h3 id="mathscr-Part-1"><a href="#mathscr-Part-1" class="headerlink" title="$\mathscr{Part.1}$"></a>$\mathscr{Part.1}$</h3><p>不难发现就是最大化 access 更改的边数。考虑不带修怎么做。变换一下问题就是最大化每个点被更改的次数和——每个点都可以独立计算，一个点贡献一次当且仅当相邻两次 access 发源于其不同的子树，并且每个点都可以取到其上限（只要合理安排该点每个子树的 access 顺序就可以了，大概可归纳证明）</p>
 <p>点 $x$ 的上限是啥呢？设 $s_x = \sum\limits_{i \in subtree(x)} a_i$, $mx_x = \max\limits_{y \in son(x)}(s_y)$, 那么就是 $\min( s_x - 1, 2 * (s_x - mx_x) )$（讨论一下发现是否存在「一个 $a_i$ 过大、其他子树安排不完」的情况都符合该柿）</p>
-<p>考虑修改，那么就要应用链剖分啊分治啊树上科技来维护修改点到根的路径了。接下来的操作神仙极了 qaq（细节好多啊躺</p>
+<p>考虑修改，那么就要应用链剖分啊分治啊树上科技来维护修改点到根的路径了。接下来的操作神仙极了 qaq（细节好多啊摔</p>
 <h3 id="mathscr-Part-2"><a href="#mathscr-Part-2" class="headerlink" title="$\mathscr{Part.2}$"></a>$\mathscr{Part.2}$</h3><p>我们记录每个点 $x$ 当前的贡献类型：是 ①「$s_x - 1$」，还是 ②「$2 * (s_x - mx_x)$ 且 $mx_x$ 来自 $x$ 某个子树」，还是 ③「$2 * (s_x - mx_x)$ 且 $mx_x$ 来自 $x$ 自己」。</p>
 <p>注意到一次修改只会加，加了可能改变某些点的贡献类型。（改完后的）① 型点增加 $w$，②③ 型点不变。我们要是能快速修改这些贡献类型，就能顺便更新答案。</p>
 <p>我们让 ② 型点 $x$ 向 $mx_x$ 对应的儿子连一条边。通过移项，我们发现了一个更优的性质：这样的儿子最多只有一个！这就和重链剖分契合了。Orz</p>
@@ -244,8 +244,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

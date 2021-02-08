@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="这篇博客的目的：力求固定一个优美而优秀的 splay 模板。  在区间的左右各加一个“哨兵”，不容易 RE  下放标记和上传标记分开写  下放标记记录子节点的信息，所以对 x 打标记时要同时处理好这个节点。 简而言之，均采用“记录儿子信息”的方式。 线段树也这么干。  关于双旋： 1234567891011121314151617void rotate(int x) &amp;#123;    psd(f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T11:03:53.591Z">
+<meta property="og:updated_time" content="2021-02-08T05:53:38.535Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Splay代码调整笔记">
 <meta name="twitter:description" content="这篇博客的目的：力求固定一个优美而优秀的 splay 模板。  在区间的左右各加一个“哨兵”，不容易 RE  下放标记和上传标记分开写  下放标记记录子节点的信息，所以对 x 打标记时要同时处理好这个节点。 简而言之，均采用“记录儿子信息”的方式。 线段树也这么干。  关于双旋： 1234567891011121314151617void rotate(int x) &amp;#123;    psd(f">
@@ -37,7 +37,7 @@
         
     
     <!-- title -->
-    <title>【学习笔记】Splay代码调整笔记</title>
+    <title>【学习笔记】Splay代码调整笔记</title><meta name="robots" content="noindex">
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +73,6 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/02/09/[AT1984]-Wide Swap/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
-        
-        
-        <li><a class="icon" href="/2020/02/02/Usaco20Jan (Gold)/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -165,7 +161,7 @@
 <li>哪里 upd？</li>
 </ul>
 <p>总结了下，init、build、rotate，还有insert、delete、reverse之类将 l - 1 和 r + 1 伸展到根和根右节点的函数，操作完要 upd。</p>
-
+<!-- flag of hidden posts -->
   </div>
 </article>
 
@@ -250,8 +246,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
