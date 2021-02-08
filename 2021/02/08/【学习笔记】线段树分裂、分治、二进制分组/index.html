@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="线段树分裂  以某个键值为中点（一般是把前 $k$ 个元素分离出来，而不是把前 $k$ 个下标）将线段树分裂为两部分。就把两棵线段树重合的 $log$ 个节点新建出来，所以单次严格 $O(logn)$，实现非常直白！      template // luogu_5494 #include  #define rep(i, x, y) for (int i = x; i &amp;gt; 1) using nam">
+<meta name="keywords" content="线段树,学习笔记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】线段树分裂、分治、二进制分组">
+<meta property="og:url" content="http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="线段树分裂  以某个键值为中点（一般是把前 $k$ 个元素分离出来，而不是把前 $k$ 个下标）将线段树分裂为两部分。就把两棵线段树重合的 $log$ 个节点新建出来，所以单次严格 $O(logn)$，实现非常直白！      template // luogu_5494 #include  #define rep(i, x, y) for (int i = x; i &amp;gt; 1) using nam">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/%E8%A3%82%E5%BC%80.jpg">
+<meta property="og:image" content="http://yoursite.com/images/%E5%90%88%E4%B8%8A.png">
+<meta property="og:updated_time" content="2021-02-08T05:35:32.094Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】线段树分裂、分治、二进制分组">
+<meta name="twitter:description" content="线段树分裂  以某个键值为中点（一般是把前 $k$ 个元素分离出来，而不是把前 $k$ 个下标）将线段树分裂为两部分。就把两棵线段树重合的 $log$ 个节点新建出来，所以单次严格 $O(logn)$，实现非常直白！      template // luogu_5494 #include  #define rep(i, x, y) for (int i = x; i &amp;gt; 1) using nam">
+<meta name="twitter:image" content="http://yoursite.com/images/%E8%A3%82%E5%BC%80.jpg">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【学习笔记】线段树分裂、分治、二进制分组</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 学习计划/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/02/08/【学习笔记】BSGS/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&text=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&is_video=false&description=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】线段树分裂、分治、二进制分组&body=Check out this article: http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&name=【学习笔记】线段树分裂、分治、二进制分组&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线段树分裂"><span class="toc-number">1.</span> <span class="toc-text">线段树分裂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线段树分治"><span class="toc-number">2.</span> <span class="toc-text">线段树分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制分组"><span class="toc-number">3.</span> <span class="toc-text">二进制分组</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】线段树分裂、分治、二进制分组
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-02-08T02:55:40.000Z" itemprop="datePublished">2021-02-08</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/线段树/">线段树</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="线段树分裂"><a href="#线段树分裂" class="headerlink" title="线段树分裂"></a>线段树分裂</h2><p><img src="/images/%E8%A3%82%E5%BC%80.jpg" alt="我裂开"></p>
+<p><img src="/images/%E5%90%88%E4%B8%8A.png" alt="我合上"></p>
+<p>以某个键值为中点（一般是把前 $k$ 个元素分离出来，而不是把前 $k$ 个下标）将线段树分裂为两部分。就把两棵线段树重合的 $log$ 个节点新建出来，所以单次严格 $O(logn)$，实现非常直白！</p>
+<details>
+    <summary>template</summary>
+// luogu_5494
+#include <bits stdc++.h>
+#define rep(i, x, y) for (int i = x; i <= y; i++) #define mid ((l + r)>> 1)
+using namespace std;
+
+<p>typedef long long ll;<br>const int N = 2e5 + 10, M = N * 60;<br>int n, m, a[N], idx, id;<br>int rt[N], ls[M], rs[M];<br>ll sz[M];</p>
+<p>void upd(int x) {<br>    sz[x] = sz[ls[x]] + sz[rs[x]];<br>}</p>
+<p>void build(int &amp;x, int l, int r) {<br>    if (!x)<br>        x = ++idx;<br>    if (l == r) {<br>        scanf(“%lld”, &amp;sz[x]);<br>        return;<br>    }<br>    build(ls[x], l, mid), build(rs[x], mid + 1, r);<br>    upd(x);<br>}</p>
+<p>void insert(int &amp;x, int l, int r, int p, int v) {<br>    if (!x)<br>        x = ++idx;<br>    if (l == r) {<br>        sz[x] += v;<br>        return;<br>    }<br>    p &lt;= mid ? insert(ls[x], l, mid, p, v) : insert(rs[x], mid + 1, r, p, v);<br>    upd(x);<br>}</p>
+<p>ll query(int x, int l, int r, int lx, int rx) {<br>    if (lx &lt;= l &amp;&amp; r &lt;= rx) {<br>        return sz[x];<br>    }<br>    ll ret = 0;<br>    if (lx &lt;= mid) ret = query(ls[x], l, mid, lx, rx);<br>    if (rx &gt; mid) ret += query(rs[x], mid + 1, r, lx, rx);<br>    return ret;<br>}</p>
+<p>void merge(int &amp;x, int y, int l, int r) {<br>    if (!x || !y) { x |= y; return; }<br>    if (l == r) {<br>        sz[x] += sz[y]; return;<br>    }<br>    merge(ls[x], ls[y], l, mid);<br>    merge(rs[x], rs[y], mid + 1, r);<br>    upd(x);<br>}</p>
+<p>void split(int &amp;x, int &amp;y, int l, int r, int lx, int rx) {<br>    if (!y)<br>        return;<br>    if (lx &lt;= l &amp;&amp; r &lt;= rx) {<br>        x = y, y = 0; return;  // 把 y 合并到空子树 x 上去，放心直接 =<br>    }<br>    if (!x)<br>        x = ++idx;<br>    if (lx &lt;= mid) split(ls[x], ls[y], l, mid, lx, rx);<br>    if (rx &gt; mid) split(rs[x], rs[y], mid + 1, r, lx, rx);<br>    upd(y);  // !!!<br>    upd(x);<br>}</p>
+<p>int ask(int x, int l, int r, int k) {<br>    if (k &lt;= 0 || sz[x] &lt; k) return -1;<br>    if (l == r) return l;<br>    if (k &lt;= sz[ls[x]]) return ask(ls[x], l, mid, k);<br>    else return ask(rs[x], mid + 1, r, k - sz[ls[x]]);<br>}</p>
+<p>int main() {<br>    cin &gt;&gt; n &gt;&gt; m;<br>    ++id;<br>    build(rt[id], 1, n);<br>    while (m–) {<br>        int op, x, y, z; scanf(“%d%d”, &amp;op, &amp;x);<br>        if (op == 1 || op == 4) scanf(“%d”, &amp;y);<br>        else scanf(“%d%d”, &amp;y, &amp;z);<br>        if (!op) {<br>            ++id;<br>            split(rt[id], rt[x], 1, n, y, z);<br>        } else if (op == 1) {<br>            merge(rt[x], rt[y], 1, n);<br>        } else if (op == 2) {<br>            insert(rt[x], 1, n, z, y);<br>        } else if (op == 3) {<br>            printf(“%lld\n”, query(rt[x], 1, n, y, z));<br>        } else {<br>            printf(“%d\n”, ask(rt[x], 1, n, y));<br>        }<br>    }<br>    return 0;<br>}</p>
+</=></bits></details>
+
+<p>应用条件比较苛刻，要有序，才能关于键值裂开。题不太有，比较经典的这道<a href="https://www.luogu.com.cn/problem/P2824" target="_blank" rel="noopener">排序</a>，容易发现每次排序的是连续区间，对于每个区间建权值线段树，新建区间时把波及到的原有区间分裂出重合部分的线段树即可。以后见到应用再回来写。</p>
+<h2 id="线段树分治"><a href="#线段树分治" class="headerlink" title="线段树分治"></a>线段树分治</h2><h2 id="二进制分组"><a href="#二进制分组" class="headerlink" title="二进制分组"></a>二进制分组</h2>
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#线段树分裂"><span class="toc-number">1.</span> <span class="toc-text">线段树分裂</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线段树分治"><span class="toc-number">2.</span> <span class="toc-text">线段树分治</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二进制分组"><span class="toc-number">3.</span> <span class="toc-text">二进制分组</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&text=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&is_video=false&description=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】线段树分裂、分治、二进制分组&body=Check out this article: http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&title=【学习笔记】线段树分裂、分治、二进制分组"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/08/【学习笔记】线段树分裂、分治、二进制分组/&name=【学习笔记】线段树分裂、分治、二进制分组&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
