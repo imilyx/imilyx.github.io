@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-08T15:37:54.513Z">
+<meta property="og:updated_time" content="2021-02-09T00:01:15.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Feb 学习计划">
 <meta name="twitter:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
@@ -215,8 +215,9 @@
 <p>划重点，<strong>SCC</strong>，不是无向图的连通分量。</p>
 <p>考虑时光倒流，反转时间轴。</p>
 <p>我们关注的其实是点。是每条边的<strong>两个端点</strong>什么时候开始处于同一个 SCC 中。如果求出了这个时间，就只要从晚到早做一遍权值线段树合并。现在要求这个时间。</p>
-<p>考虑整体二分。要找每对点出现在同个 SCC 中的最晚时间，就加 $[mid + 1, r]$ 的边，把已经在一个 SCC 的点对往右丢，还没在一个 SCC 的点对往左丢。每条边被操作 $logn$ 次，怎么做复杂度都是对的吧？</p>
-<p>怎么快速查询两点是否在同个 SCC 里？并查集把同个 SCC 里的并在一起，还要支持撤销。</p>
+<p>怎么快速查询两点是否在同个 SCC 里？并查集，还要支持撤销。</p>
+<p>考虑整体二分。要找每对点出现在同个 SCC 中的最晚时间，就加 $[mid + 1, r]$ 的边，把已经在一个 SCC 的点对往右丢，还没在一个 SCC 的点对往左丢。分类完 $[l, r]$ 的边后，先往 $[l, mid]$ 递归（撤掉边，不撤并查集）以利用上一层中已加的 $[mid + 1, r]$ 的边，然后再撤销并查集并递归 $[mid + 1, r]$。这样每条边被操作 $logn$ 次。</p>
+<p><del>我感觉先右再左好像复杂度也是对的，但是要重新加一遍，麻烦</del></p>
 <p>tarjan $O(m)$，可撤销并查集 $O(logn)$，整体二分就是 $O(m log^2n)$ 的。线段树合并一只 log 非常愉快。</p>
 <p>代码太tm难写了。。。重构 $* n$，封装大法好啊。</p>
 <details>
