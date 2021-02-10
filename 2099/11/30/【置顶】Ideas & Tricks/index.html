@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T03:54:38.147Z">
+<meta property="og:updated_time" content="2021-02-10T06:10:54.153Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】Ideas &amp; Tricks">
 <meta name="twitter:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
@@ -192,7 +192,7 @@
 </li>
 <li><p>多项式不一定要 FFT/NTT，可以点值对应位相乘最后插值插回来。（秘密袭击）</p>
 </li>
-<li><p>带删除的线性基（比如动态求 01 矩阵的秩）：<a href="https://blog.csdn.net/a_forever_dream/article/details/83654397" target="_blank" rel="noopener">大佬比较详细的解说</a> 考虑删除向量 $x$ 后我们要尽量找一个来替代 $x$。对线性基里每个向量记录它插入时异或了哪些向量。找到线性基中「受本次删除影响」的<strong>最低位</strong>向量 $y$（这样在删除时就不会影响更低位的向量），把 $y$ 其它受影响的向量异或上 $y$（$y$ 自己变成 $0$，这样就能消除 $x$ 在线性基里的影响，相当于用 $y$ 替代了 $x$），秩数 $-1$（围绕着我们的圆环）</p>
+<li><p>带删除的线性基（比如动态求 01 矩阵的秩）：<a href="https://blog.csdn.net/a_forever_dream/article/details/83654397" target="_blank" rel="noopener">大佬比较详细的解说</a> 考虑删除向量 $x$ 后我们要尽量找一个来替代 $x$。对线性基里每个向量记录它插入时异或了哪些向量。找到「受本次删除影响」的基外向量 $y$，如果不存在基外的就找基内最低的（这样在删除时就不会影响更低位的向量），把 $y$ 其它受影响的向量异或上 $y$（$y$ 自己变成 $0$，这样就能消除 $x$ 在线性基里的影响，相当于用 $y$ 替代了 $x$）；如果找的是基内的，秩数 $-1$（围绕着我们的圆环）</p>
 </li>
 </ul>
 <h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><hr>
@@ -298,23 +298,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
