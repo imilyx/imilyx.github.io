@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-11T10:25:57.456Z">
+<meta property="og:updated_time" content="2021-02-11T13:17:02.302Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Feb 学习计划">
 <meta name="twitter:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
@@ -277,7 +277,7 @@
 <p>gym102759G</p>
 <h2 id="mathcal-2-9"><a href="#mathcal-2-9" class="headerlink" title="$\mathcal{2.9}$"></a>$\mathcal{2.9}$</h2><hr>
 <h2 id="mathcal-2-10"><a href="#mathcal-2-10" class="headerlink" title="$\mathcal{2.10}$"></a>$\mathcal{2.10}$</h2><hr>
-<h3 id="T2-Gym102759H"><a href="#T2-Gym102759H" class="headerlink" title="T2. Gym102759H"></a>T2. Gym102759H</h3><p>逆向思维，考虑一个 k 变成 [0, k - 1]，k - 1 再变成 [0, k - 2]… 而一个 0 可以变成任意整数。</p>
+<h3 id="T2-Gym102759H"><a href="#T2-Gym102759H" class="headerlink" title="T2. Gym102759H"></a>T2. Gym102759H</h3><p>逆向思维，考虑一个 k 变成 [0, k - 1]，k - 1 再变成 [0, k - 2]… 而一个 0 可以变成任意整数。考虑尽量往 0 变，「0 的个数」有单调性，根据「0 的个数是否足以填上空缺」来二分。</p>
 <p>T3: s[1, i] -&gt; s[1, p(i)]</p>
 <ol>
 <li>p(i) &lt;= i / 2 (logn 次)</li>
