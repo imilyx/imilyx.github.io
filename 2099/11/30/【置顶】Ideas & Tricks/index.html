@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-10T06:10:54.153Z">
+<meta property="og:updated_time" content="2021-02-14T12:07:04.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】Ideas &amp; Tricks">
 <meta name="twitter:description" content="杂  中位数相关可考虑二分，将小于二分值的标为 $-1$，大于二分值的标为 $1$  看见乘积考虑取 $log$，这样开方就变成除法，乘就变成加法了，有很多优秀的性质  网格图套路一览：$C = V - E + F$; 分治最短路；二分图染色；笛卡尔树；斯坦纳树（待补）  得失转换题倒顺序。（$UOJ418$ 等许许多多）  某类树上贪心常见题：选了父亲后才能选儿子，要求某些东西最优化。技巧：优的">
@@ -75,7 +75,7 @@
         <li><a class="icon" href="/2099/11/30/【置顶】嘴巴/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2099/11/30/【置顶】暂时胜利/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 学习计划/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -204,6 +204,8 @@
 <li><p>构造一个排列使得权值最大——用费用流求解。</p>
 </li>
 <li><p>网络流中用连<strong>反向</strong> $\infty$ 边来实现限制。</p>
+</li>
+<li><p>动态维护带权重心：若点权均非负，一棵树可能的带权重心在一条链上，其中深度最小的点是满足「子树点权和严格大于总和一半」的点中深度最大的。因为其子树和大于一半，该树任何一个 dfs 序的带权中位数一定在其子树中。因此找到带权中位数的点后倍增上跳即可。</p>
 </li>
 </ul>
 <h2 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h2><hr>
