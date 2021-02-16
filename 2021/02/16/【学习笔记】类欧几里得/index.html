@@ -6,18 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="EK算法：不断 BFS，沿最短路增广。 时间：O()">
-<meta name="keywords" content="网络流,学习笔记">
+    <meta name="keywords" content="学习笔记,类欧几里得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【学习笔记】网络流">
-<meta property="og:url" content="http://yoursite.com/2021/02/14/【学习笔记】网络流/index.html">
+<meta property="og:title" content="【学习笔记】类欧几里得">
+<meta property="og:url" content="http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="EK算法：不断 BFS，沿最短路增广。 时间：O()">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-14T05:13:07.750Z">
+<meta property="og:updated_time" content="2021-02-15T15:53:32.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【学习笔记】网络流">
-<meta name="twitter:description" content="EK算法：不断 BFS，沿最短路增广。 时间：O()">
+<meta name="twitter:title" content="【学习笔记】类欧几里得">
     
     
         
@@ -37,7 +34,7 @@
         
     
     <!-- title -->
-    <title>【学习笔记】网络流</title>
+    <title>【学习笔记】类欧几里得</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -73,10 +70,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 学习计划/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2021/02/08/AGC027E、ARC110E 等一类删除计数问题/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/02/14/【学习笔记】网络流/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -89,21 +86,21 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/14/【学习笔记】网络流/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&text=【学习笔记】网络流"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&is_video=false&description=【学习笔记】网络流"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=【学习笔记】网络流&body=Check out this article: http://yoursite.com/2021/02/14/【学习笔记】网络流/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&name=【学习笔记】网络流&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&text=【学习笔记】类欧几里得"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&is_video=false&description=【学习笔记】类欧几里得"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】类欧几里得&body=Check out this article: http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&name=【学习笔记】类欧几里得&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EK"><span class="toc-number">1.</span> <span class="toc-text">EK</span></a></li></ol>
+      
     </div>
   </span>
 </div>
@@ -115,7 +112,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        【学习笔记】网络流
+        【学习笔记】类欧几里得
     </h1>
 
 
@@ -126,14 +123,14 @@
       </span>
       
     <div class="postdate">
-        <time datetime="2021-02-14T05:11:40.000Z" itemprop="datePublished">2021-02-14</time>
+        <time datetime="2021-02-16T15:53:40.000Z" itemprop="datePublished">2021-02-16</time>
     </div>
 
 
       
     <div class="article-tags">
         <i class="fa fa-tags"></i>
-        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/网络流/">网络流</a>
+        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/类欧几里得/">类欧几里得</a>
     </div>
 
 
@@ -142,9 +139,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="EK"><a href="#EK" class="headerlink" title="EK"></a>EK</h2><p>算法：不断 BFS，沿最短路增广。</p>
-<p>时间：O()</p>
-
+    
   </div>
 </article>
 
@@ -174,21 +169,21 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EK"><span class="toc-number">1.</span> <span class="toc-text">EK</span></a></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/14/【学习笔记】网络流/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&text=【学习笔记】网络流"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&is_video=false&description=【学习笔记】网络流"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=【学习笔记】网络流&body=Check out this article: http://yoursite.com/2021/02/14/【学习笔记】网络流/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&title=【学习笔记】网络流"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/14/【学习笔记】网络流/&name=【学习笔记】网络流&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&text=【学习笔记】类欧几里得"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&is_video=false&description=【学习笔记】类欧几里得"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】类欧几里得&body=Check out this article: http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&title=【学习笔记】类欧几里得"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/&name=【学习笔记】类欧几里得&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
