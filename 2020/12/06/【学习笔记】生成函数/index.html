@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="运气好的话也许不用重修？感觉挺好理解呀！ 无趣的$基本概念和技术$  约定：$f’(x)$ 表示对 $f(x)$ 求导  生成函数的系数从具体的数被推广到了形式幂级数。 大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。 普通生成函数：OGF  无标号xx计数  指数生成函数：EGF  有标号xx计数，是泰勒级数的形式。合并的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T11:04:37.381Z">
+<meta property="og:updated_time" content="2021-02-18T00:41:20.693Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】生成函数">
 <meta name="twitter:description" content="运气好的话也许不用重修？感觉挺好理解呀！ 无趣的$基本概念和技术$  约定：$f’(x)$ 表示对 $f(x)$ 求导  生成函数的系数从具体的数被推广到了形式幂级数。 大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。 普通生成函数：OGF  无标号xx计数  指数生成函数：EGF  有标号xx计数，是泰勒级数的形式。合并的">
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.8.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.9.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.10.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.7.1.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.7.2.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.7.3.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102028G"><span class="toc-number">3.8.</span> <span class="toc-text">$Gym102028G$</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -276,15 +276,15 @@
 <p>卷积！完事了。</p>
 <h3 id="CF755G-Poland-Ball-and-many-other-Balls"><a href="#CF755G-Poland-Ball-and-many-other-Balls" class="headerlink" title="CF755G-Poland Ball and many other Balls"></a><a href="https://www.luogu.com.cn/problem/CF755G" target="_blank" rel="noopener">CF755G-Poland Ball and many other Balls</a></h3><p>思路简单，适合练习处理生成函数的 Trick。</p>
 <p>容易写出 $dp$ 柿子：$f_{n, k} = f_{n - 1, k} + f_{n - 1, k - 1} + f_{n - 2, k - 1}$</p>
-<h3 id="1-特征方程"><a href="#1-特征方程" class="headerlink" title="$1. 特征方程$"></a>$1. 特征方程$</h3><p>有递推关系—— $K$ 由 $K$ 和 $K - 1$ 推得，于是设 $F(x)$ 表示 $\sum_k f_{n, k}x^k$, 列出生成函数：$F_n(x) = F_{n - 1}(x) + xF_{n - 1}(x) + xF_{n - 2}(x)$，即 $F_n(x) = (1 + x)F_{n - 1}(x) + xF_{n - 2}(x)$</p>
+<h4 id="1-特征方程"><a href="#1-特征方程" class="headerlink" title="$1. 特征方程$"></a>$1. 特征方程$</h4><p>有递推关系—— $K$ 由 $K$ 和 $K - 1$ 推得，于是设 $F(x)$ 表示 $\sum_k f_{n, k}x^k$, 列出生成函数：$F_n(x) = F_{n - 1}(x) + xF_{n - 1}(x) + xF_{n - 2}(x)$，即 $F_n(x) = (1 + x)F_{n - 1}(x) + xF_{n - 2}(x)$</p>
 <p>这玩意长得一脸特征方程，于是引入新的元 $z$，解出 $z = \frac{ 1 + x \pm \sqrt{ 1 + 6x + x^2 } }{2}$</p>
 <p>算出递推式的 $c_1$ 和 $c_2$ 以后多项式全家桶就完事了。然而蒟蒻并不会算？</p>
-<h3 id="2-倍增"><a href="#2-倍增" class="headerlink" title="$2. 倍增$"></a>$2. 倍增$</h3><p>还是上面那个柿子，不一样的角度看到的是加大步长转移—— 根据中间是否割开一个相邻的块分类讨论，$F_{n + m}(x) = F_n(x)F_m(x) + xF_{n - 1}(x)F_{m - 1}(x)$</p>
+<h4 id="2-倍增"><a href="#2-倍增" class="headerlink" title="$2. 倍增$"></a>$2. 倍增$</h4><p>还是上面那个柿子，不一样的角度看到的是加大步长转移—— 根据中间是否割开一个相邻的块分类讨论，$F_{n + m}(x) = F_n(x)F_m(x) + xF_{n - 1}(x)F_{m - 1}(x)$</p>
 <p>$F_{2n}(x) = F_n^2(x) + xF_{n - 1}^2(x)$</p>
 <p>$F_{2n - 1}(x) = F_n(x)F_{n - 1}(x) + xF_{n - 1}(x)F_{n - 2}(x)$</p>
 <p>$F_{2n - 2}(x) = F_{n - 1}^2(x) + xF_{n - 2}^2(x)$</p>
 <p>于是就可以由 $F_n(x)$, $F_{n - 1}(x)$, $F_{n - 2}(x)$ 得到 $F_{2n}(x)$, $F_{2n - 1}(x)$, $F_{2n - 2}(x)$ 啦</p>
-<h3 id="3-组合容斥"><a href="#3-组合容斥" class="headerlink" title="$3. 组合容斥$"></a>$3. 组合容斥$</h3><p>这个比较有意思（雾），蒟蒻想写这个方法。不能一上来就说“满脸”/“一眼”之类的话啊，你根本都还没看出门道呢。</p>
+<h4 id="3-组合容斥"><a href="#3-组合容斥" class="headerlink" title="$3. 组合容斥$"></a>$3. 组合容斥$</h4><p>这个比较有意思（雾），蒟蒻想写这个方法。不能一上来就说“满脸”/“一眼”之类的话啊，你根本都还没看出门道呢。</p>
 <p>枚举两球组的个数，$f(k) = \sum_i \binom{n - i}{k} \binom{k}{i}$。然后就不会了，这玩意咋整啊？</p>
 <p>题解有神仙办法，需要你足够灵活：组合意义，先从前 $K$ 个里选任意个，再从剩下的里选 $K$ 个。</p>
 <p>这有个蛋用？</p>
@@ -297,6 +297,11 @@
 <p>$$= k!n^{\underline{k}} \sum\limits_{i = 0}^k \frac{(-1)^i}{i!n^{\underline{i}}} \cdot \frac{2^{k - i}}{((k - i)!^2)}$$</p>
 <p><a href="https://codeforces.com/problemset/submission/755/102687760" target="_blank" rel="noopener">$Code$</a></p>
 <p>注意空间要开足。</p>
+<h3 id="Gym102028G"><a href="#Gym102028G" class="headerlink" title="$Gym102028G$"></a><a href="https://vjudge.net/problem/Gym-102028G" target="_blank" rel="noopener">$Gym102028G$</a></h3><p>有标号的！</p>
+<p>$ans = (1. 不同连通块点对贡献 + 2. 同个连通块点对贡献) / (3. 森林数)$</p>
+<p>$3$ 好求，有标号无根森林用 prufer-Cayley 定理，构造 $n^{n - 2}$ 的 EGF，求其 exp。</p>
+<p>$1 = 不同连通块点对数 * m^2$，不同连通块点对数 = 总和 - $4. 同连通块点对数$，$4$ 就构造 $n^{n - 2} \binom{n}{2}$ 的 EGF，卷上 $3$ 中森林。</p>
+<p>$2$ 看其组合意义，在路径上选两条边。注意到割掉这两条边后整个连通块会被分成两或三个连通块。这里讨论三个，两个类似。设三个连通块大小分别为 $a_1$, $a_2$, $a_3$，则方案数为 $a_1 a_2 * a_2 a_3 * a_1 * a_3$，后面俩在选起始点。即 $= a_1^2 a_2^2 a_3^2$。构造 $n^2$ 的 EGF。</p>
 
   </div>
 </article>
@@ -327,7 +332,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.8.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.9.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.10.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.7.1.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.7.2.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.7.3.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102028G"><span class="toc-number">3.8.</span> <span class="toc-text">$Gym102028G$</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -382,23 +387,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
