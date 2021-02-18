@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-18T01:30:48.660Z">
+<meta property="og:updated_time" content="2021-02-18T08:40:29.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="21Feb 学习计划">
 <meta name="twitter:description" content="$\mathcal{2.1}$ $ICPC\ WF\ 2019-交通堵塞$令 $p_i = r_i + g_i$, $P = lcm(p_i)$，显然 $P\ |\ 2019!$。所以在 $[0, 2019!]$ 中随机实数 = 在 $[0, 2019!)$ 中随机实数 = 在 $[0, P)$ 中随机整数。 将某个出发时间 $t$ 表示为 $kX + a$ 的形式，其中 $X$ 是我们钦定的常数">
@@ -329,7 +329,9 @@
 <p><a href="https://vjudge.net/contest/423084#overview" target="_blank" rel="noopener">比赛链接</a></p>
 <h3 id="C-4"><a href="#C-4" class="headerlink" title="$C$"></a>$C$</h3><p>先不考虑取模。设答案为 $K$，那么 $a_i \leq K$, $a_i + a_{i + 1} \geq K$ 显然是必要条件。有了这个条件我们也能构造方案：对每个 $i$ 把 $a_i$ 个放在 $i$ 上，把 $K - a_i$ 放在 $a_{i + 1}$ 上即可。也就是说当 $\max(a_i) \leq \min(a_i + a_{i + 1})$ 时 $K = \max(a_i)$。</p>
 <p>考虑取模，每次取<strong>最小的</strong> $a_i$ 加上 $mod$ 变成最大的，再判是否满足 $\max(a_i) \leq \min(a_i + a_{i + 1})$。set 维护，$O(n + nlogn)$</p>
-<h3 id="D-4"><a href="#D-4" class="headerlink" title="$D$"></a>$D$</h3><h3 id="E-4"><a href="#E-4" class="headerlink" title="$E$"></a>$E$</h3><h3 id="F-4"><a href="#F-4" class="headerlink" title="$F$"></a>$F$</h3><h2 id="mathcal-2-17"><a href="#mathcal-2-17" class="headerlink" title="$\mathcal{2.17}$"></a>$\mathcal{2.17}$</h2><hr>
+<h3 id="D-4"><a href="#D-4" class="headerlink" title="$D$"></a>$D$</h3><h3 id="E-4"><a href="#E-4" class="headerlink" title="$E$"></a>$E$</h3><p><strong>每个格子只能是 $0$ 或 $1$。</strong> <del>（juruo xml 竟然忘了这个）</del></p>
+<p>$a_{x, y} + a_{x + 4, y + 4} = a_{x + 4, y} + a_{x, y + 4}$，这个利用 $a_{x, [y + 1, y + 3]}$ 和 $a_{x + 4, [y + 1, y + 3]}$ 可以推得。并且有 $\sum\limits_{i = 0}^3 a_{x, y + i} = \sum\limits_{i = 0}^3 a_{x + 4, y + i}$，$\sum\limits_{i = 0}^3 a_{x + i, y} = \sum\limits_{i = 0}^3 a_{x + i, y + 4}$。根据抽屉原理，必然有 $a_{x, y} = a_{x + 4, y}$ 或 $a_{x, y} = a_{x, y + 4}$</p>
+<h3 id="F-4"><a href="#F-4" class="headerlink" title="$F$"></a>$F$</h3><h2 id="mathcal-2-17"><a href="#mathcal-2-17" class="headerlink" title="$\mathcal{2.17}$"></a>$\mathcal{2.17}$</h2><hr>
 <p><a href="https://vjudge.net/contest/423187#overview" target="_blank" rel="noopener">比赛链接</a></p>
 <h3 id="B-3"><a href="#B-3" class="headerlink" title="$B$"></a>$B$</h3><p>将 LIS 的关系建成 DAG，就是求 DAG 支配树上每个节点的深度，正反各求一遍。</p>
 <p>按深度分层，每层高度递减，求一段后缀 $[x, tail]$ 的 LCA 只需求 $x$ 和 $tail$ 的 LCA 即可。</p>
@@ -424,8 +426,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
