@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="运气好的话也许不用重修？感觉挺好理解呀！ 无趣的$基本概念和技术$  约定：$f’(x)$ 表示对 $f(x)$ 求导  生成函数的系数从具体的数被推广到了形式幂级数。 大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。 普通生成函数：OGF  无标号xx计数  指数生成函数：EGF  有标号xx计数，是泰勒级数的形式。合并的">
+    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta name="keywords" content="生成函数,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】生成函数">
 <meta property="og:url" content="http://yoursite.com/2020/12/06/【学习笔记】生成函数/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="运气好的话也许不用重修？感觉挺好理解呀！ 无趣的$基本概念和技术$  约定：$f’(x)$ 表示对 $f(x)$ 求导  生成函数的系数从具体的数被推广到了形式幂级数。 大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。 普通生成函数：OGF  无标号xx计数  指数生成函数：EGF  有标号xx计数，是泰勒级数的形式。合并的">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-19T13:27:58.364Z">
+<meta property="og:updated_time" content="2021-02-20T23:15:30.712Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】生成函数">
-<meta name="twitter:description" content="运气好的话也许不用重修？感觉挺好理解呀！ 无趣的$基本概念和技术$  约定：$f’(x)$ 表示对 $f(x)$ 求导  生成函数的系数从具体的数被推广到了形式幂级数。 大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。 普通生成函数：OGF  无标号xx计数  指数生成函数：EGF  有标号xx计数，是泰勒级数的形式。合并的">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.7.1.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.7.2.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.7.3.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102028G"><span class="toc-number">3.8.</span> <span class="toc-text">$Gym102028G$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬币游戏"><span class="toc-number">3.9.</span> <span class="toc-text">硬币游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF891E-Lust"><span class="toc-number">3.10.</span> <span class="toc-text">$CF891E-Lust$</span></a></li></ol></li></ol>
+      
     </div>
   </span>
 </div>
@@ -142,177 +142,46 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>运气好的话也许不用重修？感觉挺好理解呀！</p>
-<h2 id="无趣的-基本概念和技术"><a href="#无趣的-基本概念和技术" class="headerlink" title="无趣的$基本概念和技术$"></a><del>无趣的</del>$基本概念和技术$</h2><hr>
-<ul>
-<li>约定：$f’(x)$ 表示对 $f(x)$ 求导</li>
-</ul>
-<p>生成函数的系数从具体的数被推广到了<strong>形式幂级数</strong>。</p>
-<p>大小函数：好难说清楚？就是比如某个生成函数第 $n$ 项的大小函数 $= n$。不同的情境下大小函数被赋予不同的实际意义。</p>
-<p>普通生成函数：OGF</p>
-<ul>
-<li>无标号xx计数</li>
-</ul>
-<p>指数生成函数：EGF</p>
-<ul>
-<li>有标号xx计数，是泰勒级数的形式。合并的时候会 $C(n + m, n)$ 重新分配标号：$[x^n]f(x) = a_n\frac{x^n}{n!}$, $[x^m]g(x) = b_m\frac{x^m}{m!}$, 合并起来就对 $[x^{n + m}]$ 有贡献：$a_nb_m\frac{x^{n + m}}{n!m!}$。</li>
-</ul>
-<p>概率生成函数：PGF</p>
-<p>离散随机变量 $X$ 的概率生成函数为形式幂级数 $A(z) = \sum\limits_i P(X = i) z^i$</p>
-<p>泰勒级数：</p>
-<ul>
-<li><p>$e^x = \sum\limits_{k \geq 0} \frac{x^k}{k!}$</p>
-</li>
-<li><p><a href="https://baike.baidu.com/item/%E6%B3%B0%E5%8B%92%E5%85%AC%E5%BC%8F/7681487?fr=aladdin" target="_blank" rel="noopener">泰勒展开</a></p>
-</li>
-</ul>
-<p>求导：$x^n = nx^{n - 1}$，与生成函数的左移位相对应。</p>
-<p>求积分：$\int x^n dx = \frac{1}{n + 1} x^{n + 1}$，与生成函数的右移位相对应。</p>
-<p>乘法逆元：</p>
-<ul>
-<li><p>$A(x)B(x) \equiv 1 \pmod {x^n}$</p>
-</li>
-<li><p>$A(x)$ 有乘法逆元的充要条件是 $A(x)$ 的常数项有乘法逆元。必要性：$[x^0] A(x) [x^0] B(x) = 1$</p>
-</li>
-<li><p>有<a href="https://www.luogu.com.cn/paste/2x7n21r1" target="_blank" rel="noopener">求法</a>,（注：这里的 $B’$ 不是求导，就是单纯表示另一个生成函数）每次算出 $2B’ - AB’^2$ 赋给 $B$，每次规模减小一半，$T(n) = T(n/2)+O(nlogn) = O(nlogn)$（是不是很像牛顿迭代？）</p>
-</li>
-</ul>
-<p>复合逆：若对于俩函数 $f(x)$ 和 $g(x)$ 而言有 $g(f(x)) = x$，则可以看作 $x$ 在 $g \cdot f$ 的作用下保持不变，称 $g$ 为 $f$ 的复合逆。<strong>对 $f$ 和 $g$ 有要求：常数项为 0 且一次项系数不为 0</strong>。</p>
-<ul>
-<li><p>有结论：若 $g(f(x)) = x$ 则 $f(g(x)) = x$，$f$ 与 $g$ 互为复合逆。</p>
-</li>
-<li><p>有求导方式：$f(g(x))’ = f’(g(x))g’(x)$</p>
-</li>
-<li><p>有求法：👇</p>
-</li>
-</ul>
-<p>求法就是拉格朗日反演：</p>
-<ul>
-<li><p>已知 $f(x)$ 求 $g(x)$，$[x^n] g(x) = \frac{1}{n} [w^{n - 1}] (\frac{w}{f(w)})^n$</p>
-</li>
-<li><p>推广形式：$[x^n]h(g(x)) = \frac{1}{n} [w^{n - 1}] h’(w) (\frac{w}{f(w)})^n$</p>
-</li>
-</ul>
-<p>对数函数：$ln$</p>
-<ul>
-<li><p>$ln(A(x)) = \sum\limits_{i \geq 1} \frac{A(x)^i}{i}$</p>
-</li>
-<li><p>有结论：$ln’(x) = \frac{1}{x}$</p>
-</li>
-<li><p>有求法：$ln(A(x)) = \int (ln A(x))’ = \int \frac{A’(x)}{A(x)}$，所以对 $A(x)$ 求导作为 $a$，求逆作为 $b$，$a * b$ 再积分就得到了 $ln$。</p>
-</li>
-</ul>
-<p>指数函数：$exp$</p>
-<ul>
-<li><p>$exp(A(x)) = \sum\limits_{i \geq 0} \frac{A(x)^i}{i!}$</p>
-</li>
-<li><p>有求法：👇</p>
-</li>
-</ul>
-<p>求法就是牛顿迭代：</p>
-<ul>
-<li>设 $f(x) = e^{A(x)}$, 则得到方程 $g(f(x)) = ln(f(x)) - A(x) = 0$. 设已求得 $f$ 前 $n$ 项 $f_0(x)$，即 $f(x) \equiv f_0(x) \pmod {x^n}$. 对 $g(f(x))$ 作泰勒展开，整理可得 $f(x) \equiv f_0(x) - \frac{g(f_0(x))}{g’(f_0(x))} \pmod {x^{2n}}$, 带入 $g(f(x))$ 定义可得 $f(x) = f_0(x)(1 - ln(f_0(x)) + A(x))$，按此迭代，$T(n) = T(n/2)+O(nlogn) = O(nlogn)$</li>
-</ul>
-<p>对数函数和指数函数的性质在这里仍然成立。</p>
-<p>多项式快速幂：求 $A(x)^k$</p>
-<ul>
-<li>直接快速幂是 $O(n\ logn\ logk)$ 的</li>
-<li>有 $O(nlogn)$ 求法：$A(x)^k = exp(k\ ln\ A(x))$</li>
-</ul>
-<h2 id="有趣的表示！"><a href="#有趣的表示！" class="headerlink" title="$有趣的表示！$"></a>$有趣的表示！$</h2><hr>
-<p>有标号简单无向图的 EGF：$G(x) = \sum\limits_{n \geq 0} 2^{\binom{n}{2}} \frac{x^n}{n!}$</p>
-<p>有标号无向连通图的 EGF：$C(x) = ln(G(x))$</p>
-<p>无标号环的 OGF：$-\sum\limits_{d \geq 1} \frac{\phi(d)}{d} ln(1 - A(x^d))$, $ln(1 - A(x^d))$ 中只有 $n/d$ 项是有用的</p>
-<h2 id="有趣的题目！"><a href="#有趣的题目！" class="headerlink" title="$有趣的题目！$"></a>$有趣的题目！$</h2><hr>
-<h3 id="城市规划"><a href="#城市规划" class="headerlink" title="$城市规划$"></a><a href="https://www.luogu.com.cn/problem/P4841" target="_blank" rel="noopener">$城市规划$</a></h3><p>$G(x) = e^{C(x)} = \sum\limits_{n \geq 0} 2^{\binom{n}{2}} \frac{x^n}{n!}$，直接求 $ln(G(x))$ 即可</p>
-<h3 id="The-Child-and-Binary-Tree"><a href="#The-Child-and-Binary-Tree" class="headerlink" title="$The\ Child\ and\ Binary\ Tree$"></a><a href="https://www.luogu.com.cn/problem/CF438E" target="_blank" rel="noopener">$The\ Child\ and\ Binary\ Tree$</a></h3><h3 id="ZJOI2019-开关"><a href="#ZJOI2019-开关" class="headerlink" title="$ZJOI2019-开关$"></a><a href="https://www.luogu.com.cn/problem/P5326" target="_blank" rel="noopener">$ZJOI2019-开关$</a></h3><p>单写博客了</p>
-<h3 id="LOJ6538-烷基计数"><a href="#LOJ6538-烷基计数" class="headerlink" title="$LOJ6538-烷基计数$"></a><a href="https://loj.ac/p/6538" target="_blank" rel="noopener">$LOJ6538-烷基计数$</a></h3><p>慕名而来！</p>
-<p>哦，所以无标号计数一般会用到群论那套理论是吗？妈妈我 $burnside$ 学值了！</p>
-<p>设烷基生成函数为 $A(x)$。$A(x) = 1 + xA(x)^3$ 显然不行。考虑 $burnside$，一个点只有三个儿子共 $3! = 6$ 种置换：</p>
-<ul>
-<li>$(1, 2, 3): A(x)^3$</li>
-<li>$(1, 3, 2)(3, 2, 1)(2, 1, 3): 3A(x)A(x^2)$</li>
-<li>$(2, 3, 1)(3, 1, 2): 2A(x^3)$</li>
-</ul>
-<p>所以 $A(x) = 1 + \frac{x}{6}(A(x)^3 + 3A(x)A(x^2) + 2A(x^3))$</p>
-<p>分治 NTT $O(nlog^2n)$, 牛顿迭代 $O(nlogn)$</p>
-<p>我只会分治 NTT。。卷啊卷卷啊卷 就可以了。具体来说卷的方法分别如下：</p>
-<ul>
-<li>$A(x)^3$: $[l, mid]$ 三次</li>
-<li>$3A(x)A(x^2)$: $[l, mid]$ 一次，$[mid + 1, r]$ 一次</li>
-<li>$2A(x^3)$: $l \neq 0$ 的时候 $2l &gt; r$，所以 $[l, mid]$ 一次，$[0, r - l]$ 两次；$l = 0$ 的时候 $[l, mid]$ 三次。</li>
-</ul>
-<p><a href="https://loj.ac/s/1012212" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="LOJ6512-烷烃计数"><a href="#LOJ6512-烷烃计数" class="headerlink" title="$LOJ6512-烷烃计数$"></a><a href="https://loj.ac/p/6512" target="_blank" rel="noopener">$LOJ6512-烷烃计数$</a></h3><p>与上一题的区别也是此题的难点，是<strong>无根树</strong>。不难想到树的重心，甚至 $4$ 个儿子的 $burnside$ 引理你都想好了但还是不知道怎么切入。</p>
-<p>设烷烃生成函数为 $B(x)$。</p>
-<blockquote>
-<p>有结论：$c - d + e = 1$</p>
-<p>$c$ 为点等价类个数。两个点在一个等价类中，当且仅当分别以两个点为根的有根树同构。</p>
-<p>$d$ 为边等价类个数。两条边在一个等价类中，当且仅当分别删去两条边得到的有根树同构。</p>
-<p>$e$ 为是否存在一条边使得断掉后两边以断边端点为根的子树同构。</p>
-<p>证明：</p>
-<ol>
-<li>$e = 0$，根为重心，自成一个等价类；对于剩下的点，它们的父边在同一个边等价类中，当且仅当它们在同一个点等价类中，$c - d = 1$.</li>
-<li>$e = 1$，在连接两个重心的边上加入一个点变成有根树，转为情况 1.</li>
-</ol>
-</blockquote>
-<p>推到生成函数形式，$C(x) - D(x) + E(x) = B(x)$</p>
-<p>$C(x)$ 可以看作所有不同构的无标号无根树的 $c$ 之和，即所有不同构的无标号有根树个数，$C(x) = \frac{x}{24} ( A(x)^4 + 6A(x)^2A(x^2) + 3A^2(x^2) + 8A(x)A(x^3) + 6A(x^4) )$</p>
-<p>$D(x)$ 可以看作在边上加一个点能构成多少个不同的有根树，$D(x) = \frac{(A(x) - 1)^2 + (A(x^2) - 1)}{2}$</p>
-<p>$E(x)$ 可以看作同构有根树个数，$E(x) = A(x^2)$</p>
-<p><a href="https://loj.ac/s/1012789" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="珍珠"><a href="#珍珠" class="headerlink" title="$珍珠$"></a><a href="https://loj.ac/p/3120" target="_blank" rel="noopener">$珍珠$</a></h3><p>概率生成函数相关。</p>
-<p>【白云白兔可爱！喜欢题面】.jpg</p>
-<p>巧妙生成函数！$\sum\limits_{i = 1}^D \lfloor \frac{cnt_i}{2} \rfloor \geq m \Rightarrow \sum\limits_{i = 1}^D cnt_i % 2 \leq n - 2m$，特判不合法情况。</p>
-<p>枚举 $cnt_i % 2 = 1$ 即奇数的个数，设 $odd_i$ 表示有 $i$ 个奇数的方案数，则 $ans = \sum\limits_{i = 1}^{n - 2m}$</p>
-<p>$odd$ 是恰好，不好算，二项式反演一波：设 $f$ 表示至少, 接下来就算 $f$</p>
-<p>$$odd_i = \sum\limits_{j = i}^D (-1)^{j - i} C(j, i) f_j$$</p>
-<p>$$= \sum\limits_j (-1)^{j - i} \frac{j!}{i!(j - i)!} f_j$$</p>
-<p>$$= \frac{1}{i!} \sum_j \frac{(-1)^{j - i}}{(j - i)!} j!f_j$$</p>
-<p>显然的卷积形式。</p>
-<p>会想起数列 ${0, 1, 0, 1, \cdots}$ 的 $EGF$ 为 $\frac{e^x - e^{-x}}{2}$，有：</p>
-<p>$$f_k = C(D, k) n! [x^n] ( (\frac{e^x - e^{-x}}{2})^k (e^x)^{D - k} )$$</p>
-<p>$$= C(D, k) \frac{n!}{2^k}\sum\limits_{j = 0}^k C(k, j) (-1)^{k - j} e^{(D + 2(j - k))x}$$</p>
-<p>$$= \frac{C(D, k)}{2^k} \sum\limits_{j = 0}^k \frac{k!}{j!(k - j)!} (-1)^j (D - 2j)^n$$</p>
-<p>$$= \frac{D!}{2^k(D - k)!} \sum\limits_{j = 0}^k \frac{(-1)^j (D - 2j)^n}{j!} \frac{1}{(k - j)!}$$</p>
-<p>卷积！完事了。</p>
-<h3 id="CF755G-Poland-Ball-and-many-other-Balls"><a href="#CF755G-Poland-Ball-and-many-other-Balls" class="headerlink" title="CF755G-Poland Ball and many other Balls"></a><a href="https://www.luogu.com.cn/problem/CF755G" target="_blank" rel="noopener">CF755G-Poland Ball and many other Balls</a></h3><p>思路简单，适合练习处理生成函数的 Trick。</p>
-<p>容易写出 $dp$ 柿子：$f_{n, k} = f_{n - 1, k} + f_{n - 1, k - 1} + f_{n - 2, k - 1}$</p>
-<h4 id="1-特征方程"><a href="#1-特征方程" class="headerlink" title="$1. 特征方程$"></a>$1. 特征方程$</h4><p>有递推关系—— $K$ 由 $K$ 和 $K - 1$ 推得，于是设 $F(x)$ 表示 $\sum_k f_{n, k}x^k$, 列出生成函数：$F_n(x) = F_{n - 1}(x) + xF_{n - 1}(x) + xF_{n - 2}(x)$，即 $F_n(x) = (1 + x)F_{n - 1}(x) + xF_{n - 2}(x)$</p>
-<p>这玩意长得一脸特征方程，于是引入新的元 $z$，解出 $z = \frac{ 1 + x \pm \sqrt{ 1 + 6x + x^2 } }{2}$</p>
-<p>算出递推式的 $c_1$ 和 $c_2$ 以后多项式全家桶就完事了。然而蒟蒻并不会算？</p>
-<h4 id="2-倍增"><a href="#2-倍增" class="headerlink" title="$2. 倍增$"></a>$2. 倍增$</h4><p>还是上面那个柿子，不一样的角度看到的是加大步长转移—— 根据中间是否割开一个相邻的块分类讨论，$F_{n + m}(x) = F_n(x)F_m(x) + xF_{n - 1}(x)F_{m - 1}(x)$</p>
-<p>$F_{2n}(x) = F_n^2(x) + xF_{n - 1}^2(x)$</p>
-<p>$F_{2n - 1}(x) = F_n(x)F_{n - 1}(x) + xF_{n - 1}(x)F_{n - 2}(x)$</p>
-<p>$F_{2n - 2}(x) = F_{n - 1}^2(x) + xF_{n - 2}^2(x)$</p>
-<p>于是就可以由 $F_n(x)$, $F_{n - 1}(x)$, $F_{n - 2}(x)$ 得到 $F_{2n}(x)$, $F_{2n - 1}(x)$, $F_{2n - 2}(x)$ 啦</p>
-<h4 id="3-组合容斥"><a href="#3-组合容斥" class="headerlink" title="$3. 组合容斥$"></a>$3. 组合容斥$</h4><p>这个比较有意思（雾），蒟蒻想写这个方法。不能一上来就说“满脸”/“一眼”之类的话啊，你根本都还没看出门道呢。</p>
-<p>枚举两球组的个数，$f(k) = \sum_i \binom{n - i}{k} \binom{k}{i}$。然后就不会了，这玩意咋整啊？</p>
-<p>题解有神仙办法，需要你足够灵活：组合意义，先从前 $K$ 个里选任意个，再从剩下的里选 $K$ 个。</p>
-<p>这有个蛋用？</p>
-<p>隐藏关系：<em>不重复</em>。重复这玩意就可以容斥，设 $F(k)$ 表示恰好重复 $k$ 个，$G(k)$ 表示至少重复 $k$ 个。</p>
-<p>$$G(i) = \binom{k}{i} \binom{n - i}{k - i} 2^{k - i}$$</p>
-<p>$$F(0) = \sum\limits_{i = 0}^k (-1)^i G(i)$$</p>
-<p>$$= \frac{k!}{(n - k)!} \sum\limits_{i = 0}^k \frac{(-1)^i(n - i)!}{i!} \cdot \frac{2^{k - i}}{((k - i)!^2)}$$</p>
-<p>$n$ 过大，怎么办？化下降幂。。这其实是一个自然的事情，可能我还没适应罢。</p>
-<p>$$= \frac{k!n!}{(n - k)!} \sum\limits_{i = 0}^k \frac{(-1)^i(n - i)!}{i!n!} \cdot \frac{2^{k - i}}{((k - i)!^2)}$$</p>
-<p>$$= k!n^{\underline{k}} \sum\limits_{i = 0}^k \frac{(-1)^i}{i!n^{\underline{i}}} \cdot \frac{2^{k - i}}{((k - i)!^2)}$$</p>
-<p><a href="https://codeforces.com/problemset/submission/755/102687760" target="_blank" rel="noopener">$Code$</a></p>
-<p>注意空间要开足。</p>
-<h3 id="Gym102028G"><a href="#Gym102028G" class="headerlink" title="$Gym102028G$"></a><a href="https://vjudge.net/problem/Gym-102028G" target="_blank" rel="noopener">$Gym102028G$</a></h3><p>有标号的！</p>
-<p>$ans = (1. 不同连通块点对贡献 + 2. 同个连通块点对贡献) / (3. 森林数)$</p>
-<p>$3$ 好求，有标号无根森林用 prufer-Cayley 定理，构造 $n^{n - 2}$ 的 EGF，求其 exp。</p>
-<p>$1 = 不同连通块点对数 * m^2$，不同连通块点对数 = 总和 - $4. 同连通块点对数$，$4$ 就构造 $n^{n - 2} \binom{n}{2}$ 的 EGF，卷上 $3$ 中森林。</p>
-<p>$2$ 看其组合意义，在路径上选两条边。注意到割掉这两条边后整个连通块会被分成两或三个连通块。这里讨论三个，两个类似。设三个连通块大小分别为 $a_1$, $a_2$, $a_3$，则方案数为 $a_1 a_2 * a_2 a_3 * a_1 * a_3$，后面俩在选起始点。即 $= a_1^2 a_2^2 a_3^2$。构造 $n^2$ 的 EGF。</p>
-<h3 id="硬币游戏"><a href="#硬币游戏" class="headerlink" title="硬币游戏"></a><a href="https://loj.ac/p/2004" target="_blank" rel="noopener">硬币游戏</a></h3><p>PGF 是做这题绝妙的工具。设 $f_{i, j}$ 表示第 i 个人在第 $j$ 轮赢了的概率，$g_i$ 表示第 $j$ 轮还是全员输的概率。设 $F_i(z)$ 和 $G(z)$ 分别为 $f_i$ 和 $g$ 的 PGF，那么对于每个 $i$ 有：</p>
-<p>$$G(z) ( \frac{1}{2} z )^m = \sum\limits_{j = 1}^n \sum\limits_{l = 1}^m [ a_i [1, l] = a_j[m - l + 1, m] ] F_j(z) ( \frac{1}{2} z )^{m - l}$$</p>
-<p>加上一个 $\sum_i F_i(1) = 1$ 就是 $n + 1$ 个方程、$n + 1$ 个变量的方程组了，高斯消元即可。</p>
-<p><a href="https://loj.ac/s/870579" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="CF891E-Lust"><a href="#CF891E-Lust" class="headerlink" title="$CF891E-Lust$"></a><a href="https://www.luogu.com.cn/problem/CF891E" target="_blank" rel="noopener">$CF891E-Lust$</a></h3><p>每次 $\Delta ans$ 等于 $\Delta \prod a_i$，那么 $E(ans) = E(Ddelta \prod a_i) = \prod a_i - E(\prod (a_i - b_i))$，其中 $b_i$ 为 $i$ 减少的次数。</p>
-<p>$\sum b_i = K$，考虑生成函数。设 $f_i(z) = \sum\limits_j \frac{a_i - j}{j!} z^j = (a_i - z)e^z$，则 $F(z) = \prod_i f_i(z) = e^{nz} \prod_i (a_i - z)$。设 $\prod_i (a_i - z) 为 C(z)$，这个系数可以暴力算，则 $[x^k] F(z) = \sum\limits_{i = 0}^n c_{i} * \frac{n^{k - i}}{(k - i)!}$</p>
-<p>$n^2$ AC 太舒服了！！！1</p>
-<p><a href="https://codeforces.com/problemset/submission/891/107944200" target="_blank" rel="noopener">$Code$</a></p>
-
+    <script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
   </div>
 </article>
 
@@ -342,7 +211,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#无趣的-基本概念和技术"><span class="toc-number">1.</span> <span class="toc-text">无趣的$基本概念和技术$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的表示！"><span class="toc-number">2.</span> <span class="toc-text">$有趣的表示！$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#有趣的题目！"><span class="toc-number">3.</span> <span class="toc-text">$有趣的题目！$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#城市规划"><span class="toc-number">3.1.</span> <span class="toc-text">$城市规划$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Child-and-Binary-Tree"><span class="toc-number">3.2.</span> <span class="toc-text">$The\ Child\ and\ Binary\ Tree$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ZJOI2019-开关"><span class="toc-number">3.3.</span> <span class="toc-text">$ZJOI2019-开关$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6538-烷基计数"><span class="toc-number">3.4.</span> <span class="toc-text">$LOJ6538-烷基计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LOJ6512-烷烃计数"><span class="toc-number">3.5.</span> <span class="toc-text">$LOJ6512-烷烃计数$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#珍珠"><span class="toc-number">3.6.</span> <span class="toc-text">$珍珠$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF755G-Poland-Ball-and-many-other-Balls"><span class="toc-number">3.7.</span> <span class="toc-text">CF755G-Poland Ball and many other Balls</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-特征方程"><span class="toc-number">3.7.1.</span> <span class="toc-text">$1. 特征方程$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-倍增"><span class="toc-number">3.7.2.</span> <span class="toc-text">$2. 倍增$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-组合容斥"><span class="toc-number">3.7.3.</span> <span class="toc-text">$3. 组合容斥$</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102028G"><span class="toc-number">3.8.</span> <span class="toc-text">$Gym102028G$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#硬币游戏"><span class="toc-number">3.9.</span> <span class="toc-text">硬币游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CF891E-Lust"><span class="toc-number">3.10.</span> <span class="toc-text">$CF891E-Lust$</span></a></li></ol></li></ol>
+      
     </div>
 
     <div id="share-footer" style="display: none">
@@ -397,23 +266,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

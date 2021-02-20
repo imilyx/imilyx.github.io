@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="这两天张罗着给博客换了 cactus_light 的 theme，随之而来的是一大堆问题。。。一个个攻克还蛮有意思的！写篇记录一下。 \Hexo 下的 _config 里改 theme，nav 那里可以添加内容，比如我就加了「搜索」、「友链」、「关于」等功能。 新建名为 tmp 的页面就在终端输入 hexo new page tmp。\Hexo\source 里会出现新文件夹，如果想让添加的内容在">
+    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta name="keywords" content="其他">
 <meta property="og:type" content="article">
 <meta property="og:title" content="博客折腾小记">
 <meta property="og:url" content="http://yoursite.com/2021/02/02/博客折腾小记/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="这两天张罗着给博客换了 cactus_light 的 theme，随之而来的是一大堆问题。。。一个个攻克还蛮有意思的！写篇记录一下。 \Hexo 下的 _config 里改 theme，nav 那里可以添加内容，比如我就加了「搜索」、「友链」、「关于」等功能。 新建名为 tmp 的页面就在终端输入 hexo new page tmp。\Hexo\source 里会出现新文件夹，如果想让添加的内容在">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-11T11:42:24.840Z">
+<meta property="og:updated_time" content="2021-02-20T23:16:03.299Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="博客折腾小记">
-<meta name="twitter:description" content="这两天张罗着给博客换了 cactus_light 的 theme，随之而来的是一大堆问题。。。一个个攻克还蛮有意思的！写篇记录一下。 \Hexo 下的 _config 里改 theme，nav 那里可以添加内容，比如我就加了「搜索」、「友链」、「关于」等功能。 新建名为 tmp 的页面就在终端输入 hexo new page tmp。\Hexo\source 里会出现新文件夹，如果想让添加的内容在">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
     
     
         
@@ -142,17 +142,46 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>这两天张罗着给博客换了 cactus_light 的 theme，随之而来的是一大堆问题。。。一个个攻克还蛮有意思的！写篇记录一下。</p>
-<p>\Hexo 下的 _config 里改 theme，nav 那里可以添加内容，比如我就加了「搜索」、「友链」、「关于」等功能。</p>
-<p>新建名为 tmp 的页面就在终端输入 hexo new page tmp。\Hexo\source 里会出现新文件夹，如果想让添加的内容在网页上可视，在新文件夹里的 index 的 front-matter 处写 type: “tmp”</p>
-<p>「搜索」那里空无一物！下插件啦。</p>
-<p>头像就把 image 那里的 logo.png 删了放新的-_-|| 简单愉快</p>
-<p>增添了隐藏文章的功能！下了插件，以后想隐藏就只要在 front-matter 处写 hidden: true 就好了，方便诶</p>
-<p>latex 难搞，新主题不支持-_-|| 兜兜转转先下了 hexo-math，但是用不了。。于是参考了<a href="https:\blog.csdn.net\u014630987\article\details\78670258" target="_blank" rel="noopener">这篇</a>。真的感谢它，latex 渲染成功的那一刻感天动地。</p>
-<p>新主题代码块高亮颜色好恶心啊！<strong>幸好有 cactus 开发者写的 README</strong>，要记得看 README 不然事倍功半。</p>
-<p>调整代码详情，在 \cactus\source\css 下的 style.styl 里改，比如我就改了 border-radius 为 10px，边角圆润了许多【耶</p>
-<p>下载了插件：hexo-encrypt。改了 package.json 中 hexo-encrypt 版本为 ^0.2.0。用法是在根目录下的 _config.yml 中加上 encrypt: password: blabla，这个是默认密码。在 front-matter 处写 encrypt: true。如果要给这篇文章设置独立密码，就要加一句 enc_pwd: blabla</p>
-
+    <script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
   </div>
 </article>
 
@@ -237,23 +266,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
