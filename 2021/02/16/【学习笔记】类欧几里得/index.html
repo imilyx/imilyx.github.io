@@ -6,15 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="keywords" content="学习笔记,类欧几里得">
+    <meta name="description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
+<meta name="keywords" content="学习笔记,类欧几里得">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】类欧几里得">
 <meta property="og:url" content="http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-15T15:53:32.391Z">
+<meta property="og:updated_time" content="2021-02-18T10:07:20.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】类欧几里得">
+<meta name="twitter:description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
     
     
         
@@ -100,7 +103,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -139,7 +142,49 @@
   
 
   <div class="content" itemprop="articleBody">
-    
+    <p>类欧几里得算法用于求解一条直线下的整点个数，即</p>
+<ul>
+<li>$f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$</li>
+</ul>
+<p>其推广形式有</p>
+<ul>
+<li>$g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$</li>
+<li>$h(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor ^2$</li>
+</ul>
+<p><del>网上证明一大堆，这里只讲结论</del></p>
+<p>设 $m = \lfloor \frac{an + b}{c} \rfloor$</p>
+<h2 id="求-f"><a href="#求-f" class="headerlink" title="求 $f$"></a>求 $f$</h2><ul>
+<li><p>$a \geq c$ 或 $b \geq c$</p>
+<p>  $f(a, b, c, n) = f(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)}{2} + \lfloor \frac{b}{c} \rfloor (n + 1)$</p>
+</li>
+<li><p>$a &lt; c$ 且 $b &lt; c$</p>
+<p>  $f(a, b, c, n) = nm - f(c, c - b - 1, a, m - 1)$</p>
+</li>
+</ul>
+<p>复杂度 $O(logn)$</p>
+<details>
+    <summary>template</summary>
+    <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">euclid</span><span class="params">(ll n, ll a, ll b, ll c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!a) <span class="keyword">return</span> (b / c) * (n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (a &gt;= c || b &gt;= c) <span class="keyword">return</span> n * (n + <span class="number">1</span>) / <span class="number">2</span> * (a / c) + (n + <span class="number">1</span>) * (b / c) + euclid(n, a % c, b % c, c);</span><br><span class="line">    ll m = (a * n + b) / c;</span><br><span class="line">    <span class="keyword">return</span> n * m - euclid(m - <span class="number">1</span>, c, c - b - <span class="number">1</span>, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h2 id="求-g"><a href="#求-g" class="headerlink" title="求 $g$"></a>求 $g$</h2><ul>
+<li><p>$a \geq c$ 或 $b \geq c$</p>
+<p>  $g(a, b, c, n) = g(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)(2n + 1)}{6} + \lfloor \frac{b}{c} \rfloor \frac{n(n + 1)}{2}$</p>
+</li>
+<li><p>$a &lt; c$ 且 $b &lt; c$</p>
+<p>  $g(a, b, c, n) = \frac{1}{2}( n(n + 1) m - g(c, c - b - 1, a, m - 1) - h(c, c - b - 1, a, m - 1) )$</p>
+</li>
+</ul>
+<h2 id="求-h"><a href="#求-h" class="headerlink" title="求 $h$"></a>求 $h$</h2><ul>
+<li><p>$a \geq c$ 或 $b \geq c$</p>
+<p>  $h(a, b, c, n) = h(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor ^2 \frac{n(n + 1)(2n + 1)}{6} + (n + 1) \lfloor \frac{b}{c} \rfloor ^2 + 2 \lfloor \frac{b}{c} \rfloor f(a % c, b % c, c, n) + 2 \lfloor \frac{a}{c} \rfloor g(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \lfloor \frac{b}{c} \rfloor n(n + 1)$</p>
+</li>
+<li><p>$a &lt; c$ 且 $b &lt; c$</p>
+<p>  $h(a, b, c, n) = m (m + 1)n + 2g(c, c - b - 1, a, m - 1) - 2f(c, c - b - 1, a, m - 1) - f(a, b, c, n)$</p>
+</li>
+</ul>
+
   </div>
 </article>
 
@@ -169,7 +214,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
