@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
+    <meta name="description" content="最原始的类欧几里得长这样：  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \sum\limits_">
 <meta name="keywords" content="学习笔记,类欧几里得">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】类欧几里得">
 <meta property="og:url" content="http://yoursite.com/2021/02/16/【学习笔记】类欧几里得/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
+<meta property="og:description" content="最原始的类欧几里得长这样：  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \sum\limits_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-18T10:07:20.731Z">
+<meta property="og:updated_time" content="2021-02-21T03:11:19.229Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】类欧几里得">
-<meta name="twitter:description" content="类欧几里得算法用于求解一条直线下的整点个数，即  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \s">
+<meta name="twitter:description" content="最原始的类欧几里得长这样：  $f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$  其推广形式有  $g(a, b, c, n) = \sum\limits_{i = 0}^n i\lfloor \frac{ai + b}{c} \rfloor$ $h(a, b, c, n) = \sum\limits_">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sum"><span class="toc-number">3.1.</span> <span class="toc-text">$Sum$</span></a></li></ol></li></ol>
     </div>
   </span>
 </div>
@@ -142,7 +142,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>类欧几里得算法用于求解一条直线下的整点个数，即</p>
+    <p>最原始的类欧几里得长这样：</p>
 <ul>
 <li>$f(a, b, c, n) = \sum\limits_{i = 0}^n \lfloor \frac{ai + b}{c} \rfloor$</li>
 </ul>
@@ -161,7 +161,6 @@
 <p>  $f(a, b, c, n) = nm - f(c, c - b - 1, a, m - 1)$</p>
 </li>
 </ul>
-<p>复杂度 $O(logn)$</p>
 <details>
     <summary>template</summary>
     <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">euclid</span><span class="params">(ll n, ll a, ll b, ll c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (n &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (!a) <span class="keyword">return</span> (b / c) * (n + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">if</span> (a &gt;= c || b &gt;= c) <span class="keyword">return</span> n * (n + <span class="number">1</span>) / <span class="number">2</span> * (a / c) + (n + <span class="number">1</span>) * (b / c) + euclid(n, a % c, b % c, c);</span><br><span class="line">    ll m = (a * n + b) / c;</span><br><span class="line">    <span class="keyword">return</span> n * m - euclid(m - <span class="number">1</span>, c, c - b - <span class="number">1</span>, a);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -184,6 +183,16 @@
 <p>  $h(a, b, c, n) = m (m + 1)n + 2g(c, c - b - 1, a, m - 1) - 2f(c, c - b - 1, a, m - 1) - f(a, b, c, n)$</p>
 </li>
 </ul>
+<p>带有下取整的都可以试试类欧几里得。分两种情况：分离后递归，变换后递归。</p>
+<p>类欧几里得的最大优势是其几何意义：比如说原始型可理解为一条直线下的整点个数。下面这道在分离那种情况里的几何意义是梯形整点个数。</p>
+<p>变换一般也很套路，结合几何意义在坐标轴上旋转/对称/反转… 即可再次转化为可分离的情况。</p>
+<p>复杂度 $O(logn)$。</p>
+<h3 id="Sum"><a href="#Sum" class="headerlink" title="$Sum$"></a><a href="https://uoj.ac/problem/42" target="_blank" rel="noopener">$Sum$</a></h3><p>那个根号在指数上太猖狂了，得想办法把它拿下来。$(-1)^a = 1 - 2 * (a % 2) = 1 - 2a + 4 \lfloor \frac{a}{2} \rfloor$</p>
+<p>我们要求的形如下：$\sum\limits_{d = 1}^n \lfloor d \frac{a \sqrt{r} + b}{c} \rfloor$。</p>
+<p>利用类欧几里得的思想，中间那个分数 $\geq 1$ 的时候求的是较短底边长为 $\lfloor \frac{a \sqrt{r} + b}{c} \rfloor$ 的梯形内整点个数，分离并递归；$&lt; 1$ 的时候是个斜边斜率 $&lt; 1$ 的 $Rt△$，把它关于直线 $y = x$ 对称就变成了斜边斜率 $&gt; 1$ 的 $Rt△$。<a href="https://blog.csdn.net/hzj1054689699/article/details/79552941" target="_blank" rel="noopener">图看其他人的</a></p>
+<p>复杂度考虑每次缩小一半求解区域面积，$O(logn)$。</p>
+<p>坑点：long double，gcd 减小分子分母</p>
+<p><a href="https://uoj.ac/submission/456838" target="_blank" rel="noopener">$Code$</a></p>
 
   </div>
 </article>
@@ -214,7 +223,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#求-f"><span class="toc-number">1.</span> <span class="toc-text">求 $f$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-g"><span class="toc-number">2.</span> <span class="toc-text">求 $g$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#求-h"><span class="toc-number">3.</span> <span class="toc-text">求 $h$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Sum"><span class="toc-number">3.1.</span> <span class="toc-text">$Sum$</span></a></li></ol></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -269,8 +278,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
