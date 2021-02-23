@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="这场好恶心，两道构造好家伙我直接见祖宗。 $A$发现 $x_i = x_{i + 3}$，所有数的 xor 和又是 $0$，特判三种情况。      code     12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AGC 035 题解">
+<meta property="og:url" content="http://yoursite.com/2021/02/23/AGC 035 题解/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="这场好恶心，两道构造好家伙我直接见祖宗。 $A$发现 $x_i = x_{i + 3}$，所有数的 xor 和又是 $0$，特判三种情况。      code     12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20191105150639256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pva2Vyd3l0,size_16,color_FFFFFF,t_70">
+<meta property="og:updated_time" content="2021-02-23T11:59:16.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AGC 035 题解">
+<meta name="twitter:description" content="这场好恶心，两道构造好家伙我直接见祖宗。 $A$发现 $x_i = x_{i + 3}$，所有数的 xor 和又是 $0$，特判三种情况。      code     12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20191105150639256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pva2Vyd3l0,size_16,color_FFFFFF,t_70">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>AGC 035 题解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 学习计划/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/02/16/【学习笔记】类欧几里得/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/23/AGC 035 题解/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/23/AGC 035 题解/&text=AGC 035 题解"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/23/AGC 035 题解/&is_video=false&description=AGC 035 题解"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AGC 035 题解&body=Check out this article: http://yoursite.com/2021/02/23/AGC 035 题解/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/23/AGC 035 题解/&name=AGC 035 题解&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D"><span class="toc-number">2.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E"><span class="toc-number">3.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F"><span class="toc-number">4.</span> <span class="toc-text">$F$</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        AGC 035 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-02-23T10:40:40.000Z" itemprop="datePublished">2021-02-23</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>这场好恶心，两道构造好家伙我直接见祖宗。</p>
+<h3 id="A"><a href="#A" class="headerlink" title="$A$"></a>$A$</h3><p>发现 $x_i = x_{i + 3}$，所有数的 xor 和又是 $0$，特判三种情况。</p>
+<details>
+    <summary>code</summary>
+    <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> n, a[N], b[N], tot;</span><br><span class="line">    <span class="built_in">vector</span>&lt;pii&gt; vec;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">cnt</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = <span class="number">0</span>;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) ret += (a[i] == x);</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (tot == <span class="number">1</span> &amp;&amp; cnt(<span class="number">0</span>) == n) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">3</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span> (tot == <span class="number">2</span> &amp;&amp; b[<span class="number">1</span>] == <span class="number">0</span> &amp;&amp; cnt(b[<span class="number">1</span>]) == n / <span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (tot == <span class="number">3</span> &amp;&amp; b[<span class="number">1</span>] == (b[<span class="number">2</span>] ^ b[<span class="number">3</span>]) &amp;&amp; cnt(b[<span class="number">1</span>]) == n / <span class="number">3</span> &amp;&amp; cnt(b[<span class="number">2</span>]) == n / <span class="number">3</span> &amp;&amp; cnt(b[<span class="number">3</span>]) == n / <span class="number">3</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        rep(i, <span class="number">1</span>, n) &#123;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;a[i]);</span><br><span class="line">            b[i] = a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        sort(b + <span class="number">1</span>, b + n + <span class="number">1</span>);</span><br><span class="line">        tot = unique(b + <span class="number">1</span>, b + n + <span class="number">1</span>) - b - <span class="number">1</span>;</span><br><span class="line">        <span class="built_in">puts</span>(chk() ? <span class="string">"Yes"</span> : <span class="string">"No"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/details&gt;</span><br><span class="line"></span><br><span class="line">### $B$</span><br><span class="line"></span><br><span class="line">首先 $m \&amp; <span class="number">1</span>$ 一定无解。否则考虑先随便给**非树边**定向，然后靠树边来调整。从下往上该改则改，到了根一定合法因为总出度和除根以外的节点都 $\equiv <span class="number">0</span> \pmod&#123;<span class="number">2</span>&#125;$。</span><br><span class="line"></span><br><span class="line">### $C$</span><br><span class="line"></span><br><span class="line">没什么意思的构造题~~但是不会做~~，又是从奇偶入手。</span><br><span class="line"></span><br><span class="line">&lt;details&gt;</span><br><span class="line">    &lt;summary&gt;code&lt;/summary&gt;</span><br><span class="line">    ``` c++</span><br><span class="line">    <span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line">    <span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i` = x; i &lt;= y; i++)</span></span><br><span class="line">    <span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">lbit</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> x &amp; -x; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">        <span class="keyword">if</span> (lbit(n) == n) <span class="keyword">return</span> <span class="built_in">puts</span>(<span class="string">"No"</span>), <span class="number">0</span>;</span><br><span class="line">        <span class="built_in">puts</span>(<span class="string">"Yes"</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i += <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"1 %d\n"</span>, i);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"1 %d\n"</span>, i + <span class="number">1</span> + n);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i, i + <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, i + n, i + <span class="number">1</span> + n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d 3\n"</span>, n + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (n % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, n, n + lbit(n) + <span class="number">1</span>);</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>, n + n, n - lbit(n));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="D"><a href="#D" class="headerlink" title="$D$"></a>$D$</h3><p>不会做。入手点应该是每个元素对答案的贡献。</p>
+<p>太妙啦 <em>是开倒车！</em></p>
+<p>考虑我们只有两个元素，分别为 $a_i$ 和 $a_{i + 1}$。设 $a_i$ 对答案贡献为 $x_i$，那么这个元素对答案贡献 $x_i + x_{i + 1}$。</p>
+<p>设 $f(l, r, xl, xr)$ 表示区间 $[l, r]$ 中 $a_l$ 贡献 $xl$ 次，$a_r$ 贡献 $xr$ 次的最小和（未算进 $a_l$ 和 $a_r$ 的贡献）。转移：</p>
+<script type="math/tex; mode=display">f(l, r, xl, xr) = \min\limits_{l < p < r} f(l, p, xl, xl + xr) + f(p, r, xl + xr, xr) + a_p * (xl + xr)</script><h3 id="E"><a href="#E" class="headerlink" title="$E$"></a>$E$</h3><p>实际上是问有多少种消除集合。转化为图去考虑：</p>
+<ul>
+<li>发现一个环永远消不干净</li>
+<li>推得一个集合能消干净，当且仅当其无环（按拓扑序消即可）</li>
+</ul>
+<p>问题转化为求无环的子集个数。</p>
+<p>本题这个 $-2$ $+k$ 的很特殊。为何它偏偏是 $-2$？如果 $k$ 是偶数，问题就是不能选连续 $k / 2 + 1$ 个奇偶性相同的位置消掉，dp 即可；如果 $k$ 是奇数，如下图：</p>
+<p><img src="https://img-blog.csdnimg.cn/20191105150639256.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2pva2Vyd3l0,size_16,color_FFFFFF,t_70" alt="graph.png"></p>
+<p>发现简单环都是长度为 $K + 2$ 的八字形或三角形。dp，$f_{i, j, k}$ 表示 dp 到第 $i$ 层，往上、往右、往上的路径走了 $j$，右边偶数度节点对应选了 $k$ 个的方案数。</p>
+<p><em>感觉不是太懂，先咕咕</em></p>
+<h3 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h3><p>妙啊。不同操作序列并不唯一对应一种图，<em>但是操作序列是好数的！</em> 尝试容斥，考虑什么时候会重复计数。</p>
+<p><em>出现拐角的时候！</em> </p>
+<p>即：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 0 1 0</span><br><span class="line">0 0 1 0</span><br><span class="line">1 1 1 0</span><br><span class="line">0 0 0 0</span><br></pre></td></tr></table></figure>
+<p>假设拐角在 $(x, y)$，那么 $(x + 1, y)$ 和 $(x, y + 1)$ 为 $0$。</p>
+<p>设 $f_i$ 表示选择了<strong>至多</strong> $i$ 个拐角的方案数：$f_i = \binom{n}{i} \binom{m}{i} i! (n + 1)^{m - i} (m + 1)^{n - i}$</p>
+<p>设 $F_i$ 表示选择了<strong>至多</strong> $i$ 个拐角的操作序列数：$F_i = 2^i f_i$</p>
+<p>设 $G_i$ 表示选择了<strong>恰好</strong> $i$ 个拐角的操作序列数，二项式反演 $F$ 即可得到。</p>
+<p>我们要求的是 $g_i$，表示选择了<strong>恰好</strong> $i$ 个拐角的方案数：$g_i = \frac{G_i}{2^i}$</p>
+<p>$ans = \sum\limits_{i \geq 0} g_i = \sum\limits_{j \geq 0} f_j (-1)^j$</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D"><span class="toc-number">2.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E"><span class="toc-number">3.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F"><span class="toc-number">4.</span> <span class="toc-text">$F$</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/02/23/AGC 035 题解/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/02/23/AGC 035 题解/&text=AGC 035 题解"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/02/23/AGC 035 题解/&is_video=false&description=AGC 035 题解"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=AGC 035 题解&body=Check out this article: http://yoursite.com/2021/02/23/AGC 035 题解/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/02/23/AGC 035 题解/&title=AGC 035 题解"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/02/23/AGC 035 题解/&name=AGC 035 题解&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

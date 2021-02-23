@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线性">
+    <meta name="description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯\_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线">
 <meta name="keywords" content="模拟赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XJOI200812 题解">
 <meta property="og:url" content="http://yoursite.com/2020/08/12/XJOI200812 题解/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线性">
+<meta property="og:description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯\_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-08-14T07:07:54.392Z">
+<meta property="og:updated_time" content="2021-02-22T01:14:59.353Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="XJOI200812 题解">
-<meta name="twitter:description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线性">
+<meta name="twitter:description" content="丧心病狂，打了两场提（n）高（o）组（i）模拟赛。。。一天就这么没了【哭】 赛1    赛2 1A 不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。 1B 神仙题！（也可能只是我不会线性代数¯\_(ツ)_/¯）原题是 CF388D 考虑异或 一般来说 就是 Trie 和线性基 诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合 一组线">
     
     
         
@@ -147,7 +147,7 @@
 <h2 id="1A"><a href="#1A" class="headerlink" title="1A"></a>1A</h2><hr>
 <p>不用 Boruvka，直接 Kruskal，从大到小枚举边权然后能连则连。</p>
 <h2 id="1B"><a href="#1B" class="headerlink" title="1B"></a>1B</h2><hr>
-<p>神仙题！（也可能只是我不会线性代数¯_(ツ)_/¯）原题是 <a href="https://www.luogu.com.cn/problem/CF388D" target="_blank" rel="noopener">CF388D</a></p>
+<p>神仙题！（也可能只是我不会线性代数¯\_(ツ)_/¯）原题是 <a href="https://www.luogu.com.cn/problem/CF388D" target="_blank" rel="noopener">CF388D</a></p>
 <p>考虑异或 一般来说 就是 Trie 和线性基</p>
 <p>诶？线性基好像可以！本题相当于给一组线性基就能产生一堆异或值，线性基和异或值共同组成集合</p>
 <p>一组线性基对应一个集合，但<strong>一个集合可以有多组线性基</strong>，如果能让集合和线性基一一对应，集合的计数就转化成了线性基的计数</p>
@@ -156,7 +156,6 @@
 <p>dp 的状态设计：dp[i, j, k] 表示从最高位到第 i 位选了 j 个基，异或得到的最大值是否顶到上界（是则 k = 1，否则 k = 0）有点类似于数位 dp</p>
 <p><a href="https://blog.csdn.net/C202044zxy/article/details/106119810" target="_blank" rel="noopener">细节</a></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line">ll n, dp[<span class="number">32</span>][<span class="number">32</span>][<span class="number">2</span>], ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(ll &amp;x, ll y)</span> </span>&#123; x = (x + y) % mod; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    dp[<span class="number">30</span>][<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">30</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        rep(j, <span class="number">0</span>, <span class="number">30</span> - i + <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">// k = 0</span></span><br><span class="line">            add(dp[i - <span class="number">1</span>][j][<span class="number">0</span>], dp[i][j][<span class="number">0</span>] * (<span class="number">1</span> &lt;&lt; j) % mod);</span><br><span class="line">            add(dp[i - <span class="number">1</span>][j + <span class="number">1</span>][<span class="number">0</span>], dp[i][j][<span class="number">0</span>]);</span><br><span class="line">            <span class="comment">// k = 1</span></span><br><span class="line">            ll x = (j == <span class="number">0</span> ? <span class="number">1</span> : (<span class="number">1</span> &lt;&lt; (j - <span class="number">1</span>))), y = (j == <span class="number">0</span> ? <span class="number">0</span> : (<span class="number">1</span> &lt;&lt; (j - <span class="number">1</span>)));</span><br><span class="line">            <span class="keyword">if</span> ((n &gt;&gt; (i - <span class="number">1</span>)) &amp; <span class="number">1</span>) &#123;</span><br><span class="line">                add(dp[i - <span class="number">1</span>][j][<span class="number">0</span>], x * dp[i][j][<span class="number">1</span>] % mod);</span><br><span class="line">                add(dp[i - <span class="number">1</span>][j][<span class="number">1</span>], y * dp[i][j][<span class="number">1</span>] % mod);</span><br><span class="line">                add(dp[i - <span class="number">1</span>][j + <span class="number">1</span>][<span class="number">1</span>], dp[i][j][<span class="number">1</span>]);</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                add(dp[i - <span class="number">1</span>][j][<span class="number">1</span>], x * dp[i][j][<span class="number">1</span>] % mod);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">0</span>, <span class="number">30</span>) add(ans, (dp[<span class="number">0</span>][i][<span class="number">0</span>] + dp[<span class="number">0</span>][i][<span class="number">1</span>]) % mod);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="1C"><a href="#1C" class="headerlink" title="1C"></a>1C</h2><hr>
 <p>先决题目是 [ZJOI2016]-旅行者，这里写一下题解</p>
 <p>网格图可以分治！找到矩形的长边，用一条中轴线切成两半，当前分治的区间是 (lx, ly) (rx, ry)，处理的询问是 (ql, qr)（类似于整体二分）。对于每个询问：</p>
@@ -165,7 +164,7 @@
 <li>起始点在一侧，<strong>可能</strong>最短路也经过中轴线，也更新一波，再递归分治</li>
 </ul>
 <p>卡了小常，加了玄学头文件<br><a href="https://blog.csdn.net/neither_nor/article/details/51733997" target="_blank" rel="noopener">复杂度是 O(S logS sqrt(S))</a><br><a href="https://www.luogu.com.cn/discuss/show/74578" target="_blank" rel="noopener">如果没看懂这里还有一个（还是不懂。。</a></p>
-<p>—分割线—</p>
+<p>—-分割线—-</p>
 <p>本题的区别就是有修改啦。我们可以知道每个格子变为不能走的时间（这个整体二分做），定义一条路径的值为这条路径上格子不能走时间的最小值，那我们就需要找一条值最大的路径看这个值是否大于询问的时间。离线，用旅行者的 分治 + dp 做。然而不会写代码，我只会咕咕</p>
 <h2 id="2A"><a href="#2A" class="headerlink" title="2A"></a>2A</h2><hr>
 <p>只会 16 分 O(nT)，告辞（咕咕</p>
