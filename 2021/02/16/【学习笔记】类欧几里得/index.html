@@ -73,7 +73,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/02/23/AGC 035 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/02/28/【计划】21Feb 训练日志/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2021/02/14/【学习笔记】网络流/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -155,7 +155,7 @@
 <p>设 $m = \lfloor \frac{an + b}{c} \rfloor$</p>
 <h2 id="求-f"><a href="#求-f" class="headerlink" title="求 $f$"></a>求 $f$</h2><ul>
 <li><p>$a \geq c$ 或 $b \geq c$</p>
-<p>  $f(a, b, c, n) = f(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)}{2} + \lfloor \frac{b}{c} \rfloor (n + 1)$</p>
+<p>  $f(a, b, c, n) = f(a \% c, b \% c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)}{2} + \lfloor \frac{b}{c} \rfloor (n + 1)$</p>
 </li>
 <li><p>$a &lt; c$ 且 $b &lt; c$</p>
 <p>  $f(a, b, c, n) = nm - f(c, c - b - 1, a, m - 1)$</p>
@@ -169,7 +169,7 @@
 
 <h2 id="求-g"><a href="#求-g" class="headerlink" title="求 $g$"></a>求 $g$</h2><ul>
 <li><p>$a \geq c$ 或 $b \geq c$</p>
-<p>  $g(a, b, c, n) = g(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)(2n + 1)}{6} + \lfloor \frac{b}{c} \rfloor \frac{n(n + 1)}{2}$</p>
+<p>  $g(a, b, c, n) = g(a \% c, b \% c, c, n) + \lfloor \frac{a}{c} \rfloor \frac{n(n + 1)(2n + 1)}{6} + \lfloor \frac{b}{c} \rfloor \frac{n(n + 1)}{2}$</p>
 </li>
 <li><p>$a &lt; c$ 且 $b &lt; c$</p>
 <p>  $g(a, b, c, n) = \frac{1}{2}( n(n + 1) m - g(c, c - b - 1, a, m - 1) - h(c, c - b - 1, a, m - 1) )$</p>
@@ -177,7 +177,7 @@
 </ul>
 <h2 id="求-h"><a href="#求-h" class="headerlink" title="求 $h$"></a>求 $h$</h2><ul>
 <li><p>$a \geq c$ 或 $b \geq c$</p>
-<p>  $h(a, b, c, n) = h(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor ^2 \frac{n(n + 1)(2n + 1)}{6} + (n + 1) \lfloor \frac{b}{c} \rfloor ^2 + 2 \lfloor \frac{b}{c} \rfloor f(a % c, b % c, c, n) + 2 \lfloor \frac{a}{c} \rfloor g(a % c, b % c, c, n) + \lfloor \frac{a}{c} \rfloor \lfloor \frac{b}{c} \rfloor n(n + 1)$</p>
+<p>  $h(a, b, c, n) = h(a \% c, b \% c, c, n) + \lfloor \frac{a}{c} \rfloor ^2 \frac{n(n + 1)(2n + 1)}{6} + (n + 1) \lfloor \frac{b}{c} \rfloor ^2 + 2 \lfloor \frac{b}{c} \rfloor f(a \% c, b \% c, c, n) + 2 \lfloor \frac{a}{c} \rfloor g(a \% c, b \% c, c, n) + \lfloor \frac{a}{c} \rfloor \lfloor \frac{b}{c} \rfloor n(n + 1)$</p>
 </li>
 <li><p>$a &lt; c$ 且 $b &lt; c$</p>
 <p>  $h(a, b, c, n) = m (m + 1)n + 2g(c, c - b - 1, a, m - 1) - 2f(c, c - b - 1, a, m - 1) - f(a, b, c, n)$</p>
@@ -187,7 +187,7 @@
 <p>类欧几里得的最大优势是其几何意义：比如说原始型可理解为一条直线下的整点个数。下面这道在分离那种情况里的几何意义是梯形整点个数。</p>
 <p>变换一般也很套路，结合几何意义在坐标轴上旋转/对称/反转… 即可再次转化为可分离的情况。</p>
 <p>复杂度 $O(logn)$。</p>
-<h3 id="Sum"><a href="#Sum" class="headerlink" title="$Sum$"></a><a href="https://uoj.ac/problem/42" target="_blank" rel="noopener">$Sum$</a></h3><p>那个根号在指数上太猖狂了，得想办法把它拿下来。$(-1)^a = 1 - 2 * (a % 2) = 1 - 2a + 4 \lfloor \frac{a}{2} \rfloor$</p>
+<h3 id="Sum"><a href="#Sum" class="headerlink" title="$Sum$"></a><a href="https://uoj.ac/problem/42" target="_blank" rel="noopener">$Sum$</a></h3><p>那个根号在指数上太猖狂了，得想办法把它拿下来。$(-1)^a = 1 - 2 * (a \% 2) = 1 - 2a + 4 \lfloor \frac{a}{2} \rfloor$</p>
 <p>我们要求的形如下：$\sum\limits_{d = 1}^n \lfloor d \frac{a \sqrt{r} + b}{c} \rfloor$。</p>
 <p>利用类欧几里得的思想，中间那个分数 $\geq 1$ 的时候求的是较短底边长为 $\lfloor \frac{a \sqrt{r} + b}{c} \rfloor$ 的梯形内整点个数，分离并递归；$&lt; 1$ 的时候是个斜边斜率 $&lt; 1$ 的 $Rt△$，把它关于直线 $y = x$ 对称就变成了斜边斜率 $&gt; 1$ 的 $Rt△$。<a href="https://blog.csdn.net/hzj1054689699/article/details/79552941" target="_blank" rel="noopener">图看其他人的</a></p>
 <p>复杂度考虑每次缩小一半求解区域面积，$O(logn)$。</p>

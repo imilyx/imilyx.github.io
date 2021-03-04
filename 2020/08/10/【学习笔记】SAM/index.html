@@ -169,7 +169,7 @@
 <h3 id="事情的相似度"><a href="#事情的相似度" class="headerlink" title="$事情的相似度$"></a><a href="https://loj.ac/p/6041" target="_blank" rel="noopener">$事情的相似度$</a></h3><p>两个前缀 $x$ 和 $y$ 的最长公共后缀就是 $parent$ 树上的 $len[lca(x, y)]$。现在要求区间最深 $len[lca]$。</p>
 <p>考虑离线询问，每次右移考虑 $r$ 的贡献。$SAM$ 上每个点维护它到目前被到达的最大时间，$LCT$ $access$ 赋值打标记（同一条链上的最大时间肯定相同），每次跳 $parent$ 树更新答案，注意更新的是一个区间的答案，线段树取 $\max$。</p>
 <p>还有一种做法：容易想到 $dfn$ 序越近的对越优秀，不是最近的对对于答案没有贡献。想到启发式合并 $endpos$ 集合，$set$ 维护，找前驱后继。——查询区间啊，怎么办？注意到是三元组 $(l, r, v)$ ，丢到二维平面上二维数点就好。</p>
-<p>记录 xml 的每日 sb：**$parent$ 树上节点 $x$ 的祖先 $id$ 一定都小于 $x$，后代不一定小于 $x$。为什么？怎么建树的你看看去。** 所以要处理一个按长度从大到小的操作序列。</p>
+<p>记录 xml 的每日 sb：<strong>$parent$ 树上节点 $x$ 的祖先 $id$ 一定都小于 $x$，后代不一定小于 $x$。为什么？怎么建树的你看看去。</strong> 所以要处理一个按长度从大到小的操作序列。</p>
 <p>都是两只 $log$ 的。因为「区间本质不同子串」写过第一种做法啦，这里想试试第二种！（哦呼</p>
 <p><a href="https://loj.ac/s/1022230" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="BJWC2018-Border-的四种求法"><a href="#BJWC2018-Border-的四种求法" class="headerlink" title="$BJWC2018-Border 的四种求法$"></a><a href="https://www.luogu.com.cn/problem/P4482" target="_blank" rel="noopener">$BJWC2018-Border 的四种求法$</a></h3><p>神题，比「区间本质不同子串」和「事情的相似度」高到不知道哪里去了。</p>

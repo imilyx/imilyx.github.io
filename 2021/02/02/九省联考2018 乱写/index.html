@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-03T09:19:37.296Z">
+<meta property="og:updated_time" content="2021-02-24T07:54:57.770Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
 <meta name="twitter:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
@@ -75,7 +75,7 @@
         <li><a class="icon" href="/2021/02/02/博客折腾小记/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2021/01/31/【计划】21Jan 学习计划/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/01/31/【计划】21Jan 训练日志/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -148,13 +148,11 @@
 <p><a href="https://loj.ac/s/1055202" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="秘密袭击"><a href="#秘密袭击" class="headerlink" title="$秘密袭击$"></a>$秘密袭击$</h2><hr>
 <p>求树的每个连通块第 $K$ 大权值之和。类似整数概率公式一样的拆分权值：</p>
-<p>$$Ans = \sum\limits_{S} Kth \in S = \sum\limits_{i = 1}^W i \sum\limits_S [Kth \in S == i]$$</p>
-<p>$$= \sum\limits_{i = 1}^W \sum\limits_{S} [Kth \in S \geq i] = \sum\limits_{i = 1}^W \sum\limits_S [cnt(S, i) \geq K]$$</p>
-<p>其中 $cnt(S, i)$ 表示连通块 $S$ 中权值 $\geq i$ 的点数。</p>
+<script type="math/tex; mode=display">Ans = \sum\limits_{S} Kth \in S = \sum\limits_{i = 1}^W i \sum\limits_S [Kth \in S == i]</script><script type="math/tex; mode=display">= \sum\limits_{i = 1}^W \sum\limits_{S} [Kth \in S \geq i] = \sum\limits_{i = 1}^W \sum\limits_S [cnt(S, i) \geq K]</script><p>其中 $cnt(S, i)$ 表示连通块 $S$ 中权值 $\geq i$ 的点数。</p>
 <p>问题转化为：枚举权值 $v$，统计 $\geq v$ 的权值出现次数 $\geq K$ 的连通块个数。 </p>
 <p>这似乎可以 dp？！$f_{i, j, k}$ 表示以 $i$ 为最浅点，权值 $\geq j$ 的出现次数为 $k$ 的连通块数。有：$f_{i, j, k} = \prod\limits_{v \in Son(i)} f_{v, j, k’}(\sum k’ = k - (val_i \geq j))$。答案就是 $\sum\limits_{k = K}^n \sum\limits_{i = 1}^n \sum\limits_{j = 1}^W f_{i, j, k}$。令 $g_{i, j, k} = \sum\limits_{x \in subtree(i)} f_{x, j, k}$，我们求的实际上是 $\sum\limits_{k = K}^n \sum\limits_{i = 1}^W g_{1, i, k}$</p>
 <p>（据说 $O(n^2K)$ 能过，但来都来了是吧）</p>
-<p>上面那个背包长得一脸生成函数，那就如它所愿：令 $F_{i, j} = \sum\limits_{k = 0}^n f_{i, j, k} * z^k$，$G_{i, j} = \sum\limits_{x \in subtree(i)} F_{x, j}$。有 $F_{i, j} = (val_i \geq j\ ?\ z\ :\ 1) * \prod (F_{son_i, j} + 1)$, $G_{i, j} = F_{i, j} + \sum G_{son_i, j}$</p>
+<p>上面那个背包长得一脸生成函数，那就如它所愿：令 $F_{i, j} = \sum\limits_{k = 0}^n f_{i, j, k} <em> z^k$，$G_{i, j} = \sum\limits_{x \in subtree(i)} F_{x, j}$。有 $F_{i, j} = (val_i \geq j ? z : 1) </em> \prod (F_{son_i, j} + 1)$, $G_{i, j} = F_{i, j} + \sum G_{son_i, j}$</p>
 <p>带 $n + 1$ 个点值 $z$ 进去，让 $F$ 和 $G$ 是点值状态，转移就是<strong>对应位相乘</strong>，最后再拉格朗日插值<a href="https://blog.csdn.net/CRZbulabula/article/details/61210514" target="_blank" rel="noopener"><strong>还原系数</strong></a>得到 $g$。</p>
 <p>对应位相乘？那就用整体 dp 的思想在每个点上维护一棵线段树，线段树每个节点上有个形式幂级数。考虑我们要干什么，区间乘 $z$，全局 $+1$，对应位置相乘，维护全局答案。</p>
 <ul>
@@ -180,6 +178,16 @@
 <p><a href="https://loj.ac/s/907209" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="制胡窜"><a href="#制胡窜" class="headerlink" title="$制胡窜$"></a>$制胡窜$</h2><hr>
 <p>大分类讨论题吗。。。有心情再写吧 /cy 被「秘密袭击」搞自闭了</p>
+<p>upd: 我来口胡了</p>
+<p>显然不能每个串都被那两刀切到。考虑容斥，求每个串至少被切到一次的方案数。有下面几种情况：</p>
+<ol>
+<li>第一刀啥都没切到，第二刀切完</li>
+<li>第二刀啥都没切到，第一刀切完</li>
+<li>第一刀切到但没切完，补第二刀切完</li>
+<li>第一刀切完，第二刀随便切</li>
+</ol>
+<p>$1$、$2$、$3$ 不能一刀切完时答案是 $0$，否则算一下。</p>
+<p>$4$ 麻烦一点，第二刀切的位置是一个区间，可以二分出左右端点。答案是个取 $\min$ 形式的，二分出开始取后面的时候。柿子存在平方形式，所以线段树维护区间 $0$、$1$、$2$ 次方和。</p>
 
   </div>
 </article>

@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 大数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
+    <meta name="description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 小数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
 <meta name="keywords" content="比赛">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UOJ Long Round 1">
 <meta property="og:url" content="http://yoursite.com/2021/01/05/UOJ Long Round 1/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 大数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
+<meta property="og:description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 小数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-01T03:33:00.952Z">
+<meta property="og:updated_time" content="2021-03-04T10:48:51.640Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UOJ Long Round 1">
-<meta name="twitter:description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 大数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
+<meta name="twitter:description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 小数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-多线程计算"><span class="toc-number">1.</span> <span class="toc-text">$T1. 多线程计算$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-光伏元件"><span class="toc-number">2.</span> <span class="toc-text">$T2. 光伏元件$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-服务器调度"><span class="toc-number">3.</span> <span class="toc-text">$T3. 服务器调度$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-打击复读"><span class="toc-number">4.</span> <span class="toc-text">$T4. 打击复读$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T5-校验码"><span class="toc-number">5.</span> <span class="toc-text">$T5. 校验码$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T6-卫星基站建设"><span class="toc-number">6.</span> <span class="toc-text">$T6. 卫星基站建设$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-多线程计算"><span class="toc-number">1.</span> <span class="toc-text">$T1. 多线程计算$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一"><span class="toc-number">1.1.</span> <span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#其实就是-Beta-函数！"><span class="toc-number">1.1.1.</span> <span class="toc-text">其实就是 $\Beta$ 函数！</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二"><span class="toc-number">1.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-光伏元件"><span class="toc-number">2.</span> <span class="toc-text">$T2. 光伏元件$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-服务器调度"><span class="toc-number">3.</span> <span class="toc-text">$T3. 服务器调度$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-打击复读"><span class="toc-number">4.</span> <span class="toc-text">$T4. 打击复读$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T5-校验码"><span class="toc-number">5.</span> <span class="toc-text">$T5. 校验码$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T6-卫星基站建设"><span class="toc-number">6.</span> <span class="toc-text">$T6. 卫星基站建设$</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -144,10 +144,27 @@
   <div class="content" itemprop="articleBody">
     <p>好难啊。。</p>
 <h2 id="T1-多线程计算"><a href="#T1-多线程计算" class="headerlink" title="$T1. 多线程计算$"></a>$T1. 多线程计算$</h2><hr>
-<p>首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 大数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k)!}{(nm + 1)(nm)!}$.</p>
+<p>首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 小数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k)!}{(nm + 1)(nm)!}$.</p>
 <p>每个 $(x, y)$ 独立，分别算贡献即可。现在考虑 $(x, y)$ 给 $k$ 的贡献，容斥计算：枚举全亮的行列为 $i$、$j$，贡献为 $\binom{n}{i} \binom{m}{j} \binom{i}{x} \binom{j}{y} (-1)^{i - x} (-1)^{j - y} \binom{nm - im - jn + ij}{k - im - jn + ij}$。</p>
 <p>最后那个组合数不关键，给它拆走。剩下的看似是个二维 $FFT$，实际上完全更简单——把 $\binom{n}{i} \binom{i}{x} (-1)^{i - x}$ 计到某个数组 $h_{i, y}$ 里（枚举 $y$ 对第一维做卷积），再枚举第一维对第二维做卷积，累计到 $[im + jn - ij]$ 里即可。做 $n$ 遍长度为 $m$ 的卷积和 $m$ 遍长度为 $n$ 的卷积，$O(nmlognm)$.</p>
 <p><a href="https://uoj.ac/submission/446428" target="_blank" rel="noopener">$Code$</a></p>
+<p>upd on 2021.3.2:<br>学习了第一句话那个结论的证明。</p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>先考虑最大值的期望。枚举最大值 $x$，$\int_0^1 x \cdot x^{n - 1} dx = F(1) - F(0) = \frac{1}{n + 1} 1^{n + 1} - \frac{1}{n + 1} 0^{n + 1} = \frac{1}{n + 1}$，还要再乘 $n$ 表示哪个最大。</p>
+<p>推广：枚举第 $k$ 小值 $x$，$\int_0^1 x \cdot x^{k - 1} \cdot (1 - x)^{n - k} dx$。考虑分部积分，即 $\int_a^b uv’ dx = uv|_a^b - \int_a^b vu’ dx$。</p>
+<p>设 $u = (1 - x)^{n - k}$, $v’ = x^k$，则 $v = \frac{1}{k + 1} x^{k + 1}$，$uv$ 在 $0$ 和 $1$ 处都为 $0$ 所以 $uv = 0$，原柿 $= \frac{n - k}{k + 1} \int_0^1 x^{k + 1}(1 - x)^{n - k - 1} dx$</p>
+<p>设 $a_i = \int_0^1 x^i(1 - x)^{n - k} dx$，则有 $a_i = \frac{n - i}{i + 1} a_{i + 1}$，边界 $a_n = \frac{1}{n + 1}$，可得通项公式 $a_i = \frac{i!(n - i)!}{(n + 1)!}$，乘上 $n \cdot \binom{n - 1}{k - 1}$ 表示选择方案，得 $\frac{k}{n + 1}$。</p>
+<h4 id="其实就是-Beta-函数！"><a href="#其实就是-Beta-函数！" class="headerlink" title="其实就是 $\Beta$ 函数！"></a><em>其实就是 $\Beta$ 函数！</em></h4><p>$\Gamma$ 函数：</p>
+<script type="math/tex; mode=display">\Gamma(x) = \int_0^{+\infty} t^{x - 1} e^{-t} dt</script><p>$\Beta$ 函数（定义域是 $x &gt; 0$, $y &gt; 0$）：</p>
+<script type="math/tex; mode=display">\Beta(x, y) = \int_0^{1} t^{x - 1} (1 - t)^{y - 1} dt</script><p>结论：</p>
+<ul>
+<li><p>$\Gamma(1) = 1$, $\Gamma(x) = (x - 1) \Gamma(x - 1)$, <strong>因此 $\Gamma(x) = (x - 1)!$</strong></p>
+</li>
+<li><p>$\Beta(x, y) = \frac{\Gamma(x) \Gamma(y)}{\Gamma(x + y)}$ <a href="https://blog.csdn.net/xhf0374/article/details/53946146" target="_blank" rel="noopener">证……明？</a></p>
+</li>
+</ul>
+<p><del>这俩基本够用了</del></p>
+<p>我们求的是 $\Beta(k + 1, n - k + 1)$，化简以后乘上方案数就是 $\frac{k}{n + 1}$。</p>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>引入第 $n + 1$ 个随机变量 $x$，可以认为第 $k$ 小变量的期望等于第 $n + 1$ 个变量小于等于第 $k$ 小变量的概率。考虑大小关系，共有 $k * n!$（新变量有 $k$ 个位置可插入），所以概率为 $\frac{k}{n + 1}$。</p>
 <h2 id="T2-光伏元件"><a href="#T2-光伏元件" class="headerlink" title="$T2. 光伏元件$"></a>$T2. 光伏元件$</h2><hr>
 <h2 id="T3-服务器调度"><a href="#T3-服务器调度" class="headerlink" title="$T3. 服务器调度$"></a>$T3. 服务器调度$</h2><hr>
 <h2 id="T4-打击复读"><a href="#T4-打击复读" class="headerlink" title="$T4. 打击复读$"></a>$T4. 打击复读$</h2><hr>
@@ -183,7 +200,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-多线程计算"><span class="toc-number">1.</span> <span class="toc-text">$T1. 多线程计算$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-光伏元件"><span class="toc-number">2.</span> <span class="toc-text">$T2. 光伏元件$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-服务器调度"><span class="toc-number">3.</span> <span class="toc-text">$T3. 服务器调度$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-打击复读"><span class="toc-number">4.</span> <span class="toc-text">$T4. 打击复读$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T5-校验码"><span class="toc-number">5.</span> <span class="toc-text">$T5. 校验码$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T6-卫星基站建设"><span class="toc-number">6.</span> <span class="toc-text">$T6. 卫星基站建设$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#T1-多线程计算"><span class="toc-number">1.</span> <span class="toc-text">$T1. 多线程计算$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#方法一"><span class="toc-number">1.1.</span> <span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#其实就是-Beta-函数！"><span class="toc-number">1.1.1.</span> <span class="toc-text">其实就是 $\Beta$ 函数！</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法二"><span class="toc-number">1.2.</span> <span class="toc-text">方法二</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T2-光伏元件"><span class="toc-number">2.</span> <span class="toc-text">$T2. 光伏元件$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T3-服务器调度"><span class="toc-number">3.</span> <span class="toc-text">$T3. 服务器调度$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T4-打击复读"><span class="toc-number">4.</span> <span class="toc-text">$T4. 打击复读$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T5-校验码"><span class="toc-number">5.</span> <span class="toc-text">$T5. 校验码$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#T6-卫星基站建设"><span class="toc-number">6.</span> <span class="toc-text">$T6. 卫星基站建设$</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">

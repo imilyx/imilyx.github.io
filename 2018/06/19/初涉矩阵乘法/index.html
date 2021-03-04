@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="先来定义矩阵乘法：一个 $a * b$ 的矩阵 A 乘以一个 $b * c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： $$C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}$$ 别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^">
+    <meta name="description" content="先来定义矩阵乘法：一个 $a  b$ 的矩阵 A 乘以一个 $b  c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^3)$ 。 矩">
 <meta name="keywords" content="矩阵乘法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="初涉矩阵乘法">
 <meta property="og:url" content="http://yoursite.com/2018/06/19/初涉矩阵乘法/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="先来定义矩阵乘法：一个 $a * b$ 的矩阵 A 乘以一个 $b * c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： $$C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}$$ 别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^">
+<meta property="og:description" content="先来定义矩阵乘法：一个 $a  b$ 的矩阵 A 乘以一个 $b  c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^3)$ 。 矩">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:18:52.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="初涉矩阵乘法">
-<meta name="twitter:description" content="先来定义矩阵乘法：一个 $a * b$ 的矩阵 A 乘以一个 $b * c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： $$C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}$$ 别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^">
+<meta name="twitter:description" content="先来定义矩阵乘法：一个 $a  b$ 的矩阵 A 乘以一个 $b  c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^3)$ 。 矩">
     
     
         
@@ -138,34 +138,28 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p>先来定义矩阵乘法：<br>一个 $a * b$ 的矩阵 A 乘以一个 $b * c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的：</p>
-<p>$$C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}$$</p>
-<p>别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。</p>
+    <p>先来定义矩阵乘法：<br>一个 $a <em> b$ 的矩阵 A 乘以一个 $b </em> c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的：</p>
+<script type="math/tex; mode=display">C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}</script><p>别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。</p>
 <p>通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^3)$ 。</p>
 <p>矩阵快速幂其实不玄学，只要知道快速幂就能理解它。$O(n^3 log p)$</p>
-<p>大概就是这个CODE：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> tmp[N][N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Multi</span><span class="params">(<span class="keyword">int</span> a[][N], <span class="keyword">int</span> b[][N], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">                tmp[i][j] += a[i][k] * b[k][j];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            a[i][j] = tmp[i][j];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> res[N][N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Pow</span><span class="params">(<span class="keyword">int</span> a[][N], <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(res, <span class="number">0</span>, <span class="keyword">sizeof</span>(res));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) res[i][i] = <span class="number">1</span>;  <span class="comment">// 赋为单位矩阵</span></span><br><span class="line">    <span class="keyword">for</span> (; p; p &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p &amp; <span class="number">1</span>) Multi(res, a, N);</span><br><span class="line">        Multi(a, a, N);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<p>大概就是这个CODE：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">105</span>;</span><br><span class="line"><span class="keyword">int</span> tmp[N][N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Multi</span><span class="params">(<span class="keyword">int</span> a[][N], <span class="keyword">int</span> b[][N], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(tmp, <span class="number">0</span>, <span class="keyword">sizeof</span>(tmp));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">                tmp[i][j] += a[i][k] * b[k][j];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">            a[i][j] = tmp[i][j];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> res[N][N];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Quick_Pow</span><span class="params">(<span class="keyword">int</span> a[][N], <span class="keyword">int</span> p)</span> </span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(res, <span class="number">0</span>, <span class="keyword">sizeof</span>(res));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) res[i][i] = <span class="number">1</span>;  <span class="comment">// 赋为单位矩阵</span></span><br><span class="line">    <span class="keyword">for</span> (; p; p &gt;&gt;= <span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (p &amp; <span class="number">1</span>) Multi(res, a, N);</span><br><span class="line">        Multi(a, a, N);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>来看看习题！！</p>
 <ol>
 <li>求斐波那契数列第 N 项（$F(N)$）。</li>
 </ol>
 <p>分析：一看就只会 $O(N)$ ，但这一定会T，考虑矩阵快速幂。</p>
 <p>不如说此题只是一个入门，最终解法是：</p>
-<p>$${\begin{bmatrix} 1 &amp; 1\ 1 &amp; 0 \end{bmatrix}}^N$$</p>
-<p>第一行第一个表示 $F(N)$ ，第二个表示 $F(N - 1)$ ，第二行不用怎么去管它，大概是用来对齐的。这样用矩阵快速幂做很快，$O(2^3logn)$ ，大约可以做 $n = 10^{500000}$ 。</p>
+<script type="math/tex; mode=display">{\begin{bmatrix} 1 & 1\\ 1 & 0 \end{bmatrix}}^N</script><p>第一行第一个表示 $F(N)$ ，第二个表示 $F(N - 1)$ ，第二行不用怎么去管它，大概是用来对齐的。这样用矩阵快速幂做很快，$O(2^3logn)$ ，大约可以做 $n = 10^{500000}$ 。</p>
 <p>这道题给我们引入了一个概念：线性常系数递推式。</p>
 <p>定义：形如 $f(n) = \sum_{i = 1}^d a_if(n - i)$ ，其中 d、ai 为常数的递推式，称为线性常系数递推式，每一项都和它前面 d 项有关，又称d阶线性常系数递推式。这一类题目的时间复杂度是 $O(d^3 logn)$（据说要是 i 从 1 到 n 的话就成了卷积？）</p>
 <p>这样要求解 $f(n)$ 就很像第一题了：</p>
-<p>$${\begin{bmatrix} f(n) \ f(n - 1) \ \vdots \ f(n - d + 1)\end{bmatrix}} = {\begin{bmatrix} f(n - 1)\ f(n - 2) \ \vdots\ f(n - d)\end{bmatrix}} * {\begin{bmatrix} a1 &amp; a2 &amp; a3 &amp; \cdots &amp; ad\ 1 &amp; 0 &amp; 0 &amp;\cdots &amp; 0\ 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0\ \vdots &amp; &amp; \ddots &amp; &amp; \vdots\ 0 &amp; 0 &amp; \cdots &amp; 1 &amp; 0\end{bmatrix}}$$</p>
-<ol start="2">
+<script type="math/tex; mode=display">{\begin{bmatrix} f(n) \\ f(n - 1) \\ \vdots \\ f(n - d + 1)\end{bmatrix}} = {\begin{bmatrix} f(n - 1)\\ f(n - 2) \\ \vdots\\ f(n - d)\end{bmatrix}} * {\begin{bmatrix} a1 & a2 & a3 & \cdots & ad\\ 1 & 0 & 0 &\cdots & 0\\ 0 & 1 & 0 & \cdots & 0\\ \vdots & & \ddots & & \vdots\\ 0 & 0 & \cdots & 1 & 0\end{bmatrix}}</script><ol>
 <li>给定 n 个点，数条无向边，求从一个点走 K 步的路径总数。</li>
 </ol>
 <p>首先用 $G[][]$ 来存有向边，然后我们发现如果用 $F[step][i]$ 来表示走 step 步到 i 的方案数，转移方程就是：</p>
 <p>$F_{step, i} = \sum_{j = 1}^n G_{j, i} * F_{step - 1, j}$</p>
 <p>然后这就是一个线性常系数递推式。用矩阵快速幂怎么做呢：</p>
-<p>$$\begin{bmatrix} F_{step, 1} \ F_{step, 2} \ \vdots \ F_{step, n}\end{bmatrix} = \begin{bmatrix} G_{1, 1} &amp; \cdots &amp; G_{1, n}\ \vdots &amp; \ddots &amp; \vdots \ G_{n, 1} &amp; \cdots &amp; G_{n, n} \end{bmatrix} * \begin{bmatrix} F_{step - 1, 1} \ F_{step - 1, 2} \ \vdots \ F_{step - 1, n} \end{bmatrix}$$</p>
-<p>需要注意的是，因为需要符合矩阵乘法“行乘列”，我们用 $G_{j, i}$ 表示 $G_{i, j}$ 。</p>
+<script type="math/tex; mode=display">\begin{bmatrix} F_{step, 1} \\ F_{step, 2} \\ \vdots \\ F_{step, n}\end{bmatrix} = \begin{bmatrix} G_{1, 1} & \cdots & G_{1, n}\\ \vdots & \ddots & \vdots \\ G_{n, 1} & \cdots & G_{n, n} \end{bmatrix} * \begin{bmatrix} F_{step - 1, 1} \\ F_{step - 1, 2} \\ \vdots \\ F_{step - 1, n} \end{bmatrix}</script><p>需要注意的是，因为需要符合矩阵乘法“行乘列”，我们用 $G_{j, i}$ 表示 $G_{i, j}$ 。</p>
 <p>目前看来还不是很熟，但只要按这个方式建模就一定能做出线性常系数递推式。</p>
 <p>一句话总结：矩阵乘法太神奇了！果然什么都听不懂啊 ◑﹏◐ 还是要多多巩固做题才是</p>
 <!-- flag of hidden posts -->
