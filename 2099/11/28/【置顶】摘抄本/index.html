@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-25T05:26:36.045Z">
+<meta property="og:updated_time" content="2021-03-04T11:16:26.835Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】摘抄本">
 <meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
@@ -163,7 +163,7 @@ function doDecrypt (pwd, onError) {
 	}
 }
 </script>
-<div id="enc_content" style="display:none">U2FsdGVkX1+q+WlBTdis3ZjLaTm2w5YojOj6CM+BLgdvWx2JW4xxfJBDUYp2b0nLx7m0duDtmJdw6i2kfaqbYEgyx0EnMyL6/1GjzQl8oki+fzATfx3gGKzgnA4e3zMCbFeSAsqg7ZE3JoN20IXz+FV2BD6nG5rkWFgHf174wwczhDc/amcuEDPZ8W9DSeaT0KZwbjMDk9befI1720IRsDrmeptluS0Me1/b2NA49e0JOni/IMezfBDPseQYmEV1qDOINnCfuUIUni9Cziijlg==</div>
+<div id="enc_content" style="display:none">U2FsdGVkX19fPruwmqR1XtiayA/5kQp8bev7ya2pgu3CCvcyeHvpY0xL0Zs6IWd55jEAfkMU/+B8kxhq2lLcMTVNePJTYugF2Y9IzJsyeRh1k1d2a2WKn8qjc4I1oxurDdetR7MuiF6rcWLt8CckRSS8KVBx6XyoDiCrNRHMlI6SmAWkG+0Ka5Anvnob0yC+iSnHNX/3pgJkO1kMBew961MzGYRlKdTvAzA94xCmecNWVjAsRSSHsEdGwjGMbvxnor93nPLHeO8CozXT5ERm1bG0+7X4Zuc7Bbk9H/kIXp+UosMcCaFINrIB26VVLsuOzeakXo6l81f6Tv8Uv20QXM4IMr2Ioo4QmzaoYrPumzK7/t5sBFauH0So/f2vJScna6ZbGUpvICBKnhOQ3NZ0msC84HryY7onVW5ZZlONwkrbvts2AQ8yiW0KubXLioEgX6xfgZNJ3dUBSBfjUOIRlqssOk7PuosT5H/9yawZxl7iS2X2FzOyzcp99HF1r8nEbWcLyBjjHTRHXx52lijSCTYDnoWWKIGK6DO5BxTSFVRCrpUiecPBYh0Ax9ZGDStT0GnzmNJEpJZE9yXnXPcJvG3l8Jh4APldrohJd9wFygkAaIRGodauaKlFPqErQ94aZwc4IZTikudhU7iCGeTO1/JtIY9MR1IP86h5i4hv6KltA5Kv4mQyM96QCLccTFqUVhQTqQ7ixLj9c+OSMmvxjnpza2jnUTeOoWnqpt/oMAr7IP/iWRxVEmcGNSfjfvpmMa0SZ3eui2NR5PHVHYKGfxExrg21Ak8GMhqfJ/+ZGCalwsZ1/Xu9rC4Pr6h2rpl4svSQ74AJcdXMwIKr0CwsNJ7T/iaw3I2Uk0n7QOUC5NbJ56eKl4sBrjJXAJgcPAtNfr+rFR3maRrv128EHdgOvySq2moOSNK5r2xtqzVhin09DMvT/EASl+Hn3CO5Vr609i0Apf+yChQDk5A3ByNdUKZu8mZYr+xDuTAAo/AptWSeVpmLT8feHUOCZ4bNDZNCZ+8AG9WfXsnwktrdM8J93wnMV7JfILse72qON6W4EVWdkNzxUt5sNX88liM8xbMnV52Kg+fUwr1qRokG04nbhJV4rSjc1PeWkK3TxXUYkaiZJP+xKEgFrQpJODY7APKRgbdVlnUlZLHspedA0PLNXQ==</div>
 <div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
 <script>
 var onError = function(error) {
@@ -260,23 +260,8 @@ doDecrypt(passwd, onError);
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
