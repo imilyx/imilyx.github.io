@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ1096]-仓库建设">
 <meta property="og:url" content="http://yoursite.com/2018/12/15/[BZOJ1096]-仓库建设/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="题目链接 贪心思想可以得出，“运往编号更大的工厂的仓库” 即运往编号 + 1 的工厂，不然只会徒增距离和费用。 设 $f[i]$ 表示在地点 $i$ 建立仓库，且 $1$ ~ $i$ 的货物都已处理好了。$n^2$ 转移： f[i] = \min\{f[j] + \sum\limits_{k = j + 1}^{i - 1}(x[i] - x[k]) * p[k] + c[i]\}维护前缀和 $P">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:00:32.849Z">
@@ -118,7 +118,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -234,8 +234,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

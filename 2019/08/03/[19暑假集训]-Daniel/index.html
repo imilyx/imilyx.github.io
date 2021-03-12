@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[19暑假集训]-Daniel">
 <meta property="og:url" content="http://yoursite.com/2019/08/03/[19暑假集训]-Daniel/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="来源：8.2 T2 原题 其实之前有做过类似的“数形结合”，也就是用最短路来解决。 对于本题，复制和粘贴是不好处理的东西，但用最短路就好表示许多。对于一个数 x：  连 x -&amp;gt; x - 1 ，边权为 1，表示删除操作； 连 x -&amp;gt; i · x ，边权为 i，将复制和粘贴两个操作一起处理。跑 Spfa 据说比 Dij 快。  有一个十分有用的优化：只连 i 为质数的边。可以证明这样距">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T05:49:48.959Z">
@@ -118,7 +118,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -234,8 +234,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

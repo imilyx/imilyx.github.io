@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="NOIP 2018 Training 2">
 <meta property="og:url" content="http://yoursite.com/2018/07/02/NOIP 2018 Training 2/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="A. ksum 题意：有一个大小为 n 的正整数数组，算出这个数组的所有字段和，并将这 n(n + 1) / 2 个数降序排列，输出前 k 个数。 优先队列存储子段和，因为是正整数，所以用缩减的方法，每次取队首，前缀和算出 (L + 1, R) 和 (L, R - 1)，再次入队。 CODE：12345678910111213141516171819202122232425262728293031">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2018-08-09T08:02:32.999Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -244,8 +244,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

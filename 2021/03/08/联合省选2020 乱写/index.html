@@ -10,10 +10,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="联合省选2020 乱写">
 <meta property="og:url" content="http://yoursite.com/2021/03/08/联合省选2020 乱写/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="link 冰火战士就是求一个 $lim$ 使得 $\min( \sum\limits_{b_i \leq lim} a_i, \sum\limits_{d_i \geq lim} c_i )$ 最大。$X$ 型函数求交点问题，考虑二分，但线段树上二分太慢了…… 卡常神器：BIT + 倍增。二分找到第一个冰系前缀和不小于火系后缀和的位置，稍微移项得「两种前缀和之和不小于火系全和」。 $Code$ 组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-11T23:34:01.901Z">
+<meta property="og:updated_time" content="2021-03-12T08:35:00.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="联合省选2020 乱写">
 <meta name="twitter:description" content="link 冰火战士就是求一个 $lim$ 使得 $\min( \sum\limits_{b_i \leq lim} a_i, \sum\limits_{d_i \geq lim} c_i )$ 最大。$X$ 型函数求交点问题，考虑二分，但线段树上二分太慢了…… 卡常神器：BIT + 倍增。二分找到第一个冰系前缀和不小于火系后缀和的位置，稍微移项得「两种前缀和之和不小于火系全和」。 $Code$ 组">
@@ -72,7 +72,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/03/31/【计划】21Mar 训练日志/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/03/12/【学习笔记】保序回归/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2021/03/03/【学习笔记】LGV 引理/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -102,7 +102,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冰火战士"><span class="toc-number">1.</span> <span class="toc-text">冰火战士</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合数问题"><span class="toc-number">2.</span> <span class="toc-text">组合数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法商店"><span class="toc-number">3.</span> <span class="toc-text">魔法商店</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号传递"><span class="toc-number">4.</span> <span class="toc-text">信号传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">5.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作业题"><span class="toc-number">6.</span> <span class="toc-text">作业题</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冰火战士"><span class="toc-number">1.</span> <span class="toc-text">冰火战士</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合数问题"><span class="toc-number">2.</span> <span class="toc-text">组合数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号传递"><span class="toc-number">3.</span> <span class="toc-text">信号传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">4.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作业题"><span class="toc-number">5.</span> <span class="toc-text">作业题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法商店"><span class="toc-number">6.</span> <span class="toc-text">魔法商店</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -121,7 +121,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -140,9 +140,26 @@
 <h3 id="冰火战士"><a href="#冰火战士" class="headerlink" title="冰火战士"></a>冰火战士</h3><p>就是求一个 $lim$ 使得 $\min( \sum\limits_{b_i \leq lim} a_i, \sum\limits_{d_i \geq lim} c_i )$ 最大。$X$ 型函数求交点问题，考虑二分，但线段树上二分太慢了……</p>
 <p>卡常神器：BIT + 倍增。二分找到第一个冰系前缀和不小于火系后缀和的位置，稍微移项得「两种前缀和之和不小于火系全和」。</p>
 <p><a href="https://loj.ac/s/1085474" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="组合数问题"><a href="#组合数问题" class="headerlink" title="组合数问题"></a>组合数问题</h3><h3 id="魔法商店"><a href="#魔法商店" class="headerlink" title="魔法商店"></a>魔法商店</h3><h3 id="信号传递"><a href="#信号传递" class="headerlink" title="信号传递"></a>信号传递</h3><p>状压 dp, $f_S = \min( f_{S - x} +  )$</p>
+<h3 id="组合数问题"><a href="#组合数问题" class="headerlink" title="组合数问题"></a>组合数问题</h3><p>Trick：$\binom{n}{k} k^{\underline{m}} = \binom{n - m}{k - m} n^{\underline{m}}$（易证）</p>
+<p>把 $f(k)$ 变成下降幂形式 $\sum\limits_{i = 0}^m b_i k^{\underline{i}}$，再把 $\binom{n}{k} k^{\underline{i}}$ 变成 $\binom{n - i}{k - i} n^{\underline{i}}$，变换求和符号，上二项式定理就做完了。</p>
+<p><a href="https://loj.ac/s/1088152" target="_blank" rel="noopener">$Code$</a>  <del>模数非质啊啊啊</del></p>
+<h3 id="信号传递"><a href="#信号传递" class="headerlink" title="信号传递"></a>信号传递</h3><p>状压 dp, $f_S = \min_x( f_{S - x} + |S| * ( \sum\limits_{y \in S - x} (K * c_{x, y} + c_{y, x}) + \sum\limits_{y \notin S - x} (K * c_{y, x} - c_{x, y}) ) )$。复杂度 $O(2^m m^2)$，空间 $O(2^m m)$，都不行。</p>
+<p>考虑把 $|S| *$ 后面那坨括号设为 $g_{S, x}$，后面那个计算 $y \notin S - x$ 的用容斥，即最开始先算好全集，到时候抠掉 $y \in S - x$ 的错误贡献就好了。则 $g_{S, x} = g_{S - x, x} + (K * c_{x, y} + c_{y, x} ) - ( K * c_{y, x} - c_{x, y} )$，$y$ 取 $lowbit(S - x)$ 这样转移就是 $O(1)$ 的了。</p>
+<p>空间怎么搞呢？注意到每个 $g_{S - x}$ 在给 $g_{S}$ 转移完后就失去价值了，考虑回收。具体用 queue 实现。</p>
 <p><a href="https://loj.ac/s/1087320" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><h3 id="作业题"><a href="#作业题" class="headerlink" title="作业题"></a>作业题</h3>
+<h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>逆建 01 Trie（从低位到高位插入），维护 $v_{a_i} + d(x, a_i)$ 的集合，这样每次 $+ 1$ 就是 $0$ 变 $1$ 并返回，或者 $1$ 变 $0$ 并继续递归。直接交换儿子并递归到改后的 $0$ 子树里去继续修改就好了。记录每位 $1$ 的奇偶。单次 $logV$，总的就是 $nlogV$。</p>
+<p><a href="https://loj.ac/s/932042" target="_blank" rel="noopener">$Code$</a></p>
+<hr>
+<p>还剩两道毒瘤题。。。/kk</p>
+<hr>
+<h3 id="作业题"><a href="#作业题" class="headerlink" title="作业题"></a>作业题</h3><p>反演一波，根据 $n = \sum\limits_{d \mid n}$ 可得 $ans = \sum\limits_{d = 1}^{V} \varphi(d) \sum\limits_{d \mid w_{e_i}} ( \sum\limits_{i = 1}^{n - 1} w_{e_i} )$</p>
+<p>trick: 矩阵树求边权和，边权为 $1 + w_i x$，答案为行列式的一次项系数。所以行列式只需在模 $x^2$ 意义下计算，维护 $x^0$ 和 $x^1$ 项即可。<del>拉插就算了吧</del></p>
+<p>复杂度 $O(Vn^3)$，会 T。玄学优化：边少于 $n - 1$ 就跳过。于是非常跑不满。</p>
+<p>行列式除法：$(ax + b)^{-1} \equiv -\frac{a}{b^2} + \frac{1}{b} \pmod{x^2}$；寻找当前位置非零行，若存在常数项非零则直接选那个，否则常数项都为零，选一次项系数非零的。代码超好写。</p>
+<p><a href="https://loj.ac/s/1088258" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="魔法商店"><a href="#魔法商店" class="headerlink" title="魔法商店"></a>魔法商店</h3><p><del>终于……要开始贺了么……</del></p>
+<p>超级大毒瘤题。拟阵？保序回归？蒟蒻全都不会哒！</p>
+
   </div>
 </article>
 
@@ -172,7 +189,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冰火战士"><span class="toc-number">1.</span> <span class="toc-text">冰火战士</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合数问题"><span class="toc-number">2.</span> <span class="toc-text">组合数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法商店"><span class="toc-number">3.</span> <span class="toc-text">魔法商店</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号传递"><span class="toc-number">4.</span> <span class="toc-text">信号传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">5.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作业题"><span class="toc-number">6.</span> <span class="toc-text">作业题</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#冰火战士"><span class="toc-number">1.</span> <span class="toc-text">冰火战士</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#组合数问题"><span class="toc-number">2.</span> <span class="toc-text">组合数问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信号传递"><span class="toc-number">3.</span> <span class="toc-text">信号传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#树"><span class="toc-number">4.</span> <span class="toc-text">树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#作业题"><span class="toc-number">5.</span> <span class="toc-text">作业题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#魔法商店"><span class="toc-number">6.</span> <span class="toc-text">魔法商店</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -227,8 +244,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

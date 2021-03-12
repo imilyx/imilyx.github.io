@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="【习题选讲】最短路">
 <meta property="og:url" content="http://yoursite.com/2018/07/04/【习题选讲】最短路/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="1. [POJ3662]-Telephone Lines https://vjudge.net/problem/POJ-3662 题意：在无向图上求一条从 1 到 N 的路径，使得路径上第 K + 1 大的边权尽量小。 本题答案具有单调性，因为边权越大，合法的方案一定包含了边权更小的方案。所以我们可以二分答案，把问题转化为：是否存在一种合法的方案，使得第 K + 1 边权不超过 mid。 转">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:14:02.604Z">
@@ -118,7 +118,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -256,8 +256,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

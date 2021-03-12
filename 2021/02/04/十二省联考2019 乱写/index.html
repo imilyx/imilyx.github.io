@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="十二省联考2019 乱写">
 <meta property="og:url" content="http://yoursite.com/2021/02/04/十二省联考2019 乱写/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="传送门 异或粽子可持久化 Trie 树 + 「超级钢琴」做法。 加强版：$k \leq \frac{n(n - 1)}{2}$。题解 字符串问题很自然套路的题，容易想到建边用图做，也就是一个 $A$ 向它支配的 $B$ 连边，这个 $B$ 再向以它为前缀的 $A$ 连边，暴力连 $O(n^2)$，考虑优化。 老套路，考虑图/树优化建边，这里对反串建 $SAM$，把 $A$ 串和 $B$ 串挂在对应">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-04T02:04:08.973Z">
@@ -121,7 +121,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -248,8 +248,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

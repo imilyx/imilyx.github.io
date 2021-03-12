@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CF913C]-Party Lemonade">
 <meta property="og:url" content="http://yoursite.com/2018/09/18/[CF913C]-Party Lemonade/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="题目链接 题意：有 n 种饮料，第 i 种饮料的体积是 $2^{i - 1}$，花费是 $c_i$，求饮料体积不小于 L 的最小花费。 看到 2 的幂次方，首先就应该想到二进制啦(●—●) 可以先处理出购买体积为 $2^i$ 的饮料最小花费，即 $c[i + 1] = min\{c[i + 1], 2 * c[i]\}$. 然后可以按位枚举。注意，题目中说是体积不小于L的，所以从后往前枚举每位，可">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:16:24.425Z">
@@ -118,7 +118,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -228,8 +228,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

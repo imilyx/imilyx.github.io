@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="【习题选讲】xza《Graph Theory》">
 <meta property="og:url" content="http://yoursite.com/2020/08/04/【习题选讲】xza《Graph Theory》/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="$TC10947-TwoSidedCards$ 正-反，二元关系，想到正反面数字对应连边，每张卡都变成了一条有向边。 我们发现形成的图是一个环！！因为正反都是排列，每个数字的度数都是 2。 分环讨论，设当前环长度为 $L$，选了 $k$ 个数字，显然相邻的不能选，所以方案数就是 $C(L, 2k)$ 还要 $*2$。 背包合并。 $CF547D-Mike and Fish$ 题解 和上一题有异曲同">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-12-13T11:04:53.374Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -254,8 +254,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

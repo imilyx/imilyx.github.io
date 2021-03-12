@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[CODEVS1172]-Hankson的趣味题">
 <meta property="og:url" content="http://yoursite.com/2018/06/16/[CODEVS1172]-Hankson的趣味题/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="传送门 题意：有 n 个询问，每个询问中有四个自然数 a, b, c, d, 然后求有多少个 x 满足 $gcd(a, x) = c$ 且 $lcm(b, x) = d$ 。$n \leq 2000$ , $1 \leq a, b, c, d \leq 2 * 10^9$ 。 解法一： d 的约数个数上界是 $\sqrt{d}$ ，但 1 ~ d 中每个数约数个数大概只有 $log d$ ，所">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:17:14.467Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -239,8 +239,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

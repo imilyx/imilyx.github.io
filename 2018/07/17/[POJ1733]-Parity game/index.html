@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[POJ1733]-Parity game">
 <meta property="og:url" content="http://yoursite.com/2018/07/17/[POJ1733]-Parity game/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="传送门 如果我们用 $sum$ 数组表示序列 $S$ 的前缀和， 那么在每个回答中：  $S[l ~ r]$ 有偶数个 $1$，等价于 $sum[l - 1]$ 与 $sum[r]$ 奇偶性相同。 $S[l ~ r]$ 有奇数个 $1$，等价于 $sum[l - 1]$ 与 $sum[r]$ 奇偶性不同。  好了，又是“相同”和“不同”，可以联系到“程序自动分析”那题，都是给定若干个变量和关系。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:43:46.300Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -247,8 +247,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

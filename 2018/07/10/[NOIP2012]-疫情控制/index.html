@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[NOIP2012]-疫情控制">
 <meta property="og:url" content="http://yoursite.com/2018/07/10/[NOIP2012]-疫情控制/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="挺妙（烦）的！ 大致思路很好构建：二分答案，贪心上跳。跳不到根的就让它停在那，能跳到的就要考虑互相救助了。 但是怎么知道，如果我选择救助别的子树，情况会不会变劣？ 有个很重要的结论：如果我到根后剩余的步数小于我从根走回到所在子树的距离，那我就不跳到根，留在差一步的子树顶。这个还挺容易 yy，因为会使后面更大的剩余步数浪费掉。否则那我就跳呗。 可是为什么我跳，答案不会变劣？ 其实是要分类讨论的。将需">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:37:58.991Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -236,8 +236,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

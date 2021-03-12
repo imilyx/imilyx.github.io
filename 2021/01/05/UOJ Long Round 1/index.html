@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="UOJ Long Round 1">
 <meta property="og:url" content="http://yoursite.com/2021/01/05/UOJ Long Round 1/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="好难啊。。 $T1. 多线程计算$ 首先要知道一个事情：$n$ 个 $[0, 1)$ 数中第 $k$ 小数期望为 $\frac{k}{n + 1}$。根据概率的基本知识，我们不考虑存在灯同时亮起的情况，那么 $n * m$ 个灯依次亮起，有 $k$ 个灯亮的期望时长为 $\frac{1}{nm + 1}$，所以现在我们要算 $k$ 个灯亮且节能的状态个数，最后乘上 $\frac{k!(nm - k">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-04T10:48:51.640Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -255,8 +255,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

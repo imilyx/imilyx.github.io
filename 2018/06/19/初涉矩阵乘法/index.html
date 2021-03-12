@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="初涉矩阵乘法">
 <meta property="og:url" content="http://yoursite.com/2018/06/19/初涉矩阵乘法/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="先来定义矩阵乘法：一个 $a  b$ 的矩阵 A 乘以一个 $b  c$ 的矩阵 B，得到的是一个 $a * c$ 的矩阵 C。且它是这么乘的： C_{i,j} = \sum_{k = 1}^n A_{i, k} * B_{k, j}别问我为什么是这样的。。。说实话我也不懂，但据说有很多神奇的问题可以用矩阵乘法，待会我们就来看看。 通过上面的定义式可得矩阵乘法的时间复杂度 $O(n^3)$ 。 矩">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T07:18:52.688Z">
@@ -118,7 +118,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -247,8 +247,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

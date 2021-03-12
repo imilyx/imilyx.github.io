@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】BM 算法 &amp; 常系数齐次线性递推">
 <meta property="og:url" content="http://yoursite.com/2020/12/13/【学习笔记】BM 算法 & 常系数齐次线性递推/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="$Berlekamp-Massey$大佬1  大佬2 实现时下标经常多一位或少一位-_-|| 我预言不久的将来 BM 会沦为 xml 的脑内黑箱 常系数齐次线性递推求出递推式，接下来就要递推啦。 是照着 zhouzhendong 和 Winniechen 的博客学习的。也可以参考 OI-wiki，是两种解释，没有那么多线代前置芝士。 其实我讲不清楚，建议点 OI-wiki，它特别清楚。 $问题引入">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-06T11:04:08.276Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -275,8 +275,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

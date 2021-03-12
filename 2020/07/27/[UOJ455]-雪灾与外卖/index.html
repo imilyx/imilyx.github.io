@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[UOJ455]-雪灾与外卖">
 <meta property="og:url" content="http://yoursite.com/2020/07/27/[UOJ455]-雪灾与外卖/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="传送门 感觉这题好神啊，可撤销贪心什么的傻傻想不明白，模拟费用流也太高级了吧  复习一下网络流 注意反悔边 如果裸的跑，即 EK，会 T，$O(nm^2)$ 优化就是在最短路上跑，（更准确地说是保留在原来的残量网络中可以被增广的边即连的点）dinic，$O(n^2m)$  回到本题 裸的费用流 或者 根据贪心用单调队列做 是 25 分 正解是用可撤销贪心来模拟费用流（什么） 学习了这篇博客 重点在">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-09-06T11:27:42.325Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -251,8 +251,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="20Jun CF&amp;AT 练题汇总">
 <meta property="og:url" content="http://yoursite.com/2020/06/30/【计划】20Jun AT&CF 练题汇总/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="[CF1076E]-Vasya and a Tree · 巧妙的dfs 没有数据结构可以直接维护，数据范围是3e5所以考虑dfs（？）  到达节点 x 时将 x 的操作执行掉（方法：根据深度维护一个树状数组，回溯时统计答案并消除影响） [CF731F]-Video Cards · 利用“倍数”· 观察数据范围：ai &amp;lt;= 2e5!!! y 要减到 x 的 k 倍时，y 在 xk ～ x(k">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-12-13T10:59:00.298Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -365,8 +365,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

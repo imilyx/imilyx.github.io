@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="AGC 011 题解">
 <meta property="og:url" content="http://yoursite.com/2020/08/05/AGC 011 题解/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="AB 水题= = C C 比 D 难诶 /kk 看了题解 特——别好的题！二分图真香 $C = V - E + F$ 学呆了，用不到就有点难受= = ？ 原图中的独立点是最好搞的，设独立点个数为 p，则贡献为 $np * 2 - p^2$ 考虑题目条件：$(a, b)$ 到 $(c, d)$ 有边当且仅当 $a -&amp;gt; c$，$b -&amp;gt; d$，等价于 $a、b$ 同时移动了一步到达 $c">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-06T10:45:01.114Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -249,8 +249,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

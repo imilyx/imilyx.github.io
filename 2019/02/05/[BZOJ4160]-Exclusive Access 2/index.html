@@ -10,7 +10,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[BZOJ4160]-Exclusive Access 2">
 <meta property="og:url" content="http://yoursite.com/2019/02/05/[BZOJ4160]-Exclusive Access 2/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="题意：给出 $N$ 个点 $M$ 条边的无向图，定向得到有向无环图，使得最长路最短。$N \leq 15$, $M \leq 100$. 这题真好啊！ 是比赛 $T2$。一开始觉得没想法，然后码了个暴力，结果一个子任务中有一个点T了，一分都没有…… 现在要正经地讲正解了！首先，有向无环图是一个切入点。我们对于第 i 个点，设它的深度为 $di$. 因为“无环”，所以对于每一条边 $&amp;lt; v1,">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-02-01T06:08:59.885Z">
@@ -121,7 +121,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -231,8 +231,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

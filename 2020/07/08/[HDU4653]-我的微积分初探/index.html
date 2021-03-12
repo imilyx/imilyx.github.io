@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[HDU4653]-我的微积分初探">
 <meta property="og:url" content="http://yoursite.com/2020/07/08/[HDU4653]-我的微积分初探/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="同班大佬刚了一晚的博客 真的很神了，从他的博客里也能学到理论知识，本篇博客主要对上文中部分文字做解释 ~  原函数：对于一个定义在某区间的已知函数 $f(x)$，如果存在可导函数 $F(x)$，使得在该区间内的任一点都存在 $dF(x)=f(x)dx$，则在该区间内就称函数$F(x)$ 为函数 $f(x)$ 的原函数。  牛顿-莱布尼茨公式（微积分基本定理）：一个连续函数在区间 $[a，b]$ 上">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2021-03-02T13:48:29.260Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -242,8 +242,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

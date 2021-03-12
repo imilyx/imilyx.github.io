@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="[PKUWC2018]-随机游走">
 <meta property="og:url" content="http://yoursite.com/2020/08/06/[PKUWC2018]-随机游走/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="终于来搞这个早就想搞的题了！！著名（雾）的 $minmax$ 题 据说可以不用 $minmax$ 容斥，设 $f[i, S]$ 表示从 $i$ 出发走完 $S$ 集合的期望 + 把 dp 柿子表示成 $Ax + B$ 的形式就可以做到 $O(n2^n)$ 的复杂度。。。大同小异吧 考虑 $minmax$ 容斥，设 $f[i]$ 为从 $i$ 点出发，到达集合 $S$ 中第一个点的期望时间，那么只要">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-08-07T12:08:01.666Z">
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -238,8 +238,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

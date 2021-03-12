@@ -11,7 +11,7 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="以 CF1327F 为代表的一类限制计数问题">
 <meta property="og:url" content="http://yoursite.com/2020/09/08/以 CF1327F 为代表的一类限制计数问题/index.html">
-<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:site_name" content="❀imily&#39;s notebook❀">
 <meta property="og:description" content="这类有限制的计数问题，套路在状态设计上。一般是区间上的问题，切入点是发现 dp 的要点有当前位置和满足限制的位置以及满足了哪些限制；转移就是 对于同一种限制同一个右端点找到最大的左端点，这之间必须有一个满足要求的位置。 $CF1327F$ 按位处理，可以算出每一位的答案然后乘起来。子问题的解决必须是 $O(n)$ 的！！ 限制为 1 很好处理，全部强制为 1 就可以了；为 0 就比较难搞，要求至少">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2020-09-08T11:10:18.549Z">
@@ -73,7 +73,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/09/14/NOIP2020 总结 & 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/09/14/【学习笔记】平面图/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2020/09/08/[COCI2010]-ZUMA/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -122,7 +122,7 @@
 
     <div class="meta">
       <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
-        <span itemprop="name">imily's notebook</span>
+        <span itemprop="name">❀imily's notebook❀</span>
       </span>
       
     <div class="postdate">
@@ -251,8 +251,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
