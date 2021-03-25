@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="两场时间相同就并起来写了 还是 ARC 好啊 $ARC012$$A$显然 $(i, j)$ 不可能当且仅当 $bitcount(a_i \oplus a_j) = 2k (k \in Z)$，分讨一下发现后面这个满足当且仅当 $bitcount(a_i)$ 和 $bitcount(a_j)$ 的奇偶性相同。 $B$无解随便判：令 $A_i = c_{i, 1} - a_1$, $B_j = c_{">
+<meta name="keywords" content="比赛">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARC115 &amp; CF709 题解">
+<meta property="og:url" content="http://yoursite.com/2021/03/22/ARC115 & CF709 题解/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="两场时间相同就并起来写了 还是 ARC 好啊 $ARC012$$A$显然 $(i, j)$ 不可能当且仅当 $bitcount(a_i \oplus a_j) = 2k (k \in Z)$，分讨一下发现后面这个满足当且仅当 $bitcount(a_i)$ 和 $bitcount(a_j)$ 的奇偶性相同。 $B$无解随便判：令 $A_i = c_{i, 1} - a_1$, $B_j = c_{">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-03-24T13:39:18.060Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ARC115 &amp; CF709 题解">
+<meta name="twitter:description" content="两场时间相同就并起来写了 还是 ARC 好啊 $ARC012$$A$显然 $(i, j)$ 不可能当且仅当 $bitcount(a_i \oplus a_j) = 2k (k \in Z)$，分讨一下发现后面这个满足当且仅当 $bitcount(a_i)$ 和 $bitcount(a_j)$ 的奇偶性相同。 $B$无解随便判：令 $A_i = c_{i, 1} - a_1$, $B_j = c_{">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>ARC115 &amp; CF709 题解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/03/19/【学习笔记】Burnside & Polya/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&text=ARC115 &amp; CF709 题解"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&is_video=false&description=ARC115 &amp; CF709 题解"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ARC115 &amp; CF709 题解&body=Check out this article: http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&name=ARC115 &amp; CF709 题解&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC012"><span class="toc-number">1.</span> <span class="toc-text">$ARC012$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A"><span class="toc-number">1.1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B"><span class="toc-number">1.2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-number">1.3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D"><span class="toc-number">1.4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E"><span class="toc-number">1.5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F"><span class="toc-number">1.6.</span> <span class="toc-text">$F$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF709"><span class="toc-number">2.</span> <span class="toc-text">$CF709$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1"><span class="toc-number">2.1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-1"><span class="toc-number">2.2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-1"><span class="toc-number">2.3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-1"><span class="toc-number">2.4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-1"><span class="toc-number">2.5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-1"><span class="toc-number">2.6.</span> <span class="toc-text">$F$</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        ARC115 &amp; CF709 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-03-21T23:47:40.000Z" itemprop="datePublished">2021-03-22</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/比赛/">比赛</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><del>两场时间相同就并起来写了</del></p>
+<p><del>还是 ARC 好啊</del></p>
+<h2 id="ARC012"><a href="#ARC012" class="headerlink" title="$ARC012$"></a>$ARC012$</h2><h3 id="A"><a href="#A" class="headerlink" title="$A$"></a>$A$</h3><p>显然 $(i, j)$ 不可能当且仅当 $bitcount(a_i \oplus a_j) = 2k (k \in Z)$，分讨一下发现后面这个满足当且仅当 $bitcount(a_i)$ 和 $bitcount(a_j)$ 的奇偶性相同。</p>
+<h3 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h3><p>无解随便判：令 $A_i = c_{i, 1} - a_1$, $B_j = c_{1, j} - b_1$, $a_i = a_1 + A_i$, $b_j = b_1 + B_j$，那么若 $c_{i, j} \neq c_{1, 1} + A_i + B_j$ 则无解。否则考虑 $a_1$ 和 $b_1$ 的取值，要保证所有 $a_i$ 和 $b_j$ 非负，$mna = \max(0, \max(-A_i))$, $mnb = \max(0, \max(-B_i))$，若 $mna + mnb &gt; c_{1, 1}$ 则无解，否则取 $a_1 = mna$ 即可。</p>
+<h3 id="C"><a href="#C" class="headerlink" title="$C$"></a>$C$</h3><p>我是煞笔，直接写了个 $O(n \sqrt{n} + nlog^2n)$ 的二分 + 线段树，取 mex，好在 at 评测姬快如闪电。</p>
+<p>正解有点小妙，将 $a_i$ 设为 $i$ 的质因数个数（重复算多个），这样一定满足 $a_{i 的因数} &lt; a_i$。</p>
+<h3 id="D"><a href="#D" class="headerlink" title="$D$"></a>$D$</h3><p>首先如果是树的话，$k$ 为奇数无解，否则看作两两配对，答案就是 $\binom{n}{k}$；图呢答案就是 $2^{m - (n - 1)} \binom{n}{k}$。</p>
+<p>因为选一条非树边，有几种情况：</p>
+<ol>
+<li>如果连接两个黑点，这俩原先配对的就断了，变成他俩用这条非树边彼此配对</li>
+<li>如果连接两个白点，可以先让这俩在树上路径上配对变黑，再用非树边让他俩变白</li>
+<li>连接一黑一白，直接还是合法的</li>
+</ol>
+<p>多个连通块，背包一下就好。</p>
+<h3 id="E"><a href="#E" class="headerlink" title="$E$"></a>$E$</h3><p>$dp_{i, j}$ 表示到第 $i$ 个，与其同色的有 $j$ 个。$dp_{nxt, j + nxt - i - 1} += dp_{i, j} * \min\limits_{k \in [i + 1, nxt]}( a_k )$</p>
+<p>每个元素都有两种去处，一是归入已有块，二是自成一块。考虑单调栈维护已有块，越往前最小值一定是递减的，有元素进栈时就推平一块儿地顺便合并被推平块，成为新块，新块的值是推平块的值之和。</p>
+<h3 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h3><p>咕咕？</p>
+<h2 id="CF709"><a href="#CF709" class="headerlink" title="$CF709$"></a>$CF709$</h2><h3 id="A-1"><a href="#A-1" class="headerlink" title="$A$"></a>$A$</h3><p>$\lceil \frac{m}{2} \rceil$ 意味着即使有不合法的小朋友也只有一个。于是先随便选，若不合法则在有选择余地的天里换人。</p>
+<p>记录 xml 的手贱瞬间：换的是不合法小朋友<strong>被选中的那些天</strong>啊喂！</p>
+<h3 id="B-1"><a href="#B-1" class="headerlink" title="$B$"></a>$B$</h3><p>每次删除不会对其他位置造成影响。链表即可？不过我用的并查集。</p>
+<h3 id="C-1"><a href="#C-1" class="headerlink" title="$C$"></a>$C$</h3><p>用线段树——烦了！往前走，最小值递减，于是维护每个块的 $\max(dp_{i - 1})$。当前块有两种选择：</p>
+<ol>
+<li>归入上一块，即 $dp_i = dp_{stk_{top - 1}}$</li>
+<li>新成一块，即 $dp_i = Mx_{top} + b_i$</li>
+</ol>
+<p>一个简单的单调栈就 AC 辣，是不是很奈思？</p>
+<details>
+    <summary>code</summary>
+    <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line">ll n, h[N], b[N], dp[N], top, stk[N], Mx[N], f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cmax</span><span class="params">(ll &amp;x, ll y)</span> </span>&#123; x = max(x, y); &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; n;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;h[i]);</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="built_in">scanf</span>(<span class="string">"%lld"</span>, &amp;b[i]);</span><br><span class="line">    dp[<span class="number">0</span>] = <span class="number">-1e18</span>;</span><br><span class="line">    dp[<span class="number">1</span>] = b[<span class="number">1</span>];</span><br><span class="line">    stk[top = <span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    Mx[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">2</span>, n) &#123;</span><br><span class="line">        ll mx = dp[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (top &amp;&amp; h[stk[top]] &gt;= h[i]) &#123;</span><br><span class="line">            cmax(mx, Mx[top]);</span><br><span class="line">            --top;</span><br><span class="line">        &#125;</span><br><span class="line">        stk[++top] = i;</span><br><span class="line">        Mx[top] = mx;</span><br><span class="line">        dp[i] = max(dp[stk[top - <span class="number">1</span>]], mx + b[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%lld\n"</span>, dp[n]);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h3 id="D-1"><a href="#D-1" class="headerlink" title="$D$"></a>$D$</h3><p>对于某对 $(u, v, l)$，$(x, y)$ 合法当且仅当 $dis_{u, x} + v_{x, y} + v_{y, v} \leq l$</p>
+<p>枚举 $u$, $x$, $y$，$(x, y)$ 合法当且仅当 $dis_{u, x} + v_{x, y} \leq \max(l - v_{y, v})$</p>
+<p>就做完了？大水题，真的是 div1 的 $D$ 嘛。。</p>
+<h3 id="E-1"><a href="#E-1" class="headerlink" title="$E$"></a>$E$</h3><p>咕咕</p>
+<h3 id="F-1"><a href="#F-1" class="headerlink" title="$F$"></a>$F$</h3><p>咕咕</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#ARC012"><span class="toc-number">1.</span> <span class="toc-text">$ARC012$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A"><span class="toc-number">1.1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B"><span class="toc-number">1.2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C"><span class="toc-number">1.3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D"><span class="toc-number">1.4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E"><span class="toc-number">1.5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F"><span class="toc-number">1.6.</span> <span class="toc-text">$F$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CF709"><span class="toc-number">2.</span> <span class="toc-text">$CF709$</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#A-1"><span class="toc-number">2.1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#B-1"><span class="toc-number">2.2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C-1"><span class="toc-number">2.3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#D-1"><span class="toc-number">2.4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#E-1"><span class="toc-number">2.5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-1"><span class="toc-number">2.6.</span> <span class="toc-text">$F$</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&text=ARC115 &amp; CF709 题解"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&is_video=false&description=ARC115 &amp; CF709 题解"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=ARC115 &amp; CF709 题解&body=Check out this article: http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&title=ARC115 &amp; CF709 题解"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/22/ARC115 &amp; CF709 题解/&name=ARC115 &amp; CF709 题解&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

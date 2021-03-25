@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="link 冰火战士就是求一个 $lim$ 使得 $\min( \sum\limits_{b_i \leq lim} a_i, \sum\limits_{d_i \geq lim} c_i )$ 最大。$X$ 型函数求交点问题，考虑二分，但线段树上二分太慢了…… 卡常神器：BIT + 倍增。二分找到第一个冰系前缀和不小于火系后缀和的位置，稍微移项得「两种前缀和之和不小于火系全和」。 $Code$ 组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-14T06:09:15.508Z">
+<meta property="og:updated_time" content="2021-03-23T06:59:25.148Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="联合省选2020 乱写">
 <meta name="twitter:description" content="link 冰火战士就是求一个 $lim$ 使得 $\min( \sum\limits_{b_i \leq lim} a_i, \sum\limits_{d_i \geq lim} c_i )$ 最大。$X$ 型函数求交点问题，考虑二分，但线段树上二分太慢了…… 卡常神器：BIT + 倍增。二分找到第一个冰系前缀和不小于火系后缀和的位置，稍微移项得「两种前缀和之和不小于火系全和」。 $Code$ 组">
@@ -72,7 +72,7 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2021/03/12/【学习笔记】保序回归/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/03/12/【学习笔记】拟阵/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2021/03/03/【学习笔记】LGV 引理/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -143,8 +143,8 @@
 <h3 id="组合数问题"><a href="#组合数问题" class="headerlink" title="组合数问题"></a>组合数问题</h3><p>Trick：$\binom{n}{k} k^{\underline{m}} = \binom{n - m}{k - m} n^{\underline{m}}$（易证）</p>
 <p>把 $f(k)$ 变成下降幂形式 $\sum\limits_{i = 0}^m b_i k^{\underline{i}}$，再把 $\binom{n}{k} k^{\underline{i}}$ 变成 $\binom{n - i}{k - i} n^{\underline{i}}$，变换求和符号，上二项式定理就做完了。</p>
 <p><a href="https://loj.ac/s/1088152" target="_blank" rel="noopener">$Code$</a>  <del>模数非质啊啊啊</del></p>
-<h3 id="信号传递"><a href="#信号传递" class="headerlink" title="信号传递"></a>信号传递</h3><p>状压 dp, $f_S = \min_x( f_{S - x} + |S| <em> ( \sum\limits_{y \in S - x} (K </em> c_{x, y} + c_{y, x}) + \sum\limits_{y \notin S - x} (K * c_{y, x} - c_{x, y}) ) )$。复杂度 $O(2^m m^2)$，空间 $O(2^m m)$，都不行。</p>
-<p>考虑把 $|S| <em>$ 后面那坨括号设为 $g_{S, x}$，后面那个计算 $y \notin S - x$ 的用容斥，即最开始先算好全集，到时候抠掉 $y \in S - x$ 的错误贡献就好了。则 $g_{S, x} = g_{S - x, x} + (K </em> c_{x, y} + c_{y, x} ) - ( K * c_{y, x} - c_{x, y} )$，$y$ 取 $lowbit(S - x)$ 这样转移就是 $O(1)$ 的了。</p>
+<h3 id="信号传递"><a href="#信号传递" class="headerlink" title="信号传递"></a>信号传递</h3><p>状压 dp, $f_S = \min_x( f_{S - x} + |S| * ( \sum\limits_{y \in S - x} (K * c_{x, y} + c_{y, x}) + \sum\limits_{y \notin S - x} (K * c_{y, x} - c_{x, y}) ) )$。复杂度 $O(2^m m^2)$，空间 $O(2^m m)$，都不行。</p>
+<p>考虑把 $|S| *$ 后面那坨括号设为 $g_{S, x}$，后面那个计算 $y \notin S - x$ 的用容斥，即最开始先算好全集，到时候抠掉 $y \in S - x$ 的错误贡献就好了。则 $g_{S, x} = g_{S - x, x} + (K * c_{x, y} + c_{y, x} ) - ( K * c_{y, x} - c_{x, y} )$，$y$ 取 $lowbit(S - x)$ 这样转移就是 $O(1)$ 的了。</p>
 <p>空间怎么搞呢？注意到每个 $g_{S - x}$ 在给 $g_{S}$ 转移完后就失去价值了，考虑回收。具体用 queue 实现。</p>
 <p><a href="https://loj.ac/s/1087320" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="树"><a href="#树" class="headerlink" title="树"></a>树</h3><p>逆建 01 Trie（从低位到高位插入），维护 $v_{a_i} + d(x, a_i)$ 的集合，这样每次 $+ 1$ 就是 $0$ 变 $1$ 并返回，或者 $1$ 变 $0$ 并继续递归。直接交换儿子并递归到改后的 $0$ 子树里去继续修改就好了。记录每位 $1$ 的奇偶。单次 $logV$，总的就是 $nlogV$。</p>
@@ -157,9 +157,12 @@
 <p>复杂度 $O(Vn^3)$，会 T。玄学优化：边少于 $n - 1$ 就跳过。于是非常跑不满。</p>
 <p>行列式除法：$(ax + b)^{-1} \equiv -\frac{a}{b^2} + \frac{1}{b} \pmod{x^2}$；寻找当前位置非零行，若存在常数项非零则直接选那个，否则常数项都为零，选一次项系数非零的。代码超好写。</p>
 <p><a href="https://loj.ac/s/1088258" target="_blank" rel="noopener">$Code$</a></p>
-<h3 id="魔法商店"><a href="#魔法商店" class="headerlink" title="魔法商店"></a>魔法商店</h3><p>超级大毒瘤题。拟阵？保序回归？蒟蒻全都不会哒！<del>终于……要开始贺了么……</del></p>
-<p>异或相关啊。任何一个 $c_i$, $i \notin A$ 都可以被 $A$ 的一个子集异或出来，否则 $A$ 就不是最大的了。对于 $k \notin A$，设 $s_k$ 表示 $A$ 中异或出 $c_k$ 的集合（这个可以线性基 + bitset 得到）。$A$ 价格总和最小的充要条件是 $v_k \geq \max\limits_{i \in s_k}(v_i)$。对 $B$ 也可以得到一些 $\geq$ 关系。把这些关系建成边，问题转化为「在一个 DAG 上，把第 $i$ 个点点权修改为 $x$ 的代价是 $(x - v_i)^2$，要求每个点点权大于等于它所有后继」，即一个经典的保序回归问题。</p>
-<p><a href>$Code$</a></p>
+<h3 id="魔法商店"><a href="#魔法商店" class="headerlink" title="魔法商店"></a>魔法商店</h3><p><del>终于……要开始贺了么……</del> 拟阵？保序回归？蒟蒻全都不会哒！</p>
+<p>异或相关啊。任何一个 $c_i$, $i \notin A$ 都可以被 $A$ 的一个子集异或出来，否则 $A$ 就不是最大的了。对于 $k \notin A$，设 $s_k$ 表示 $A$ 中异或出 $c_k$ 的集合（这个可以线性基 + bitset/ll数组 得到）。$A$ 价格总和最小的充要条件是 $v_k \geq \max\limits_{i \in s_k}(v_i)$。对 $B$ 也可以得到一些 $\geq$ 关系。把这些关系建成边，问题转化为「在一个 DAG 上，把第 $i$ 个点点权修改为 $x$ 的代价是 $(x - v_i)^2$，要求每个点点权<strong>大于等于</strong>其所有后继」，即一个经典的保序回归问题。</p>
+<p>感性理解一下保序回归吧。。整体二分，如果一个值在当前情况中取 $mid$ 最优，那么在最终答案其应取 $\leq mid$，否则应取 $&gt; mid$。</p>
+<p>强制每个点先为 $mid + 1$，那么选一个点为 $mid$ 相当于强制其后继也为 $mid$，边权反一下（准确的说是连边方向换一下，原来和 $S$ 连的现在和 $T$ 连）做最大权闭合子图问题。</p>
+<p>复杂度 $O(n^2 * nB * logV)$，$B$ 这里是 $64$ <del>甭慌人家稳着呢</del></p>
+<p><a href="https://loj.ac/s/1090121" target="_blank" rel="noopener">$Code$</a></p>
 
   </div>
 </article>
@@ -245,23 +248,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

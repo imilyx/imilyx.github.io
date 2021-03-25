@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w= 斜率优化 整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。 举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1) * i - dp_i * i = j$，截距项是 $-dp_i *">
+<meta name="keywords" content="斜率优化,学习笔记,带权二分,决策单调性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】斜率优化、带权二分、决策单调性">
+<meta property="og:url" content="http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w= 斜率优化 整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。 举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1) * i - dp_i * i = j$，截距项是 $-dp_i *">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-03-24T08:47:32.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】斜率优化、带权二分、决策单调性">
+<meta name="twitter:description" content="把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w= 斜率优化 整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。 举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1) * i - dp_i * i = j$，截距项是 $-dp_i *">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【学习笔记】斜率优化、带权二分、决策单调性</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/03/24/AGC 013 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/03/22/ARC115 & CF709 题解/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&text=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&is_video=false&description=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】斜率优化、带权二分、决策单调性&body=Check out this article: http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&name=【学习笔记】斜率优化、带权二分、决策单调性&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#斜率优化"><span class="toc-number">1.</span> <span class="toc-text">斜率优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一道不错的题：-UOJ430-line"><span class="toc-number">1.1.</span> <span class="toc-text">一道不错的题：$UOJ430-line$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带权二分"><span class="toc-number">2.</span> <span class="toc-text">带权二分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决策单调性"><span class="toc-number">3.</span> <span class="toc-text">决策单调性</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】斜率优化、带权二分、决策单调性
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-03-23T08:17:40.000Z" itemprop="datePublished">2021-03-23</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/决策单调性/">决策单调性</a>, <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/带权二分/">带权二分</a>, <a class="tag-link" href="/tags/斜率优化/">斜率优化</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w=</p>
+<h2 id="斜率优化"><a href="#斜率优化" class="headerlink" title="斜率优化"></a>斜率优化</h2><hr>
+<p>整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。</p>
+<p>举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1) * i - dp_i * i = j$，截距项是 $-dp_i * i$，而我们要 $dp_i$ 尽量大，截距尽量小，即 $0$ 处取值尽量小，感性理解是直线尽量低，所以维护 $(dp_j + 1, j)$ 的下凸包，用斜率为 $i$ 的直线去切。</p>
+<h3 id="一道不错的题：-UOJ430-line"><a href="#一道不错的题：-UOJ430-line" class="headerlink" title="一道不错的题：$UOJ430-line$"></a>一道不错的题：<a href="https://uoj.ac/problem/430" target="_blank" rel="noopener">$UOJ430-line$</a></h3><p>朴素 dp 方程：$f_i = \min\limits_{l_i \leq j &lt; i}( \max( t_{j + 1}, \cdots, t_i ) * suf_{i + 1} + f_j )$</p>
+<p>考虑 cdq 分治计算 $f$，即递归处理好 $[l, mid]$ 再算 $[l, mid]$ 对 $[mid + 1, r]$ 的贡献，再递归处理 $[mid + 1, r]$。</p>
+<p>这个 $max$ 得拆：</p>
+<ul>
+<li><p>$max \in [mid + 1, r]$</p>
+<p>  $\max(t_{j + 1}, \cdots, t_{mid})$ 需要 $\leq max$，显然 $j$ 的位置单调不升，只要取左边的 $\min(f)$ 即可。</p>
+</li>
+<li><p>$max \in [l, mid]$</p>
+<p>  设 $max$ 在 $j(j \in [l, mid])$ 处取到。$j$ 处 $-max * suf_{i + 1} + f_i = f_{j - 1}$。</p>
+<p>  要 $f_i$ 最小就是截距最小。线段树维护下凸包，询问时每个区间二分求切点；然而如果离线将询问按 $suf$ 升序排列，就有单调性了，一路切过去就行了，少一只 $log$。所以最后是 $O(nlogn)$ 的！</p>
+</li>
+</ul>
+<p>人傻了，$AB * AC &gt; 0$（叉积）表示三角形 ABC 为逆时针。xml 记错了，浪费一小时拼命撕烤，特此记录。</p>
+<p><a href="https://uoj.ac/submission/464622" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="带权二分"><a href="#带权二分" class="headerlink" title="带权二分"></a>带权二分</h2><hr>
+<p>这玩意儿其实早几个月就学了，现在来补笔记。</p>
+<p>带权二分又称 wqs 二分，解决的是这样一类问题：有 $n$ 个物品，需要在强制选 $K$ 个物品的前提下最大/最小化代价；设强制选 $K$ 个的代价最值为 $val(K)$，$val(K)$ 无法直接求得，但是 $val$ 函数的最值以及取到最值的位置可以求，并且 <strong>$val$ 是一个凸函数</strong>。</p>
+<p>现在讨论求上凸函数最大值（下凸函数最小值一个道理）。令 $f(x) = val(x) + kx$，$k$ 的实际意义是「多选一个物品就要付出的代价」，在坐标系上就是将 $val$ 的导函数向上平移了 $k$。导函数与 $x$ 轴的交点对应的就是 $val$ 的最高点，且上凸函数的导函数递减，因此 <strong>$k$ 变大，最值点右移</strong>，可二分。最后让 $val(K) = f(K) - kx$。</p>
+<p>求下凸函数最小值，**$k$ 变大，最值点左移**</p>
+<p><strong>调边界是真的恶心</strong>，自闭了</p>
+<p>习题：<a href="https://loj.ac/p/2478" target="_blank" rel="noopener">林克卡特树</a> <a href="https://imilyx.github.io/2021/02/02/%E4%B9%9D%E7%9C%81%E8%81%94%E8%80%832018%20%E4%B9%B1%E5%86%99/#%E6%9E%97%E5%85%8B%E5%8D%A1%E7%89%B9%E6%A0%91" target="_blank" rel="noopener">题解</a></p>
+<h2 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h2><hr>
+<p>作为感性理解的忠实爱好者…… 笔者只能用感性的语言来讲述它啦qwq！大概就是如果 $i$ 从 $k$ 转移过来，$j &lt; k$，随着 $i$ 增大 $k$ 永远优于 $j$，就有决策单调性。也就是说决策点（转移来源）分段且来源的位置单调增。<strong>决策单调性的有无，显然取决于价值函数。</strong>（废话）</p>
+<p>以<a href="https://www.luogu.com.cn/problem/CF321E" target="_blank" rel="noopener">$CF321E$</a>为例，$dp_{i, j} = \min( dp_{i - 1, k - 1} + val(k, j) )$，若对于 $k_1 &lt; k_2$, $dp_{i - 1, k_1 - 1} + val(k_1, j) &gt; dp_{i - 1, k_2 - 1} + val(k_2, j)$，那么随着 $i$ 增加，$val(k_1, j)$ 永远大于 $val(k_2, j)$，$k_2$ 永远优于 $k_1$。</p>
+<p>编写大概有几种方式：</p>
+<ol>
+<li>分治，$solve(l, r, L, R)$ 表示处理 $[l, r]$ 的 dp 值，决策点位置锁定在 $[L, R]$，每次找到 $mid = \frac{l + r}{2}$ 的决策点并递归</li>
+<li>二分 + 单调队列，单调队列维护决策点，他们的影响区间可以二分求，每次进来新决策点先看看能不能弹队尾，不能再二分求新决策点的影响区间（诗人小 G 那题好像就是这个）（上面那道 $321E$ 代码在这：<a href="https://codeforces.com/problemset/submission/321/110814883" target="_blank" rel="noopener">点我</a>）</li>
+</ol>
+<p>四边形不等式笔者还没学会…… 主要是从没遇到过 <del>感觉上面这些就能畅行天下了 qaq</del></p>
+<p><del>考场上当然都是先猜后证啦 =w=</del></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#斜率优化"><span class="toc-number">1.</span> <span class="toc-text">斜率优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一道不错的题：-UOJ430-line"><span class="toc-number">1.1.</span> <span class="toc-text">一道不错的题：$UOJ430-line$</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#带权二分"><span class="toc-number">2.</span> <span class="toc-text">带权二分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#决策单调性"><span class="toc-number">3.</span> <span class="toc-text">决策单调性</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&text=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&is_video=false&description=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】斜率优化、带权二分、决策单调性&body=Check out this article: http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&title=【学习笔记】斜率优化、带权二分、决策单调性"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/23/【学习笔记】斜率优化、带权二分、决策单调性/&name=【学习笔记】斜率优化、带权二分、决策单调性&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

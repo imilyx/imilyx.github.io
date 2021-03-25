@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="oi-wiki $Burnside$ 定理$|X/G| = \frac{1}{|G|} \sum\limits_{g \in G} |X^g|$ 其中  $X$ 是不考虑本质不同的染色方案集合 $G$ 是各种翻转啊旋转啊等操作构成的置换群 $X/G$ 是本质不同的染色方案集合 $X^g$ 是在置换 $g$ 意义下 $X$ 中不动点个数（不动点表示 $g(x) = x$）  $Polya$ 定理（$">
+<meta name="keywords" content="学习笔记,群论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】Burnside &amp; Polya">
+<meta property="og:url" content="http://yoursite.com/2021/03/19/【学习笔记】Burnside & Polya/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="oi-wiki $Burnside$ 定理$|X/G| = \frac{1}{|G|} \sum\limits_{g \in G} |X^g|$ 其中  $X$ 是不考虑本质不同的染色方案集合 $G$ 是各种翻转啊旋转啊等操作构成的置换群 $X/G$ 是本质不同的染色方案集合 $X^g$ 是在置换 $g$ 意义下 $X$ 中不动点个数（不动点表示 $g(x) = x$）  $Polya$ 定理（$">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-03-19T03:57:12.672Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】Burnside &amp; Polya">
+<meta name="twitter:description" content="oi-wiki $Burnside$ 定理$|X/G| = \frac{1}{|G|} \sum\limits_{g \in G} |X^g|$ 其中  $X$ 是不考虑本质不同的染色方案集合 $G$ 是各种翻转啊旋转啊等操作构成的置换群 $X/G$ 是本质不同的染色方案集合 $X^g$ 是在置换 $g$ 意义下 $X$ 中不动点个数（不动点表示 $g(x) = x$）  $Polya$ 定理（$">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【学习笔记】Burnside &amp; Polya</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/03/22/ARC115 & CF709 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/03/14/AGC 012 题解/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&text=【学习笔记】Burnside &amp; Polya"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&is_video=false&description=【学习笔记】Burnside &amp; Polya"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Burnside &amp; Polya&body=Check out this article: http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&name=【学习笔记】Burnside &amp; Polya&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic\ Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】Burnside &amp; Polya
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-03-19T02:53:37.000Z" itemprop="datePublished">2021-03-19</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/群论/">群论</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://oi-wiki.org/math/permutation-group/" target="_blank" rel="noopener">oi-wiki</a></p>
+<h3 id="Burnside-定理"><a href="#Burnside-定理" class="headerlink" title="$Burnside$ 定理"></a>$Burnside$ 定理</h3><p>$|X/G| = \frac{1}{|G|} \sum\limits_{g \in G} |X^g|$</p>
+<p>其中</p>
+<ul>
+<li>$X$ 是不考虑本质不同的染色方案集合</li>
+<li>$G$ 是各种翻转啊旋转啊等操作构成的置换群</li>
+<li>$X/G$ 是本质不同的染色方案集合</li>
+<li>$X^g$ 是在置换 $g$ 意义下 $X$ 中不动点个数（不动点表示 $g(x) = x$）</li>
+</ul>
+<h3 id="Polya-定理（-Burnside-的显然推论）"><a href="#Polya-定理（-Burnside-的显然推论）" class="headerlink" title="$Polya$ 定理（$Burnside$ 的显然推论）"></a>$Polya$ 定理（$Burnside$ 的显然推论）</h3><p>大概其诞生之意义是解决环上问题？<del>也可能我 $\mathcal{Naive}$ 了</del></p>
+<p>$|X/G| = \frac{1}{|G|} \sum\limits_{g \in G} |M|^{c(g)}$</p>
+<p>其中</p>
+<ul>
+<li>$M$ 是颜色数</li>
+<li>$c(g)$ 是置换 $g$ 的不相交循环置换个数</li>
+</ul>
+<h3 id="Polya-板题"><a href="#Polya-板题" class="headerlink" title="$Polya 板题$"></a><a href="https://www.luogu.com.cn/problem/P4980" target="_blank" rel="noopener">$Polya 板题$</a></h3><p>这题我们直接套公式就可以做！<br>$ans = \frac{1}{n} \sum\limits_{g \in G} n^{c(g)} = \frac{1}{n} \sum\limits_{i | n} \varphi(n / i) * n^i$</p>
+<p>设 $g$ 旋转了 $i$，则 $c(g) = gcd(n, i)$，因为某个点在置换 $g$ 的重复作用下经过 $lcm(n, i)$ 次操作回到自身，所以 $c(g) = \frac{n * i}{lcm(n, i)} = gcd(n, i)$</p>
+<p>枚举 $c(g)$，系数为 $\varphi(n / i)$，因为<br>$\sum\limits_{k = 1}^{n} [gcd(n, k) == i]= \sum\limits_{k = 1}^{n / i} [gcd(n / i, k) == 1] = \varphi(n / i)$</p>
+<p>$O(\sqrt{n})$。</p>
+<h3 id="Magic-Bracelet"><a href="#Magic-Bracelet" class="headerlink" title="$Magic\ Bracelet$"></a><a href="https://vjudge.net/problem/POJ-2888" target="_blank" rel="noopener">$Magic\ Bracelet$</a></h3><p>有限制，填色方案那里要魔改一发：$ans = \frac{1}{n} \sum_k f(k) \varphi(n / k)$，$f(k)$ 表示 $c(g) = k$ 的方案数，显然等于长度为 $k + 1$ 且首尾颜色相同的链的方案数，矩阵加速即可。</p>
+<p>类似的还有「如果奇迹有颜色」，写在「常系数齐次线性递推」里。</p>
+<h3 id="洛谷4128-有色图"><a href="#洛谷4128-有色图" class="headerlink" title="$洛谷4128-有色图$"></a><a href="https://www.luogu.com.cn/problem/P4128" target="_blank" rel="noopener">$洛谷4128-有色图$</a></h3><p>染色的是边，转的是点。某置换的不动点个数等于 $m$ 的「边等价类个数」次方。要求边等价类个数，就要分_连接同个循环的点_和_连接不同循环的点_讨论。</p>
+<p>同个循环：设长度为 $b_i$，边等价类个数为 $b_i / 2$</p>
+<p>不同循环：边等价类大小为 $lcm(b_i, b_j)$，边等价类个数为 $b_i * b_j / lcm(b_i, b_j) = gcd(b_i, b_j)$</p>
+<p>现在知道了具体 $b_i$ 就能算答案了。<br>考虑 $n$ 的分拆，$7e7$ 左右，十分稳</p>
+<p>我们枚举 $b$ 的多重集，系数也挺正常的：$\frac{n!}{\prod b_i!} * \prod (b_i - 1)! * \frac{1}{c_i!}$</p>
+<p>其中第一项是把点分配到多重集里，第二项是每个集合排顺序（是置换嘛），第三项是除掉大小相同的集合算重的方案。</p>
+<p>有双倍经验题：HNOI2009-图的同构计数。第一反应是无标号连通图计数 + 背包——不对劲，我只会有标号的。再一想，边的有无不正对应着此题中染成黑或白色吗？于是看题解，果真就是有色图的卡常版——把 gcd 在中途计算掉就能 AC 了。</p>
+<p>三倍经验题：<a href="https://dev.xjoi.net/contest/1633/problem/2" target="_blank" rel="noopener">（校内模拟赛）种族</a>，还要讨论一条边跨越两个循环和跨越三个循环的情况。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic\ Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&text=【学习笔记】Burnside &amp; Polya"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&is_video=false&description=【学习笔记】Burnside &amp; Polya"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Burnside &amp; Polya&body=Check out this article: http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&title=【学习笔记】Burnside &amp; Polya"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/19/【学习笔记】Burnside &amp; Polya/&name=【学习笔记】Burnside &amp; Polya&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

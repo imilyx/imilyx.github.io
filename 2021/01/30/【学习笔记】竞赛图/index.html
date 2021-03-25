@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="竞赛图(tournament)：有 $\binom{n}{2}$ 条边的有向图">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-23T12:06:20.247Z">
+<meta property="og:updated_time" content="2021-03-19T02:55:59.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】竞赛图">
 <meta name="twitter:description" content="竞赛图(tournament)：有 $\binom{n}{2}$ 条边的有向图">
@@ -144,15 +144,28 @@
   <div class="content" itemprop="articleBody">
     <p>竞赛图(tournament)：有 $\binom{n}{2}$ 条边的有向图</p>
 <a id="more"></a>
+
 <p>性质：</p>
-<ol>
+<ul>
 <li>竞赛图强连通缩点后的 DAG 是一条链</li>
 <li>竞赛图的强连通块存在一条哈密顿回路</li>
 <li>竞赛图存在一条哈密顿路径</li>
 <li>竞赛图 $size &gt; 1$ 的强连通块中，大小为 $[3, size]$ 的简单环均存在</li>
-<li>兰道定理（竞赛图判定定理）：定义一个竞赛图的比分序列是把竞赛图每个点的出度从小到大排列得到的序列。一个长度为 $n$ 的序列 $s_1 \leq s_2 \leq s_3 \leq … \leq s_n$ 是合法比分序列当且仅当 $\forall i \in [1, n], \sum\limits_{j = 1}^i s_j \geq \binom{i}{2}$，且在 $i = n$ 时取等号，<a href="https://blog.csdn.net/a_crazy_czy/article/details/73611366" target="_blank" rel="noopener">证明</a> <del>没看懂</del></li>
-</ol>
+<li>兰道定理（竞赛图判定定理）：定义一个竞赛图的比分序列是把竞赛图每个点的出度从小到大排列得到的序列。一个长度为 $n$ 的序列 $s_1 \leq s_2 \leq s_3 \leq … \leq s_n$ 是合法比分序列当且仅当 $\forall i \in [1, n], \sum\limits_{j = 1}^i s_j \geq \binom{i}{2}$，且在 $i = n$ 时取等号，<a href="https://blog.csdn.net/a_crazy_czy/article/details/73611366" target="_blank" rel="noopener">证明</a> 非常巧妙！</li>
+</ul>
+<p>计数：</p>
+<ul>
+<li><p>$n$ 阶竞赛图个数显然就是 $h_n = 2^{\binom{n}{2}}$ 啦</p>
+</li>
+<li><p>强连通 $n$ 阶竞赛图个数为 $f_n = h_n - \sum\limits_{i = 1}^{n - 1} f_i \binom{n}{i} h_{n - i}$，就枚举一个 SCC 连的都是出边。</p>
+</li>
+<li><p>生成函数加速：<br>  令 $f_0 = 0$</p>
+<p>  有：$h_n = \sum\limits_{i = 0}^n \binom{n}{i} f_i h_{n - i} + [n == 0]$</p>
+<p>  $H = FH + 1 \Rightarrow F = 1 - H^{-1}$</p>
+</li>
+</ul>
 <h3 id="世界是个动物园"><a href="#世界是个动物园" class="headerlink" title="世界是个动物园"></a><a href="https://uoj.ac/problem/451" target="_blank" rel="noopener">世界是个动物园</a></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">官方题解:</span><br><span class="line"></span><br><span class="line">由于这是竞赛图，不难证明联盟即强连通分量，并且缩完强连通分量之后必然是一条链，前往后连有向边。考虑加入点x之后会发生啥，大概就是找到这条链上第一个有从x出发的边的点和最后一个向x连边的点，把链上这一段删掉，把x插进去代替这一段。我们只要维护一个动态标号，然后把x放在这一段前一个元素里面那一段的后面就好了（记一下每一段的结尾）。</span><br><span class="line"></span><br><span class="line">如果你这个用替罪羊或者treap搞一个double出来，区间min max就只要线段树维护就好了。如果你像我一样蠢拿了个splay强行cmp，那么强行rmq复杂度也是对的（两个log在n上），然后你就MLE了（</span><br></pre></td></tr></table></figure>
+
 <p>这个“前往后连”不太准确，缩完是一条链，我们要找区间编号最小的有来自 $x$ 的边的 scc $L$，和编号最大的有去 $x$ 的边的 scc $R$，$[L, R]$ 这一段所有 scc 被缩为一个 scc。替罪羊或者 treap 动态维护编号（其实不用真的删除，搞一个并查集，将 fa 指向 $x$，把 $x$ 插到 $L$ 的位置就好了），线段树查询区间 min、max。用 double 是为了方便创造键值。</p>
 <p><a href="https://uoj.ac/submission/452323" target="_blank" rel="noopener">$Code$</a></p>
 
@@ -240,23 +253,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
