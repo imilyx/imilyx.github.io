@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic\ Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -162,13 +162,13 @@
 <p>设 $g$ 旋转了 $i$，则 $c(g) = gcd(n, i)$，因为某个点在置换 $g$ 的重复作用下经过 $lcm(n, i)$ 次操作回到自身，所以 $c(g) = \frac{n * i}{lcm(n, i)} = gcd(n, i)$</p>
 <p>枚举 $c(g)$，系数为 $\varphi(n / i)$，因为<br>$\sum\limits_{k = 1}^{n} [gcd(n, k) == i]= \sum\limits_{k = 1}^{n / i} [gcd(n / i, k) == 1] = \varphi(n / i)$</p>
 <p>$O(\sqrt{n})$。</p>
-<h3 id="Magic-Bracelet"><a href="#Magic-Bracelet" class="headerlink" title="$Magic\ Bracelet$"></a><a href="https://vjudge.net/problem/POJ-2888" target="_blank" rel="noopener">$Magic\ Bracelet$</a></h3><p>有限制，填色方案那里要魔改一发：$ans = \frac{1}{n} \sum_k f(k) \varphi(n / k)$，$f(k)$ 表示 $c(g) = k$ 的方案数，显然等于长度为 $k + 1$ 且首尾颜色相同的链的方案数，矩阵加速即可。</p>
+<h3 id="Magic-Bracelet"><a href="#Magic-Bracelet" class="headerlink" title="$Magic Bracelet$"></a><a href="https://vjudge.net/problem/POJ-2888" target="_blank" rel="noopener">$Magic Bracelet$</a></h3><p>有限制，填色方案那里要魔改一发：$ans = \frac{1}{n} \sum_k f(k) \varphi(n / k)$，$f(k)$ 表示 $c(g) = k$ 的方案数，显然等于长度为 $k + 1$ 且首尾颜色相同的链的方案数，矩阵加速即可。</p>
 <p>类似的还有「如果奇迹有颜色」，写在「常系数齐次线性递推」里。</p>
 <h3 id="洛谷4128-有色图"><a href="#洛谷4128-有色图" class="headerlink" title="$洛谷4128-有色图$"></a><a href="https://www.luogu.com.cn/problem/P4128" target="_blank" rel="noopener">$洛谷4128-有色图$</a></h3><p>染色的是边，转的是点。某置换的不动点个数等于 $m$ 的「边等价类个数」次方。要求边等价类个数，就要分_连接同个循环的点_和_连接不同循环的点_讨论。</p>
 <p>同个循环：设长度为 $b_i$，边等价类个数为 $b_i / 2$</p>
 <p>不同循环：边等价类大小为 $lcm(b_i, b_j)$，边等价类个数为 $b_i * b_j / lcm(b_i, b_j) = gcd(b_i, b_j)$</p>
 <p>现在知道了具体 $b_i$ 就能算答案了。<br>考虑 $n$ 的分拆，$7e7$ 左右，十分稳</p>
-<p>我们枚举 $b$ 的多重集，系数也挺正常的：$\frac{n!}{\prod b_i!} * \prod (b_i - 1)! * \frac{1}{c_i!}$</p>
+<p>我们枚举 $b$ 的多重集，系数也挺正常的：$\frac{n!}{\prod b_i!} <em> \prod (b_i - 1)! </em> \frac{1}{c_i!}$</p>
 <p>其中第一项是把点分配到多重集里，第二项是每个集合排顺序（是置换嘛），第三项是除掉大小相同的集合算重的方案。</p>
 <p>有双倍经验题：HNOI2009-图的同构计数。第一反应是无标号连通图计数 + 背包——不对劲，我只会有标号的。再一想，边的有无不正对应着此题中染成黑或白色吗？于是看题解，果真就是有色图的卡常版——把 gcd 在中途计算掉就能 AC 了。</p>
 <p>三倍经验题：<a href="https://dev.xjoi.net/contest/1633/problem/2" target="_blank" rel="noopener">（校内模拟赛）种族</a>，还要讨论一条边跨越两个循环和跨越三个循环的情况。</p>
@@ -202,7 +202,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic\ Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Burnside-定理"><span class="toc-number">1.</span> <span class="toc-text">$Burnside$ 定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-定理（-Burnside-的显然推论）"><span class="toc-number">2.</span> <span class="toc-text">$Polya$ 定理（$Burnside$ 的显然推论）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Polya-板题"><span class="toc-number">3.</span> <span class="toc-text">$Polya 板题$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Magic-Bracelet"><span class="toc-number">4.</span> <span class="toc-text">$Magic Bracelet$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#洛谷4128-有色图"><span class="toc-number">5.</span> <span class="toc-text">$洛谷4128-有色图$</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -257,8 +257,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）  拟阵 秩函数 基 &amp;amp; 环 拟阵在贪心的应用 对偶拟阵 拟阵交 最小最大定理 交换图 算法流程   带权拟阵交 扩展最小最大定理     习题  拟阵 定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\">
+<meta name="keywords" content="学习笔记,拟阵">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】拟阵">
+<meta property="og:url" content="http://yoursite.com/2021/04/25/【学习笔记】拟阵/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）  拟阵 秩函数 基 &amp;amp; 环 拟阵在贪心的应用 对偶拟阵 拟阵交 最小最大定理 交换图 算法流程   带权拟阵交 扩展最小最大定理     习题  拟阵 定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-04-25T12:00:16.037Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】拟阵">
+<meta name="twitter:description" content="超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）  拟阵 秩函数 基 &amp;amp; 环 拟阵在贪心的应用 对偶拟阵 拟阵交 最小最大定理 交换图 算法流程   带权拟阵交 扩展最小最大定理     习题  拟阵 定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【学习笔记】拟阵</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/04/25/THUSCH 2017 做题记录/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/04/24/【学习笔记】杨表/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/04/25/【学习笔记】拟阵/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&text=【学习笔记】拟阵"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&is_video=false&description=【学习笔记】拟阵"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】拟阵&body=Check out this article: http://yoursite.com/2021/04/25/【学习笔记】拟阵/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&name=【学习笔记】拟阵&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">拟阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">秩函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">基 &amp; 环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">拟阵在贪心的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k"><span class="toc-number">5.</span> <span class="toc-text">对偶拟阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7"><span class="toc-number">6.</span> <span class="toc-text">拟阵交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8"><span class="toc-number">7.</span> <span class="toc-text">最小最大定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-number">8.</span> <span class="toc-text">交换图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-number">9.</span> <span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9"><span class="toc-number">10.</span> <span class="toc-text">带权拟阵交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10"><span class="toc-number">11.</span> <span class="toc-text">扩展最小最大定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11"><span class="toc-number">12.</span> <span class="toc-text">习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NAIPC18G-Rainbow-Graph"><span class="toc-number">12.1.</span> <span class="toc-text">$NAIPC18G-Rainbow Graph$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Milk-Candy"><span class="toc-number">12.2.</span> <span class="toc-text">$Milk Candy$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元旦老人与丛林"><span class="toc-number">12.3.</span> <span class="toc-text">元旦老人与丛林</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】拟阵
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-04-25T00:47:40.000Z" itemprop="datePublished">2021-04-25</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>, <a class="tag-link" href="/tags/拟阵/">拟阵</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）</p>
+<ul>
+<li><a href="#1">拟阵</a><ul>
+<li><a href="#2">秩函数</a></li>
+<li><a href="#3">基 &amp; 环</a></li>
+<li><a href="#4">拟阵在贪心的应用</a></li>
+<li><a href="#k">对偶拟阵</a></li>
+<li><a href="#7">拟阵交</a><ul>
+<li><a href="#8">最小最大定理</a></li>
+<li><a href="#6">交换图</a></li>
+<li><a href="#5">算法流程</a></li>
+</ul>
+</li>
+<li><a href="#9">带权拟阵交</a><ul>
+<li><a href="#10">扩展最小最大定理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#11">习题</a></li>
+</ul>
+<p><strong><h3 id="1">拟阵</h3></strong></p>
+<p>定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\mathcal{I} \subseteq S$。</p>
+<p>这里独立集是抽象概念。</p>
+<p>拟阵的两条公理：</p>
+<ul>
+<li>遗传性：对于 $I \in \mathcal{I}$，$x \in I$，$I \setminus \{x\} \in \mathcal{I}$</li>
+<li>交换性：$I, J \in \mathcal{I}$，$|J| &gt; |I|$，存在 $x \in J \setminus I$ 满足 $I \cup \{x\} \in \mathcal{I}$</li>
+</ul>
+<p>任何组合优化问题（某种最优化问题）如果满足这两条公理，就具有拟阵结构，所有拟阵的定理在这个组合优化问题上成立。比如以下三种：</p>
+<ol>
+<li>均匀拟阵：拟阵 $M_n^k = (S, \mathcal{I})$，其中 $|S| = n$，$\mathcal{I} = \{I \subseteq S : |I| \leq k\}$。显然满足遗传性和交换性。简单但有用的一个东西，可以把长相清真的限制拿来凑拟阵，做拟阵交。</li>
+<li>图拟阵：<strong>仅对无向图成立</strong>。无向图 $G = (V, E)$，图拟阵 $M = (E, \mathcal{I})$，$\mathcal{I} = \{F \subseteq E: F 无环\}$，即，独立集是生成森林。</li>
+<li>匹配拟阵：$G = (V, E)$，匹配拟阵 $M = (V, \mathcal{I})$，$\forall \mathcal{I}, 存在匹配覆盖 \mathcal{I} 中所有点$。二分图匹配问题是个拟阵。</li>
+</ol>
+<p><strong><h3 id="2">秩函数</h3></strong></p>
+<p>对于拟阵 $M = (S, \mathcal{I})$，定义 $r(U)$ 为集合 $U \subseteq S$ 的秩函数，表示 $U$ 中极大独立集的大小。</p>
+<p>秩函数满足拟阵的两条公理。因此满足秩函数的性质的组合优化问题具有拟阵结构。</p>
+<p><strong><h3 id="3">基 &amp; 环</h3></strong></p>
+<ul>
+<li>基：极大独立集。加任何一个元素都会变成非独立集。同个拟阵的所有基，大小相同。<ul>
+<li>基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - \{x\} + \{y\} \in \mathcal{I}$</li>
+<li>强基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - \{x\} + \{y\}$ 和 $B - \{y\} + \{x\}$ 都是拟阵的基。</li>
+</ul>
+</li>
+<li>环：极小非独立集。减任何一个元素都会变成独立集。</li>
+</ul>
+<p><strong><h3 id="4">拟阵在贪心的应用</h3></strong></p>
+<p>将<strong>元素</strong>按照权值 $\omega$ 降序排列，维护答案集合 $I$，初始 $I = \emptyset$，顺次考虑每个元素 $x_i$，若 $I \cup \{x_i\} \in \mathcal{I}$ 则加入 $x_i$。</p>
+<p>正确性证明：</p>
+<ul>
+<li>$I$ 是拟阵的一个基：归纳证明，记 $I_i$ 表示在 $i$ 处的 $I$ 版本。若 $I_i$ 是个基，则讨论 $I_{i + 1}$：<ul>
+<li>若 $r(I_{i + 1}) = r(I_i)$，仍是基。</li>
+<li>若 $r(I_{i + 1}) &gt; r(I_i)$，若 $I_i \cup \{x_{i + 1}\}$ 是独立集则仍是基，否则新并进去的元素 $\in I_i$，说明 $I_i$ 不是基，矛盾。</li>
+</ul>
+</li>
+<li>最优性：考虑反证，若与最优解不同的选择第一次出现在 $x_i$，最优解选择了 $x_i’$，那么 $\omega(x_i) &gt; \omega(x_i’)$，$x_i &lt; i’$，那么必然存在另一对不同选择 $x_j’$ 和 $x_j$ 满足 $x_j’ &lt; x_j$。根据基交换定理，$I - \{x_j’\} + \{x_j\} \in \mathcal{I}$，贪心算法一定会先选择 $x_j’$ 的。</li>
+</ul>
+<p>嘿嘿，还是现实的问题有意思<del>㗅着爽</del>。MST、二分图最大匹配都是拟阵上的最优化问题，可以用拟阵说明他们的正确性。</p>
+<p><strong><h3 id="k">对偶拟阵</h3></strong></p>
+<p>算是补充定义？做题会用到，但和拟阵交没什么关系。</p>
+<p>定义：拟阵 $M = (S, \mathcal{I})$ 的对偶拟阵 $M^<em> = (S, \mathcal{I^</em>})$，$\mathcal{I^*} = \{I: 存在 M 中的基 B \subseteq S \setminus I\}$，即从 $S$ 中删掉 $I$ 后还存在基。</p>
+<p>对偶拟阵的秩函数 $r’(U)$ 的意义也很显然了，公式化讲得更清楚：$r’(U) = \max\limits_{I \subseteq U, I \in \mathcal{I^*}} |I|$</p>
+<p>推下去，$r^*(U) = |U| - r(S) + r(S \setminus U)$。</p>
+<p>一个拟阵对偶两次又回来了。这可以从秩函数看出：$r(S \setminus U) \rightarrow r^*(U) \rightarrow r(S \setminus U)$</p>
+<p>可以从秩函数角度证明<strong>拟阵对偶后还是个拟阵。</strong></p>
+<p>经典应用嘛，还是图拟阵。「图连通」问题本身不是拟阵结构，但它可以用图拟阵的对偶拟阵做。<strong>注意是用对偶拟阵做！！！而不是把对偶拟阵再对偶，那样啥都不是了。</strong></p>
+<p><strong><h3 id="7">拟阵交</h3></strong></p>
+<p>求同时属于两个拟阵的独立集中最大的独立集。<strong>两个拟阵的交不是拟阵</strong>，否则直接贪心就行…… 那么怎么做呢？</p>
+<p><strong><h3 id="8">最小最大定理</h3></strong></p>
+<p>$\max\limits_{I \in \mathcal{I_1} \cap \mathcal{I_2}} |I| = \min\limits_{U \subseteq S}( r_1(U) + r_2(S\setminus U) )$</p>
+<p>我们只要求出一组 $I$ 和 $U$ 满足这个定理，就解决了拟阵交问题。</p>
+<p><strong><h3 id="6">交换图</h3></strong></p>
+<p>定义：给定两个拟阵 $M_1$, $M_2$，和一个集合 $I \in \mathcal{I_1} \cap \mathcal{I_2}$，定义关于 $I$ 的交换图 $D_{M_1, M_2}(I)$ 是如下的二分图：两部分点集由 $I$ 和 $S \setminus I$ 组成。</p>
+<ul>
+<li>一条从 $y \in I$ 指向 $x \in S \setminus I$ 的边存在，当且仅当 $I - \{y\} + \{x\} \in \mathcal{I_1}$。</li>
+<li>一条从 $x \in S \setminus I$ 指向 $y \in I$ 的边存在，当且仅当 $I - \{y\} + \{x\} \in \mathcal{I_2}$。</li>
+</ul>
+<p><strong><h3 id="5">算法流程</h3></strong></p>
+<ol>
+<li>令 $X_1 = \{x \in S \setminus I | I \cup \{x\} \in \mathcal{I_1} \}$, $X_2 = \{x \in S \setminus I | I \cup \{x\} \in \mathcal{I_2} \}$。</li>
+<li><strong>增广</strong>，每次找一条 $X_1$ 到 $X_2$ 的最短路 $P$，令 $I$ 变为 $I \Delta P$（$\Delta$ 为对称差）。每次增广会扩张恰好 $1$ 个元素（显然，类比二分图增广过程）。</li>
+<li>重复增广直到找不到 $X_1$ 到 $X_2$ 的路径。</li>
+</ol>
+<p>算法运行结束后，$|I| = r_1(U) + r_2(S \setminus U)$。</p>
+<p>关于时间复杂度，令 $r = \max(r_1(S), r_2(S))$，$n = |S|$，图有 $n$ 个点、$rn$ 条边，找最短路单次 $O(n + m)$，增广次数不超过 $r$（每次增广 $|I|$ 至少增加 $1$），总复杂度 $O(r^2n)$。</p>
+<p>实现时，设源汇点 $s$、$t$，若 $x \notin I$ 满足 $I + \{x\} \in I_1$，就连边 $s \rightarrow x$，若 $I + \{x\} \in I_2$ 就连边 $x \rightarrow t$。</p>
+<p><strong><h3 id="9">带权拟阵交</h3></strong></p>
+<p>带权了。令点权为 $w(x)$。</p>
+<p><strong><h3 id="10">扩展最小最大定理</h3></strong></p>
+<p>$\max\limits_{I \in \mathcal{I_1} \cap \mathcal{I_2}} \sum\limits_{e \in I} \omega(e) = \min\limits_{\omega_1, \omega_2: \forall x, \omega_1(x) + \omega_2(x) = \omega(x)} ( \max\limits_{I \in \mathcal{I_1}} \omega_1(I) ) + ( \max\limits_{I \in \mathcal{I_2}} \omega_2(I) )$</p>
+<ul>
+<li>$x \in I$, $w(x) = -\omega(x)$</li>
+<li>$x \in S \setminus I$, $w(x) = \omega(x)$</li>
+</ul>
+<p>以最大权为例，求最长路，第一关键字是点权最大（论文这里出错了），第二关键字是路径最短。交换图上不存在正权环，因此可解。</p>
+<hr>
+<p>多个拟阵交是 NP-hard 的。</p>
+<p>拟阵的并？咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕咕</p>
+<hr>
+<p><strong><h3 id="11">习题</h3></strong></p>
+<h4 id="NAIPC18G-Rainbow-Graph"><a href="#NAIPC18G-Rainbow-Graph" class="headerlink" title="$NAIPC18G-Rainbow Graph$"></a><a href="https://nanti.jisuanke.com/t/A1875" target="_blank" rel="noopener">$NAIPC18G-Rainbow Graph$</a></h4><p>众所周知，图连通不是拟阵结构。但是删边判连通可以用图拟阵的对偶拟阵做（连通图必然存在树！）。</p>
+<p>有两个限制，要求拟阵交。</p>
+<p>倒着做，每增广一次表示对偶拟阵大小 +1。做最小带权拟阵交。</p>
+<p>代码不放了，跟 奶糖 那道差不多。</p>
+<h4 id="Milk-Candy"><a href="#Milk-Candy" class="headerlink" title="$Milk Candy$"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6636" target="_blank" rel="noopener">$Milk Candy$</a></h4><p>恰好怎么搞？先限制不超过 $c - k$ 条，然后不停增广增广。由于求最大权拟阵，一定会取到 $c - k$ 条。</p>
+<p>两个限制：</p>
+<ul>
+<li>每个位置都要至少被覆盖一次。这是图拟阵的对偶。</li>
+<li>以及每种颜色删的边不超过 $c - k$ 条。这是均匀拟阵。</li>
+</ul>
+<p>做最大拟阵交即可！</p>
+<p>最后还是要判一下是否 $&lt; c - k$。</p>
+<p>sb 错误调一年？</p>
+<details>
+  <summary>code</summary>
+  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rep(i, x, y) for (int i = x; i &lt;= y; i++)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> per(i, x, y) for (int i = x; i &gt;= y; i--)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> vi vector<span class="meta-string">&lt;int&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Go(i, x, v) for (int i = 0, x = (i == v.size() ? 0 : v[i]); i &lt; v.size(); i++, x = (i == v.size() ? 0 : v[i]))</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> pb push_back</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mkp make_pair</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> fi first</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> se second</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> gc getchar</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="keyword">long</span> ull;</span><br><span class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">rd</span>(<span class="title">T</span> &amp;<span class="title">x</span>) &#123;</span></span><br><span class="line">  x = <span class="number">0</span>; <span class="keyword">char</span> ch = gc(); <span class="keyword">int</span> f = <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; !<span class="built_in">isdigit</span>(ch); ch = gc()) <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">  <span class="keyword">for</span> (; <span class="built_in">isdigit</span>(ch); ch = gc()) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + ch - <span class="string">'0'</span>;</span><br><span class="line">  x *= f;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">cmin</span>(<span class="title">T</span> &amp;<span class="title">x</span>, <span class="title">T</span> <span class="title">y</span>) &#123;</span> x = min(x, y); &#125;</span><br><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt; <span class="title">void</span> <span class="title">cmax</span>(<span class="title">T</span> &amp;<span class="title">x</span>, <span class="title">T</span> <span class="title">y</span>) &#123;</span> x = max(x, y); &#125;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> mod = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += y; <span class="keyword">if</span> (x &gt;= mod) x -= mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Sub</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x += mod - y; <span class="keyword">if</span> (x &gt;= mod) x -= mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Mul</span><span class="params">(<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> y)</span> </span>&#123; x = (ll)x * y % mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; x += y; <span class="keyword">if</span> (x &gt;= mod) x -= mod; <span class="keyword">return</span> x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sub</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; x += mod - y; <span class="keyword">if</span> (x &gt;= mod) x -= mod; <span class="keyword">return</span> x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mul</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; <span class="keyword">return</span> (ll)x * y % mod; &#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qpow</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123; <span class="keyword">int</span> ret = <span class="number">1</span>; <span class="keyword">for</span> (; b; b &gt;&gt;= <span class="number">1</span>, Mul(a, a)) <span class="keyword">if</span> (b &amp; <span class="number">1</span>) Mul(ret, a); <span class="keyword">return</span> ret; &#125;</span><br><span class="line"><span class="comment">/* ============ Header Template ============ */</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">90</span>;</span><br><span class="line"><span class="keyword">int</span> n, m, cost[N], bel[N];</span><br><span class="line"><span class="keyword">int</span> lnk[N], cnt, nxt[N &lt;&lt; <span class="number">1</span>], to[N &lt;&lt; <span class="number">1</span>];</span><br><span class="line">vi in;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span> &#123;</span></span><br><span class="line">  <span class="keyword">int</span> lim[N], c[N], k[N];</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(vi in)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, m) lim[i] = c[i] - k[i];</span><br><span class="line">    rep(i, <span class="number">1</span>, cnt / <span class="number">2</span>) <span class="keyword">if</span> (in[i]) --lim[bel[i]];</span><br><span class="line">    rep(i, <span class="number">1</span>, m) <span class="keyword">if</span> (lim[i] &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(node a)</span> </span>&#123;</span><br><span class="line">  rep(i, <span class="number">1</span>, m) <span class="keyword">if</span> (a.lim[i]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">graph</span> &#123;</span></span><br><span class="line">  <span class="keyword">bool</span> vis[N];</span><br><span class="line">  graph(<span class="keyword">int</span> N = <span class="number">0</span>) &#123;</span><br><span class="line">    rep(i, <span class="number">0</span>, N + <span class="number">2</span>) lnk[i] = <span class="number">0</span>; cnt = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">adde</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    to[++cnt] = y, nxt[cnt] = lnk[x], lnk[x] = cnt;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (vis[x]) <span class="keyword">return</span>;</span><br><span class="line">    vis[x] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = lnk[x]; i; i = nxt[i])</span><br><span class="line">      <span class="keyword">if</span> (!in[i / <span class="number">2</span>]) dfs(to[i]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">chk</span><span class="params">(vi in)</span> </span>&#123;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) vis[i] = <span class="number">0</span>;</span><br><span class="line">    dfs(<span class="number">1</span>);</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="keyword">if</span> (!vis[i]) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">namespace</span> Matroid &#123;</span><br><span class="line">  <span class="meta">#<span class="meta-keyword">define</span> inf 0x3f3f3f3f</span></span><br><span class="line">  <span class="keyword">int</span> dis[N], pre[N], S, T;</span><br><span class="line">  <span class="keyword">bool</span> inq[N];</span><br><span class="line">  <span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line">  vi e[N];</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">    e[x].pb(y);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">dt</span>, <span class="title">class</span> <span class="title">M1</span>, <span class="title">class</span> <span class="title">M2</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="title">bool</span> <span class="title">find</span>(<span class="title">int</span> <span class="title">n</span>, <span class="title">dt</span> <span class="title">w</span>[], <span class="title">M1</span> <span class="title">m1</span>, <span class="title">M2</span> <span class="title">m2</span>, <span class="title">vi</span> &amp;<span class="title">in</span>) &#123;</span></span><br><span class="line">    S = n + <span class="number">1</span>, T = n + <span class="number">2</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, T) e[i].clear();</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="keyword">if</span> (in[i])</span><br><span class="line">      rep(j, <span class="number">1</span>, n) <span class="keyword">if</span> (!in[j]) &#123;</span><br><span class="line">        in[i] ^= <span class="number">1</span>, in[j] ^= <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> (m1.chk(in)) add(i, j);</span><br><span class="line">        <span class="keyword">if</span> (m2.chk(in)) add(j, i);</span><br><span class="line">        in[i] ^= <span class="number">1</span>, in[j] ^= <span class="number">1</span>;</span><br><span class="line">      &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, n) <span class="keyword">if</span> (!in[i]) &#123;</span><br><span class="line">      in[i] ^= <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (m1.chk(in)) add(S, i);</span><br><span class="line">      <span class="keyword">if</span> (m2.chk(in)) add(i, T);</span><br><span class="line">      in[i] ^= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    rep(i, <span class="number">1</span>, T) dis[i] = -inf, inq[i] = <span class="number">0</span>, pre[i] = <span class="number">-1</span>;</span><br><span class="line">    q.push(S), inq[S] = <span class="number">1</span>, dis[S] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (q.size()) &#123;</span><br><span class="line">      <span class="keyword">int</span> x = q.front(); q.pop(); inq[x] = <span class="number">0</span>;</span><br><span class="line">      Go(i, y, e[x]) &#123;</span><br><span class="line">        <span class="keyword">int</span> v = in[y] ? -w[y] : w[y];</span><br><span class="line">        <span class="keyword">if</span> (dis[y] &lt; dis[x] + v) &#123;</span><br><span class="line">          dis[y] = dis[x] + v;</span><br><span class="line">          pre[y] = x;</span><br><span class="line">          <span class="keyword">if</span> (!inq[y]) inq[y] = <span class="number">1</span>, q.push(y);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (dis[T] == -inf) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (pre[T] != S) in[T = pre[T]] ^= <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">dt</span>, <span class="title">class</span> <span class="title">M1</span>, <span class="title">class</span> <span class="title">M2</span>&gt;</span></span><br><span class="line"><span class="class">  <span class="title">vector</span>&lt;dt&gt; <span class="title">intersaction</span>(<span class="title">int</span> <span class="title">n</span>, <span class="title">dt</span> <span class="title">w</span>[], <span class="title">M1</span> <span class="title">m1</span>, <span class="title">M2</span> <span class="title">m2</span>) &#123;</span></span><br><span class="line">    <span class="keyword">while</span> (find(n, w, m1, m2, in));</span><br><span class="line">    <span class="keyword">return</span> in;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;; <span class="keyword">using</span> <span class="keyword">namespace</span> Matroid;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> cas; rd(cas);</span><br><span class="line">  <span class="keyword">while</span> (cas--) &#123;</span><br><span class="line">    rd(n), rd(m);</span><br><span class="line">    ++n;</span><br><span class="line">    <span class="function">graph <span class="title">g</span><span class="params">(n + <span class="number">5</span>)</span></span>;</span><br><span class="line">    node tmp;</span><br><span class="line">    rep(i, <span class="number">1</span>, m) &#123;</span><br><span class="line">      rd(tmp.c[i]), rd(tmp.k[i]);</span><br><span class="line">      rep(j, <span class="number">1</span>, tmp.c[i]) &#123;</span><br><span class="line">        <span class="keyword">int</span> l, r, w; rd(l), rd(r), rd(w); ++l, ++r;</span><br><span class="line">        g.adde(l - <span class="number">1</span>, r), g.adde(r, l - <span class="number">1</span>);</span><br><span class="line">        bel[cnt / <span class="number">2</span>] = i;</span><br><span class="line">        cost[cnt / <span class="number">2</span>] = w;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    in.clear();</span><br><span class="line">    in.resize(cnt / <span class="number">2</span> + <span class="number">5</span>);</span><br><span class="line">    vi res = Matroid::intersaction(cnt / <span class="number">2</span>, cost, g, tmp);</span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    rep(i, <span class="number">1</span>, cnt / <span class="number">2</span>) <span class="keyword">if</span> (!in[i]) ans += cost[i];</span><br><span class="line">    <span class="keyword">if</span> (g.chk(res) &amp;&amp; tmp.chk(res) &amp;&amp; chk(tmp)) <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">"-1"</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</details>
+
+<h4 id="元旦老人与丛林"><a href="#元旦老人与丛林" class="headerlink" title="元旦老人与丛林"></a><a href="https://uoj.ac/problem/168" target="_blank" rel="noopener">元旦老人与丛林</a></h4><p>快乐的咕了。学不动了放过我吧 /dk 我要找我的 JOI 接受心灵慰藉去</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1"><span class="toc-number">1.</span> <span class="toc-text">拟阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2"><span class="toc-number">2.</span> <span class="toc-text">秩函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3"><span class="toc-number">3.</span> <span class="toc-text">基 &amp; 环</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4"><span class="toc-number">4.</span> <span class="toc-text">拟阵在贪心的应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#k"><span class="toc-number">5.</span> <span class="toc-text">对偶拟阵</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7"><span class="toc-number">6.</span> <span class="toc-text">拟阵交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8"><span class="toc-number">7.</span> <span class="toc-text">最小最大定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6"><span class="toc-number">8.</span> <span class="toc-text">交换图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5"><span class="toc-number">9.</span> <span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9"><span class="toc-number">10.</span> <span class="toc-text">带权拟阵交</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10"><span class="toc-number">11.</span> <span class="toc-text">扩展最小最大定理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11"><span class="toc-number">12.</span> <span class="toc-text">习题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#NAIPC18G-Rainbow-Graph"><span class="toc-number">12.1.</span> <span class="toc-text">$NAIPC18G-Rainbow Graph$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Milk-Candy"><span class="toc-number">12.2.</span> <span class="toc-text">$Milk Candy$</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#元旦老人与丛林"><span class="toc-number">12.3.</span> <span class="toc-text">元旦老人与丛林</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/04/25/【学习笔记】拟阵/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&text=【学习笔记】拟阵"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&is_video=false&description=【学习笔记】拟阵"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】拟阵&body=Check out this article: http://yoursite.com/2021/04/25/【学习笔记】拟阵/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&title=【学习笔记】拟阵"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/04/25/【学习笔记】拟阵/&name=【学习笔记】拟阵&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

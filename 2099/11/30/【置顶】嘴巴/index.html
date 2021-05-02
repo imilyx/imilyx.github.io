@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。 嘴巴题不会放在「学习计划」里。 因为是嘴巴题所以低配，一律 details。 加星号的是打算有时间写写的。 $LOJ6669$ 询问 n 次得出每个点深度，同时也得出了重链。按深度 bfs，对于当前点 x，从以根为链顶的重链开始，询问 x 和该重链底的距离，得出 LCA">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-28T13:30:10.752Z">
+<meta property="og:updated_time" content="2021-03-07T10:42:34.349Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【置顶】嘴巴">
 <meta name="twitter:description" content="要锻炼思维就不能每道都写。（然而这并不意味你写就草草写！xml 的赛场调试水平之差有目共睹 qaq…）因 此 开 了 「㗅」坑。 嘴巴题不会放在「学习计划」里。 因为是嘴巴题所以低配，一律 details。 加星号的是打算有时间写写的。 $LOJ6669$ 询问 n 次得出每个点深度，同时也得出了重链。按深度 bfs，对于当前点 x，从以根为链顶的重链开始，询问 x 和该重链底的距离，得出 LCA">
@@ -262,8 +262,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

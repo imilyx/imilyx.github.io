@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+<meta property="og:type" content="article">
+<meta property="og:title" content="300iq contest 2 vp 记录">
+<meta property="og:url" content="http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-05-01T05:12:36.973Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="300iq contest 2 vp 记录">
+<meta name="twitter:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>300iq contest 2 vp 记录</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/04/30/【计划】21Apr 训练日志（退役冲刺实录）/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/04/27/XXI Open Cup. GP of Korea/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&text=300iq contest 2 vp 记录"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&is_video=false&description=300iq contest 2 vp 记录"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=300iq contest 2 vp 记录&body=Check out this article: http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&name=300iq contest 2 vp 记录&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">6.</span> <span class="toc-text">$F$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">7.</span> <span class="toc-text">$G$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">8.</span> <span class="toc-text">$H$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">9.</span> <span class="toc-text">$I$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">10.</span> <span class="toc-text">$J$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">11.</span> <span class="toc-text">$K$</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        300iq contest 2 vp 记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-04-28T09:52:40.000Z" itemprop="datePublished">2021-04-28</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p><a href="https://codeforces.com/gym/102331" target="_blank" rel="noopener">Jump!</a></p>
+<h2 id="A"><a href="#A" class="headerlink" title="$A$"></a>$A$</h2><p>看完题目头皮发麻，这啥啊！</p>
+<p>咕了。</p>
+<h2 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h2><p>任意两项的异或值 $\geq x$</p>
+<p>每加入一个数，它和已有数的最小的异或值需要 $\geq x$</p>
+<p>在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。</p>
+<p>把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114441081" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="C"><a href="#C" class="headerlink" title="$C$"></a>$C$</h2><p>将一条边也看作环，仙人掌就是许多环拼在一起。</p>
+<p>凭借 xza 模拟赛教育过你的 exp 知识，应该可以轻松 AC 此题（划掉）。</p>
+<p>从小到大枚举每个点，把包含它的环拼起来</p>
+<p><a href="https://loj.ac/s/1127846" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="D"><a href="#D" class="headerlink" title="$D$"></a>$D$</h2><p>这个题目条件就告诉你，所有边双大小不超过 $k$。然后要求邻接矩阵行列式？</p>
+<p>图的行列式 $= \sum\limits_{图的所有分解方式，分解为若干环} (-1)^{偶环个数}$</p>
+<p>由于要考虑二元环，就比较恶心了……</p>
+<p>在边双缩点得到的树上做 dp。</p>
+<p>每个块有两种类型：$0$、$1$，表示该块的顶点 $top$ 是否和父亲块连。$dp[x, 0/1]$ 表示边双树上第 $x$ 个块及其子树的答案。</p>
+<p>和父亲连的话只要在计算块行列式前把 $top$ 抠出来就可以了。</p>
+<p>把儿子子树的系数和放到矩阵里做行列式，得到当前子树的系数和。</p>
+<p>复杂度大概是 $O(\frac{n}{k} k^3) = O(nk^2)$</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114740535" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="E"><a href="#E" class="headerlink" title="$E$"></a>$E$</h2><p>动态加边，每次寻找最大权的异或和为 $0$ 的非欧拉回路图，可以不连通</p>
+<p>catalan 数 😂 这个 300iq 怎么造奇怪样例</p>
+<p>首先把边看作向量，一条 $(x, y, a)$ 的边可以看作 $x$ 维和 $y$ 维都是 $1$，第 $n + 1$ ~ $n + 65$ 维为 $a$ 的二进制表示的向量</p>
+<p>那么就是求最大权的线性无关向量组。</p>
+<p>不用对每个前缀求的话怎么做：按 $w$ 降序排列后能加则加。正确性大概是因为它有拟阵结构！！！遗传性和交换性都满足。</p>
+<p>对每个前缀求：当新加的向量异或成 $0$ 时，找到异或它的基内最小权向量并替换。。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114503954" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="F"><a href="#F" class="headerlink" title="$F$"></a>$F$</h2><p>粗略的想法：从前往后扫，非法的存起来，合法的合并并查询有无满足之前要求的，搞个并查集 + 线段树合并询问。丢进线段树的询问形如 $(need_val, qid)$。感觉这个细节有问题而且巨大难写。</p>
+<p>——你需要一些奇怪的复杂度！</p>
+<p>官方：</p>
+<p>性质：$a + b \geq s$ 时必然满足 $a \geq s/2$ 或 $b \geq s/2$</p>
+<p>设 $a$ 和 $b$ 所在连通块当前和分别为 $x$ 和 $y$，在两个连通块的 $(s - x - y)/2$ 处放上两个事件，标注一下是哪对 $a$ $b$</p>
+<p>当一对连通块满足条件就合并，否则在新的 $(s - x - y)/2$ 处放上事件</p>
+<p>每个 $s$ 会被分 $log$ 次，对连通块及其事件采取启发式合并，复杂度 $O(nlog(nlogC)logC)$</p>
+<p>注意答案可能不为 $n - 1$ 因为最后可能并不成一棵树。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114732408" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="G"><a href="#G" class="headerlink" title="$G$"></a>$G$</h2><p>SAM？不用。</p>
+<p>如果每个字符都不同，方案数为 $2^n - 1$</p>
+<p>否则对于每个极长连续段减去重复计算的方案，就，枚举一下左边刚取到 $l$ 时右边到 $[l, r]$ 中哪个位置了，以及右边刚取到 $r$ 时左边到 $[l, r]$ 中哪个位置了，减去多算的操作序列数即可。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114448841" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="H"><a href="#H" class="headerlink" title="$H$"></a>$H$</h2><p>差点读错题。是要求选 $k$ 个不相交子区间价值和的最大值。</p>
+<p>模拟费用流似乎没法搞。</p>
+<p>dp？一脸凸优化的样子。单次 $O((r - l + 1) * log)$</p>
+<p>考虑线段树优化 dp，预处理每个区间 dp 值形成的凸包。</p>
+<p>直接做三只 log。</p>
+<p>整体二分，将询问排序，有单调性了，指针就够了，两只 $log$。</p>
+<p>——第三个点大概 $10000$ 到 $30000$ 之间吧，为什么疯狂 TLE 啊？</p>
+<p>——find 那里传了一整个 vector 进去……</p>
+<p>传指针形式的 vector，和传编号，都可以 AC。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114663233" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="I"><a href="#I" class="headerlink" title="$I$"></a>$I$</h2><p>用不超过 $4 log_2 n$ 次操作找出关键点 $A$，每次询问 $?$ $k$ $x$ $y_1 \cdots y_k$，返回 $dis(A, x) \geq \min( dis(A, y_i) )$</p>
+<p>$log^2$ 就是重链上二分。</p>
+<p>wssb！$log$ 就是每次割一半，那么每次找重心即可。</p>
+<p>数据好像比较水？/yiw</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114507258" target="_blank" rel="noopener">$Code$</a></p>
+<h2 id="J"><a href="#J" class="headerlink" title="$J$"></a>$J$</h2><p>设 $f(k)$ 表示 $k$ 个匹配的最大价值和。</p>
+<p>费用流模型容易建出。</p>
+<p>费用流增广路径的价值递减，那么 f 就是上凸的了！</p>
+<p>有凸性的考虑 dp，$dp[i, j, 0/1]$ 表示 $i$ 子树内匹配了 $j$ 对，$i$ 有无选。</p>
+<p>dp 数组的合并其实就是凸包合并，闵可夫斯基和。</p>
+<p>合并 $u$、$v$ 的复杂度是 $O(sz[u] + sz[v])$，那么启发式合并即可。</p>
+<p>具体来说是类似链分治的玩意。重链要分治卷！！！跟花朵一样的方式，$[0/1][0/1]$ 表示该重链片段左右是否已匹配。鲨了我吧。</p>
+<p>大概是一只 $log$？</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114641436" target="_blank" rel="noopener"><del>终于搞过去了嘤嘤嘤</del></a></p>
+<h2 id="K"><a href="#K" class="headerlink" title="$K$"></a>$K$</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">不可做题。</span><br><span class="line">打开题解。</span><br><span class="line">玄学暴力。</span><br><span class="line">关闭题解。</span><br><span class="line">仔细思考。</span><br><span class="line">——不会。</span><br></pre></td></tr></table></figure>
+<p>官解真是有够暴力 /px</p>
+<p>预处理可能存在非法串的位置和可能成为非法串的长度</p>
+<p>由于不能控制所有位置的字符，考虑容斥，钦定一些位置是这些非法串，剩下位置随便摆。方案数可以通过并查集把应当相同的位置并起来得到。</p>
+<p>先搜长串再搜短串。</p>
+<p><a href="https://codeforces.com/gym/102331/submission/114730928" target="_blank" rel="noopener">$Code$</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A"><span class="toc-number">1.</span> <span class="toc-text">$A$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B"><span class="toc-number">2.</span> <span class="toc-text">$B$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C"><span class="toc-number">3.</span> <span class="toc-text">$C$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D"><span class="toc-number">4.</span> <span class="toc-text">$D$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#E"><span class="toc-number">5.</span> <span class="toc-text">$E$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#F"><span class="toc-number">6.</span> <span class="toc-text">$F$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#G"><span class="toc-number">7.</span> <span class="toc-text">$G$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#H"><span class="toc-number">8.</span> <span class="toc-text">$H$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#I"><span class="toc-number">9.</span> <span class="toc-text">$I$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#J"><span class="toc-number">10.</span> <span class="toc-text">$J$</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#K"><span class="toc-number">11.</span> <span class="toc-text">$K$</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&text=300iq contest 2 vp 记录"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&is_video=false&description=300iq contest 2 vp 记录"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=300iq contest 2 vp 记录&body=Check out this article: http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&title=300iq contest 2 vp 记录"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/&name=300iq contest 2 vp 记录&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

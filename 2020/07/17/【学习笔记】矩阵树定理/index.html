@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="OIWiki上的矩阵树相关  行列式$n \times n$ 的矩阵 A 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。 矩阵 A 的行列式用 det(A) 表示。 行列式初等变换(最下面)  行列互换，行列式值不变 行列式一行或一列的公因子可以提出去 行列式中若有某一行是两组数的和，则该行列式等于两个行列式的和 两行或两列交换，行列式变号（区别于第一条） 两行">
+    <meta name="description" content="upd on 2021.3.26: 感性证明一下！？： 设点数为 $n$。 我们都知道 kirchhoff 矩阵 $[i, j]$ 位置上的值表示 $i$ 走到 $j$ 的走法个数。减去度数矩阵是减去自环的走法。 然后开始容斥，容斥掉所有轮换个数 $&amp;gt; 1$ 的排列。而「$n$ - 轮换个数」与「排列逆序对数」的奇偶性相同，证明你就考虑给排列排序时每个轮换依次排，交换一对时逆序对的奇偶性也会">
 <meta name="keywords" content="学习笔记,矩阵树">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】矩阵树定理">
 <meta property="og:url" content="http://yoursite.com/2020/07/17/【学习笔记】矩阵树定理/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="OIWiki上的矩阵树相关  行列式$n \times n$ 的矩阵 A 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。 矩阵 A 的行列式用 det(A) 表示。 行列式初等变换(最下面)  行列互换，行列式值不变 行列式一行或一列的公因子可以提出去 行列式中若有某一行是两组数的和，则该行列式等于两个行列式的和 两行或两列交换，行列式变号（区别于第一条） 两行">
+<meta property="og:description" content="upd on 2021.3.26: 感性证明一下！？： 设点数为 $n$。 我们都知道 kirchhoff 矩阵 $[i, j]$ 位置上的值表示 $i$ 走到 $j$ 的走法个数。减去度数矩阵是减去自环的走法。 然后开始容斥，容斥掉所有轮换个数 $&amp;gt; 1$ 的排列。而「$n$ - 轮换个数」与「排列逆序对数」的奇偶性相同，证明你就考虑给排列排序时每个轮换依次排，交换一对时逆序对的奇偶性也会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-04T09:39:44.161Z">
+<meta property="og:updated_time" content="2021-05-01T04:45:43.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】矩阵树定理">
-<meta name="twitter:description" content="OIWiki上的矩阵树相关  行列式$n \times n$ 的矩阵 A 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。 矩阵 A 的行列式用 det(A) 表示。 行列式初等变换(最下面)  行列互换，行列式值不变 行列式一行或一列的公因子可以提出去 行列式中若有某一行是两组数的和，则该行列式等于两个行列式的和 两行或两列交换，行列式变号（区别于第一条） 两行">
+<meta name="twitter:description" content="upd on 2021.3.26: 感性证明一下！？： 设点数为 $n$。 我们都知道 kirchhoff 矩阵 $[i, j]$ 位置上的值表示 $i$ 走到 $j$ 的走法个数。减去度数矩阵是减去自环的走法。 然后开始容斥，容斥掉所有轮换个数 $&amp;gt; 1$ 的排列。而「$n$ - 轮换个数」与「排列逆序对数」的奇偶性相同，证明你就考虑给排列排序时每个轮换依次排，交换一对时逆序对的奇偶性也会">
     
     
         
@@ -142,10 +142,17 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><a href="https://oi-wiki.org/graph/matrix-tree/" target="_blank" rel="noopener">OIWiki上的矩阵树相关</a></p>
+    <p>upd on 2021.3.26: 感性证明一下！？：</p>
+<p>设点数为 $n$。</p>
+<p>我们都知道 kirchhoff 矩阵 $[i, j]$ 位置上的值表示 $i$ 走到 $j$ 的走法个数。减去度数矩阵是减去自环的走法。</p>
+<p>然后开始容斥，容斥掉所有轮换个数 $&gt; 1$ 的排列。而「$n$ - 轮换个数」与「排列逆序对数」的奇偶性相同，证明你就考虑给排列排序时每个轮换依次排，交换一对时逆序对的奇偶性也会变，总共交换「$n$ - 轮换个数」次，最后排列逆序对为 $0$。所以直接算行列式就好啦。</p>
+<p>对容斥系数的另外一种理解是，$(-1)^{n - 环数} = (-1)^{n + 环数} = (-1)^{偶环数}$，所以图的邻接矩阵的行列式 $= \sum\limits_{G 的所有分解方式，分解为若干环} (-1)^{偶环数}$</p>
 <hr>
-<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a><a href="https://blog.csdn.net/qq_36396104/article/details/89298227" target="_blank" rel="noopener">行列式</a></h2><p>$n \times n$ 的矩阵 A 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。</p>
-<p>矩阵 A 的行列式用 det(A) 表示。</p>
+<p><a href="https://oi-wiki.org/graph/matrix-tree/" target="_blank" rel="noopener">OIWiki上的矩阵树相关</a></p>
+<hr>
+<h2 id="行列式"><a href="#行列式" class="headerlink" title="行列式"></a><a href="https://blog.csdn.net/qq_36396104/article/details/89298227" target="_blank" rel="noopener">行列式</a></h2><p>$n \times n$ 的矩阵 $A$ 的行列式可以理解为行或列向量所构成的超平行多面体的有向面积或有向体积，是一个标量。</p>
+<p>矩阵 $A$ 的行列式用 $det(A)$ 表示。</p>
+<script type="math/tex; mode=display">det(A) = \sum\limits_{j_1 j_2 \cdots j_n} (-1)^{\sigma(j_1 j_2 \cdots j_n)} a_{1, j_1} a_{1, j_2} \cdots a_{n, j_n}</script><p>其中 $\sigma(j_1 j_2 \cdots j_n)$ 表示 $j_1 j_2 \cdots j_n$ 的逆序对数。</p>
 <p><a href="https://baike.baidu.com/item/%E5%88%9D%E7%AD%89%E5%8F%98%E6%8D%A2/10648400?fr=aladdin#2" target="_blank" rel="noopener">行列式初等变换(最下面)</a></p>
 <ul>
 <li>行列互换，行列式值不变</li>
@@ -294,8 +301,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

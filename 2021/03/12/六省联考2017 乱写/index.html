@@ -75,7 +75,7 @@
         <li><a class="icon" href="/2021/03/14/AGC 012 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2021/03/12/【学习笔记】拟阵/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2021/03/08/联合省选2020 乱写/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -136,7 +136,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <p><a href="https://www.luogu.com.cn/problem/list?keyword=%E5%85%AD%E7%9C%81%E8%81%94%E8%80%83&page=1" target="_blank" rel="noopener">链接</a></p>
+    <p><a href="https://www.luogu.com.cn/problem/list?keyword=%E5%85%AD%E7%9C%81%E8%81%94%E8%80%83&amp;page=1" target="_blank" rel="noopener">链接</a></p>
 <h2 id="寿司餐厅"><a href="#寿司餐厅" class="headerlink" title="寿司餐厅"></a>寿司餐厅</h2><p>$mx^2 + cx$ 解读：吃一个 $x$ 代价 $x$，吃过 $x$ 代价 $mx^2$</p>
 <p>看题：</p>
 <ul>
@@ -168,8 +168,7 @@
 <h2 id="分手是祝愿"><a href="#分手是祝愿" class="headerlink" title="分手是祝愿"></a>分手是祝愿</h2><p>首先按键的方案唯一——从后往前就能唯一确定。$50$ 分就直接从后往前按。</p>
 <p>考虑正解：除开这些必须按的键，如果按了其他的键 <strong>就得按同一个键按回来</strong>。</p>
 <p>根据期望线性性，将 dp 状态设为 $f[i]$ 表示从 $i$ 个必选的键转移到 $i - 1$ 个必选的键的期望操作次数。</p>
-<p>$$f[i] = \frac{i}{n} + \frac{n - i}{n}(1 + f[i] + f[i + 1])$$</p>
-<p>第一项表示选了一个必选的，一次就到 $i - 1$ 去了；第二项表示选了一个其他的，就得 $f[i + 1]$ 次按回来，再 $f[i]$ 次按到 $i - 1$ 去。解一个一元一次方程就好了（</p>
+<script type="math/tex; mode=display">f[i] = \frac{i}{n} + \frac{n - i}{n}(1 + f[i] + f[i + 1])</script><p>第一项表示选了一个必选的，一次就到 $i - 1$ 去了；第二项表示选了一个其他的，就得 $f[i + 1]$ 次按回来，再 $f[i]$ 次按到 $i - 1$ 去。解一个一元一次方程就好了（</p>
 <p>很神仙！</p>
 <h2 id="相逢是问候"><a href="#相逢是问候" class="headerlink" title="相逢是问候"></a>相逢是问候</h2><p>就剩一道了！加油 xml！</p>
 <p>做过的套路题，套了数论皮子的暴力题。</p>
@@ -177,7 +176,7 @@
 <ul>
 <li><p>$b &lt; \varphi(p)$：$a^{b}$</p>
 </li>
-<li><p>$b \geq \varphi(p)$：$a^{b % \varphi(p) + \varphi(p)}$</p>
+<li><p>$b \geq \varphi(p)$：$a^{b \% \varphi(p) + \varphi(p)}$</p>
 </li>
 </ul>
 <p>这题本质是个套娃，$c^{c^{c^{\cdots}}} \mod{p} = c^{c^{c^{\cdots}} \mod{ \varphi(p) } + \varphi(p)（加不加 \varphi(p) 要按上面那样分类讨论） } \mod{p}$，一直套娃下去，模数变成 $\varphi(\varphi(\varphi(\cdots\varphi(p)))) = 1$，并且只要 $log$ 层。</p>
@@ -270,8 +269,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

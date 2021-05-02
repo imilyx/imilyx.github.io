@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="原来我逻辑也这么差！！！数据结构能说什么呢。。细节自己多想想。 $Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力不真的全局异或，而是：  加入新值，异或上当前 xor 和，丢到等待队列里； 排序时把等待队列的值都插到 Trie 里； 异或就异或到当前 xor 和上； 查询如果涉及到一部分有序一部分无序，就是全局和；否则如果全有序，Trie 上考虑「上次全有序时的 xor 和」下的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ynoi 做题记录">
+<meta property="og:url" content="http://yoursite.com/2021/03/26/Ynoi 做题记录/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="原来我逻辑也这么差！！！数据结构能说什么呢。。细节自己多想想。 $Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力不真的全局异或，而是：  加入新值，异或上当前 xor 和，丢到等待队列里； 排序时把等待队列的值都插到 Trie 里； 异或就异或到当前 xor 和上； 查询如果涉及到一部分有序一部分无序，就是全局和；否则如果全有序，Trie 上考虑「上次全有序时的 xor 和」下的">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-03-30T23:25:58.335Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ynoi 做题记录">
+<meta name="twitter:description" content="原来我逻辑也这么差！！！数据结构能说什么呢。。细节自己多想想。 $Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力不真的全局异或，而是：  加入新值，异或上当前 xor 和，丢到等待队列里； 排序时把等待队列的值都插到 Trie 里； 异或就异或到当前 xor 和上； 查询如果涉及到一部分有序一部分无序，就是全局和；否则如果全有序，Trie 上考虑「上次全有序时的 xor 和」下的">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Ynoi 做题记录</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/03/28/函数发散/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/03/24/AGC 013 题解/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/26/Ynoi 做题记录/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&text=Ynoi 做题记录"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&is_video=false&description=Ynoi 做题记录"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ynoi 做题记录&body=Check out this article: http://yoursite.com/2021/03/26/Ynoi 做题记录/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&name=Ynoi 做题记录&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ynoi2011-竞赛实验班-loj517-计算几何瞎暴力"><span class="toc-number">1.</span> <span class="toc-text">$Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五彩斑斓的世界"><span class="toc-number">2.</span> <span class="toc-text">五彩斑斓的世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#镜中的昆虫"><span class="toc-number">3.</span> <span class="toc-text">镜中的昆虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#未来日记"><span class="toc-number">4.</span> <span class="toc-text">未来日记</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Ynoi 做题记录
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-03-26T05:31:40.000Z" itemprop="datePublished">2021-03-26</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>原来我逻辑也这么差！！！数据结构能说什么呢。。细节自己多想想。</p>
+<h3 id="Ynoi2011-竞赛实验班-loj517-计算几何瞎暴力"><a href="#Ynoi2011-竞赛实验班-loj517-计算几何瞎暴力" class="headerlink" title="$Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力"></a><a href="https://www.luogu.com.cn/problem/P5312" target="_blank" rel="noopener">$Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力</a></h3><p>不真的全局异或，而是：</p>
+<ul>
+<li>加入新值，异或上当前 xor 和，丢到等待队列里；</li>
+<li>排序时把等待队列的值都插到 Trie 里；</li>
+<li>异或就异或到当前 xor 和上；</li>
+<li>查询如果涉及到一部分有序一部分无序，就是全局和；否则如果全有序，Trie 上考虑「<strong>上次全有序时的 xor 和</strong>」下的前 k 项，差分。</li>
+</ul>
+<p>维护每个子树各位出现次数和。</p>
+<p>坑点：查询，在 Trie 上走的时候按「<strong>上次全有序时的 xor 和</strong>」，但查子树各位的时候按「<strong>当前 xor 和</strong>」来。</p>
+<p>其实如果你考虑清楚了，这题一点都不坑，甚至还比较小清新。</p>
+<p><a href="https://loj.ac/s/1100809" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="五彩斑斓的世界"><a href="#五彩斑斓的世界" class="headerlink" title="五彩斑斓的世界"></a><a href="https://www.luogu.com.cn/problem/P4117" target="_blank" rel="noopener">五彩斑斓的世界</a></h3><p>离线询问，对每个块单独做。这样空间就不会炸。</p>
+<p>对下标开并查集，权值相同的并一块儿；开一个数组记录每种权值的根的位置。</p>
+<p>散块，不支持全局打标记，就暴力改，并趁机重构，清空 $tag$。</p>
+<p>整块：</p>
+<ul>
+<li>$maxn \leq 2x$：暴力改所有 $&gt; x$ 的，用 $O(\alpha * (maxn - x))$ 的代价让最大值减少了 $maxn - x$</li>
+<li>$maxn &gt; 2x$：可以看作整体减少 $x$ 再给 $\leq 0$ 的加上 $x$，用 $O(\alpha * x)$ 的代价让最大值减少了 $x$</li>
+</ul>
+<p>值域与 $n$ 同阶，单块的复杂度是 $O(n)$ 的，总体 $O(n \sqrt{n} * \alpha)$。</p>
+<h3 id="镜中的昆虫"><a href="#镜中的昆虫" class="headerlink" title="镜中的昆虫"></a><a href="https://www.luogu.com.cn/problem/P4690" target="_blank" rel="noopener">镜中的昆虫</a></h3><p>区间数颜色的标准套路：$pre_i$ 表示 $i$ 前一个和 $i$ 颜色相同的位置，那么询问 $[L, R]$ 就是在统计 $pre_i &lt; L$ 的个数。静态就是二维数点。</p>
+<p>单点修改怎么做？$pre$ 总修改次数只有 $O(n + m)$，是个带修改二维数点问题。树状数组套线段树可以做，<del>空间也不是很紧。</del> 仅能过 loj 的数据！！ಥ_ಥ</p>
+<p>如果加一维时间，看作在每个时间点做完左边的所有修改后查询，就可以 cdq 分治了，每次统计 $[l, mid]$ 的修改对 $(mid, r]$ 的询问的贡献。</p>
+<p>区间修改呢？把相同颜色看成一块，考虑均摊分析，如果修改区间不相交显然 $pre$ 的总修改次数是 $O(n)$，如果相交也只会改端点 $O(1)$，总的是 $O(n + 2m)$</p>
+<p>为了计算出所有实际的修改，需要开一个 set 维护所有块、颜色数个 set 维护该颜色的块, $O((n + 2m) logn)$</p>
+<p><a href="https://loj.ac/s/1101667" target="_blank" rel="noopener">loj-Code</a></p>
+<p>cdq 的不想写了。。下次一定</p>
+<h3 id="未来日记"><a href="#未来日记" class="headerlink" title="未来日记"></a><a href="https://www.luogu.com.cn/problem/P4119" target="_blank" rel="noopener">未来日记</a></h3><p>因为这是 Ynoi，值域 $1e5$ 必有其用意。</p>
+<p>二分啊主席树的没法和分块有机结合。所以要序列分块套值域分块（</p>
+<p>$cnt1_{i, j}$ 表示序列前 $i$ 块在值域第 $j$ 块里出现的次数，$cnt2_{i, j}$ 表示序列前 $i$ 块第 $j$ 个数出现的次数。查询 $kth$ 就先扫值域块确定块，再挨个儿扫过去。</p>
+<p>修改呢？散块暴力。整块怎么做？</p>
+<p>注意到修改不会增加每块内的颜色种类。这超有用。</p>
+<p>块内 $x$、$y$ 同时有的就暴力改，颜色种类减少 $O(n)$ 次，总复杂度 $O(n\sqrt{n})$；否则并查集即可。</p>
+<p>这题唯一打标记的就是整块的并查集，而只要在散块重构的时候下推就好了。<del>所以还比较清真？我是超级受不了巨大多 tag 的题 /kk</del></p>
+<p>为了方便在下推的时候快速得到所有的真实颜色，还要记录每个根对应的真实颜色是什么。</p>
+<p>$id_{x, c}$ 表示块 $x$ 内颜色 $c$ 的根，$rid_{x, d}$ 表示块 $x$ 内根 $d$ 对应的颜色，$pos_i$ 记录第 $i$ 个位置上的颜色对应的根。把颜色 $y$ 的根指向颜色 $x$ 的根，并清空颜色 $x$ 的根即可。本质是个离散化。</p>
+<p><a href="https://www.luogu.com.cn/record/48714436" target="_blank" rel="noopener">$Code$</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Ynoi2011-竞赛实验班-loj517-计算几何瞎暴力"><span class="toc-number">1.</span> <span class="toc-text">$Ynoi2011-$竞赛实验班/$loj517-$计算几何瞎暴力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五彩斑斓的世界"><span class="toc-number">2.</span> <span class="toc-text">五彩斑斓的世界</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#镜中的昆虫"><span class="toc-number">3.</span> <span class="toc-text">镜中的昆虫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#未来日记"><span class="toc-number">4.</span> <span class="toc-text">未来日记</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/03/26/Ynoi 做题记录/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&text=Ynoi 做题记录"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&is_video=false&description=Ynoi 做题记录"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Ynoi 做题记录&body=Check out this article: http://yoursite.com/2021/03/26/Ynoi 做题记录/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&title=Ynoi 做题记录"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/03/26/Ynoi 做题记录/&name=Ynoi 做题记录&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

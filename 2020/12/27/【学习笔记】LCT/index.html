@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 access 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-08T06:14:22.201Z">
+<meta property="og:updated_time" content="2021-04-09T12:50:05.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】LCT">
 <meta name="twitter:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 access 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父">
@@ -73,10 +73,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/12/29/【学习笔记】斯特林数/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/26/【学习笔记】最大权闭合子图/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -170,6 +170,7 @@
 <p>一次 access $x$ 的操作在过程中只会遇到 $logn$ 个轻儿子，因此一次 access 操作的均摊复杂度为 $O(logn)$。</p>
 <h3 id="makeroot、link-cut"><a href="#makeroot、link-cut" class="headerlink" title="makeroot、link/cut"></a>makeroot、link/cut</h3><p>考虑过程中的轻重边变化量。</p>
 <p>「把根从 $x$ 换成 $y$ 」「切除 $x$ 的子树 $y$」「连接以 $x$ 为根和以 $y$ 为根的连通块」的时候改变的轻重边只会是 $x$ 到 $y$ 路径上的，而前后 $x$ 到 $y$ 路径上都只有 $logn$ 条轻边。$O(logn)$</p>
+<h2 id="LCT-维护子树信息"><a href="#LCT-维护子树信息" class="headerlink" title="LCT 维护子树信息"></a>LCT 维护子树信息</h2><p>到这才开始鬼畜起来，其实想清楚还是不难的……</p>
 
   </div>
 </article>
@@ -200,7 +201,7 @@
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -255,8 +256,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

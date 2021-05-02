@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-24T07:54:57.770Z">
+<meta property="og:updated_time" content="2021-03-24T23:39:19.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="九省联考2018 乱写">
 <meta name="twitter:description" content="传送门 按题解篇幅看就知道「秘密袭击」是「切树游戏」那样的神套路题了吧。（不过「切树游戏」毒瘤多了-_-|| $一双木棋$ 有「$pos_i \leq pos_{i - 1}$」的限制，直接状压轮廓状态数就是 $\binom{n + m - 1}{m - 1}$，不到 $10^5$。搜索解决 min-max 博弈。 $Code$ $IIIDX$ 我太菜了！直接贪心在 $d$ 有重复的时候是错的，比">
@@ -273,8 +273,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

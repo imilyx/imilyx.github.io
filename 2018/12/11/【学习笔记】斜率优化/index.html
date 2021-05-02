@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： f[i] = \min_{0 \leq j &amp;lt; i}\{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2\}其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci 之和。为什">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T11:04:22.351Z">
+<meta property="og:updated_time" content="2021-03-23T08:24:07.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】斜率优化">
 <meta name="twitter:description" content="如题，这是一篇初学斜率优化的总结。 我们可以以经典的 [HNOI2008]玩具装箱toy 一题来引入此概念。 首先，n^2 的 DP 方程十分好列： f[i] = \min_{0 \leq j &amp;lt; i}\{f[j] + (sum[i] - sum[j] + i - (j + 1) - L) ^ 2\}其中 f[i] 表示前 i 个物体的最小费用，sum[i] 表示前 i 个物体的 Ci 之和。为什">
@@ -244,8 +244,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

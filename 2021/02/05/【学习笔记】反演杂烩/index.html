@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-02-06T11:00:18.803Z">
+<meta property="og:updated_time" content="2021-04-13T02:36:48.983Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】反演杂烩">
 <meta name="twitter:description" content="若有 $g_n = \sum\limits_{i = 1}^n a_{n, i} f_i$, 并且 $f_n = \sum\limits_{i = 1}^n b_{n, i} g_i$，则称 $f$ 和 $g$ 可以反演。证明带就完事了。 经典套路是 dp 容斥系数。 二项式反演广义容斥。 「恰好」与「至多」： f_n = \sum\limits_{i = 0}^n \binom{n}{i} g_">
@@ -162,6 +162,17 @@
 <script type="math/tex; mode=display">\sum\limits_{i = 0}^{n / k} [x^{ik}] f(x)</script><script type="math/tex; mode=display">= \sum\limits_{i = 0}^n [k \mid i] [x^i] f(x)</script><script type="math/tex; mode=display">= \sum\limits_{i = 0}^n \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \omega_k^{ij} [x^i] f(x)</script><script type="math/tex; mode=display">= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} \sum\limits_{i = 0}^n a_i (\omega_k^j)^i</script><script type="math/tex; mode=display">= \frac{1}{k} \sum\limits_{j = 0}^{k - 1} f(\omega_{k}^j)</script><p>现推也非常方便！「提取项」一个道理，就现推一下吧，总是能把单位根搞成函数自变量的。</p>
 <p>习题：<a href="https://uoj.ac/problem/450" target="_blank" rel="noopener">复读机</a> <a href="http://imilyx.github.io/2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#%E5%A4%8D%E8%AF%BB%E6%9C%BA" target="_blank" rel="noopener">sol</a></p>
 <p><a href="http://loj.ac/p/6485" target="_blank" rel="noopener">LJJ 学二项式定理</a> <a href="http://imilyx.github.io/2021/02/28/%E3%80%90%E8%AE%A1%E5%88%92%E3%80%9121Feb%20%E5%AD%A6%E4%B9%A0%E8%AE%A1%E5%88%92/#LJJ-%E5%AD%A6%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86" target="_blank" rel="noopener">sol</a></p>
+<p><a href="https://loj.ac/p/6358" target="_blank" rel="noopener">前夕</a></p>
+<p>sol: 题意真是文字游戏。就是选若干个子集满足交集大小是 $k$ 的倍数的方案数。本题 $k = 4$。</p>
+<p>交集至少为 $k$ 的方案数为 $f(k) = \binom{n}{k} (2^{2^{n - k}} - 1)$，恰好为 $k$ 的方案数为 $g(k)$，可以二项式反演出来，但 1e7…… 你也没法 NTT 是吧，所以我们只能把 $f$ 带到 $g$ 里去啦：</p>
+<p>$ans = \sum\limits_{4 \mid k} g(k)$</p>
+<p>$= \frac{1}{4} \sum\limits_k \sum\limits_{i = 0}^3 \omega_4^{ki} g(k)$</p>
+<p>$= \frac{1}{4} \sum\limits_k \sum\limits_{i = 0}^3 \omega_4^{ki} \sum\limits_{j = k}^n \binom{j}{k} (-1)^{j - k} f(j)$</p>
+<p>$= \frac{1}{4} \sum\limits_{j = 0}^n (-1)^j f(j) \sum\limits_{i = 0}^3 \sum\limits_{k = 0}^j (-1)^k \binom{j}{k} \omega_4^{ki}$</p>
+<p>$= \frac{1}{4} \sum\limits_{j = 0}^n (-1)^j f(j) \sum\limits_{i = 0}^3 (-\omega_4^i + 1)^j$</p>
+<p>$O(nK)$</p>
+<p>题解里说的「构造容斥系数」也是实用 trick！</p>
+<p><a href="https://loj.ac/s/1115629" target="_blank" rel="noopener">$Code$</a></p>
 
   </div>
 </article>
@@ -247,8 +258,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
