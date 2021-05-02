@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 $Communication Network$感觉是个 pr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-27T08:45:04.813Z">
+<meta property="og:updated_time" content="2021-05-02T06:02:32.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数树 &amp; Communication Network">
 <meta name="twitter:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 $Communication Network$感觉是个 pr">
@@ -147,18 +147,22 @@
 <p>证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。</p>
 <h2 id="Communication-Network"><a href="#Communication-Network" class="headerlink" title="$Communication Network$"></a><a href="https://loj.ac/p/3399" target="_blank" rel="noopener">$Communication Network$</a></h2><p>感觉是个 prufer 大杂烩啊…… 设 $f(v)$ 表示 $|E1 \cap E2| = v$ 的方案数，连通块嘛，树形 dp？然后乘个 prufer？容斥？复杂度爆炸！</p>
 <p>试试我们的今日 trick。</p>
-<script type="math/tex; mode=display">ans = \sum\limits_{T_2} \sum\limits_{S \subseteq ( T_1 \cap T_2 )} \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} |T| 2^{|T|}</script><p>$g(S)$ 表示<strong>包含</strong> 边集 $S$ 的 $T_2$ 个数，$g(S) = n^{k - 2} \prod\limits_{i = 1}^k a_i$，其中 $k = n - |S|$</p>
+<p>$$ans = \sum\limits_{T_2} \sum\limits_{S \subseteq ( T_1 \cap T_2 )} \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} |T| 2^{|T|}$$</p>
+<p>$g(S)$ 表示<strong>包含</strong> 边集 $S$ 的 $T_2$ 个数，$g(S) = n^{k - 2} \prod\limits_{i = 1}^k a_i$，其中 $k = n - |S|$</p>
 <p>通过各种靠近二项式定理，可以推得：</p>
-<script type="math/tex; mode=display">ans = 2 \sum\limits_{S \subseteq T_1} |S| g(S) = \frac{2}{n^2} \sum\limits_{S \subseteq T_1} |S| \prod\limits_{i = 1}^{n - |S|} n a_i</script><p>$a_i$ 的组合意义是 $\binom{a_i}{1}$。$dp_{x, 0/1, 0/1}$ 表示 $x$ 子树，$x$ 所在连通块是否选了点、是否选了边，的贡献和。树形背包合并。</p>
+<p>$$ans = 2 \sum\limits_{S \subseteq T_1} |S| g(S) = \frac{2}{n^2} \sum\limits_{S \subseteq T_1} |S| \prod\limits_{i = 1}^{n - |S|} n a_i$$</p>
+<p>$a_i$ 的组合意义是 $\binom{a_i}{1}$。$dp_{x, 0/1, 0/1}$ 表示 $x$ 子树，$x$ 所在连通块是否选了点、是否选了边，的贡献和。树形背包合并。</p>
 <p><a href="https://loj.ac/s/1125813" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="WC2019-数树"><a href="#WC2019-数树" class="headerlink" title="$WC2019-$数树"></a><a href="https://loj.ac/p/2983" target="_blank" rel="noopener">$WC2019-$数树</a></h2><p>算是“网红”题目了？打卡！数树、数数、数鼠、鼠树…… /yun</p>
 <h3 id="op-0"><a href="#op-0" class="headerlink" title="$op = 0$"></a>$op = 0$</h3><p>设重边数为 $cnt$，$ans = col^{n - cnt}$</p>
 <h3 id="op-1"><a href="#op-1" class="headerlink" title="$op = 1$"></a>$op = 1$</h3><p>这个 subtask 和上一道简直一毛一样</p>
 <p>推出来 $ans = \sum\limits_{S \subseteq T_1} col^{n - |S|} (1 - col)^{|S|} g(S)$，$g(S)$ 表示包含边集 $S$ 的树个数</p>
-<script type="math/tex; mode=display">ans = \frac{(1 - col)^n}{n^2} \sum\limits_{S \subseteq T_1} \prod\limits_{i = 1}^k \frac{n col}{1 - col} a_i</script><p>考虑 $a_i$ 组合意义，$\binom{a_i}{1}$，于是可以 dp, $dp_{x, 0/1}$ 表示 $x$ 所在连通块有无选点</p>
+<p>$$ans = \frac{(1 - col)^n}{n^2} \sum\limits_{S \subseteq T_1} \prod\limits_{i = 1}^k \frac{n col}{1 - col} a_i$$</p>
+<p>考虑 $a_i$ 组合意义，$\binom{a_i}{1}$，于是可以 dp, $dp_{x, 0/1}$ 表示 $x$ 所在连通块有无选点</p>
 <h3 id="op-2"><a href="#op-2" class="headerlink" title="$op = 2$"></a>$op = 2$</h3><p>换汤不换药。</p>
 <p>因为 $T_1$ 也不确定了，每个块方案数还要算上树的形态方案数，即 $n^{n - 2}$，同时编号也有待分配，因此对 $g(S)$ 要魔改一发，最后：</p>
-<script type="math/tex; mode=display">ans = \frac{(1 - col)^n}{n^4} \sum\limits_S \prod\limits_{i = 1}^k \frac{n^2col}{1 - col} a_i^2 a_i^{a_i - 2} * \binom{n!}{a_1!, \cdots, a_k!}（分配编号）</script><p>ho~ 这下没法 dp 咯，转战生成函数。</p>
+<p>$$ans = \frac{(1 - col)^n}{n^4} \sum\limits_S \prod\limits_{i = 1}^k \frac{n^2col}{1 - col} a_i^2 a_i^{a_i - 2} * \binom{n}{a_1, \cdots, a_k}（分配编号）$$</p>
+<p>ho~ 这下没法 dp 咯，转战生成函数。</p>
 <p>考虑 EGF 和 exp 的组合意义，拼一下就好了。</p>
 <p>具体来说，设 EGF $F(x) = \sum\limits_{i \geq 1} \frac{n^2 col}{(1 - col) i!} i^i x^i$, $G(x) = e^{F(x)}$，$ans = \frac{(1 - col)^n n!}{n^4} [x^n] G(x)$</p>
 <p><del>有个靠谱的全家桶真好 qwq</del></p>
