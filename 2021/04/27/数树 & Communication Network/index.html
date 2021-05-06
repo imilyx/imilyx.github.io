@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 $Communication Network$感觉是个 pr">
+    <meta name="description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 似乎有道严格弱化版 $CF917D$。真的很弱。 $Comm">
 <meta name="keywords" content="生成函数">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数树 &amp; Communication Network">
 <meta property="og:url" content="http://yoursite.com/2021/04/27/数树 & Communication Network/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 $Communication Network$感觉是个 pr">
+<meta property="og:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 似乎有道严格弱化版 $CF917D$。真的很弱。 $Comm">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-02T06:02:32.806Z">
+<meta property="og:updated_time" content="2021-05-05T10:23:41.863Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数树 &amp; Communication Network">
-<meta name="twitter:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 $Communication Network$感觉是个 pr">
+<meta name="twitter:description" content="多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。 结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。 证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。 似乎有道严格弱化版 $CF917D$。真的很弱。 $Comm">
     
     
         
@@ -145,13 +145,14 @@
     <p>多久没有单独开篇了 = = 碰到两道 trick 类似的，来写写。</p>
 <p>结论：$f(S) = \sum\limits_{T \subseteq S} \sum\limits_{P \subseteq T} (-1)^{|T| - |P|} f(P)$。</p>
 <p>证明：规定 $0^0 = 1$，只有当 $P = S$ 当时候会被计算进 $f(S)$。</p>
+<p>似乎有道严格弱化版 <a href="https://www.luogu.com.cn/problem/CF917D" target="_blank" rel="noopener">$CF917D$</a>。真的很弱。</p>
 <h2 id="Communication-Network"><a href="#Communication-Network" class="headerlink" title="$Communication Network$"></a><a href="https://loj.ac/p/3399" target="_blank" rel="noopener">$Communication Network$</a></h2><p>感觉是个 prufer 大杂烩啊…… 设 $f(v)$ 表示 $|E1 \cap E2| = v$ 的方案数，连通块嘛，树形 dp？然后乘个 prufer？容斥？复杂度爆炸！</p>
 <p>试试我们的今日 trick。</p>
 <p>$$ans = \sum\limits_{T_2} \sum\limits_{S \subseteq ( T_1 \cap T_2 )} \sum\limits_{T \subseteq S} (-1)^{|S| - |T|} |T| 2^{|T|}$$</p>
 <p>$g(S)$ 表示<strong>包含</strong> 边集 $S$ 的 $T_2$ 个数，$g(S) = n^{k - 2} \prod\limits_{i = 1}^k a_i$，其中 $k = n - |S|$</p>
 <p>通过各种靠近二项式定理，可以推得：</p>
 <p>$$ans = 2 \sum\limits_{S \subseteq T_1} |S| g(S) = \frac{2}{n^2} \sum\limits_{S \subseteq T_1} |S| \prod\limits_{i = 1}^{n - |S|} n a_i$$</p>
-<p>$a_i$ 的组合意义是 $\binom{a_i}{1}$。$dp_{x, 0/1, 0/1}$ 表示 $x$ 子树，$x$ 所在连通块是否选了点、是否选了边，的贡献和。树形背包合并。</p>
+<p>$a_i$ 的组合意义是 $\binom{a_i}{1}$。于是采用 $CF917D$ 的 dp 方式：$dp_{x, 0/1, 0/1}$ 表示 $x$ 子树，$x$ 所在连通块是否选了点、是否选了边，的贡献和。树形背包合并。</p>
 <p><a href="https://loj.ac/s/1125813" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="WC2019-数树"><a href="#WC2019-数树" class="headerlink" title="$WC2019-$数树"></a><a href="https://loj.ac/p/2983" target="_blank" rel="noopener">$WC2019-$数树</a></h2><p>算是“网红”题目了？打卡！数树、数数、数鼠、鼠树…… /yun</p>
 <h3 id="op-0"><a href="#op-0" class="headerlink" title="$op = 0$"></a>$op = 0$</h3><p>设重边数为 $cnt$，$ans = col^{n - cnt}$</p>

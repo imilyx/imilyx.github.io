@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+    <meta name="description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
 <meta property="og:type" content="article">
 <meta property="og:title" content="300iq contest 2 vp 记录">
 <meta property="og:url" content="http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+<meta property="og:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-01T05:12:36.973Z">
+<meta property="og:updated_time" content="2021-05-06T03:37:45.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="300iq contest 2 vp 记录">
-<meta name="twitter:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$任意两项的异或值 $\geq x$ 每加入一个数，它和已有数的最小的异或值需要 $\geq x$ 在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。 把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上">
+<meta name="twitter:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
     
     
         
@@ -139,10 +139,13 @@
     <p><a href="https://codeforces.com/gym/102331" target="_blank" rel="noopener">Jump!</a></p>
 <h2 id="A"><a href="#A" class="headerlink" title="$A$"></a>$A$</h2><p>看完题目头皮发麻，这啥啊！</p>
 <p>咕了。</p>
-<h2 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h2><p>任意两项的异或值 $\geq x$</p>
-<p>每加入一个数，它和已有数的最小的异或值需要 $\geq x$</p>
-<p>在 trie 树上卡「当前数异或 $x$」的位置，分类讨论一下发现，和比它小的数异或结果一定大于 $x$，和比它大的数异或结果一定小于 $x$，所以正确性有保证。</p>
-<p>把以当前数为结尾的 dp 值存到 trie 树上。查询的时候就沿途方案数统计上。</p>
+<h2 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h2><p>结论：$c &lt; b &lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。</p>
+<p>设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$</p>
+<ul>
+<li>$a_i = 1$：$a \oplus c &gt; a \oplus b$ 显然；</li>
+<li>$a_i = 0$：则前面位必有位置 $j$ 满足 $a_j &gt; b_j = c_j$，而 $b \oplus c \geq x$ !!! $b$ 和 $c$ 从当前位异或为 $1$ 开始就 $\geq x$ 了你 $a$ 和 $c$ 在之前位异或为 $1$ 了当然 $\geq x$。</li>
+</ul>
+<p>有传递性就好做了。trie 上卡位即可。</p>
 <p><a href="https://codeforces.com/gym/102331/submission/114441081" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="C"><a href="#C" class="headerlink" title="$C$"></a>$C$</h2><p>将一条边也看作环，仙人掌就是许多环拼在一起。</p>
 <p>凭借 xza 模拟赛教育过你的 exp 知识，应该可以轻松 AC 此题（划掉）。</p>
@@ -202,6 +205,7 @@
 <p>大概是一只 $log$？</p>
 <p><a href="https://codeforces.com/gym/102331/submission/114641436" target="_blank" rel="noopener"><del>终于搞过去了嘤嘤嘤</del></a></p>
 <h2 id="K"><a href="#K" class="headerlink" title="$K$"></a>$K$</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">不可做题。</span><br><span class="line">打开题解。</span><br><span class="line">玄学暴力。</span><br><span class="line">关闭题解。</span><br><span class="line">仔细思考。</span><br><span class="line">——不会。</span><br></pre></td></tr></table></figure>
+
 <p>官解真是有够暴力 /px</p>
 <p>预处理可能存在非法串的位置和可能成为非法串的长度</p>
 <p>由于不能控制所有位置的字符，考虑容斥，钦定一些位置是这些非法串，剩下位置随便摆。方案数可以通过并查集把应当相同的位置并起来得到。</p>

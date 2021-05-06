@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="本文中所有字符串比大小都是以字典序为依据。 Lyndonlyndon 串lyndon 串 s 严格小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。 若 $a &amp;lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$ lyndon 分解定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2">
+<meta name="keywords" content="学习笔记,Lyndon分解,run">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【学习笔记】Lyndon &amp; run">
+<meta property="og:url" content="http://yoursite.com/2021/05/03/【学习笔记】Lyndon & Runs/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="本文中所有字符串比大小都是以字典序为依据。 Lyndonlyndon 串lyndon 串 s 严格小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。 若 $a &amp;lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$ lyndon 分解定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-05-04T05:20:49.039Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【学习笔记】Lyndon &amp; run">
+<meta name="twitter:description" content="本文中所有字符串比大小都是以字典序为依据。 Lyndonlyndon 串lyndon 串 s 严格小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。 若 $a &amp;lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$ lyndon 分解定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>【学习笔记】Lyndon &amp; run</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/05/05/四种树的计数/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/05/03/UR 做题记录/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&text=【学习笔记】Lyndon &amp; run"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&is_video=false&description=【学习笔记】Lyndon &amp; run"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Lyndon &amp; run&body=Check out this article: http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&name=【学习笔记】Lyndon &amp; run&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lyndon"><span class="toc-number">1.</span> <span class="toc-text">Lyndon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-串"><span class="toc-number">1.1.</span> <span class="toc-text">lyndon 串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-分解"><span class="toc-number">1.2.</span> <span class="toc-text">lyndon 分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-array"><span class="toc-number">1.3.</span> <span class="toc-text">lyndon array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于后缀"><span class="toc-number">1.4.</span> <span class="toc-text">关于后缀</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runs"><span class="toc-number">2.</span> <span class="toc-text">Runs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run"><span class="toc-number">2.1.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Runs-Theorem"><span class="toc-number">2.2.</span> <span class="toc-text">The Runs Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-的-lyndon-root"><span class="toc-number">2.3.</span> <span class="toc-text">Run 的 lyndon root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过-lyndon-root-求所有-runs"><span class="toc-number">2.4.</span> <span class="toc-text">通过 lyndon root 求所有 runs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WPL-Weak-Periodicity-Lemma"><span class="toc-number">2.5.</span> <span class="toc-text">WPL (Weak Periodicity Lemma)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-tree"><span class="toc-number">2.6.</span> <span class="toc-text">lyndon tree</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准划分"><span class="toc-number">2.6.1.</span> <span class="toc-text">标准划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lyndon-tree-1"><span class="toc-number">2.6.2.</span> <span class="toc-text">lyndon tree</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局限"><span class="toc-number">2.7.</span> <span class="toc-text">局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集训队作业2018-串串划分"><span class="toc-number">2.8.</span> <span class="toc-text">集训队作业2018-串串划分</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        【学习笔记】Lyndon &amp; run
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-05-03T08:12:40.000Z" itemprop="datePublished">2021-05-03</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/Lyndon分解/">Lyndon分解</a>, <a class="tag-link" href="/tags/run/">run</a>, <a class="tag-link" href="/tags/学习笔记/">学习笔记</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>本文中所有字符串比大小都是以字典序为依据。</p>
+<h2 id="Lyndon"><a href="#Lyndon" class="headerlink" title="Lyndon"></a><strong>Lyndon</strong></h2><h3 id="lyndon-串"><a href="#lyndon-串" class="headerlink" title="lyndon 串"></a>lyndon 串</h3><p>lyndon 串 s <strong>严格</strong>小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。</p>
+<p>若 $a &lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$</p>
+<h3 id="lyndon-分解"><a href="#lyndon-分解" class="headerlink" title="lyndon 分解"></a>lyndon 分解</h3><p>定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2 \cdots w_k$，所有 $w_i$ 都是 lyndon 串，且 $w_i$ 字典序单调不增或单调不减。</p>
+<p>$CFL(s)$ <strong>存在且唯一</strong>。</p>
+<p>如何构造 $CFL(s)$？方法还是挺多的。</p>
+<p>可以倒做，开个栈维护所有 lyndon 串，出现增时就合并，$O(n)$</p>
+<p>还有一种 $O(n)$ Duval 算法：<a href="https://oi-wiki.org/string/lyndon/#duval" target="_blank" rel="noopener">see oi-wiki!</a></p>
+<p><a href="https://loj.ac/s/1130822" target="_blank" rel="noopener">template(LOJ129)</a></p>
+<h3 id="lyndon-array"><a href="#lyndon-array" class="headerlink" title="lyndon array"></a>lyndon array</h3><p>$L_i = \max{j | s[i : j - 1] \in \mathcal{L}}$</p>
+<p>最长的 lyndon 子串不会相交，只会包含：$\forall i &lt; j &lt; L_i$, $L_j \leq L_i$</p>
+<h3 id="关于后缀"><a href="#关于后缀" class="headerlink" title="关于后缀"></a>关于后缀</h3><p>$s[i : L_i - 1] &lt; s[j : L_i - 1](i &lt; j &lt; L_i)$，所以 $suf(i) &lt; suf(j)$</p>
+<p>设 $NSV(i)$ 为第一个不满足 $suf(i) &lt; suf(j)$ 的 $j$。$s[i : NSV(i) - 1] \in \mathcal{L}$，因此 $L_i = NSV(i)$。</p>
+<h2 id="Runs"><a href="#Runs" class="headerlink" title="Runs"></a><strong>Runs</strong></h2><h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>run 是一个三元组 $(l, r, p)$，满足 $p$ 是 $s[l : r]$ 的最小周期，且 $2p \leq r - l + 1$ 且 $s_{l - 1} \neq s_{l - 1 + p}$, $s_{r + 1} \neq s_{r + 1 - p}$（两边不可拓展）</p>
+<p>实数 $\frac{r - l + 1}{p}$ 称为该 run 的指数。</p>
+<p>本质是对极长严格周期串（$2p \leq |s|$）按照它们的最小周期分类。</p>
+<h3 id="The-Runs-Theorem"><a href="#The-Runs-Theorem" class="headerlink" title="The Runs Theorem"></a>The Runs Theorem</h3><p>长度为 $n$ 的 run 个数 $&lt; n$，最大的指数和 $\leq 3n - 3$</p>
+<h3 id="Run-的-lyndon-root"><a href="#Run-的-lyndon-root" class="headerlink" title="Run 的 lyndon root"></a>Run 的 lyndon root</h3><p>一个 run $(l, r, p)$ 的 lyndon root 是 $s[l : r]$ 的一个长为 $p$ 的 lyndon 子串。</p>
+<p>每个 run 都有 lyndon root。</p>
+<h3 id="通过-lyndon-root-求所有-runs"><a href="#通过-lyndon-root-求所有-runs" class="headerlink" title="通过 lyndon root 求所有 runs"></a>通过 lyndon root 求所有 runs</h3><p>把串 lyndon 分解，枚举 $i$，一段 lyndon root 必然是 $s[i : L_i - 1]$ 的子串。二分 + 哈希找到包含 $s[i : L_i - 1]$ 的极长循环子串 $s[l : r]$，若满足 runs 定义则找到了一个 run，$s[l : r]$ 可能被统计多次，取周期最小的一次。</p>
+<p>对于 lyndon 分解两种情况（单调不增和单调不减）各求一遍 runs，并去重。</p>
+<p><a href="https://loj.ac/s/1130842" target="_blank" rel="noopener">template(LOJ173)，代码超清真</a></p>
+<h3 id="WPL-Weak-Periodicity-Lemma"><a href="#WPL-Weak-Periodicity-Lemma" class="headerlink" title="WPL (Weak Periodicity Lemma)"></a>WPL (Weak Periodicity Lemma)</h3><p>对于串 $s$，若 $p$ 和 $q$ 都是它的周期且 $p + q \leq |s|$ 则 $gcd(p, q)$ 也是 $s$ 的周期。</p>
+<h3 id="lyndon-tree"><a href="#lyndon-tree" class="headerlink" title="lyndon tree"></a>lyndon tree</h3><h4 id="标准划分"><a href="#标准划分" class="headerlink" title="标准划分"></a>标准划分</h4><p>定义 lyndon 串 $s$ $(|s| \geq 2)$ 的标准划分是一个有序对 $(u, v)$ 满足 $v$ 是 $s$ 字典序最小的严格后缀，且 $s = \overline{uv}$。</p>
+<h4 id="lyndon-tree-1"><a href="#lyndon-tree-1" class="headerlink" title="lyndon tree"></a>lyndon tree</h4><p>一棵二叉树，每个节点对应一个 lyndon 串，左右节点是自己的标准划分 $(u, v)$，根节点对应原串 $s$，叶节点对应串长为 $1$。</p>
+<p>性质：</p>
+<ol>
+<li>若 $s[i : j]$ 是 lyndon 串，那么 $\alpha = lca([i : j]) = [i_{\alpha}, j_{\alpha}]$，满足 $i = i_{\alpha} \leq j \leq j_{\alpha}$</li>
+<li>若 $s$ 是 $i$（$i &gt; 1$）开始的最长 lyndon 串，$\alpha$ 一定是个右儿子节点。（否则可以再拼上父亲的右儿子）</li>
+</ol>
+<h3 id="局限"><a href="#局限" class="headerlink" title="局限"></a>局限</h3><p>runs 无法表出非严格周期串。</p>
+<hr>
+<p>闲话：字符串怎么这么多 theorem 啊 lemma 的啊…… 好难</p>
+<hr>
+<h3 id="集训队作业2018-串串划分"><a href="#集训队作业2018-串串划分" class="headerlink" title="集训队作业2018-串串划分"></a><a href="https://uoj.ac/problem/429" target="_blank" rel="noopener">集训队作业2018-串串划分</a></h3><p>……好吧是因为这题才来学 Runs 的。</p>
+<p>两个限制没法一起做。</p>
+<p>让每个非法划分里的循环串变成他们最小循环节分割开来的结果，那么不满足 1 变成了不满足 2。</p>
+<p>考虑容斥，没有相同看作 $\sum_k (-1^k) * (至少有 k 个相同段的方案数)$</p>
+<p>根据这个有 dp：$dp_i$ 表示以 $i$ 结尾的前缀的划分方案数。$dp_i = \sum_j (-1)^{C(s[j + 1 : i]) - 1} dp_j$，其中 $C(s)$ 表示 $s$ 串的最小循环节循环的次数。</p>
+<p>$dp_i = \sum_j dp_j - 2 * \sum_j [ C(s[j + 1 : i]\ is\ even) ] dp_j$</p>
+<p>引入本原平方串的概念：串 $s$ 是本原平方串，当且仅当其最小正周期为 $s/2$。任何字符串的本原平方串个数是 $O(nlogn)$ 的。</p>
+<p>$C(s[j + 1 : i])$ 为偶数，当且仅当 $s[j + 1 : i]$ 由若干相同的本原平方串拼成。而一个本原平方串对应一个 runs。</p>
+<p>求出所有 runs。</p>
+<p>对于某个 runs $(l, r, p)$，$\forall i \in [l, l + 2p - 1]$, $s[i : i + 2p)$ 是本原平方串。</p>
+<p>对于起点 $i$，设置所有 $i + k * 2p$ 为二元组 $(i, p)$ 的关键点。</p>
+<p>对于每个二元组维护当前关键点 $f$ 之和。</p>
+<p>$O(nlogn)$。</p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Lyndon"><span class="toc-number">1.</span> <span class="toc-text">Lyndon</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-串"><span class="toc-number">1.1.</span> <span class="toc-text">lyndon 串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-分解"><span class="toc-number">1.2.</span> <span class="toc-text">lyndon 分解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-array"><span class="toc-number">1.3.</span> <span class="toc-text">lyndon array</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关于后缀"><span class="toc-number">1.4.</span> <span class="toc-text">关于后缀</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Runs"><span class="toc-number">2.</span> <span class="toc-text">Runs</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run"><span class="toc-number">2.1.</span> <span class="toc-text">Run</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-Runs-Theorem"><span class="toc-number">2.2.</span> <span class="toc-text">The Runs Theorem</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-的-lyndon-root"><span class="toc-number">2.3.</span> <span class="toc-text">Run 的 lyndon root</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#通过-lyndon-root-求所有-runs"><span class="toc-number">2.4.</span> <span class="toc-text">通过 lyndon root 求所有 runs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WPL-Weak-Periodicity-Lemma"><span class="toc-number">2.5.</span> <span class="toc-text">WPL (Weak Periodicity Lemma)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lyndon-tree"><span class="toc-number">2.6.</span> <span class="toc-text">lyndon tree</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#标准划分"><span class="toc-number">2.6.1.</span> <span class="toc-text">标准划分</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lyndon-tree-1"><span class="toc-number">2.6.2.</span> <span class="toc-text">lyndon tree</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#局限"><span class="toc-number">2.7.</span> <span class="toc-text">局限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#集训队作业2018-串串划分"><span class="toc-number">2.8.</span> <span class="toc-text">集训队作业2018-串串划分</span></a></li></ol></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&text=【学习笔记】Lyndon &amp; run"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&is_video=false&description=【学习笔记】Lyndon &amp; run"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】Lyndon &amp; run&body=Check out this article: http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&title=【学习笔记】Lyndon &amp; run"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/05/03/【学习笔记】Lyndon &amp; Runs/&name=【学习笔记】Lyndon &amp; run&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
