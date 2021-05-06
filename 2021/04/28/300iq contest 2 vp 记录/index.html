@@ -6,17 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
+    <meta name="description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \otimes b \geq x$, $b \otimes c \geq x$，那么 $a \otimes c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \otimes c &amp;gt; a \otim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="300iq contest 2 vp 记录">
 <meta property="og:url" content="http://yoursite.com/2021/04/28/300iq contest 2 vp 记录/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
+<meta property="og:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \otimes b \geq x$, $b \otimes c \geq x$，那么 $a \otimes c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \otimes c &amp;gt; a \otim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-06T03:37:45.630Z">
+<meta property="og:updated_time" content="2021-05-06T06:22:55.488Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="300iq contest 2 vp 记录">
-<meta name="twitter:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \oplus c &amp;gt; a \oplus b$">
+<meta name="twitter:description" content="Jump! $A$看完题目头皮发麻，这啥啊！ 咕了。 $B$结论：$c &amp;lt; b &amp;lt; a$, $a \otimes b \geq x$, $b \otimes c \geq x$，那么 $a \otimes c \geq x$。 设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$  $a_i = 1$：$a \otimes c &amp;gt; a \otim">
     
     
         
@@ -139,13 +139,13 @@
     <p><a href="https://codeforces.com/gym/102331" target="_blank" rel="noopener">Jump!</a></p>
 <h2 id="A"><a href="#A" class="headerlink" title="$A$"></a>$A$</h2><p>看完题目头皮发麻，这啥啊！</p>
 <p>咕了。</p>
-<h2 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h2><p>结论：$c &lt; b &lt; a$, $a \oplus b \geq x$, $b \oplus c \geq x$，那么 $a \oplus c \geq x$。</p>
+<h2 id="B"><a href="#B" class="headerlink" title="$B$"></a>$B$</h2><p>结论：$c &lt; b &lt; a$, $a \otimes b \geq x$, $b \otimes c \geq x$，那么 $a \otimes c \geq x$。</p>
 <p>设 $b$ 与 $c$ 不同在第 $i$ 位，$b_i = 1$, $c_i = 0$</p>
 <ul>
-<li>$a_i = 1$：$a \oplus c &gt; a \oplus b$ 显然；</li>
-<li>$a_i = 0$：则前面位必有位置 $j$ 满足 $a_j &gt; b_j = c_j$，而 $b \oplus c \geq x$ !!! $b$ 和 $c$ 从当前位异或为 $1$ 开始就 $\geq x$ 了你 $a$ 和 $c$ 在之前位异或为 $1$ 了当然 $\geq x$。</li>
+<li>$a_i = 1$：$a \otimes c &gt; a \otimes b$ 显然；</li>
+<li>$a_i = 0$：则前面位必有位置 $j$ 满足 $a_j &gt; b_j = c_j$，而 $b \otimes c \geq x$ !!! $b$ 和 $c$ 从当前位异或为 $1$ 开始就 $\geq x$ 了你 $a$ 和 $c$ 在之前位异或为 $1$ 了当然 $\geq x$。</li>
 </ul>
-<p>有传递性就好做了。trie 上卡位即可。</p>
+<p>有传递性就好做了。trie 上卡位。</p>
 <p><a href="https://codeforces.com/gym/102331/submission/114441081" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="C"><a href="#C" class="headerlink" title="$C$"></a>$C$</h2><p>将一条边也看作环，仙人掌就是许多环拼在一起。</p>
 <p>凭借 xza 模拟赛教育过你的 exp 知识，应该可以轻松 AC 此题（划掉）。</p>
@@ -181,11 +181,8 @@
 <p>否则对于每个极长连续段减去重复计算的方案，就，枚举一下左边刚取到 $l$ 时右边到 $[l, r]$ 中哪个位置了，以及右边刚取到 $r$ 时左边到 $[l, r]$ 中哪个位置了，减去多算的操作序列数即可。</p>
 <p><a href="https://codeforces.com/gym/102331/submission/114448841" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="H"><a href="#H" class="headerlink" title="$H$"></a>$H$</h2><p>差点读错题。是要求选 $k$ 个不相交子区间价值和的最大值。</p>
-<p>模拟费用流似乎没法搞。</p>
-<p>dp？一脸凸优化的样子。单次 $O((r - l + 1) * log)$</p>
-<p>考虑线段树优化 dp，预处理每个区间 dp 值形成的凸包。</p>
-<p>直接做三只 log。</p>
-<p>整体二分，将询问排序，有单调性了，指针就够了，两只 $log$。</p>
+<p>模拟费用流似乎没法搞。但是费用流告诉我们这是凸的。wqs 二分，单次 $O((r - l + 1) * log)$，线段树预处理每个区间凸包，就三只 log 了。</p>
+<p>注意到总区间长（重复算一次）不过 $nlogn$，整体二分，将询问排序，有单调性了，指针就够了，$nlognlogV$。</p>
 <p>——第三个点大概 $10000$ 到 $30000$ 之间吧，为什么疯狂 TLE 啊？</p>
 <p>——find 那里传了一整个 vector 进去……</p>
 <p>传指针形式的 vector，和传编号，都可以 AC。</p>
@@ -296,23 +293,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

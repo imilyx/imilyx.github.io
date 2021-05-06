@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）  拟阵 秩函数 基 &amp;amp; 环 拟阵在贪心的应用 对偶拟阵 拟阵交 最小最大定理 交换图 算法流程   带权拟阵交 扩展最小最大定理     习题  拟阵 定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-25T12:00:16.037Z">
+<meta property="og:updated_time" content="2021-05-06T07:22:40.853Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】拟阵">
 <meta name="twitter:description" content="超浅谈。证明挂不挂看心情（可以去看 18 年集训队论文《浅谈拟阵的一些拓展及其应用》）  拟阵 秩函数 基 &amp;amp; 环 拟阵在贪心的应用 对偶拟阵 拟阵交 最小最大定理 交换图 算法流程   带权拟阵交 扩展最小最大定理     习题  拟阵 定义拟阵 $M = (S, \mathcal{I})$，表示一个定义在有限集 $S$ 上，独立集的集合是 $\mathcal{I}$ 的拟阵，显然 $\">
@@ -168,13 +168,13 @@
 <p>这里独立集是抽象概念。</p>
 <p>拟阵的两条公理：</p>
 <ul>
-<li>遗传性：对于 $I \in \mathcal{I}$，$x \in I$，$I \setminus \{x\} \in \mathcal{I}$</li>
-<li>交换性：$I, J \in \mathcal{I}$，$|J| &gt; |I|$，存在 $x \in J \setminus I$ 满足 $I \cup \{x\} \in \mathcal{I}$</li>
+<li>遗传性：对于 $I \in \mathcal{I}$，$x \in I$，$I \setminus {x} \in \mathcal{I}$</li>
+<li>交换性：$I, J \in \mathcal{I}$，$|J| &gt; |I|$，存在 $x \in J \setminus I$ 满足 $I \cup {x} \in \mathcal{I}$</li>
 </ul>
 <p>任何组合优化问题（某种最优化问题）如果满足这两条公理，就具有拟阵结构，所有拟阵的定理在这个组合优化问题上成立。比如以下三种：</p>
 <ol>
-<li>均匀拟阵：拟阵 $M_n^k = (S, \mathcal{I})$，其中 $|S| = n$，$\mathcal{I} = \{I \subseteq S : |I| \leq k\}$。显然满足遗传性和交换性。简单但有用的一个东西，可以把长相清真的限制拿来凑拟阵，做拟阵交。</li>
-<li>图拟阵：<strong>仅对无向图成立</strong>。无向图 $G = (V, E)$，图拟阵 $M = (E, \mathcal{I})$，$\mathcal{I} = \{F \subseteq E: F 无环\}$，即，独立集是生成森林。</li>
+<li>均匀拟阵：拟阵 $M_n^k = (S, \mathcal{I})$，其中 $|S| = n$，$\mathcal{I} = {I \subseteq S : |I| \leq k}$。显然满足遗传性和交换性。简单但有用的一个东西，可以把长相清真的限制拿来凑拟阵，做拟阵交。</li>
+<li>图拟阵：<strong>仅对无向图成立</strong>。无向图 $G = (V, E)$，图拟阵 $M = (E, \mathcal{I})$，$\mathcal{I} = {F \subseteq E: F 无环}$，即，独立集是生成森林。</li>
 <li>匹配拟阵：$G = (V, E)$，匹配拟阵 $M = (V, \mathcal{I})$，$\forall \mathcal{I}, 存在匹配覆盖 \mathcal{I} 中所有点$。二分图匹配问题是个拟阵。</li>
 </ol>
 <p><strong><h3 id="2">秩函数</h3></strong></p>
@@ -183,27 +183,27 @@
 <p><strong><h3 id="3">基 &amp; 环</h3></strong></p>
 <ul>
 <li>基：极大独立集。加任何一个元素都会变成非独立集。同个拟阵的所有基，大小相同。<ul>
-<li>基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - \{x\} + \{y\} \in \mathcal{I}$</li>
-<li>强基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - \{x\} + \{y\}$ 和 $B - \{y\} + \{x\}$ 都是拟阵的基。</li>
+<li>基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - {x} + {y} \in \mathcal{I}$</li>
+<li>强基交换定理：对于两个基 $A$、$B$，$A \neq B$，对于任意一个 $x \in A \setminus B$，都存在 $y \in B \setminus A$，满足 $A - {x} + {y}$ 和 $B - {y} + {x}$ 都是拟阵的基。</li>
 </ul>
 </li>
 <li>环：极小非独立集。减任何一个元素都会变成独立集。</li>
 </ul>
 <p><strong><h3 id="4">拟阵在贪心的应用</h3></strong></p>
-<p>将<strong>元素</strong>按照权值 $\omega$ 降序排列，维护答案集合 $I$，初始 $I = \emptyset$，顺次考虑每个元素 $x_i$，若 $I \cup \{x_i\} \in \mathcal{I}$ 则加入 $x_i$。</p>
+<p>将<strong>元素</strong>按照权值 $\omega$ 降序排列，维护答案集合 $I$，初始 $I = \emptyset$，顺次考虑每个元素 $x_i$，若 $I \cup {x_i} \in \mathcal{I}$ 则加入 $x_i$。</p>
 <p>正确性证明：</p>
 <ul>
 <li>$I$ 是拟阵的一个基：归纳证明，记 $I_i$ 表示在 $i$ 处的 $I$ 版本。若 $I_i$ 是个基，则讨论 $I_{i + 1}$：<ul>
 <li>若 $r(I_{i + 1}) = r(I_i)$，仍是基。</li>
-<li>若 $r(I_{i + 1}) &gt; r(I_i)$，若 $I_i \cup \{x_{i + 1}\}$ 是独立集则仍是基，否则新并进去的元素 $\in I_i$，说明 $I_i$ 不是基，矛盾。</li>
+<li>若 $r(I_{i + 1}) &gt; r(I_i)$，若 $I_i \cup {x_{i + 1}}$ 是独立集则仍是基，否则新并进去的元素 $\in I_i$，说明 $I_i$ 不是基，矛盾。</li>
 </ul>
 </li>
-<li>最优性：考虑反证，若与最优解不同的选择第一次出现在 $x_i$，最优解选择了 $x_i’$，那么 $\omega(x_i) &gt; \omega(x_i’)$，$x_i &lt; i’$，那么必然存在另一对不同选择 $x_j’$ 和 $x_j$ 满足 $x_j’ &lt; x_j$。根据基交换定理，$I - \{x_j’\} + \{x_j\} \in \mathcal{I}$，贪心算法一定会先选择 $x_j’$ 的。</li>
+<li>最优性：考虑反证，若与最优解不同的选择第一次出现在 $x_i$，最优解选择了 $x_i’$，那么 $\omega(x_i) &gt; \omega(x_i’)$，$x_i &lt; i’$，那么必然存在另一对不同选择 $x_j’$ 和 $x_j$ 满足 $x_j’ &lt; x_j$。根据基交换定理，$I - {x_j’} + {x_j} \in \mathcal{I}$，贪心算法一定会先选择 $x_j’$ 的。</li>
 </ul>
-<p>嘿嘿，还是现实的问题有意思<del>㗅着爽</del>。MST、二分图最大匹配都是拟阵上的最优化问题，可以用拟阵说明他们的正确性。</p>
+<p>嘿嘿，还是现实的问题有意思<del>㗅着爽</del>。MST、二分图最大匹配都是拟阵上的最优化问题，可以用拟阵说明他们的正确性。（就好比可以用费用流说明凸性）</p>
 <p><strong><h3 id="k">对偶拟阵</h3></strong></p>
 <p>算是补充定义？做题会用到，但和拟阵交没什么关系。</p>
-<p>定义：拟阵 $M = (S, \mathcal{I})$ 的对偶拟阵 $M^<em> = (S, \mathcal{I^</em>})$，$\mathcal{I^*} = \{I: 存在 M 中的基 B \subseteq S \setminus I\}$，即从 $S$ 中删掉 $I$ 后还存在基。</p>
+<p>定义：拟阵 $M = (S, \mathcal{I})$ 的对偶拟阵 $M^* = (S, \mathcal{I^*})$，$\mathcal{I^*} = {I: 存在 M 中的基 B \subseteq S \setminus I}$，即从 $S$ 中删掉 $I$ 后还存在基。</p>
 <p>对偶拟阵的秩函数 $r’(U)$ 的意义也很显然了，公式化讲得更清楚：$r’(U) = \max\limits_{I \subseteq U, I \in \mathcal{I^*}} |I|$</p>
 <p>推下去，$r^*(U) = |U| - r(S) + r(S \setminus U)$。</p>
 <p>一个拟阵对偶两次又回来了。这可以从秩函数看出：$r(S \setminus U) \rightarrow r^*(U) \rightarrow r(S \setminus U)$</p>
@@ -217,18 +217,18 @@
 <p><strong><h3 id="6">交换图</h3></strong></p>
 <p>定义：给定两个拟阵 $M_1$, $M_2$，和一个集合 $I \in \mathcal{I_1} \cap \mathcal{I_2}$，定义关于 $I$ 的交换图 $D_{M_1, M_2}(I)$ 是如下的二分图：两部分点集由 $I$ 和 $S \setminus I$ 组成。</p>
 <ul>
-<li>一条从 $y \in I$ 指向 $x \in S \setminus I$ 的边存在，当且仅当 $I - \{y\} + \{x\} \in \mathcal{I_1}$。</li>
-<li>一条从 $x \in S \setminus I$ 指向 $y \in I$ 的边存在，当且仅当 $I - \{y\} + \{x\} \in \mathcal{I_2}$。</li>
+<li>一条从 $y \in I$ 指向 $x \in S \setminus I$ 的边存在，当且仅当 $I - {y} + {x} \in \mathcal{I_1}$。</li>
+<li>一条从 $x \in S \setminus I$ 指向 $y \in I$ 的边存在，当且仅当 $I - {y} + {x} \in \mathcal{I_2}$。</li>
 </ul>
 <p><strong><h3 id="5">算法流程</h3></strong></p>
 <ol>
-<li>令 $X_1 = \{x \in S \setminus I | I \cup \{x\} \in \mathcal{I_1} \}$, $X_2 = \{x \in S \setminus I | I \cup \{x\} \in \mathcal{I_2} \}$。</li>
+<li>令 $X_1 = {x \in S \setminus I | I \cup {x} \in \mathcal{I_1} }$, $X_2 = {x \in S \setminus I | I \cup {x} \in \mathcal{I_2} }$。</li>
 <li><strong>增广</strong>，每次找一条 $X_1$ 到 $X_2$ 的最短路 $P$，令 $I$ 变为 $I \Delta P$（$\Delta$ 为对称差）。每次增广会扩张恰好 $1$ 个元素（显然，类比二分图增广过程）。</li>
 <li>重复增广直到找不到 $X_1$ 到 $X_2$ 的路径。</li>
 </ol>
 <p>算法运行结束后，$|I| = r_1(U) + r_2(S \setminus U)$。</p>
 <p>关于时间复杂度，令 $r = \max(r_1(S), r_2(S))$，$n = |S|$，图有 $n$ 个点、$rn$ 条边，找最短路单次 $O(n + m)$，增广次数不超过 $r$（每次增广 $|I|$ 至少增加 $1$），总复杂度 $O(r^2n)$。</p>
-<p>实现时，设源汇点 $s$、$t$，若 $x \notin I$ 满足 $I + \{x\} \in I_1$，就连边 $s \rightarrow x$，若 $I + \{x\} \in I_2$ 就连边 $x \rightarrow t$。</p>
+<p>实现时，设源汇点 $s$、$t$，若 $x \notin I$ 满足 $I + {x} \in I_1$，就连边 $s \rightarrow x$，若 $I + {x} \in I_2$ 就连边 $x \rightarrow t$。</p>
 <p><strong><h3 id="9">带权拟阵交</h3></strong></p>
 <p>带权了。令点权为 $w(x)$。</p>
 <p><strong><h3 id="10">扩展最小最大定理</h3></strong></p>
@@ -348,23 +348,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
