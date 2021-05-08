@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="UR 6 UR 7 UR 14 UR 17 UR 19 UR 20  $UR$ $6$智商锁点数不超过 $100$ 的无向图，满足生成树个数模意义下为 $k$ 看那个数据范围！$k$ 非常诡异！ 考虑构造一些图然后拿链把它们串起来使得方案数为它们各自的相乘，恰好为 $k$（很自然的想法） ……然后怎么做啊（虚弱） 膜题解 绝了！随机化 + 概率分析 + 数感！全是我不会的东西！！！ 考虑生成 $">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-06T05:51:03.185Z">
+<meta property="og:updated_time" content="2021-05-08T01:32:08.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UR 做题记录">
 <meta name="twitter:description" content="UR 6 UR 7 UR 14 UR 17 UR 19 UR 20  $UR$ $6$智商锁点数不超过 $100$ 的无向图，满足生成树个数模意义下为 $k$ 看那个数据范围！$k$ 非常诡异！ 考虑构造一些图然后拿链把它们串起来使得方案数为它们各自的相乘，恰好为 $k$（很自然的想法） ……然后怎么做啊（虚弱） 膜题解 绝了！随机化 + 概率分析 + 数感！全是我不会的东西！！！ 考虑生成 $">
@@ -174,6 +174,7 @@
 <p>这样对于 $v$ 就只要考虑 $md[u, v] \geq dep[v]$ 的 $u$ 作为上一个关键点，并且 $md[u, v]$ 对应的叶子出现在 $u$ 这个节点的延伸子树里。</p>
 <p>若 $v$ 有俩祖先都可以作为关键点，那必然是两者一起成为关键点最不劣。因此要求最深的 $u$ 满足 $md[u, v] \geq dep[v]$，设为 $fr[v]$</p>
 <p>考虑长剖，从下往上做，维护还未找到 $fr$ 的点的链表，每次合并俩子树的链表，长儿子所在的子树一定不为空，而另一子树一定空，因此复杂度 $O(n)$。</p>
+<p><a href="https://uoj.ac/submission/474445" target="_blank" rel="noopener">$Code$</a></p>
 <h2 id="UR-14"><a href="#UR-14" class="headerlink" title="$UR$ $14$"></a><span id="14">$UR$ $14$</span></h2><p><a href="https://uoj.ac/contest/28" target="_blank" rel="noopener">Jump!</a></p>
 <h3 id="最强跳蚤"><a href="#最强跳蚤" class="headerlink" title="最强跳蚤"></a>最强跳蚤</h3><p>我们只关注每种质因子能否抵消干净，这个用 bitset 大材小用了，只要给每个质因子分配一个 $[0, 2^64]$ 的权值即可。不出错的概率是 $(1 - \frac{1}{2^{64}})^{\binom{100000}{2}} \approx 0.99999999973$</p>
 <p>惨遭 Extra Test 卡常，一通 registeR$ int、inline 后艹过去了……</p>
@@ -183,7 +184,7 @@
 <p>给这个 $2$ 赋予实际意义：基环树上点黑白染色的方案数，其中叶子只能染白。</p>
 <p>设 $h(s)$ 表示点集 $s$ 构成的基环树个数。</p>
 <p>枚举染成了黑色的不合法点集合 $t$，容斥：</p>
-<p>$ans_s = \sum_{t \subset s} (-1)^{|t|} 2^{|s - t|} * h[s - t] * [t 向 s - t 中的点连边的方案数]$</p>
+<p>$ans_s = \sum_{t \subset s} (-1)^{|t|} 2^{|s - t|} <em> h[s - t] </em> [t 向 s - t 中的点连边的方案数]$</p>
 <p>考虑 $h(s)$ 怎么求？仅有一个环很好求，叶子数 $\geq 1$ 的方案数就状压 + 容斥求。</p>
 <p><a href="https://uoj.ac/submission/469705" target="_blank" rel="noopener">$Code$</a></p>
 <h3 id="思考熊"><a href="#思考熊" class="headerlink" title="思考熊"></a>思考熊</h3><p>题意：插入、删除点，询问点 $x$ 到一个区间的点的最大距离，要求强制在线。</p>
@@ -214,8 +215,8 @@
 <h2 id="UR-17"><a href="#UR-17" class="headerlink" title="$UR$ $17$"></a><span id="17">$UR$ $17$</span></h2><p><a href="https://uoj.ac/contest/43" target="_blank" rel="noopener">Jump!</a></p>
 <h4 id="T1"><a href="#T1" class="headerlink" title="$T1$"></a>$T1$</h4><p>题目看错了！是前缀 and！</p>
 <p>显然最终一定是链，挂在链的最下方肯定比挂在之前的某个节点下优。</p>
-<p>$f_S = \min( f_{S &amp; a_i} + (S &amp; a_i) )$</p>
-<p>然而每次减少正整数个位，而且一个 $a_i$ 不会被 $&amp;$ 两次，想到枚举子集，预处理哪些子集可以被减掉。虽然也很爆炸但总比 $O(nA)$ 好。</p>
+<p>$f_S = \min( f_{S \&amp; a_i} + (S \&amp; a_i) )$</p>
+<p>然而每次减少正整数个位，而且一个 $a_i$ 不会被 $\&amp;$ 两次，想到枚举子集，预处理哪些子集可以被减掉。虽然也很爆炸但总比 $O(nA)$ 好。</p>
 <p>要剪枝！就nm滑稽！</p>
 <p><a href="https://uoj.ac/submission/465235" target="_blank" rel="noopener">$Code$</a></p>
 <h4 id="T2"><a href="#T2" class="headerlink" title="$T2$"></a>$T2$</h4><p>二分。怎么判定？</p>
@@ -229,20 +230,17 @@
 </ol>
 <p><a href="https://uoj.ac/submission/465324" target="_blank" rel="noopener">$Code$</a></p>
 <h4 id="T3"><a href="#T3" class="headerlink" title="$T3$"></a>$T3$</h4><p>完全不会啦……</p>
-<p>$$ans = \int_0^2 Pr[\lambda = x]x dx = 2 - \int_0^2 Pr[\lambda \leq x] dx$$</p>
-<p>考虑如何求 $Pr[\lambda \leq x]$。设 $g(s, x, t)$ 表示点集 $s$ 点权最大值 $\leq x$，$\max(点权最大值，边权最大值) \leq t$ 的概率。</p>
+<script type="math/tex; mode=display">ans = \int_0^2 Pr[\lambda = x]x dx = 2 - \int_0^2 Pr[\lambda \leq x] dx</script><p>考虑如何求 $Pr[\lambda \leq x]$。设 $g(s, x, t)$ 表示点集 $s$ 点权最大值 $\leq x$，$\max(点权最大值，边权最大值) \leq t$ 的概率。</p>
 <ul>
 <li>若点权都 $\leq \frac{t}{2}$ 则概率就是 $(\frac{t}{2})^{|s|}$</li>
 <li>否则最大点权 $&gt; \frac{t}{2}$，考虑扣掉最大点权的点和与它直接相连的点集，不会和剩下的点矛盾。（为什么？）</li>
 </ul>
-<p>$$g(s, x, t) = (\frac{t}{2})^{|s|} + \sum\limits_{i \in s} \int_{\frac{t}{2}}^x g(s’, y, t) (t - y)^{|s| - |s’| - 1} dy$$</p>
-<p>$s’$ 表示从 $s$ 中扣掉「最大点权的点和与它直接相连的点集」后的集合。</p>
+<script type="math/tex; mode=display">g(s, x, t) = (\frac{t}{2})^{|s|} + \sum\limits_{i \in s} \int_{\frac{t}{2}}^x g(s', y, t) (t - y)^{|s| - |s'| - 1} dy</script><p>$s’$ 表示从 $s$ 中扣掉「最大点权的点和与它直接相连的点集」后的集合。</p>
 <p>$g(s, x, t)$ 其实是个关于 $x$ 和 $t$ 的二元生成函数。那怎么求啊？？</p>
 <p>我们发现每一项 $x^i t^j$ 都满足 $i + j = |s|$（积分后项数加一），那么把 $x$ 当作主变量就好啦（就是把 $t^k$ 看作 $x^{n - k}$）。</p>
 <p>上面那个柿子，$\int$ 有下界，怎么办？$t$ 被视为常数啦，所以 $y \leq \frac{t}{2}$ 的贡献就从常数项里减掉。</p>
 <p>最终答案里 $x$ 只要不超过 $t$ 即可，因此：</p>
-<p>$$ans = 2 - \int_0^2 g(all, min(1, t), t) dt = 2 - \int_0^1 g(all, t, t) dt - \int_1^2 g(all, 1, t) dt$$</p>
-<p>这时把 $t$ 当成主变量，那么把形式幂级数 reverse 一下就可以了~</p>
+<script type="math/tex; mode=display">ans = 2 - \int_0^2 g(all, min(1, t), t) dt = 2 - \int_0^1 g(all, t, t) dt - \int_1^2 g(all, 1, t) dt</script><p>这时把 $t$ 当成主变量，那么把形式幂级数 reverse 一下就可以了~</p>
 <p><del>xml 弱弱问道：怎么算微积分……</del></p>
 <p><del>$\mathscr{Naive}$！求导 + 积分啊</del></p>
 <p>实现细节：不同连通块分别做然后乘起来，可以大大减小状态数。</p>
@@ -264,8 +262,7 @@
 <p>相当于现在要求 $b(n - 1) + a$ 项中最后一项给 $1$ 舱的概率（忽视操作乘给概率的贡献为 $1$）</p>
 <p>设 $n - 1$ 个非 $1$ 舱到 $b$ 的时间分别为 $t_1, \cdots, t_{n - 1}$</p>
 <p>概率 = 方案数 / 总数：</p>
-<p>$$P = \frac{ \prod\limits_{i = 1}^{n - 1} \binom{t_i - 1 - (i - 1)b}{b - 1} }{ \prod\limits_{i = 1}^{n - 1} (n - i + 1)^{t_i - t_{i - 1}} }$$</p>
-<p>根据上柿 dp, dp 当然要一步步来啦，每步都乘分母那玩意，换阶段了乘分子那玩意，$dp_{i, j}$ 表示到 $i$ 时间，有 $j$ 种非 $1$ 舱到 $b$ 了，$O(n^3)$。</p>
+<script type="math/tex; mode=display">P = \frac{ \prod\limits_{i = 1}^{n - 1} \binom{t_i - 1 - (i - 1)b}{b - 1} }{ \prod\limits_{i = 1}^{n - 1} (n - i + 1)^{t_i - t_{i - 1}} }</script><p>根据上柿 dp, dp 当然要一步步来啦，每步都乘分母那玩意，换阶段了乘分子那玩意，$dp_{i, j}$ 表示到 $i$ 时间，有 $j$ 种非 $1$ 舱到 $b$ 了，$O(n^3)$。</p>
 <p><a href="https://uoj.ac/submission/467148" target="_blank" rel="noopener">$Code$</a></p>
 <p>生成函数也能做到 $O(n^3)$，口胡一波？</p>
 <p>设 $F(x) = \sum\limits_{i = 0}^{b - 1} \frac{x^i}{i!}$，</p>
@@ -287,7 +284,7 @@
 </ol>
 <p>（智障问题++）</p>
 <p><a href="https://uoj.ac/submission/467205" target="_blank" rel="noopener">$Code$</a></p>
-<h2 id="UR-20"><a href="#UR-20" class="headerlink" title="$UR$ $20$"></a><span id="20">$UR$ $20$</span></h2><p>切了签到题，上分了 <em>QAQ</em></p>
+<h2 id="UR-20"><a href="#UR-20" class="headerlink" title="$UR$ $20$"></a><span id="20">$UR$ $20$</span></h2><p>切了签到题，上分了 _QAQ_</p>
 <h3 id="跳蚤电话"><a href="#跳蚤电话" class="headerlink" title="跳蚤电话"></a>跳蚤电话</h3><p>方案合法的充要条件是新加点和任意已选点的 LCA 都已选，我们将其称为「和谐」。直接做不好搞，考虑 dp——类似分治思想，只要保证 $x$ 的每个子树都和谐，dp 的时候再维护一下就能让 $x$ 的子树和谐了。</p>
 <p>怎么维护？具体来说有两种情况：</p>
 <ol>
@@ -306,8 +303,8 @@
 <li>充分性显然。</li>
 <li>必要性：反证，假设存在两个长度为 $n - k + 1$ 的串相同。考虑长度为 $len$ 的不同子串数量，首先 $len \leq n - k + 1$，其次「长度为 $len$ 的不同子串数量」$\leq n - len + 1 - (n - k + 1 - len + 1) = k - 1$（一个小放缩？），即 $max &lt; k$，矛盾。</li>
 </ul>
-<p>我们要求的是最长反链，即 $k_{max}$。$(n - k + 1)<em>{min} = \max\limits</em>{1 \leq i &lt; j \leq |S|}( lcp(S[i, ], S[j, ]) ) + 1$，那么 $k_{max} = |S| - \max\limits_{1 \leq i &lt; j \leq |S|}( lcp(S[i, ], S[j, ]) )$，用 SAM 或 SA 即可计算单组询问，$O(nQ)$。</p>
-<p>要优化就只有离线或者 LCT 了。我选择离线 <em>QAQ</em></p>
+<p>我们要求的是最长反链，即 $k_{max}$。$(n - k + 1)_{min} = \max\limits_{1 \leq i &lt; j \leq |S|}( lcp(S[i, ], S[j, ]) ) + 1$，那么 $k_{max} = |S| - \max\limits_{1 \leq i &lt; j \leq |S|}( lcp(S[i, ], S[j, ]) )$，用 SAM 或 SA 即可计算单组询问，$O(nQ)$。</p>
+<p>要优化就只有离线或者 LCT 了。我选择离线 _QAQ_</p>
 <p>后缀树上启发式合并 endpos 集合，每次合并两个子树的时候把合法对提取出来，最后来个二维数点。提取合法对是 hhz 讲过的套路，由于任意不同子树的对在合并时的贡献都是合并点的 $len$，我们只要挨最近的对，每次是 $O(size_{min})$ 对，总共就是 $O(nlogn)$ 对。</p>
 <p>坑点：4 1 caca 1 3 这样的数据告诉你要考虑「第二个串截一半」的情况。</p>
 <p>不需要考虑「第一个串截一半」的情况，因为那样意味着更短的 lcp，归其他对管。</p>
@@ -409,8 +406,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->

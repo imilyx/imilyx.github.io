@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="本文中所有字符串比大小都是以字典序为依据。 Lyndonlyndon 串lyndon 串 s 严格小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。 若 $a &amp;lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$ lyndon 分解定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-05-04T05:20:49.039Z">
+<meta property="og:updated_time" content="2021-05-07T07:03:55.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】Lyndon &amp; run">
 <meta name="twitter:description" content="本文中所有字符串比大小都是以字典序为依据。 Lyndonlyndon 串lyndon 串 s 严格小于 s 所有后缀。设 $\mathcal{L}$ 表示所有 lyndon 串的集合。 若 $a &amp;lt; b \in \mathcal{L}$，则 $ab \in \mathcal{L}$ lyndon 分解定义 $CFL(s)$ 是一个关于 $s$ 的划分，其将 $s$ 划分为 $w_1 w_2">
@@ -151,9 +151,9 @@
 <p>可以倒做，开个栈维护所有 lyndon 串，出现增时就合并，$O(n)$</p>
 <p>还有一种 $O(n)$ Duval 算法：<a href="https://oi-wiki.org/string/lyndon/#duval" target="_blank" rel="noopener">see oi-wiki!</a></p>
 <p><a href="https://loj.ac/s/1130822" target="_blank" rel="noopener">template(LOJ129)</a></p>
-<h3 id="lyndon-array"><a href="#lyndon-array" class="headerlink" title="lyndon array"></a>lyndon array</h3><p>$L_i = \max{j | s[i : j - 1] \in \mathcal{L}}$</p>
+<h3 id="lyndon-array"><a href="#lyndon-array" class="headerlink" title="lyndon array"></a>lyndon array</h3><p>$L_i = \max\{j | s[i : j - 1] \in \mathcal{L}\}$</p>
 <p>最长的 lyndon 子串不会相交，只会包含：$\forall i &lt; j &lt; L_i$, $L_j \leq L_i$</p>
-<h3 id="关于后缀"><a href="#关于后缀" class="headerlink" title="关于后缀"></a>关于后缀</h3><p>$s[i : L_i - 1] &lt; s[j : L_i - 1](i &lt; j &lt; L_i)$，所以 $suf(i) &lt; suf(j)$</p>
+<h3 id="关于后缀"><a href="#关于后缀" class="headerlink" title="关于后缀"></a>关于后缀</h3><p>$s[i : L_i - 1] &lt; s<a href="i &lt; j &lt; L_i">j : L_i - 1</a>$，所以 $suf(i) &lt; suf(j)$</p>
 <p>设 $NSV(i)$ 为第一个不满足 $suf(i) &lt; suf(j)$ 的 $j$。$s[i : NSV(i) - 1] \in \mathcal{L}$，因此 $L_i = NSV(i)$。</p>
 <h2 id="Runs"><a href="#Runs" class="headerlink" title="Runs"></a><strong>Runs</strong></h2><h3 id="Run"><a href="#Run" class="headerlink" title="Run"></a>Run</h3><p>run 是一个三元组 $(l, r, p)$，满足 $p$ 是 $s[l : r]$ 的最小周期，且 $2p \leq r - l + 1$ 且 $s_{l - 1} \neq s_{l - 1 + p}$, $s_{r + 1} \neq s_{r + 1 - p}$（两边不可拓展）</p>
 <p>实数 $\frac{r - l + 1}{p}$ 称为该 run 的指数。</p>
@@ -181,7 +181,7 @@
 <p>让每个非法划分里的循环串变成他们最小循环节分割开来的结果，那么不满足 1 变成了不满足 2。</p>
 <p>考虑容斥，没有相同看作 $\sum_k (-1^k) * (至少有 k 个相同段的方案数)$</p>
 <p>根据这个有 dp：$dp_i$ 表示以 $i$ 结尾的前缀的划分方案数。$dp_i = \sum_j (-1)^{C(s[j + 1 : i]) - 1} dp_j$，其中 $C(s)$ 表示 $s$ 串的最小循环节循环的次数。</p>
-<p>$dp_i = \sum_j dp_j - 2 * \sum_j [ C(s[j + 1 : i]\ is\ even) ] dp_j$</p>
+<p>$dp_i = \sum_j dp_j - 2 * \sum_j [ C(s[j + 1 : i] is even) ] dp_j$</p>
 <p>引入本原平方串的概念：串 $s$ 是本原平方串，当且仅当其最小正周期为 $s/2$。任何字符串的本原平方串个数是 $O(nlogn)$ 的。</p>
 <p>$C(s[j + 1 : i])$ 为偶数，当且仅当 $s[j + 1 : i]$ 由若干相同的本原平方串拼成。而一个本原平方串对应一个 runs。</p>
 <p>求出所有 runs。</p>
@@ -189,6 +189,7 @@
 <p>对于起点 $i$，设置所有 $i + k * 2p$ 为二元组 $(i, p)$ 的关键点。</p>
 <p>对于每个二元组维护当前关键点 $f$ 之和。</p>
 <p>$O(nlogn)$。</p>
+<p><a href="https://uoj.ac/submission/474357" target="_blank" rel="noopener">$Code$</a></p>
 
   </div>
 </article>
@@ -274,8 +275,23 @@
       </ul>
     </nav>
   </div>
-</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</footer>
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
