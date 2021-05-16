@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="keywords" content="游记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="THUSC 2021 游记">
+<meta property="og:url" content="http://yoursite.com/2021/05/16/THUSC 2021 游记/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-05-16T13:47:02.454Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="THUSC 2021 游记">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>THUSC 2021 游记</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/05/31/【计划】21May 训练日志（真·退役冲刺实录）/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/05/14/JOISC 2021 做题记录/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/05/16/THUSC 2021 游记/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&text=THUSC 2021 游记"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&is_video=false&description=THUSC 2021 游记"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=THUSC 2021 游记&body=Check out this article: http://yoursite.com/2021/05/16/THUSC 2021 游记/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&name=THUSC 2021 游记&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        THUSC 2021 游记
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-05-16T12:59:40.000Z" itemprop="datePublished">2021-05-16</time>
+    </div>
+
+
+      
+    <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <a class="tag-link" href="/tags/游记/">游记</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/05/16/THUSC 2021 游记/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&text=THUSC 2021 游记"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&is_video=false&description=THUSC 2021 游记"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=THUSC 2021 游记&body=Check out this article: http://yoursite.com/2021/05/16/THUSC 2021 游记/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&title=THUSC 2021 游记"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/05/16/THUSC 2021 游记/&name=THUSC 2021 游记&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/friends/">友人帐</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
