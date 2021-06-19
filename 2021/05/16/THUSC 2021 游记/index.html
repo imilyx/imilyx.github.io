@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+    <meta name="description" content="滚来更游记了 ~ Day -n跑饭，骨裂了，退役 flag $*1$ 干饭人巨大失败 Day -1搬到 601，一个人坐很苏胡，坐空调下鏼鏼发抖 颓颓的复习了一些东西，成功没有复习完 todo-list，不过口胡出来一道 JOISC 2021 线段树合并 结果考场上就没想到线段树合并啊啊 退役 flag $*2$ 被 xy 安排发言，兴奋不已 哎别骂了我知道我是工具人啦 晚上痛斥 cmz，差不多决">
 <meta name="keywords" content="游记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="THUSC 2021 游记">
 <meta property="og:url" content="http://yoursite.com/2021/05/16/THUSC 2021 游记/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:description" content="滚来更游记了 ~ Day -n跑饭，骨裂了，退役 flag $*1$ 干饭人巨大失败 Day -1搬到 601，一个人坐很苏胡，坐空调下鏼鏼发抖 颓颓的复习了一些东西，成功没有复习完 todo-list，不过口胡出来一道 JOISC 2021 线段树合并 结果考场上就没想到线段树合并啊啊 退役 flag $*2$ 被 xy 安排发言，兴奋不已 哎别骂了我知道我是工具人啦 晚上痛斥 cmz，差不多决">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-06-19T13:28:19.334Z">
+<meta property="og:updated_time" content="2021-06-19T13:29:24.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="THUSC 2021 游记">
-<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta name="twitter:description" content="滚来更游记了 ~ Day -n跑饭，骨裂了，退役 flag $*1$ 干饭人巨大失败 Day -1搬到 601，一个人坐很苏胡，坐空调下鏼鏼发抖 颓颓的复习了一些东西，成功没有复习完 todo-list，不过口胡出来一道 JOISC 2021 线段树合并 结果考场上就没想到线段树合并啊啊 退役 flag $*2$ 被 xy 安排发言，兴奋不已 哎别骂了我知道我是工具人啦 晚上痛斥 cmz，差不多决">
     
     
         
@@ -103,7 +103,7 @@
 
     </div>
     <div id="toc">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-n"><span class="toc-number">1.</span> <span class="toc-text">Day -n</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1"><span class="toc-number">2.</span> <span class="toc-text">Day -1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-1"><span class="toc-number">3.</span> <span class="toc-text">Day 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">4.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讲题环节"><span class="toc-number">5.</span> <span class="toc-text">讲题环节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭幕式"><span class="toc-number">6.</span> <span class="toc-text">闭幕式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记-总结"><span class="toc-number">7.</span> <span class="toc-text">后记/总结</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -142,46 +142,54 @@
   
 
   <div class="content" itemprop="articleBody">
-    <script src=/js/crypto-js.js></script>
-<script>
-function doDecrypt (pwd, onError) {
-	console.log('in doDecrypt');
-	const txt = document.getElementById('enc_content').innerHTML;
-	let plantext;
-	try {
-		const bytes = CryptoJS.AES.decrypt(txt, pwd);
-		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
-	} catch(err) {
-		if(onError) {
-			onError(err);
-		}
-		return;
-	}
-	document.getElementById('enc_content').innerHTML = plaintext;
-	document.getElementById('enc_content').style.display = 'block';
-	document.getElementById('enc_passwd').style.display = 'none';
-	if(typeof MathJax !== 'undefined') {
-		MathJax.Hub.Queue(
-			['resetEquationNumbers', MathJax.InputJax.TeX],
-			['PreProcess', MathJax.Hub],
-			['Reprocess', MathJax.Hub]
-		);
-	}
-}
-</script>
-<div id="enc_content" style="display:none">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</div>
-<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
-<script>
-var onError = function(error) {
-	document.getElementById("enc_error").innerHTML = "password error!"
-};
-function decrypt() {
-var passwd = document.getElementById("enc_pwd_input").value;
-console.log(passwd);
-doDecrypt(passwd, onError);
-}
-</script>
-</div>
+    <p>滚来更游记了 ~</p>
+<h3 id="Day-n"><a href="#Day-n" class="headerlink" title="Day -n"></a>Day -n</h3><p>跑饭，骨裂了，退役 flag $*1$</p>
+<p>干饭人巨大失败</p>
+<h3 id="Day-1"><a href="#Day-1" class="headerlink" title="Day -1"></a>Day -1</h3><p>搬到 601，一个人坐很苏胡，<del>坐空调下鏼鏼发抖</del></p>
+<p>颓颓的复习了一些东西，成功没有复习完 todo-list，不过口胡出来一道 JOISC 2021 线段树合并 <del>结果考场上就没想到线段树合并啊啊</del> 退役 flag $*2$</p>
+<p>被 xy 安排发言，兴奋不已 <del>哎别骂了我知道我是工具人啦</del></p>
+<p>晚上痛斥 cmz，差不多决裂了，退役 flag $*3$</p>
+<p>暴风雨的夜晚，路堵，11:00 到家，洗刷好发现一只奇怪生物，于是熬夜成功，早晨起来一脸仙气，退役 flag $*4$</p>
+<h3 id="Day-1-1"><a href="#Day-1-1" class="headerlink" title="Day 1"></a>Day 1</h3><p>试机，三道 sb 题，但是 T3 调不过去就很淦。不管啦开开心心合影去！</p>
+<p>…… 拄拐的残疾少女 xml 成为一道靓丽风景。</p>
+<p>好热！好闪！眼睛没了…… 摄影大叔：学生站在上面有危险，宝宝们快点配合</p>
+<p>发言去。哦呼，第一排~ <del>不能睡觉了</del> THU 发言老师好知性！<del>画的饼好大</del></p>
+<p>14:00，入场！</p>
+<p>T1 一脸小清新签到题，肯定有性质…… 我找找…… <del>然后就找了 1h</del></p>
+<p>突然㗅出一个三只 log 的树套树做法，简单好想但是…… 我上次写树套树还是 19 年啊！吓到了，细节吓得想不清楚，滚去写 T2 50pts 暴力，调了一年 <del>暴力可以直接 dfs 但我选择了 dp，实际上扩一下就能得到权值线段树合并的做法，可惜惜</del></p>
+<p>写完暴力突然发现自己细节想明白了，两横一竖就是干！</p>
+<p>半小时多一点写完了，开调：咦怎么疯狂 RE…… 怎么只删一个点…… 哦我 BIT ask 顺序写反了 😅 改完交，最后一个点 RE 了，算下空间 480 MB，一看 ML 嗯很稳，改一下 AC 了。<del>总算笃定了</del></p>
+<p>飞快拿了 T3 T4 最低档暴力，然后没脑子选手决定弃掉 T3 T4 去刚 T2 正解！</p>
+<p>接下来的 2h 做法假掉 复杂度假掉 代码假掉 都发生了…… 心累，最后调出来但是 T 的还不如暴力……</p>
+<p>于是铁头娃 xml 就光荣 190 退役了…… 周围人怎么都 300 啊 /fad 右边 fyy 全程没怎么敲键盘然后 270，hhz 2h AK，懂了这就 Orz</p>
+<p>出场听说 T2 线段树合并就立马会做了，唉。</p>
+<h3 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h3><p>工程题，这不是那啥，信计图像题大作业嘛…… task1 总要刚出来的吧！</p>
+<p>然而出题人认为的常识我一概不知…… 我甚至输出什么格式都搞不清楚…… 甚至没有找到题面说的逆操作 cpp…… 痛苦的用 Gvim 打开 bitmap-std.bmp 和我的 bmp，对着乱码一点点找规律，最后图是出来了，格式总算对了，字节数也刚刚好，但是「THU 交叉信息研究院」的 logo，tm的歪了…… 交上去甚至不返回 WA 而是 System Error…… <del>似乎是我在程序里写读入的原因 qaq</del> 心态崩了，后面的题也不敢碰……</p>
+<p>虽然从没碰过工程题，但真没想到会爆零 ~</p>
+<p>hhz Day2 210，讲题时得知此为全场最高，Orz…… hhz 两天加总分都是全场最高，CCCCCCCCCCOrz……</p>
+<h3 id="讲题环节"><a href="#讲题环节" class="headerlink" title="讲题环节"></a>讲题环节</h3><p>某大佬 wyz 讲题。</p>
+<p>wyz：大家好，我不是出题人，我也不是来讲题的，我是读题解的。（然后就真的读了一遍</p>
+<p>wyz：大家有想来分享故事的吗？</p>
+<p>wyz：大家好沉闷啊</p>
+<p>wyz：今天走进会场就有亲切的感觉，我记得 15 年的 THUWC 我在会场里睡了不少觉，挺香的</p>
+<p>T3 T4 都挺可做的，每道都有几十或几百人艹过去…… 今天又是被卡特兰数卡飞的一天呢！</p>
+<h3 id="闭幕式"><a href="#闭幕式" class="headerlink" title="闭幕式"></a>闭幕式</h3><p>就是发约仪式！<del>咕了 1h</del></p>
+<!-- 有二等呢！虽然是没什么用的约但还是很高兴啊，算是受到肯定和鼓励了。
+
+发约前，xml：我奶我们班签一半！
+
+发约时，发约老师：XJ 要不派个代表拿过去吧。然后递过来厚厚一沓。
+
+咱班签了快 10 个一等！！奶成功了！ -->
+
+<h3 id="后记-总结"><a href="#后记-总结" class="headerlink" title="后记/总结"></a>后记/总结</h3><ul>
+<li>达成成就：THUSC 开幕式发言</li>
+<li>认识了外校的友好同学<!-- - 没想到这个赛季打这么垮还有~~废~~约拿 -->
+
+</li>
+</ul>
+<p>那么 whk 加油！</p>
+
   </div>
 </article>
 
@@ -211,7 +219,7 @@ doDecrypt(passwd, onError);
     </div>
 
     <div id="toc-footer" style="display: none">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-n"><span class="toc-number">1.</span> <span class="toc-text">Day -n</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1"><span class="toc-number">2.</span> <span class="toc-text">Day -1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-1-1"><span class="toc-number">3.</span> <span class="toc-text">Day 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Day-2"><span class="toc-number">4.</span> <span class="toc-text">Day 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#讲题环节"><span class="toc-number">5.</span> <span class="toc-text">讲题环节</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#闭幕式"><span class="toc-number">6.</span> <span class="toc-text">闭幕式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后记-总结"><span class="toc-number">7.</span> <span class="toc-text">后记/总结</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
