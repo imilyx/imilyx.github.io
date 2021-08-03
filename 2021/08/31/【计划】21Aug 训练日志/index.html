@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:type" content="article">
+<meta property="og:title" content="21Aug 训练日志">
+<meta property="og:url" content="http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-03T01:22:33.065Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="21Aug 训练日志">
+<meta name="twitter:description" content="function doDecrypt (pwd, onError) { 	console.log(&apos;in doDecrypt&apos;); 	const txt = document.getElementById(&apos;enc_content&apos;).innerHTML; 	let plantext; 	try { 		const bytes = CryptoJS.AES.decrypt(txt, pwd);">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>21Aug 训练日志</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/12/31/2021 年度阅读报告/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/08/03/半平面交转凸包/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&text=21Aug 训练日志"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&is_video=false&description=21Aug 训练日志"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=21Aug 训练日志&body=Check out this article: http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&name=21Aug 训练日志&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        21Aug 训练日志
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-08-31T15:59:59.000Z" itemprop="datePublished">2021-08-31</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <script src=/js/crypto-js.js></script>
+<script>
+function doDecrypt (pwd, onError) {
+	console.log('in doDecrypt');
+	const txt = document.getElementById('enc_content').innerHTML;
+	let plantext;
+	try {
+		const bytes = CryptoJS.AES.decrypt(txt, pwd);
+		var plaintext = bytes.toString(CryptoJS.enc.Utf8);
+	} catch(err) {
+		if(onError) {
+			onError(err);
+		}
+		return;
+	}
+	document.getElementById('enc_content').innerHTML = plaintext;
+	document.getElementById('enc_content').style.display = 'block';
+	document.getElementById('enc_passwd').style.display = 'none';
+	if(typeof MathJax !== 'undefined') {
+		MathJax.Hub.Queue(
+			['resetEquationNumbers', MathJax.InputJax.TeX],
+			['PreProcess', MathJax.Hub],
+			['Reprocess', MathJax.Hub]
+		);
+	}
+}
+</script>
+<div id="enc_content" style="display:none">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</div>
+<div id="enc_passwd"> <input id="enc_pwd_input" type="password" style="border-radius: 5px;border-style: groove;height: 30px;width: 50%;cursor: auto;font-size: 102%;color: currentColor;outline: none;text-overflow: initial;padding-left: 5px;" onkeydown="if (event.keyCode == 13) { decrypt(); return false;}"> <input type="submit" value="解&nbsp;密" onclick="decrypt()" style="width: 58px;height: 34px;border-radius: 5px;background-color: white;border-style: solid;color: currentColor;"><div id="enc_error" style="display: inline-block;color: #d84527;margin-left: 10px"></div>
+<script>
+var onError = function(error) {
+	document.getElementById("enc_error").innerHTML = "password error!"
+};
+function decrypt() {
+var passwd = document.getElementById("enc_pwd_input").value;
+console.log(passwd);
+doDecrypt(passwd, onError);
+}
+</script>
+</div>
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&text=21Aug 训练日志"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&is_video=false&description=21Aug 训练日志"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=21Aug 训练日志&body=Check out this article: http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&title=21Aug 训练日志"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/31/【计划】21Aug 训练日志/&name=21Aug 训练日志&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

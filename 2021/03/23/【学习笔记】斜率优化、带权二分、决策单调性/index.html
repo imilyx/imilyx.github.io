@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w= 斜率优化 整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。 举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1)  i - dp_i  i = j$，截距项是 $-dp_i * i">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-24T04:44:42.327Z">
+<meta property="og:updated_time" content="2021-07-13T09:47:11.552Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】斜率优化、带权二分、决策单调性">
 <meta name="twitter:description" content="把「带权二分」并过来了，都是和斜率有千丝万缕关系的家伙们 =w= 斜率优化 整理 dp 柿子后得到一个「斜率、截距是当前项，$x$、$y$ 坐标是之前项」的类一次函数柿子。根据截距的正负考虑维护什么方向的凸包。 举个例子：$dp_i = \max( dp_j + \frac{i - j}{i} )$，整理得 $(dp_j + 1)  i - dp_i  i = j$，截距项是 $-dp_i * i">
@@ -62,8 +62,6 @@
           <li><a href="/posts/">归档</a></li>
          
           <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/friends/">友人帐</a></li>
          
           <li><a href="/search/">搜索</a></li>
         
@@ -167,6 +165,7 @@
 <p>求下凸函数最小值，<strong>$k$ 变大，最值点左移</strong></p>
 <p><strong>调边界是真的恶心</strong>，zbl</p>
 <p>二分物品额外代价的时候还有可能跳过正确答案，这时如果答案的 $k$ 是一段连续区间，维护区间并判断即可。</p>
+<p><em>如果不用输出方案，直接记录斜率，输出答案时乘一下。</em></p>
 <p>习题：<a href="https://loj.ac/p/2478" target="_blank" rel="noopener">林克卡特树</a> <a href="https://imilyx.github.io/2021/02/02/%E4%B9%9D%E7%9C%81%E8%81%94%E8%80%832018%20%E4%B9%B1%E5%86%99/#%E6%9E%97%E5%85%8B%E5%8D%A1%E7%89%B9%E6%A0%91" target="_blank" rel="noopener">题解</a></p>
 <h2 id="决策单调性"><a href="#决策单调性" class="headerlink" title="决策单调性"></a>决策单调性</h2><hr>
 <p>作为感性理解的忠实爱好者…… 笔者只能用感性的语言来讲述它啦qwq！大概就是如果存在 $r_0$ 使得对于 $l_1 &lt; l_2$，$l_1$ 优于 $l_2$，那么所有 $r \geq r_0$ 都满足 $l_1$ 优于 $l_2$。也就是说决策点（转移来源）分段且来源的位置单调增。<strong>决策单调性的有无，显然取决于价值函数。</strong>（废话）</p>
@@ -200,8 +199,6 @@
           <li><a href="/posts/">归档</a></li>
          
           <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/friends/">友人帐</a></li>
          
           <li><a href="/search/">搜索</a></li>
         
@@ -256,8 +253,6 @@
           <li><a href="/posts/">归档</a></li>
          
           <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/friends/">友人帐</a></li>
          
           <li><a href="/search/">搜索</a></li>
         

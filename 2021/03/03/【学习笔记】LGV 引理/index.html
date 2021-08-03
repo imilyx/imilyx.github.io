@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="LGV 引理，用来处理有向无环图上的不相交路径计数问题。  $w(Path)$ 表示 $Path$ 这条路径上的边权积，也可以是生成函数，这样就能搞很多事情 $e(u, v)$ 表示 $u$ 到 $v$ 所有路径的 $w(Path)$ 之和 $N(\sigma)$ 表示 $\sigma$ 这个排列的逆序对数 有矩阵 $M$ 和点集 $A$、$B$，$M_{i, j} = e(A_i, B_j)$">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-03-04T09:45:40.492Z">
+<meta property="og:updated_time" content="2021-07-31T01:54:05.196Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】LGV 引理">
 <meta name="twitter:description" content="LGV 引理，用来处理有向无环图上的不相交路径计数问题。  $w(Path)$ 表示 $Path$ 这条路径上的边权积，也可以是生成函数，这样就能搞很多事情 $e(u, v)$ 表示 $u$ 到 $v$ 所有路径的 $w(Path)$ 之和 $N(\sigma)$ 表示 $\sigma$ 这个排列的逆序对数 有矩阵 $M$ 和点集 $A$、$B$，$M_{i, j} = e(A_i, B_j)$">
@@ -63,8 +63,6 @@
          
           <li><a href="/tags/">标签</a></li>
          
-          <li><a href="/friends/">友人帐</a></li>
-         
           <li><a href="/search/">搜索</a></li>
         
       </ul>
@@ -103,7 +101,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102978-A"><span class="toc-number">1.</span> <span class="toc-text">$Gym102978-A$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102978-A"><span class="toc-number">1.</span> <span class="toc-text">$Gym102978-A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作计数"><span class="toc-number">2.</span> <span class="toc-text">操作计数</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -158,6 +156,14 @@
 <p><a href="https://vjudge.net/solution/29880391" target="_blank" rel="noopener">$Code$</a></p>
 <hr>
 <p><del>好诶 又水了一篇</del> 碰到有趣的题目会回来写的啦</p>
+<p>upd on 2021.7.22: 补一道 XJOI2817 xza 场 T3！！</p>
+<h3 id="操作计数"><a href="#操作计数" class="headerlink" title="操作计数"></a>操作计数</h3><p>先只考虑每次下标不同的限制。</p>
+<p>设总操作数为 $t$。每个下标 $i$ 需要操作次数为 $d_i = b_i - a_i$。</p>
+<p>容斥，枚举不合法操作数 $s$（被分到了相同的下标上），每个下标 $i$ 分到的不合法操作数 $x_i$，贡献是 $(-1)^s \binom{s}{x_1, \cdots, x_n} \binom{t}{s} \binom{2(t - s)}{d_1 - 2x_1, \cdots, d_n - 2x_n} = \prod\limits_{i = 1, \sum x_i = s}^n \frac{ 1 }{ x_i! (d_i - 2x_i)! } (-1)^s s! [2(t - s)]! \binom{t}{s}$，后面这坨关于 $s$ 可以最后处理。</p>
+<p>考虑 EGF。设 $f_{k}(x)$ 表示 $d_i = k$ 的 EGF, $f_{k}(x) = \sum \frac{1}{(k - 2i)!} \frac{x^i}{i!}$</p>
+<p>现在考虑数互不相等的限制。转化为不相交路径计数，上 LGV，$mat_{i, j} = f_{b_j - a_i}(x)$，带单位根插出多项式（经典操作</p>
+<p>相当于两个容斥套起来，正确性显然。</p>
+<p>注意这里有个细节就是我们默认序列递增，每次操作是大的下标在前，这样保证同一次操作不会引发可避免的「数相等」事件。因此答案要除以 $2^t$。</p>
 
   </div>
 </article>
@@ -180,15 +186,13 @@
          
           <li><a href="/tags/">标签</a></li>
          
-          <li><a href="/friends/">友人帐</a></li>
-         
           <li><a href="/search/">搜索</a></li>
         
       </ul>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102978-A"><span class="toc-number">1.</span> <span class="toc-text">$Gym102978-A$</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Gym102978-A"><span class="toc-number">1.</span> <span class="toc-text">$Gym102978-A$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#操作计数"><span class="toc-number">2.</span> <span class="toc-text">操作计数</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -235,8 +239,6 @@
           <li><a href="/posts/">归档</a></li>
          
           <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/friends/">友人帐</a></li>
          
           <li><a href="/search/">搜索</a></li>
         

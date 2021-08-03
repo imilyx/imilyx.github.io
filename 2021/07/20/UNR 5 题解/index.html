@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="提问系统暴力 dp 前缀和优化可以做到 $n^5$ 或 $n^4$，再优化则必然要涉及到 $p_r p_b^2$ 的组合意义了：选 $1$ 个 R 和 $1$ 个 B 这不是「数树」的套路吗…… $dp[x, dr, db, 0/1, 0/1/2]$ 表示 $x$ 子树里，向下的链最大 R 个数为 $dr$，最大 B 个数为 $db$，选了几个 R，选了几个 B，$n^3$ 就是这么容易…… 考虑">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UNR 5 题解">
+<meta property="og:url" content="http://yoursite.com/2021/07/20/UNR 5 题解/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="提问系统暴力 dp 前缀和优化可以做到 $n^5$ 或 $n^4$，再优化则必然要涉及到 $p_r p_b^2$ 的组合意义了：选 $1$ 个 R 和 $1$ 个 B 这不是「数树」的套路吗…… $dp[x, dr, db, 0/1, 0/1/2]$ 表示 $x$ 子树里，向下的链最大 R 个数为 $dr$，最大 B 个数为 $db$，选了几个 R，选了几个 B，$n^3$ 就是这么容易…… 考虑">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-07-27T12:59:37.665Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UNR 5 题解">
+<meta name="twitter:description" content="提问系统暴力 dp 前缀和优化可以做到 $n^5$ 或 $n^4$，再优化则必然要涉及到 $p_r p_b^2$ 的组合意义了：选 $1$ 个 R 和 $1$ 个 B 这不是「数树」的套路吗…… $dp[x, dr, db, 0/1, 0/1/2]$ 表示 $x$ 子树里，向下的链最大 R 个数为 $dr$，最大 B 个数为 $db$，选了几个 R，选了几个 B，$n^3$ 就是这么容易…… 考虑">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>UNR 5 题解</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/07/28/NOI2021 题解/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/07/09/CF 快乐板刷之路/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/07/20/UNR 5 题解/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/07/20/UNR 5 题解/&text=UNR 5 题解"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/07/20/UNR 5 题解/&is_video=false&description=UNR 5 题解"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=UNR 5 题解&body=Check out this article: http://yoursite.com/2021/07/20/UNR 5 题解/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/07/20/UNR 5 题解/&name=UNR 5 题解&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#提问系统"><span class="toc-number">1.</span> <span class="toc-text">提问系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答案查重"><span class="toc-number">2.</span> <span class="toc-text">答案查重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获奖名单"><span class="toc-number">3.</span> <span class="toc-text">获奖名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#诡异操作"><span class="toc-number">4.</span> <span class="toc-text">诡异操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排名预测"><span class="toc-number">5.</span> <span class="toc-text">排名预测</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        UNR 5 题解
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-07-20T12:12:40.000Z" itemprop="datePublished">2021-07-20</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h3 id="提问系统"><a href="#提问系统" class="headerlink" title="提问系统"></a>提问系统</h3><p>暴力 dp 前缀和优化可以做到 $n^5$ 或 $n^4$，再优化则必然要涉及到 $p_r p_b^2$ 的组合意义了：选 $1$ 个 R 和 $1$ 个 B</p>
+<p>这不是「数树」的套路吗…… $dp[x, dr, db, 0/1, 0/1/2]$ 表示 $x$ 子树里，向下的链最大 R 个数为 $dr$，最大 B 个数为 $db$，选了几个 R，选了几个 B，$n^3$ 就是这么容易……</p>
+<p>考虑优化：dr 和 db 意义改为 $x$ 到根的链（不包括 x）中 R 和 B 的个数，$dr + db = dep_x$ 就优化了一维。dp 的时候相当于递归到子树中算出「$x$ 以上<strong>预先占位</strong>占了 $dr$ 个 R」的方案数，再拼上 $x$ 贡献。</p>
+<p>还是觉得很巧妙啊 owo</p>
+<p><a href="https://uoj.ac/submission/497899" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="答案查重"><a href="#答案查重" class="headerlink" title="答案查重"></a>答案查重</h3><p>神仙计数题？</p>
+<p>两个子树映射过去相同，那么它们形态必然相同。</p>
+<p>枚举一些「作为根，树互不同构」的点染 $1$，变成有根树，</p>
+<p>$f_i(x)$ 表示 $i$ 子树关于染色点个数本质不同方案的 EGF</p>
+<p>$f_u(x) = (1 + x) \prod\limits_{v} f_v(x) \prod ( \sum\limits_{i = 0}^k \frac{ (g(x) - 1)^i }{i!} )$</p>
+<p>其中第一类是子树互不同构的儿子 $v$；第二类是假设有 $k$ 个儿子子树同构，其 $f(x)$ 都为 $g(x)$。若 $k$ 趋近于 $+\infty$, 贡献就是 $e^{g(x) - 1}$，所以贡献是 $\sum\limits_{i = 0}^k \frac{ (g(x) - 1)^i }{i!}$。直接 dp 就是树上背包合并的复杂度，单次 $O(n^2)$。</p>
+<p>枚举根非常笨蛋，把重心当成根显然是正确的，因为对于原来的每一种方案，其中彼此同构的子树（显然 $size \leq n / 2$）在当前树中依然同构。这样你会了 $O(n^2)$</p>
+<p>来来来我们优化。EGF，树——你想到了什么？「花朵」！</p>
+<p>重链剖分。无同构兄弟的 $f$ 直接乘给链顶；同构子树呢——分治 FFT，两只 log 时间内给你跑出来！</p>
+<p>现在你已经得到许多链上点的儿子的 EGF 堆在链顶，就等着全部卷起来算出链顶的答案 EGF<br>那么启发式卷积即可，堆维护。</p>
+<p>三 只 log 1s 过 十 万</p>
+<p>实现细节算少的（？）但 xml 都调傻了。</p>
+<p><a href="https://uoj.ac/submission/499151" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="获奖名单"><a href="#获奖名单" class="headerlink" title="获奖名单"></a>获奖名单</h3><p>最低档暴力根本不是 $O(n! * 2^n)$ 啊…… $n!$ 确定顺序后从两边往中间确定，有单个直接 chk，否则…… 也是直接 chk。</p>
+<p>考虑正解。显然有两种匹配（指在中轴两边的）：</p>
+<ol>
+<li>相同的长度为 $2$ 的字符串彼此匹配</li>
+<li>嵌在一起的（题解中称为「交替扩展」），例如第一个串为 [ab][cd]，第二个串为 [a][bc][d]</li>
+</ol>
+<p>可以看作图上问题：$m + 1$ 个点，为 $1 ~ m + 1$，对于单个字符 $a$，连边 $(m + 1, a)$；对于字符串 $ab$，连边 $(a, b)$</p>
+<p>有解条件：</p>
+<ul>
+<li><p>$L$ 为偶数</p>
+<p>两种 case：</p>
+<ol>
+<li>两个相同串：$0$ 所在连通块存在欧拉回路，其他连通块（都是 $l = 2$ 的字符串）每条边出现偶数次。</li>
+<li>中间有个 $aa$，两边两个相同串：存在一个边出现奇数次的自环</li>
+</ol>
+</li>
+<li><p>$L$ 为奇数</p>
+<p>$0$ 所在连通块存在欧拉通路，并且一个端点是 $0$，其他连通块每条边出现偶数次</p>
+</li>
+</ul>
+<p>由于题目良<del>凉</del>心的保证有解，你只需根据判定过程构造即可。</p>
+<p>为什么小清新构造题给 xml 写这么 shit（shit 代码可以在 uoj 提交记录里找到）：</p>
+<ol>
+<li>善于运用 STL 让你没有烦恼，map yyds</li>
+<li>邻接表建图，用奇偶表示方向。</li>
+</ol>
+<p><a href="https://uoj.ac/submission/498090" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="诡异操作"><a href="#诡异操作" class="headerlink" title="诡异操作"></a>诡异操作</h3><p>naive 如你，以为记录区间 Or 和 sum，每次修改递归到叶节点就是两只 $log$ 了，然而它只能过两个特殊性质包！第一个 $3000$ 的包都过不了…… ——因为事实上每除一次都可以再做 $128$ 次 and，所以是 $O(n 128^2 logn)$</p>
+<p>SGT 上每个节点最多被访问 $128$ 次，因此复杂度至少为 $O(128n)$</p>
+<p>打标记下传就是 $O(n 128^2 + 128 qlogn)$</p>
+<p>考虑优化这个标记下推的复杂度。（超妙啊…… 真就全场都被毒杀了，明哥 nb！）</p>
+<p>每个节点维护一个长度 $128$ 的数组表示该区间在每一位为 $1$ 的个数。那么现在把每位展开，变成一个 $128 * log(len)$ 的矩阵。</p>
+<p>我们由维护「每行 1 的个数」变为维护「每列的和」。注意每列的和依旧是一个 $2^{128}$ 以内的二进制数（方便直接与），因为左右儿子合并给父亲的时候进位是进给更高一级的列。不懂画图。</p>
+<p>这样信息上传就是 $O(log(len))$ 的加法，打标记就是 $O(log(len))$ 每列做与。</p>
+<p>锁定区间的复杂度为两只 $log$（除还是要递归到叶子结点做的，然后一路合并上来）</p>
+<p>复杂度 $O(qlog^2n + \sum\limits_{i \in Node(SGT)} log(len_i) * 128 = qlog^2n + 128n)$</p>
+<p><a href="https://uoj.ac/submission/498908" target="_blank" rel="noopener">$Code$</a></p>
+<h3 id="排名预测"><a href="#排名预测" class="headerlink" title="排名预测"></a>排名预测</h3><p>要求构造一个排列 $b$，满足：</p>
+<ol>
+<li>父亲小于儿子</li>
+<li>每次可以交换一对父子当且仅当父亲比儿子小</li>
+<li>通过若干次交换能够变为 $a$</li>
+</ol>
+<p>这边把 b 当成 ddm 序了…… 应该没错吧……</p>
+<p>假设已经确定了 $b$，如何构造交换顺序：从 $b$ 最小的叶子开始做，从它祖先中拉一个给它，并删掉这个叶子，更新 $b$，发现这样不会改变偏序关系，并可以转化为子问题。</p>
+<p>有解情况：$\forall x, b_x &lt; \max_{y \in Subtree(x)} ( b_y )$（注意这里的 b 是时刻更新的）</p>
+<p>如何确定 $b$：$dp_x$ 表示 $b_x$ 至少得是多大。按照 dp 值遍历儿子更新 $dp_x$。最后检查 $dp_1$ 是否为 $1$。</p>
+<p><a href="https://uoj.ac/submission/500647" target="_blank" rel="noopener">$Code$</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#提问系统"><span class="toc-number">1.</span> <span class="toc-text">提问系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#答案查重"><span class="toc-number">2.</span> <span class="toc-text">答案查重</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#获奖名单"><span class="toc-number">3.</span> <span class="toc-text">获奖名单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#诡异操作"><span class="toc-number">4.</span> <span class="toc-text">诡异操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排名预测"><span class="toc-number">5.</span> <span class="toc-text">排名预测</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/07/20/UNR 5 题解/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/07/20/UNR 5 题解/&text=UNR 5 题解"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/07/20/UNR 5 题解/&is_video=false&description=UNR 5 题解"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=UNR 5 题解&body=Check out this article: http://yoursite.com/2021/07/20/UNR 5 题解/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/07/20/UNR 5 题解/&title=UNR 5 题解"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/07/20/UNR 5 题解/&name=UNR 5 题解&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+

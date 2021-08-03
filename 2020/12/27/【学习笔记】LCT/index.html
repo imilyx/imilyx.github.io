@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 access 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父">
+    <meta name="description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 splay 打通 $x$ 到所在 splay 根的通路，并且完成后 $x$ 为所在 splay 深度最大点。  access 打通 $x$ 到全局根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充">
 <meta name="keywords" content="LCT,学习笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【学习笔记】LCT">
 <meta property="og:url" content="http://yoursite.com/2020/12/27/【学习笔记】LCT/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
-<meta property="og:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 access 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父">
+<meta property="og:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 splay 打通 $x$ 到所在 splay 根的通路，并且完成后 $x$ 为所在 splay 深度最大点。  access 打通 $x$ 到全局根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-04-09T12:50:05.274Z">
+<meta property="og:updated_time" content="2021-07-09T05:49:13.815Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【学习笔记】LCT">
-<meta name="twitter:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 access 打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子  这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父">
+<meta name="twitter:description" content="之前学的。以 备 重 修 qwq 算法详情把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。 splay 打通 $x$ 到所在 splay 根的通路，并且完成后 $x$ 为所在 splay 深度最大点。  access 打通 $x$ 到全局根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充">
     
     
         
@@ -63,8 +63,6 @@
          
           <li><a href="/tags/">标签</a></li>
          
-          <li><a href="/friends/">友人帐</a></li>
-         
           <li><a href="/search/">搜索</a></li>
         
       </ul>
@@ -73,10 +71,10 @@
     <span id="actions">
       <ul>
         
-        <li><a class="icon" href="/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/29/【学习笔记】斯特林数/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
-        <li><a class="icon" href="/2020/12/26/【学习笔记】最大权闭合子图/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        <li><a class="icon" href="/2020/12/27/【学习笔记】最长反链和它全家（详细揭秘）/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
         
         <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
         <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
@@ -103,7 +101,7 @@
 
     </div>
     <div id="toc">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#splay"><span class="toc-number">1.1.</span> <span class="toc-text">splay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.2.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.3.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.4.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.5.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
     </div>
   </span>
 </div>
@@ -144,8 +142,11 @@
   <div class="content" itemprop="articleBody">
     <p>之前学的。以 备 重 修 qwq</p>
 <h2 id="算法详情"><a href="#算法详情" class="headerlink" title="算法详情"></a>算法详情</h2><p>把树剖成许多链，每条链用 splay 维护，中序遍历深度递增。</p>
+<h3 id="splay"><a href="#splay" class="headerlink" title="splay"></a>splay</h3><ul>
+<li>打通 $x$ 到所在 splay 根的通路，并且完成后 $x$ 为所在 splay 深度最大点。</li>
+</ul>
 <h3 id="access"><a href="#access" class="headerlink" title="access"></a>access</h3><ul>
-<li><p>打通 $x$ 到根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子</p>
+<li><p>打通 $x$ 到全局根的通路。过程是先把 $x$ 转到 $x$ 所在 splay 的根，然后让 $x$ 带着 $x$ 的左子树并到 $fa_x$ 所在 splay 中充作 $fa[x]$ 右儿子</p>
 </li>
 <li><p>这个过程 $x$ 和 $fa[x]$ 都和它们原本的右儿子断开了，但右儿子依然保留“父亲是谁”的信息）</p>
 </li>
@@ -193,15 +194,13 @@
          
           <li><a href="/tags/">标签</a></li>
          
-          <li><a href="/friends/">友人帐</a></li>
-         
           <li><a href="/search/">搜索</a></li>
         
       </ul>
     </div>
 
     <div id="toc-footer" style="display: none">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.2.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.3.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.4.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#算法详情"><span class="toc-number">1.</span> <span class="toc-text">算法详情</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#splay"><span class="toc-number">1.1.</span> <span class="toc-text">splay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#access"><span class="toc-number">1.2.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot"><span class="toc-number">1.3.</span> <span class="toc-text">makeroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#findroot"><span class="toc-number">1.4.</span> <span class="toc-text">findroot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LCT-好像没法同时保证两个节点的子树信息都是对的。。无奈。。"><span class="toc-number">1.5.</span> <span class="toc-text">LCT 好像没法同时保证两个节点的子树信息都是对的。。无奈。。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-LCT-的时间复杂度分析"><span class="toc-number">2.</span> <span class="toc-text">关于 LCT 的时间复杂度分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#access-1"><span class="toc-number">2.1.</span> <span class="toc-text">access</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#makeroot、link-cut"><span class="toc-number">2.2.</span> <span class="toc-text">makeroot、link/cut</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCT-维护子树信息"><span class="toc-number">3.</span> <span class="toc-text">LCT 维护子树信息</span></a></li></ol>
     </div>
 
     <div id="share-footer" style="display: none">
@@ -248,8 +247,6 @@
           <li><a href="/posts/">归档</a></li>
          
           <li><a href="/tags/">标签</a></li>
-         
-          <li><a href="/friends/">友人帐</a></li>
          
           <li><a href="/search/">搜索</a></li>
         

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="半平面交转凸包">
+<meta property="og:url" content="http://yoursite.com/2021/08/03/半平面交转凸包/index.html">
+<meta property="og:site_name" content="imily&#39;s notebook">
+<meta property="og:description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2021-08-03T01:18:45.336Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="半平面交转凸包">
+<meta name="twitter:description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon-cactus.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>半平面交转凸包</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+    
+</head>
+
+<body>
+    
+      <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="header-post">
+  <a id="menu-icon" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fa fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fa fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li><a class="icon" href="/2021/08/31/【计划】21Aug 训练日志/"><i class="fa fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
+        
+        
+        <li><a class="icon" href="/2021/08/01/2021 百度之星初赛一/"><i class="fa fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fa fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/半平面交转凸包/&text=半平面交转凸包"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/半平面交转凸包/&is_video=false&description=半平面交转凸包"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/半平面交转凸包/&name=半平面交转凸包&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index width mx-auto px2 my4">
+        
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        半平面交转凸包
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">imily's notebook</span>
+      </span>
+      
+    <div class="postdate">
+        <time datetime="2021-08-03T00:54:40.000Z" itemprop="datePublished">2021-08-03</time>
+    </div>
+
+
+      
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <p>维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。</p>
+<p>说真的没人写过 $&gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。</p>
+<p>证明很容易：</p>
+<p>考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $a$、$b$ 的交点 $(x_0, y_0) = (-\frac{a.b - b.b}{a.k - b.k}, \frac{a.k <em> b.b - a.b </em> b.k}{a.k - b.k})$ 在 $c$ 下方，即 $y = c.k * x_0 + c.b &gt; y_0$ ($I$)</p>
+<p>考虑凸包，已有 $A$、$B$ 两个点，加入点 $C$，能弹走 $B$ 当且仅当 $(B - A) <em> (C - A) \geq 0$，即 $(b.k - a.k) </em> (c.b - a.b) - (b.b - a.b) * (c.k - a.k) \geq 0$ ($II$)</p>
+<p>而 $I = II$！证明完毕。</p>
+<h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="https://loj.ac/p/3063" target="_blank" rel="noopener">$ROI 2016$ 人烟之山</a></p>
+<p>显然是半平面交。</p>
+<p>向上的半平面交答案形如下凸包，对偶一下变成求上凸包</p>
+<p>判某个点 $(x, y)$ 是否在半平面交内转为切凸包问题</p>
+<p>据说可以李树做到 $O(nlog^2n)$</p>
+<p>我们考虑 SGT 维护凸包，在 SGT 和凸包上二分是两只 $log$，然而只要对询问按 $x$ 排序就优化掉凸包那只 $log$ 了。$O(nlogn)$。</p>
+<p><a href="https://loj.ac/s/1208695" target="_blank" rel="noopener">$Code$</a></p>
+
+  </div>
+</article>
+
+
+
+    </div>
+    
+      <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-number">1.</span> <span class="toc-text">例题</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/半平面交转凸包/&text=半平面交转凸包"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/半平面交转凸包/&is_video=false&description=半平面交转凸包"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/半平面交转凸包/&name=半平面交转凸包&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      <ul>
+        <li id="toc"><a class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fa fa-list fa-lg" aria-hidden="true"></i> TOC</a></li>
+        <li id="share"><a class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fa fa-share-alt fa-lg" aria-hidden="true"></i> Share</a></li>
+        <li id="top" style="display:none"><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fa fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a></li>
+        <li id="menu"><a class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fa fa-bars fa-lg" aria-hidden="true"></i> Menu</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    
+    <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2021 imily
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">首页</a></li>
+         
+          <li><a href="/about/">关于</a></li>
+         
+          <li><a href="/posts/">归档</a></li>
+         
+          <li><a href="/tags/">标签</a></li>
+         
+          <li><a href="/search/">搜索</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="/lib/meslo-LG/styles.css">
+<link rel="stylesheet" href="/lib/justified-gallery/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+        (function(i,s,o,g,r,a,m) {i['GoogleAnalyticsObject']=r;i[r]=i[r]||function() {
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-37473492-6', 'auto');
+        ga('send', 'pageview');
+    </script>
+
+
+
