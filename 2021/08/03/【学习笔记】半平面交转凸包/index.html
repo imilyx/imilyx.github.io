@@ -8,14 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
 <meta property="og:type" content="article">
-<meta property="og:title" content="半平面交转凸包">
-<meta property="og:url" content="http://yoursite.com/2021/08/03/半平面交转凸包/index.html">
+<meta property="og:title" content="【学习笔记】半平面交转凸包">
+<meta property="og:url" content="http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/index.html">
 <meta property="og:site_name" content="imily&#39;s notebook">
 <meta property="og:description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-08-03T01:18:45.336Z">
+<meta property="og:updated_time" content="2021-08-03T01:26:02.559Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="半平面交转凸包">
+<meta name="twitter:title" content="【学习笔记】半平面交转凸包">
 <meta name="twitter:description" content="维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。 说真的没人写过 $&amp;gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。 证明很容易： 考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $">
     
     
@@ -36,7 +36,7 @@
         
     
     <!-- title -->
-    <title>半平面交转凸包</title>
+    <title>【学习笔记】半平面交转凸包</title>
     <!-- styles -->
     <link rel="stylesheet" href="/css/style.css">
     <!-- rss --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
@@ -86,16 +86,16 @@
     <br/>
     <div id="share" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/半平面交转凸包/&text=半平面交转凸包"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/半平面交转凸包/&is_video=false&description=半平面交转凸包"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/半平面交转凸包/&name=半平面交转凸包&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/"><i class="fa fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&text=【学习笔记】半平面交转凸包"><i class="fa fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&is_video=false&description=【学习笔记】半平面交转凸包"><i class="fa fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/"><i class="fa fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&name=【学习笔记】半平面交转凸包&description="><i class="fa fa-tumblr " aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -112,7 +112,7 @@
   <header>
     
     <h1 class="posttitle" itemprop="name headline">
-        半平面交转凸包
+        【学习笔记】半平面交转凸包
     </h1>
 
 
@@ -137,8 +137,8 @@
     <p>维护向上的半平面交，即若干形如 $y \geq kx + b$ 的半平面的并，答案形如凸包下凸壳。</p>
 <p>说真的没人写过 $&gt; 1$ 次半平面交吧，因为有更好写更清真拓展性更强的对偶问题——凸包啊！它的对偶问题是将直线 $y = kx + b$ 视为点 $(k, b)$ 然后作凸包上凸壳。</p>
 <p>证明很容易：</p>
-<p>考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $a$、$b$ 的交点 $(x_0, y_0) = (-\frac{a.b - b.b}{a.k - b.k}, \frac{a.k <em> b.b - a.b </em> b.k}{a.k - b.k})$ 在 $c$ 下方，即 $y = c.k * x_0 + c.b &gt; y_0$ ($I$)</p>
-<p>考虑凸包，已有 $A$、$B$ 两个点，加入点 $C$，能弹走 $B$ 当且仅当 $(B - A) <em> (C - A) \geq 0$，即 $(b.k - a.k) </em> (c.b - a.b) - (b.b - a.b) * (c.k - a.k) \geq 0$ ($II$)</p>
+<p>考虑半平面交，已有 $a$、$b$ 两条直线，再加入直线 $c$，能弹走 $b$ 当且仅当 $a$、$b$ 的交点 $(x_0, y_0) = (-\frac{a.b - b.b}{a.k - b.k}, \frac{a.k * b.b - a.b * b.k}{a.k - b.k})$ 在 $c$ 下方，即 $y = c.k * x_0 + c.b &gt; y_0$ ($I$)</p>
+<p>考虑凸包，已有 $A$、$B$ 两个点，加入点 $C$，能弹走 $B$ 当且仅当 $(B - A) * (C - A) \geq 0$，即 $(b.k - a.k) * (c.b - a.b) - (b.b - a.b) * (c.k - a.k) \geq 0$ ($II$)</p>
 <p>而 $I = II$！证明完毕。</p>
 <h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="https://loj.ac/p/3063" target="_blank" rel="noopener">$ROI 2016$ 人烟之山</a></p>
 <p>显然是半平面交。</p>
@@ -180,16 +180,16 @@
 
     <div id="share-footer" style="display: none">
       <ul>
-  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/半平面交转凸包/&text=半平面交转凸包"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/半平面交转凸包/&is_video=false&description=半平面交转凸包"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="mailto:?subject=半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/半平面交转凸包/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/半平面交转凸包/&title=半平面交转凸包"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
-  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/半平面交转凸包/&name=半平面交转凸包&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&text=【学习笔记】半平面交转凸包"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&is_video=false&description=【学习笔记】半平面交转凸包"><i class="fa fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=【学习笔记】半平面交转凸包&body=Check out this article: http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/"><i class="fa fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&title=【学习笔记】半平面交转凸包"><i class="fa fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=http://yoursite.com/2021/08/03/【学习笔记】半平面交转凸包/&name=【学习笔记】半平面交转凸包&description="><i class="fa fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
 </ul>
 
     </div>
@@ -228,23 +228,8 @@
       </ul>
     </nav>
   </div>
-</footer>
+</footer><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
 <!-- styles -->
